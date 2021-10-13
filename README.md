@@ -22,7 +22,7 @@ Planned finished december 2021
 ## Second project:
 
 Deep learning: standard neural networks, convolution and neural
-networks (CNN), recursive neural networks and autoencoders. Reduction
+networks (CNN), recursive neural networks, Boltzmann machines, various autoencoders and possibly general adversial networks. Reduction
 of dimensionality in scientific problems. Possible topic to work with:
 solution of ordinary and partial differential equations. Here we can
 take this from a deep learning perspective and a traditional final
@@ -35,7 +35,7 @@ Datasets can again be adapted to the field.
 ## Third project:
 
 Three possible alternative paths that combine elements from both courses.
--Unsupervised learning: PCA and clustering, k-means however similar methods. 
+-Unsupervised learning: PCA, other dimensionality reduction methods and clustering, k-means or similar methods. 
 -Bayesian machine learning: brings in MCMC, statistics and deep learning.
 -Quantum machine learning: Boltzmann machines, classical and quantum machines. MCMC simulations, gradient methods.
 -Or simulate data and themes related to own research or other user defined topics.
