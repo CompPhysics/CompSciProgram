@@ -3,7 +3,7 @@ AUTHOR: "Morten Hjorth-Jensen":"http://mhjgit.github.io/info/doc/web/" at Depart
 AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/anderkve/index.html" at Department of Physics (office FØ447), University of Oslo, Norway
 
 <%
-pub_url = 'https://compphysics.github.io/MachineLearning/doc/pub'
+pub_url = 'https://compphysics.github.io/CompSciProgram/doc/web'
 published = ['week42', 'week43', 'week44', 'week45', 'week46', 'week47', 'week48', ]
 chapters = {
  'week42': 'Week 42 October 18-22: Linear Regression and discussion of project 1',
