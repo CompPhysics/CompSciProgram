@@ -8,9 +8,10 @@ DATE: today
 
 The main aim of this project is to study in more detail various
 regression methods, including the Ordinary Least Squares (OLS) method,
-Ridge regression and finally Lasso regression. Ridge regression will be discussed during the Friday lecture of week 36 while Lasso Regression will be discussed during the lectures of week 37.
+Ridge regression and finally Lasso regression and eventually kernel regression and/or Bayesian Linear Regression as well as Logistic Regression for
+classification problems and support vector machines for both regression and classification problems.
 
-The methods are in turn combined with resampling techniques like the bootstrap method and cross validation. These are discussed during weeks 36 and 37.
+The methods are in turn combined with resampling techniques like the bootstrap method and cross validation. 
 
 We will first study how to fit polynomials to a specific
 two-dimensional function called "Franke's
@@ -35,7 +36,9 @@ The function will be defined for $x,y\in [0,1]$.  Our first step will
 be to perform an OLS regression analysis of this function, trying out
 a polynomial fit with an $x$ and $y$ dependence of the form $[x, y,
 x^2, y^2, xy, \dots]$. We will also include bootstrap first as
-a resampling technique.  After that we will include the cross-validation technique. As in homeworks 1 and 2, we can use a uniform
+a resampling technique.  After that we will include the cross-validation technique.
+
+As in homeworks 1 and 2, we can use a uniform
 distribution to set up the arrays of values for $x$ and $y$, or as in
 the example below just a set of fixed 
 values for $x$ and $y$ with a given step
@@ -44,11 +47,6 @@ function (for example a polynomial) of $x$ and $y$.  Thereafter we
 will repeat much of the same procedure using the Ridge and Lasso
 regression methods, introducing thus a dependence on the bias
 (penalty) $\lambda$.
-
-Finally we are going to use (real) digital terrain data and try to
-reproduce these data using the same methods. We will also try to go
-beyond the second-order polynomials metioned above and explore 
-which polynomial fits the data best.
 
 
 The Python code for the Franke function is included here (it performs also a three-dimensional plot of it)
@@ -102,32 +100,29 @@ We will generate our own dataset for a function
 $\mathrm{FrankeFunction}(x,y)$ with $x,y \in [0,1]$. The function
 $f(x,y)$ is the Franke function. You should explore also the addition
 of an added stochastic noise to this function using the normal
-distribution $\cal{N}(0,1)$.
+distribution $N(0,1)$.
 
 *Write your own code* (using either a matrix inversion or a singular
-value decomposition from e.g., _numpy_ ) or use your code from
-homeworks 1 and 2 and perform a standard least square regression
-analysis using polynomials in $x$ and $y$ up to fifth order. Find the
-"confidence intervals":"https://en.wikipedia.org/wiki/Confidence_interval" of the parameters (estimators) $\beta$ by computing their
-variances, evaluate the Mean Squared error (MSE)
+value decomposition from e.g., _numpy_ ) and perform a standard least square regression
+analysis using polynomials in $x$ and $y$ up to fifth order. 
 
 !bt 
-\[ MSE(\hat{y},\hat{\tilde{y}}) = \frac{1}{n}
+\[ MSE(\bm{y},\bm{\tilde{y}}) = \frac{1}{n}
 \sum_{i=0}^{n-1}(y_i-\tilde{y}_i)^2, 
 \] 
 !et 
 
-and the $R^2$ score function.  If $\tilde{\hat{y}}_i$ is the predicted
+and the $R^2$ score function.  If $\tilde{\bm{y}}_i$ is the predicted
 value of the $i-th$ sample and $y_i$ is the corresponding true value,
 then the score $R^2$ is defined as
 
 !bt
 \[
-R^2(\hat{y}, \tilde{\hat{y}}) = 1 - \frac{\sum_{i=0}^{n - 1} (y_i - \tilde{y}_i)^2}{\sum_{i=0}^{n - 1} (y_i - \bar{y})^2},
+R^2(\bm{y}, \tilde{\bm{y}}) = 1 - \frac{\sum_{i=0}^{n - 1} (y_i - \tilde{y}_i)^2}{\sum_{i=0}^{n - 1} (y_i - \bar{y})^2},
 \]
 !et
 
-where we have defined the mean value  of $\hat{y}$ as
+where we have defined the mean value  of $\bm{y}$ as
 
 !bt
 \[
@@ -135,13 +130,14 @@ where we have defined the mean value  of $\hat{y}$ as
 \]
 !et
 
-Your code has to include a scaling of the data (for example by
-subtracting the mean value, see also "homework set 2":"https://compphysics.github.io/MachineLearning/doc/Projects/2020/hw2/html/hw2-bs.html" for examples) and
-a split of the data in training and test data. For this part you can
+
+
+You should consider and discuss ways to scale your data and
+split the data in training and test data. For this part you can
 either write your own code or use for example the function for
 splitting training data provided by the library _Scikit-Learn_ (make
 sure you have installed it).  This function is called
-$train\_test\_split$. Similarly, and see the solution to "homework set 2, exercise 2":"https://compphysics.github.io/MachineLearning/doc/Projects/2020/hw2/html/hw2-bs.html", you can use the data normalization functionality of
+$train\_test\_split$. Similarly, you can use the data normalization/scaling functionality of
 _Scikit-Learn_.
 
 It is normal in essentially all Machine Learning studies to split the
@@ -204,10 +200,10 @@ C(\bm{X},\bm{\beta}) =\frac{1}{n}\sum_{i=0}^{n-1}(y_i-\tilde{y}_i)^2=\mathbb{E}\
 !et
 Here the expected value $\mathbb{E}$ is the sample value. 
 
-Show that you can rewrite  this as
+The mean squared error can be rewritten as
 !bt
 \[
-\mathbb{E}\left[(\bm{y}-\bm{\tilde{y}})^2\right]=\frac{1}{n}\sum_i(f_i-\mathbb{E}\left[\bm{\tilde{y}}\right])^2+\frac{1}{n}\sum_i(\tilde{y}_i-\mathbb{E}\left[\bm{\tilde{y}}\right])^2+\sigma^2.
+\mathbb{E}\left[(\bm{y}-\bm{\tilde{y}})^2\right]=\frac{1}{n}\sum_i(y_i-\mathbb{E}\left[\bm{\tilde{y}}\right])^2+\frac{1}{n}\sum_i(\tilde{y}_i-\mathbb{E}\left[\bm{\tilde{y}}\right])^2+\sigma^2.
 \]
 !et
 
@@ -221,15 +217,13 @@ Discuss the bias and variance trade-off as function
 of your model complexity (the degree of the polynomial) and the number
 of data points, and possibly also your training and test data using the _bootstrap_ resampling method.
 
-Note also that when you calculate the bias, in all applications you don't know the function values $f_i$. You would hence replace them with the actual data points $y_i$.
-
 
 === Part c) Cross-validation as resampling techniques, adding more complexity ===
 
 
 The aim here is to write your own code for another widely popular
 resampling technique, the so-called cross-validation method.  Again,
-before you start with cross-validation approach, you should scale your
+before you start with cross-validation approach, you should consider to scale your
 data.
 
 Implement the $k$-fold cross-validation algorithm (write your own
@@ -263,63 +257,8 @@ Give a
 critical discussion of the three methods and a judgement of which
 model fits the data best.  Perform here as well an analysis of the bias-variance trade-off using the _bootstrap_ resampling technique and an analysis of the mean squared error using cross-validation. 
 
-===  Part f): Introducing real data and preparing the data analysis  ===
+===  Part f): Logistic Regression  ===
 
-With our codes functioning and having been tested properly on a
-simpler function we are now ready to look at real data. We will
-essentially repeat in part g) what was done in parts a-e). However, we
-need first to download the data and prepare properly the inputs to our
-codes.  We are going to download digital terrain data from the website
-URL:"https://earthexplorer.usgs.gov/",
-
-In order to obtain data for a specific region, you need to register as
-a user (free) at this website and then decide upon which area you want
-to fetch the digital terrain data from.  In order to be able to read
-the data properly, you need to specify that the format should be _SRTM
-Arc-Second Global_ and download the data as a _GeoTIF_ file.  The
-files are then stored in *tif* format which can be imported into a
-Python program using
-
-!bc pycod
-scipy.misc.imread
-!ec
-
-Here is a simple part of a Python code which reads and plots the data
-from such files
-
-!bc pycod
-import numpy as np
-from imageio import imread
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-from matplotlib import cm
-
-# Load the terrain
-terrain1 = imread('SRTM_data_Norway_1.tif')
-# Show the terrain
-plt.figure()
-plt.title('Terrain over Norway 1')
-plt.imshow(terrain1, cmap='gray')
-plt.xlabel('X')
-plt.ylabel('Y')
-plt.show()
-!ec
-
-If you should have problems in downloading the digital terrain data,
-we provide two examples under the data folder of project 1. One is
-from a region close to Stavanger in Norway and the other Møsvatn
-Austfjell, again in Norway.
-Feel free to produce your own terrain data.
-
-
-Alternatively, if you would like to use another data set, feel free to do so. This could be data close to your reseach area or simply a data set you found interesting. See for example "kaggle.com":"https://www.kaggle.com/datasets" for examples.
-
-=== Part g) OLS, Ridge and Lasso regression with resampling ===
-
-Our final part deals with the parameterization of your digital terrain
-data (or your own data).  We will apply all three methods for linear regression, the same type (or higher order) of polynomial
-approximation and cross-validation as resampling technique to evaluate which
-model fits the data best.
 
 At the end, you should present a critical evaluation of your results
 and discuss the applicability of these regression methods to the type

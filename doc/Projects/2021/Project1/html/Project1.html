@@ -67,14 +67,10 @@ div { text-align: justify; text-justify: inter-word; }
                3,
                None,
                'part-e-lasso-regression-on-the-franke-function-with-resampling'),
-              ('Part f): Introducing real data and preparing the data analysis',
+              ('Part f): Logistic Regression',
                3,
                None,
-               'part-f-introducing-real-data-and-preparing-the-data-analysis'),
-              ('Part g) OLS, Ridge and Lasso regression with resampling',
-               3,
-               None,
-               'part-g-ols-ridge-and-lasso-regression-with-resampling'),
+               'part-f-logistic-regression'),
               ('Background literature', 2, None, 'background-literature'),
               ('Introduction to numerical projects',
                2,
@@ -136,10 +132,11 @@ MathJax.Hub.Config({
 <p>
 The main aim of this project is to study in more detail various
 regression methods, including the Ordinary Least Squares (OLS) method,
-Ridge regression and finally Lasso regression. Ridge regression will be discussed during the Friday lecture of week 36 while Lasso Regression will be discussed during the lectures of week 37.
+Ridge regression and finally Lasso regression and eventually kernel regression and/or Bayesian Linear Regression as well as Logistic Regression for
+classification problems and support vector machines for both regression and classification problems.
 
 <p>
-The methods are in turn combined with resampling techniques like the bootstrap method and cross validation. These are discussed during weeks 36 and 37.
+The methods are in turn combined with resampling techniques like the bootstrap method and cross validation.
 
 <p>
 We will first study how to fit polynomials to a specific
@@ -166,7 +163,10 @@ The function will be defined for \( x,y\in [0,1] \).  Our first step will
 be to perform an OLS regression analysis of this function, trying out
 a polynomial fit with an \( x \) and \( y \) dependence of the form \( [x, y,
 x^2, y^2, xy, \dots] \). We will also include bootstrap first as
-a resampling technique.  After that we will include the cross-validation technique. As in homeworks 1 and 2, we can use a uniform
+a resampling technique.  After that we will include the cross-validation technique.
+
+<p>
+As in homeworks 1 and 2, we can use a uniform
 distribution to set up the arrays of values for \( x \) and \( y \), or as in
 the example below just a set of fixed 
 values for \( x \) and \( y \) with a given step
@@ -175,12 +175,6 @@ function (for example a polynomial) of \( x \) and \( y \).  Thereafter we
 will repeat much of the same procedure using the Ridge and Lasso
 regression methods, introducing thus a dependence on the bias
 (penalty) \( \lambda \).
-
-<p>
-Finally we are going to use (real) digital terrain data and try to
-reproduce these data using the same methods. We will also try to go
-beyond the second-order polynomials metioned above and explore 
-which polynomial fits the data best.
 
 <p>
 The Python code for the Franke function is included here (it performs also a three-dimensional plot of it)
@@ -235,44 +229,40 @@ We will generate our own dataset for a function
 \( \mathrm{FrankeFunction}(x,y) \) with \( x,y \in [0,1] \). The function
 \( f(x,y) \) is the Franke function. You should explore also the addition
 of an added stochastic noise to this function using the normal
-distribution \( \cal{N}(0,1) \).
+distribution \( N(0,1) \).
 
 <p>
 <em>Write your own code</em> (using either a matrix inversion or a singular
-value decomposition from e.g., <b>numpy</b> ) or use your code from
-homeworks 1 and 2 and perform a standard least square regression
-analysis using polynomials in \( x \) and \( y \) up to fifth order. Find the
-<a href="https://en.wikipedia.org/wiki/Confidence_interval" target="_blank">confidence intervals</a> of the parameters (estimators) \( \beta \) by computing their
-variances, evaluate the Mean Squared error (MSE)
+value decomposition from e.g., <b>numpy</b> ) and perform a standard least square regression
+analysis using polynomials in \( x \) and \( y \) up to fifth order. 
 
-$$ MSE(\hat{y},\hat{\tilde{y}}) = \frac{1}{n}
+$$ MSE(\boldsymbol{y},\boldsymbol{\tilde{y}}) = \frac{1}{n}
 \sum_{i=0}^{n-1}(y_i-\tilde{y}_i)^2, 
 $$
 
 <p>
-and the \( R^2 \) score function.  If \( \tilde{\hat{y}}_i \) is the predicted
+and the \( R^2 \) score function.  If \( \tilde{\boldsymbol{y}}_i \) is the predicted
 value of the \( i-th \) sample and \( y_i \) is the corresponding true value,
 then the score \( R^2 \) is defined as
 
 $$
-R^2(\hat{y}, \tilde{\hat{y}}) = 1 - \frac{\sum_{i=0}^{n - 1} (y_i - \tilde{y}_i)^2}{\sum_{i=0}^{n - 1} (y_i - \bar{y})^2},
+R^2(\boldsymbol{y}, \tilde{\boldsymbol{y}}) = 1 - \frac{\sum_{i=0}^{n - 1} (y_i - \tilde{y}_i)^2}{\sum_{i=0}^{n - 1} (y_i - \bar{y})^2},
 $$
 
 <p>
-where we have defined the mean value  of \( \hat{y} \) as
+where we have defined the mean value  of \( \boldsymbol{y} \) as
 
 $$
 \bar{y} =  \frac{1}{n} \sum_{i=0}^{n - 1} y_i.
 $$
 
 <p>
-Your code has to include a scaling of the data (for example by
-subtracting the mean value, see also <a href="https://compphysics.github.io/MachineLearning/doc/Projects/2020/hw2/html/hw2-bs.html" target="_blank">homework set 2</a> for examples) and
-a split of the data in training and test data. For this part you can
+You should consider and discuss ways to scale your data and
+split the data in training and test data. For this part you can
 either write your own code or use for example the function for
 splitting training data provided by the library <b>Scikit-Learn</b> (make
 sure you have installed it).  This function is called
-\( train\_test\_split \). Similarly, and see the solution to <a href="https://compphysics.github.io/MachineLearning/doc/Projects/2020/hw2/html/hw2-bs.html" target="_blank">homework set 2, exercise 2</a>, you can use the data normalization functionality of
+\( train\_test\_split \). Similarly, you can use the data normalization/scaling functionality of
 <b>Scikit-Learn</b>.
 
 <p>
@@ -338,9 +328,9 @@ $$
 Here the expected value \( \mathbb{E} \) is the sample value.
 
 <p>
-Show that you can rewrite  this as
+The mean squared error can be rewritten as
 $$
-\mathbb{E}\left[(\boldsymbol{y}-\boldsymbol{\tilde{y}})^2\right]=\frac{1}{n}\sum_i(f_i-\mathbb{E}\left[\boldsymbol{\tilde{y}}\right])^2+\frac{1}{n}\sum_i(\tilde{y}_i-\mathbb{E}\left[\boldsymbol{\tilde{y}}\right])^2+\sigma^2.
+\mathbb{E}\left[(\boldsymbol{y}-\boldsymbol{\tilde{y}})^2\right]=\frac{1}{n}\sum_i(y_i-\mathbb{E}\left[\boldsymbol{\tilde{y}}\right])^2+\frac{1}{n}\sum_i(\tilde{y}_i-\mathbb{E}\left[\boldsymbol{\tilde{y}}\right])^2+\sigma^2.
 $$
 
 <p>
@@ -356,15 +346,12 @@ Discuss the bias and variance trade-off as function
 of your model complexity (the degree of the polynomial) and the number
 of data points, and possibly also your training and test data using the <b>bootstrap</b> resampling method.
 
-<p>
-Note also that when you calculate the bias, in all applications you don't know the function values \( f_i \). You would hence replace them with the actual data points \( y_i \).
-
 <h3 id="part-c-cross-validation-as-resampling-techniques-adding-more-complexity">Part c) Cross-validation as resampling techniques, adding more complexity </h3>
 
 <p>
 The aim here is to write your own code for another widely popular
 resampling technique, the so-called cross-validation method.  Again,
-before you start with cross-validation approach, you should scale your
+before you start with cross-validation approach, you should consider to scale your
 data.
 
 <p>
@@ -402,70 +389,7 @@ Give a
 critical discussion of the three methods and a judgement of which
 model fits the data best.  Perform here as well an analysis of the bias-variance trade-off using the <b>bootstrap</b> resampling technique and an analysis of the mean squared error using cross-validation.
 
-<h3 id="part-f-introducing-real-data-and-preparing-the-data-analysis">Part f): Introducing real data and preparing the data analysis  </h3>
-
-<p>
-With our codes functioning and having been tested properly on a
-simpler function we are now ready to look at real data. We will
-essentially repeat in part g) what was done in parts a-e). However, we
-need first to download the data and prepare properly the inputs to our
-codes.  We are going to download digital terrain data from the website
-<a href="https://earthexplorer.usgs.gov/" target="_blank"><tt>https://earthexplorer.usgs.gov/</tt></a>,
-
-<p>
-In order to obtain data for a specific region, you need to register as
-a user (free) at this website and then decide upon which area you want
-to fetch the digital terrain data from.  In order to be able to read
-the data properly, you need to specify that the format should be <b>SRTM
-Arc-Second Global</b> and download the data as a <b>GeoTIF</b> file.  The
-files are then stored in <em>tif</em> format which can be imported into a
-Python program using
-
-<p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span>scipy<span style="color: #666666">.</span>misc<span style="color: #666666">.</span>imread
-</pre></div>
-<p>
-Here is a simple part of a Python code which reads and plots the data
-from such files
-
-<p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
-<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">imageio</span> <span style="color: #008000; font-weight: bold">import</span> imread
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
-<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">mpl_toolkits.mplot3d</span> <span style="color: #008000; font-weight: bold">import</span> Axes3D
-<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">matplotlib</span> <span style="color: #008000; font-weight: bold">import</span> cm
-
-<span style="color: #408080; font-style: italic"># Load the terrain</span>
-terrain1 <span style="color: #666666">=</span> imread(<span style="color: #BA2121">&#39;SRTM_data_Norway_1.tif&#39;</span>)
-<span style="color: #408080; font-style: italic"># Show the terrain</span>
-plt<span style="color: #666666">.</span>figure()
-plt<span style="color: #666666">.</span>title(<span style="color: #BA2121">&#39;Terrain over Norway 1&#39;</span>)
-plt<span style="color: #666666">.</span>imshow(terrain1, cmap<span style="color: #666666">=</span><span style="color: #BA2121">&#39;gray&#39;</span>)
-plt<span style="color: #666666">.</span>xlabel(<span style="color: #BA2121">&#39;X&#39;</span>)
-plt<span style="color: #666666">.</span>ylabel(<span style="color: #BA2121">&#39;Y&#39;</span>)
-plt<span style="color: #666666">.</span>show()
-</pre></div>
-<p>
-If you should have problems in downloading the digital terrain data,
-we provide two examples under the data folder of project 1. One is
-from a region close to Stavanger in Norway and the other M&#248;svatn
-Austfjell, again in Norway.
-Feel free to produce your own terrain data.
-
-<p>
-Alternatively, if you would like to use another data set, feel free to do so. This could be data close to your reseach area or simply a data set you found interesting. See for example <a href="https://www.kaggle.com/datasets" target="_blank">kaggle.com</a> for examples.
-
-<h3 id="part-g-ols-ridge-and-lasso-regression-with-resampling">Part g) OLS, Ridge and Lasso regression with resampling </h3>
-
-<p>
-Our final part deals with the parameterization of your digital terrain
-data (or your own data).  We will apply all three methods for linear regression, the same type (or higher order) of polynomial
-approximation and cross-validation as resampling technique to evaluate which
-model fits the data best.
+<h3 id="part-f-logistic-regression">Part f): Logistic Regression  </h3>
 
 <p>
 At the end, you should present a critical evaluation of your results
