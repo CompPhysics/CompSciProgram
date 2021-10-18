@@ -31,7 +31,7 @@ Zoom link: URL:"https://msu.zoom.us/j/94432195360?pwd=bHBoV1dTb3JaQzBCRE1VbHRhNk
 
 
 The lectures will be recorded and updated videos will be posted after the lectures. 
-
+* "Video of lecture":"https://www.uio.no/studier/emner/matnat/fys/FYS-STK4155/h21/forelesningsvideoer/CompSciOctober18.mp4?vrtx=view-as-webpage"
 
 
 !split

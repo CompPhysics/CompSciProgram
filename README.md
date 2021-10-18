@@ -45,4 +45,14 @@ Three possible alternative paths that combine elements from both courses.
 In total 20 ECTS.
 
 
+##  Lectures
+
+### October 18
+o Video of Lecture at https://www.uio.no/studier/emner/matnat/fys/FYS-STK4155/h21/forelesningsvideoer/CompSciOctober18.mp4?vrtx=view-as-webpage
+o Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week42/html/week42-reveal.html 
+
+
+
+
+
 
