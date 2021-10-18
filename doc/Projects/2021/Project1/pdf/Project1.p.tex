@@ -135,7 +135,7 @@ final,                   % draft: marks overfull hboxes, figures with paths
 \begin{center}
 {\LARGE\bf
 \begin{spacing}{1.25}
-Project 1 on Machine Learning, deadline December 15, 2021
+Project 1 on Computational Physics and Machine Learning, deadline December 15, 2021
 \end{spacing}
 }
 \end{center}
@@ -164,10 +164,18 @@ Oct 18, 2021
 
 \subsection{Regression analysis and resampling methods}
 
+
+
+
 The main aim of this project is to study in more detail various
 regression methods, including the Ordinary Least Squares (OLS) method,
-Ridge regression and finally Lasso regression and eventually kernel regression and/or Bayesian Linear Regression as well as Logistic Regression for
-classification problems and support vector machines for both regression and classification problems.
+Ridge regression and finally Lasso regression and eventually kernel
+regression and/or Bayesian Linear Regression as well as Logistic
+Regression for classification problems. The project includes also a
+discussion of support vector machines for classification problems.
+
+The numerical methods include matrix inversion, singular value decomposition, convex optimization methods 
+(gradient descent, steepest descent, stochastic gradient descent, ie iterative solvers) and several central (deterministic) ML methods. 
 
 The methods are in turn combined with resampling techniques like the bootstrap method and cross validation. 
 
@@ -188,21 +196,20 @@ f(x,y) &= \frac{3}{4}\exp{\left(-\frac{(9x-2)^2}{4} - \frac{(9y-2)^2}{4}\right)}
 &+\frac{1}{2}\exp{\left(-\frac{(9x-7)^2}{4} - \frac{(9y-3)^2}{4}\right)} -\frac{1}{5}\exp{\left(-(9x-4)^2 - (9y-7)^2\right) }.
 \end{align*}
 
-The function will be defined for $x,y\in [0,1]$.  Our first step will
+The function is  defined for $x,y\in [0,1]$.  Our first step will
 be to perform an OLS regression analysis of this function, trying out
-a polynomial fit with an $x$ and $y$ dependence of the form $[x, y,
-x^2, y^2, xy, \dots]$. We will also include bootstrap first as
+a polynomial fit with an $x$ and $y$ dependence of the form $[x, y,x^2, y^2, xy, \dots]$. We will also include bootstrap first as
 a resampling technique.  After that we will include the cross-validation technique.
 
-As in homeworks 1 and 2, we can use a uniform
+We can use a uniform
 distribution to set up the arrays of values for $x$ and $y$, or as in
 the example below just a set of fixed 
 values for $x$ and $y$ with a given step
 size.  We will fit a
 function (for example a polynomial) of $x$ and $y$.  Thereafter we
-will repeat much of the same procedure using the Ridge and Lasso
-regression methods, introducing thus a dependence on the bias
-(penalty) $\lambda$.
+will repeat much of the same procedure using Ridge and Lasso
+regression, introducing thus a dependence on the regularization parameter 
+(also called penalty) $\lambda$.
 
 
 The Python code for the Franke function is included here (it performs also a three-dimensional plot of it)
@@ -217,9 +224,10 @@ from random import random, seed
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 
-# Make data.
+# Make data. Use alternatively the uniform distribution
 x = np.arange(0, 1, 0.05)
 y = np.arange(0, 1, 0.05)
+# Using numpy's meshgrid (why?)
 x, y = np.meshgrid(x,y)
 
 
@@ -250,6 +258,38 @@ plt.show()
 \epycod
 
 
+\paragraph{Discussion of data sets and report format.}
+Before we proceed however, we would like to add some words about data sets and how to prepare your reports.
+
+The data sets that we propose here are (the default sets)
+
+\begin{itemize}
+\item Regression (fitting a continuous function). 
+\begin{enumerate}
+
+ \item Either the Franke function proposed by us or data sets your propose.
+
+\end{enumerate}
+
+\noindent
+\item Classification. Here you will also need to develop a Logistic regression code. The data set we propose are the so-called \href{{https://www.kaggle.com/uciml/breast-cancer-wisconsin-data}}{Wisconsin Breat Cancer Data} data set of images representing various features of tumors. A longer explanation with links to the scientific literature can be found at the \href{{https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29}}{Machine Learning repository of the University of California at Irvine}. Feel free to consult this site and the pertinent  literature.
+\end{itemize}
+
+\noindent
+You can find more information about this at the \href{{https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html}}{Scikit-Learn site} or at the \href{{https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(original)}}{University of California at Irvine}. 
+
+
+However, if you would like to study other data sets, feel free to
+propose other sets. What we list here are mere suggestions from our
+side. If you opt for another data set, consider using a set which
+has been studied in the scientific literature. This makes it easier
+for you to compare and analyze your results. Comparing with existing results from the scientific literature  is also an essential
+element of the scientific discussion.  The University of California at Irvine with its Machine Learning repository at \href{{https://archive.ics.uci.edu/ml/index.php}}{\nolinkurl{https://archive.ics.uci.edu/ml/index.php}} is an excellent site to look up for examples and inspiration. \href{{https://www.kaggle.com/}}{Kaggle.com} is an equally interesting site. Feel free to explore these sites.
+
+Your answers to the projects  have to be presented  as a standard scientific report. The instructions on how to do this and how we grade are available at \href{{https://github.com/CompPhysics/MachineLearning/blob/master/doc/Projects/EvaluationGrading/EvaluationForm.md}}{\nolinkurl{https://github.com/CompPhysics/MachineLearning/blob/master/doc/Projects/EvaluationGrading/EvaluationForm.md}}.  Please do spend some time to read our guidelines. For PhD students the grades are either passed or not passed, with a threshold of at least  the grade B. 
+
+
+
 \paragraph{Part a): Ordinary Least Square (OLS) on the Franke function.}
 We will generate our own dataset for a function
 $\mathrm{FrankeFunction}(x,y)$ with $x,y \in [0,1]$. The function
@@ -259,7 +299,7 @@ distribution $N(0,1)$.
 
 \emph{Write your own code} (using either a matrix inversion or a singular
 value decomposition from e.g., \textbf{numpy} ) and perform a standard least square regression
-analysis using polynomials in $x$ and $y$ up to fifth order. 
+analysis using polynomials in $x$ and $y$ up to fifth order. You can use all the functionality of Numpy.
 
 \[ MSE(\bm{y},\bm{\tilde{y}}) = \frac{1}{n}
 \sum_{i=0}^{n-1}(y_i-\tilde{y}_i)^2, 
@@ -364,10 +404,9 @@ of data points, and possibly also your training and test data using the \textbf{
 The aim here is to write your own code for another widely popular
 resampling technique, the so-called cross-validation method.  Again,
 before you start with cross-validation approach, you should consider to scale your
-data.
+data.  You can use also folding splitting provided by \textbf{Scikit-Learn}.
 
-Implement the $k$-fold cross-validation algorithm (write your own
-code) and evaluate again the MSE function resulting
+Implement the $k$-fold cross-validation algorithm and evaluate again the MSE function resulting
 from the test folds. You can compare your own code with that from
 \textbf{Scikit-Learn} if needed. 
 
@@ -395,10 +434,46 @@ Give a
 critical discussion of the three methods and a judgement of which
 model fits the data best.  Perform here as well an analysis of the bias-variance trade-off using the \textbf{bootstrap} resampling technique and an analysis of the mean squared error using cross-validation. 
 
-\paragraph{Part f): Logistic Regression.}
-At the end, you should present a critical evaluation of your results
-and discuss the applicability of these regression methods to the type
-of data presented here (either the terrain data we propose or other data sets).
+
+\paragraph{Part f): Write your own Stochastic Gradient Descent  code, first step.}
+In order to get started with Logistic regression, we will now replace in our standard ordinary
+least squares (OLS) and Ridge regression codes the matrix inversion
+algorithm with our own SGD code. You can choose whether you want to
+add the momentum SGD optionality or other SGD variants such as RMSprop
+or ADAgrad or ADAM. 
+
+Perform an analysis of the results for OLS and Ridge regression as
+function of the chosen learning rates, the number of mini-batches and
+epochs as well as algorithm for scaling the learning rate. You can
+also compare your own results with those that can be obtained using
+for example \textbf{Scikit-Learn}'s various SGD options.  Discuss your
+results. For Ridge regression you need now to study the results as functions of  the hyper-parameter $\lambda$ and 
+the learning rate $\gamma$. 
+
+You will need your SGD code for the setup of the Logistic Regression codes. You will find the Python \href{{https://seaborn.pydata.org/generated/seaborn.heatmap.html}}{Seaborn package} useful when plotting the results as function of the learning rate $\eta$ and the hyper-parameter $\lambda$ when you use Ridge regression.
+
+
+
+\paragraph{Part g): Write your Logistic Regression code, final step.}
+We will now study a classification problem (using the Wisconsin breast cancer data as possible data set) with 
+Logistic regression.
+
+
+Define your cost function and the design matrix before you start writing your code.
+Write thereafter a Logistic regression code using your SGD algorithm. You can also use standard gradient descent in this case, with a learning rate as hyper-parameter.
+Study the results as functions of the chosen learning rates.
+Add also an $l_2$ regularization parameter $\lambda$. Compare your results with those from your FFNN code as well as those obtained using \textbf{Scikit-Learn}'s logistic regression functionality.
+You should consider scaling/normalizing your data and include cross-validation.
+
+\paragraph{Part h): Support Vector Machines.}
+For the classification problem, we include now support vector machines. Feel free to use \textbf{Scikit-Learn's} functionality here and compare your results with those obtained from logistic regression. 
+
+\paragraph{Part i) Critical evaluation of the various algorithms.}
+After all these glorious calculations, you should now summarize the
+various algorithms and come with a critical evaluation of their pros
+and cons. Which algorithm works best for the regression case and which
+is best for the classification case. These codes can also be part of
+your final project 3, but now applied to other data sets.
 
 
 
@@ -409,6 +484,12 @@ of data presented here (either the terrain data we propose or other data sets).
 \item For a discussion and derivation of the variances and mean squared errors using linear regression, see the \href{{https://arxiv.org/abs/1509.09169}}{Lecture notes on ridge regression by Wessel N. van Wieringen}
 
 \item The textbook of \href{{https://www.springer.com/gp/book/9780387848570}}{Trevor Hastie, Robert Tibshirani, Jerome H. Friedman, The Elements of Statistical Learning, Springer}, chapters 3 and 7 are the most relevant ones for the analysis here. 
+\begin{enumerate}
+
+\item \href{{https://arxiv.org/abs/1803.08823}}{Mehta et al, arXiv 1803.08823}, \emph{A high-bias, low-variance introduction to Machine Learning for physicists}, ArXiv:1803.08823.
+\end{enumerate}
+
+\noindent
 \end{enumerate}
 
 \noindent
@@ -440,23 +521,15 @@ project.
 \noindent
 \subsection{Format for electronic delivery of report and programs}
 
-The preferred format for the report is a PDF file. You can also use DOC or postscript formats or as an ipython notebook file.  As programming language we prefer that you choose between C/C++, Fortran2008 or Python. The following prescription should be followed when preparing the report:
+The preferred format for the report is a PDF file. You can also use DOC or postscript formats or as an ipython notebook file.  As programming language we prefer that you choose between C/C++, Fortran2008, Julia, Rust or Python. For the machine learning topics, Python is recommended. The following prescription should be followed when preparing the report:
 
 \begin{itemize}
-  \item Use Canvas to hand in your projects, log in  at  \href{{https://www.uio.no/english/services/it/education/canvas/}}{\nolinkurl{https://www.uio.no/english/services/it/education/canvas/}} with your normal UiO username and password.
-
   \item Upload \textbf{only} the report file or the link to your GitHub/GitLab or similar typo of  repos!  For the source code file(s) you have developed please provide us with your link to your GitHub/GitLab or similar  domain.  The report file should include all of your discussions and a list of the codes you have developed.  Do not include library files which are available at the course homepage, unless you have made specific changes to them.
 
   \item In your GitHub/GitLab or similar repository, please include a folder which contains selected results. These can be in the form of output from your code for a selected set of runs and input parameters.
 \end{itemize}
 
 \noindent
-Finally, 
-we encourage you to collaborate. Optimal working groups consist of 
-2-3 students. You can then hand in a common report. 
-
-
-
 \subsection{Software and needed installations}
 
 If you have Python installed (we recommend Python3) and you feel pretty familiar with installing different packages, 
@@ -510,6 +583,16 @@ Popular software packages written in Python for ML are
 These are all freely available at their respective GitHub sites. They 
 encompass communities of developers in the thousands or more. And the number
 of code developers and contributors keeps increasing.
+
+
+
+
+
+
+
+
+
+
 
 
 

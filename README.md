@@ -8,9 +8,9 @@ regression and support vector machines as well as Bayesian linear
 regression. This involves linear algebra (matrix inversion,
 determinants, eigenvalues, SVD and more from FYS4150), convex
 optimization problem (gradient descent, steepest descent, stochastic
-gradient descent, ie iterative solvers) and several central
+gradient descent,  iterative solvers) and several central
 (deterministic) ML methods. Calculation-oriented statistics with
-Bayes' theorem and MCMC sampling can  also included. Bayesian linear
+Bayes' theorem and MCMC sampling can  also be included. Bayesian linear
 regression can be omitted.
 
 ### Workload: 6 ECTS.
