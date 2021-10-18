@@ -1,0 +1,422 @@
+<!--
+Automatically generated HTML file from DocOnce source
+(https://github.com/doconce/doconce/)
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Week 42: Introduction to the course, Logistics and Practicalities">
+
+<title>Week 42: Introduction to the course, Logistics and Practicalities</title>
+
+<!-- Bootstrap style: bootstrap -->
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+
+<style type="text/css">
+
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:50px;      /* fixed header height for style bootstrap */
+  margin:-50px 0 0; /* negative fixed header height */
+}
+</style>
+
+
+</head>
+
+<!-- tocinfo
+{'highest level': 2,
+ 'sections': [('Reading Recommendations', 2, None, 'reading-recommendations'),
+              ('Week 42', 2, None, 'week-42'),
+              ('Communication channels', 2, None, 'communication-channels'),
+              ('Course Format', 2, None, 'course-format'),
+              ('Teachers', 2, None, 'teachers'),
+              ('Deadlines for projects (tentative)',
+               2,
+               None,
+               'deadlines-for-projects-tentative'),
+              ('Recommended textbooks', 2, None, 'recommended-textbooks'),
+              ('Extremely useful tools, strongly recommended',
+               2,
+               None,
+               'extremely-useful-tools-strongly-recommended'),
+              ('Other courses on Data science and Machine Learning  at UiO',
+               2,
+               None,
+               'other-courses-on-data-science-and-machine-learning-at-uio'),
+              ('What is Machine Learning?',
+               2,
+               None,
+               'what-is-machine-learning'),
+              ('Types of Machine Learning',
+               2,
+               None,
+               'types-of-machine-learning'),
+              ('Essential elements of ML', 2, None, 'essential-elements-of-ml'),
+              ('An optimization/minimization problem',
+               2,
+               None,
+               'an-optimization-minimization-problem'),
+              ('A Frequentist approach to data analysis',
+               2,
+               None,
+               'a-frequentist-approach-to-data-analysis'),
+              ('What is a good model?', 2, None, 'what-is-a-good-model'),
+              ('What is a good model? Can we define it?',
+               2,
+               None,
+               'what-is-a-good-model-can-we-define-it'),
+              ('Software and needed installations',
+               2,
+               None,
+               'software-and-needed-installations'),
+              ('Python installers', 2, None, 'python-installers'),
+              ('Useful Python libraries', 2, None, 'useful-python-libraries'),
+              ('Installing R, C++, cython or Julia',
+               2,
+               None,
+               'installing-r-c-cython-or-julia'),
+              ('Installing R, C++, cython, Numba etc',
+               2,
+               None,
+               'installing-r-c-cython-numba-etc'),
+              ('Numpy examples and Important Matrix and vector handling '
+               'packages',
+               2,
+               None,
+               'numpy-examples-and-important-matrix-and-vector-handling-packages'),
+              ('Basic Matrix Features', 2, None, 'basic-matrix-features'),
+              ('Some famous Matrices', 3, None, 'some-famous-matrices'),
+              ('More Basic Matrix Features',
+               3,
+               None,
+               'more-basic-matrix-features'),
+              ('Numpy and arrays', 2, None, 'numpy-and-arrays'),
+              ('Matrices in Python', 2, None, 'matrices-in-python'),
+              ('Meet the Pandas', 2, None, 'meet-the-pandas'),
+              ('Friday August 27', 2, None, 'friday-august-27'),
+              ('Simple linear regression model using _scikit-learn_',
+               3,
+               None,
+               'simple-linear-regression-model-using-_scikit-learn_'),
+              ('To our real data: nuclear binding energies. Brief reminder on '
+               'masses and binding energies',
+               3,
+               None,
+               'to-our-real-data-nuclear-binding-energies-brief-reminder-on-masses-and-binding-energies'),
+              ('Organizing our data', 3, None, 'organizing-our-data'),
+              ('Seeing the wood for the trees',
+               3,
+               None,
+               'seeing-the-wood-for-the-trees'),
+              ('And what about using neural networks?',
+               3,
+               None,
+               'and-what-about-using-neural-networks'),
+              ('A first summary', 2, None, 'a-first-summary'),
+              ('Why Linear Regression (aka Ordinary Least Squares and family)',
+               2,
+               None,
+               'why-linear-regression-aka-ordinary-least-squares-and-family'),
+              ('Regression analysis, overarching aims',
+               2,
+               None,
+               'regression-analysis-overarching-aims'),
+              ('Regression analysis, overarching aims II',
+               2,
+               None,
+               'regression-analysis-overarching-aims-ii'),
+              ('Examples', 2, None, 'examples'),
+              ('General linear models', 2, None, 'general-linear-models'),
+              ('Rewriting the fitting procedure as a linear algebra problem',
+               2,
+               None,
+               'rewriting-the-fitting-procedure-as-a-linear-algebra-problem'),
+              ('Rewriting the fitting procedure as a linear algebra problem, '
+               'more details',
+               2,
+               None,
+               'rewriting-the-fitting-procedure-as-a-linear-algebra-problem-more-details'),
+              ('Generalizing the fitting procedure as a linear algebra problem',
+               2,
+               None,
+               'generalizing-the-fitting-procedure-as-a-linear-algebra-problem'),
+              ('Generalizing the fitting procedure as a linear algebra problem',
+               2,
+               None,
+               'generalizing-the-fitting-procedure-as-a-linear-algebra-problem'),
+              ('Optimizing our parameters',
+               2,
+               None,
+               'optimizing-our-parameters'),
+              ('Our model for the nuclear binding energies',
+               2,
+               None,
+               'our-model-for-the-nuclear-binding-energies'),
+              ('Optimizing our parameters, more details',
+               2,
+               None,
+               'optimizing-our-parameters-more-details'),
+              ('Interpretations and optimizing our parameters',
+               2,
+               None,
+               'interpretations-and-optimizing-our-parameters'),
+              ('Interpretations and optimizing our parameters',
+               2,
+               None,
+               'interpretations-and-optimizing-our-parameters'),
+              ('Some useful matrix and vector expressions',
+               2,
+               None,
+               'some-useful-matrix-and-vector-expressions'),
+              ('Interpretations and optimizing our parameters',
+               2,
+               None,
+               'interpretations-and-optimizing-our-parameters'),
+              ('Own code for Ordinary Least Squares',
+               2,
+               None,
+               'own-code-for-ordinary-least-squares'),
+              ('Adding error analysis and training set up',
+               2,
+               None,
+               'adding-error-analysis-and-training-set-up'),
+              ('The $\\chi^2$ function', 2, None, 'the-chi-2-function'),
+              ('The $\\chi^2$ function', 2, None, 'the-chi-2-function'),
+              ('The $\\chi^2$ function', 2, None, 'the-chi-2-function'),
+              ('The $\\chi^2$ function', 2, None, 'the-chi-2-function'),
+              ('The $\\chi^2$ function', 2, None, 'the-chi-2-function'),
+              ('The $\\chi^2$ function', 2, None, 'the-chi-2-function'),
+              ('Fitting an Equation of State for Dense Nuclear Matter',
+               2,
+               None,
+               'fitting-an-equation-of-state-for-dense-nuclear-matter'),
+              ('The code', 2, None, 'the-code'),
+              ('Splitting our Data in Training and Test data',
+               2,
+               None,
+               'splitting-our-data-in-training-and-test-data'),
+              ('Exercises for week 35', 2, None, 'exercises-for-week-35'),
+              ('Exercise 1: Setting up various Python environments',
+               2,
+               None,
+               'exercise-1-setting-up-various-python-environments'),
+              ('Exercise 2: making your own data and exploring scikit-learn',
+               2,
+               None,
+               'exercise-2-making-your-own-data-and-exploring-scikit-learn'),
+              ('Exercise 3: Normalizing our data',
+               2,
+               None,
+               'exercise-3-normalizing-our-data')]}
+end of tocinfo -->
+
+<body>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "none"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+    
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="week42-bs.html">Week 42: Introduction to the course, Logistics and Practicalities</a>
+  </div>
+
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="._week42-bs001.html#reading-recommendations" style="font-size: 80%;"><b>Reading Recommendations</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs002.html#week-42" style="font-size: 80%;"><b>Week 42</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs003.html#communication-channels" style="font-size: 80%;"><b>Communication channels</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs004.html#course-format" style="font-size: 80%;"><b>Course Format</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs005.html#teachers" style="font-size: 80%;"><b>Teachers</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs006.html#deadlines-for-projects-tentative" style="font-size: 80%;"><b>Deadlines for projects (tentative)</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs007.html#recommended-textbooks" style="font-size: 80%;"><b>Recommended textbooks</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs008.html#extremely-useful-tools-strongly-recommended" style="font-size: 80%;"><b>Extremely useful tools, strongly recommended</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs009.html#other-courses-on-data-science-and-machine-learning-at-uio" style="font-size: 80%;"><b>Other courses on Data science and Machine Learning  at UiO</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs010.html#what-is-machine-learning" style="font-size: 80%;"><b>What is Machine Learning?</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs011.html#types-of-machine-learning" style="font-size: 80%;"><b>Types of Machine Learning</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs012.html#essential-elements-of-ml" style="font-size: 80%;"><b>Essential elements of ML</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs013.html#an-optimization-minimization-problem" style="font-size: 80%;"><b>An optimization/minimization problem</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs014.html#a-frequentist-approach-to-data-analysis" style="font-size: 80%;"><b>A Frequentist approach to data analysis</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs015.html#what-is-a-good-model" style="font-size: 80%;"><b>What is a good model?</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs016.html#what-is-a-good-model-can-we-define-it" style="font-size: 80%;"><b>What is a good model? Can we define it?</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs017.html#software-and-needed-installations" style="font-size: 80%;"><b>Software and needed installations</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs018.html#python-installers" style="font-size: 80%;"><b>Python installers</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs019.html#useful-python-libraries" style="font-size: 80%;"><b>Useful Python libraries</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs020.html#installing-r-c-cython-or-julia" style="font-size: 80%;"><b>Installing R, C++, cython or Julia</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs021.html#installing-r-c-cython-numba-etc" style="font-size: 80%;"><b>Installing R, C++, cython, Numba etc</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs022.html#numpy-examples-and-important-matrix-and-vector-handling-packages" style="font-size: 80%;"><b>Numpy examples and Important Matrix and vector handling packages</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs023.html#basic-matrix-features" style="font-size: 80%;"><b>Basic Matrix Features</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs024.html#some-famous-matrices" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Some famous Matrices</a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs025.html#more-basic-matrix-features" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;More Basic Matrix Features</a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs026.html#numpy-and-arrays" style="font-size: 80%;"><b>Numpy and arrays</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs027.html#matrices-in-python" style="font-size: 80%;"><b>Matrices in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs028.html#meet-the-pandas" style="font-size: 80%;"><b>Meet the Pandas</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs029.html#friday-august-27" style="font-size: 80%;"><b>Friday August 27</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs030.html#simple-linear-regression-model-using-_scikit-learn_" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Simple linear regression model using <b>scikit-learn</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs030.html#to-our-real-data-nuclear-binding-energies-brief-reminder-on-masses-and-binding-energies" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;To our real data: nuclear binding energies. Brief reminder on masses and binding energies</a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs030.html#organizing-our-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Organizing our data</a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs030.html#seeing-the-wood-for-the-trees" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Seeing the wood for the trees</a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs030.html#and-what-about-using-neural-networks" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;And what about using neural networks?</a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs030.html#a-first-summary" style="font-size: 80%;"><b>A first summary</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs031.html#why-linear-regression-aka-ordinary-least-squares-and-family" style="font-size: 80%;"><b>Why Linear Regression (aka Ordinary Least Squares and family)</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs032.html#regression-analysis-overarching-aims" style="font-size: 80%;"><b>Regression analysis, overarching aims</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs033.html#regression-analysis-overarching-aims-ii" style="font-size: 80%;"><b>Regression analysis, overarching aims II</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs034.html#examples" style="font-size: 80%;"><b>Examples</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs035.html#general-linear-models" style="font-size: 80%;"><b>General linear models</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs036.html#rewriting-the-fitting-procedure-as-a-linear-algebra-problem" style="font-size: 80%;"><b>Rewriting the fitting procedure as a linear algebra problem</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs037.html#rewriting-the-fitting-procedure-as-a-linear-algebra-problem-more-details" style="font-size: 80%;"><b>Rewriting the fitting procedure as a linear algebra problem, more details</b></a></li>
+     <!-- navigation toc: --> <li><a href="#generalizing-the-fitting-procedure-as-a-linear-algebra-problem" style="font-size: 80%;"><b>Generalizing the fitting procedure as a linear algebra problem</b></a></li>
+     <!-- navigation toc: --> <li><a href="#generalizing-the-fitting-procedure-as-a-linear-algebra-problem" style="font-size: 80%;"><b>Generalizing the fitting procedure as a linear algebra problem</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs040.html#optimizing-our-parameters" style="font-size: 80%;"><b>Optimizing our parameters</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs041.html#our-model-for-the-nuclear-binding-energies" style="font-size: 80%;"><b>Our model for the nuclear binding energies</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs042.html#optimizing-our-parameters-more-details" style="font-size: 80%;"><b>Optimizing our parameters, more details</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs046.html#interpretations-and-optimizing-our-parameters" style="font-size: 80%;"><b>Interpretations and optimizing our parameters</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs046.html#interpretations-and-optimizing-our-parameters" style="font-size: 80%;"><b>Interpretations and optimizing our parameters</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs045.html#some-useful-matrix-and-vector-expressions" style="font-size: 80%;"><b>Some useful matrix and vector expressions</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs046.html#interpretations-and-optimizing-our-parameters" style="font-size: 80%;"><b>Interpretations and optimizing our parameters</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs047.html#own-code-for-ordinary-least-squares" style="font-size: 80%;"><b>Own code for Ordinary Least Squares</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs048.html#adding-error-analysis-and-training-set-up" style="font-size: 80%;"><b>Adding error analysis and training set up</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs054.html#the-chi-2-function" style="font-size: 80%;"><b>The \( \chi^2 \) function</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs054.html#the-chi-2-function" style="font-size: 80%;"><b>The \( \chi^2 \) function</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs054.html#the-chi-2-function" style="font-size: 80%;"><b>The \( \chi^2 \) function</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs054.html#the-chi-2-function" style="font-size: 80%;"><b>The \( \chi^2 \) function</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs054.html#the-chi-2-function" style="font-size: 80%;"><b>The \( \chi^2 \) function</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs054.html#the-chi-2-function" style="font-size: 80%;"><b>The \( \chi^2 \) function</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs055.html#fitting-an-equation-of-state-for-dense-nuclear-matter" style="font-size: 80%;"><b>Fitting an Equation of State for Dense Nuclear Matter</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs056.html#the-code" style="font-size: 80%;"><b>The code</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs057.html#splitting-our-data-in-training-and-test-data" style="font-size: 80%;"><b>Splitting our Data in Training and Test data</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs058.html#exercises-for-week-35" style="font-size: 80%;"><b>Exercises for week 35</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs058.html#exercise-1-setting-up-various-python-environments" style="font-size: 80%;"><b>Exercise 1: Setting up various Python environments</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs058.html#exercise-2-making-your-own-data-and-exploring-scikit-learn" style="font-size: 80%;"><b>Exercise 2: making your own data and exploring scikit-learn</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week42-bs058.html#exercise-3-normalizing-our-data" style="font-size: 80%;"><b>Exercise 3: Normalizing our data</b></a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+
+<div class="container">
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+
+<a name="part0039"></a>
+<!-- !split -->
+
+<h2 id="generalizing-the-fitting-procedure-as-a-linear-algebra-problem" class="anchor">Generalizing the fitting procedure as a linear algebra problem  </h2>
+<div class="panel panel-default">
+<div class="panel-body">
+<p> <!-- subsequent paragraphs come in larger fonts, so start with a paragraph -->
+We redefine in turn the matrix \( \boldsymbol{X} \) as
+$$
+\boldsymbol{X}=
+\begin{bmatrix} 
+x_{00}& x_{01} &x_{02}& \dots & \dots &x_{0,n-1}\\
+x_{10}& x_{11} &x_{12}& \dots & \dots &x_{1,n-1}\\
+x_{20}& x_{21} &x_{22}& \dots & \dots &x_{2,n-1}\\                      
+\dots& \dots &\dots& \dots & \dots &\dots\\
+x_{n-1,0}& x_{n-1,1} &x_{n-1,2}& \dots & \dots &x_{n-1,n-1}\\
+\end{bmatrix} 
+$$
+
+and without loss of generality we rewrite again  our equations as
+$$
+\boldsymbol{y} = \boldsymbol{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}.
+$$
+
+The left-hand side of this equation is kwown. Our error vector \( \boldsymbol{\epsilon} \) and the parameter vector \( \boldsymbol{\beta} \) are our unknow quantities. How can we obtain the optimal set of \( \beta_i \) values?
+</div>
+</div>
+
+
+<p>
+<p>
+<!-- navigation buttons at the bottom of the page -->
+<ul class="pagination">
+<li><a href="._week42-bs038.html">&laquo;</a></li>
+  <li><a href="._week42-bs000.html">1</a></li>
+  <li><a href="">...</a></li>
+  <li><a href="._week42-bs031.html">32</a></li>
+  <li><a href="._week42-bs032.html">33</a></li>
+  <li><a href="._week42-bs033.html">34</a></li>
+  <li><a href="._week42-bs034.html">35</a></li>
+  <li><a href="._week42-bs035.html">36</a></li>
+  <li><a href="._week42-bs036.html">37</a></li>
+  <li><a href="._week42-bs037.html">38</a></li>
+  <li><a href="._week42-bs038.html">39</a></li>
+  <li class="active"><a href="._week42-bs039.html">40</a></li>
+  <li><a href="._week42-bs040.html">41</a></li>
+  <li><a href="._week42-bs041.html">42</a></li>
+  <li><a href="._week42-bs042.html">43</a></li>
+  <li><a href="._week42-bs043.html">44</a></li>
+  <li><a href="._week42-bs044.html">45</a></li>
+  <li><a href="._week42-bs045.html">46</a></li>
+  <li><a href="._week42-bs046.html">47</a></li>
+  <li><a href="._week42-bs047.html">48</a></li>
+  <li><a href="._week42-bs048.html">49</a></li>
+  <li><a href="">...</a></li>
+  <li><a href="._week42-bs058.html">59</a></li>
+  <li><a href="._week42-bs040.html">&raquo;</a></li>
+</ul>
+<!-- ------------------- end of main content --------------- -->
+
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+<!-- Bootstrap footer
+<footer>
+<a href="https://..."><img width="250" align=right src="https://..."></a>
+</footer>
+-->
+
+
+<center style="font-size:80%">
+<!-- copyright only on the titlepage -->
+</center>
+
+
+</body>
+</html>
+    
+
