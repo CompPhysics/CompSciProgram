@@ -3060,10 +3060,10 @@ This equation does not lead to a nice analytical equation as in either Ridge reg
 
 
 <section>
-<h2 id="exercises-for-week-36-september-6-10">Exercises for week 36, September 6-10 </h2>
+<h2 id="exercises-for-week-43">Exercises for week 43  </h2>
 
 <p>
-The exercises here are meant to prepare you for work with project 1. The first exercise is a follow-up of exercise 2 from week 35 August 30-September 3).
+The exercises here are meant to prepare you for work with project 1. The first exercise is a follow-up of exercise 2 from week 42.
 
 <p>
 <!-- --- begin exercise --- -->
@@ -3071,14 +3071,7 @@ The exercises here are meant to prepare you for work with project 1. The first e
 <h2 id="exercise-1-adding-ridge-and-lasso-regression">Exercise 1: Adding Ridge and Lasso Regression </h2>
 
 <p>
-This exercise is a continuation of exercise 2 from exercise set 1
-(week 35, August 30-September 3). We will use the same function to
-generate our data set, still staying with a simple function \( y(x) \)
-which we want to fit using linear regression, but now extending the
-analysis to include the Ridge and the Lasso regression methods.
-
-<p>
-We will thus again generate our own dataset for a function \( y(x) \) where 
+We will generate our own dataset for a function \( y(x) \) where 
 \( x \in [0,1] \) and defined by random numbers computed with the uniform
 distribution. The function \( y \) is a quadratic polynomial in \( x \) with
 added stochastic noise according to the normal distribution \( \cal{N}(0,1) \).
@@ -3356,15 +3349,6 @@ To set up the design matrix, the following code can be used
 			X[:,q+k] = (x**(i-k))*(y**k)
 
 	<span style="color: #8B008B; font-weight: bold">return</span> X
-
-
-<span style="color: #228B22"># Making meshgrid of datapoints and compute Franke&#39;s function</span>
-n = <span style="color: #B452CD">5</span>
-N = <span style="color: #B452CD">1000</span>
-x = np.sort(np.random.uniform(<span style="color: #B452CD">0</span>, <span style="color: #B452CD">1</span>, N))
-y = np.sort(np.random.uniform(<span style="color: #B452CD">0</span>, <span style="color: #B452CD">1</span>, N))
-z = FrankeFunction(x, y)
-X = create_X(x, y, n=n)    
 </pre></div>
 <p>
 Write then your own code for the Ridge method or use <b>Scikit-Learn</b>.

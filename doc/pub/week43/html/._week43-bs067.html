@@ -247,10 +247,7 @@ Automatically generated HTML file from DocOnce source
                2,
                None,
                'deriving-the-lasso-regression-equations'),
-              ('Exercises for week 36, September 6-10',
-               2,
-               None,
-               'exercises-for-week-36-september-6-10'),
+              ('Exercises for week 43', 2, None, 'exercises-for-week-43'),
               ('Exercise 1: Adding Ridge and Lasso Regression',
                2,
                None,
@@ -362,7 +359,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._week43-bs064.html#interpreting-the-ridge-results" style="font-size: 80%;"><b>Interpreting the Ridge results</b></a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs065.html#more-interpretations" style="font-size: 80%;"><b>More interpretations</b></a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs066.html#deriving-the-lasso-regression-equations" style="font-size: 80%;"><b>Deriving the  Lasso Regression Equations</b></a></li>
-     <!-- navigation toc: --> <li><a href="#exercises-for-week-36-september-6-10" style="font-size: 80%;"><b>Exercises for week 36, September 6-10</b></a></li>
+     <!-- navigation toc: --> <li><a href="#exercises-for-week-43" style="font-size: 80%;"><b>Exercises for week 43</b></a></li>
      <!-- navigation toc: --> <li><a href="#exercise-1-adding-ridge-and-lasso-regression" style="font-size: 80%;"><b>Exercise 1: Adding Ridge and Lasso Regression</b></a></li>
      <!-- navigation toc: --> <li><a href="#exercise-linear-regression-for-a-two-dimensional-function" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise: Linear Regression for  a two-dimensional function</a></li>
 
@@ -380,10 +377,10 @@ MathJax.Hub.Config({
 <a name="part0067"></a>
 <!-- !split -->
 
-<h2 id="exercises-for-week-36-september-6-10" class="anchor">Exercises for week 36, September 6-10 </h2>
+<h2 id="exercises-for-week-43" class="anchor">Exercises for week 43  </h2>
 
 <p>
-The exercises here are meant to prepare you for work with project 1. The first exercise is a follow-up of exercise 2 from week 35 August 30-September 3).
+The exercises here are meant to prepare you for work with project 1. The first exercise is a follow-up of exercise 2 from week 42.
 
 <p>
 <!-- --- begin exercise --- -->
@@ -391,14 +388,7 @@ The exercises here are meant to prepare you for work with project 1. The first e
 <h2 id="exercise-1-adding-ridge-and-lasso-regression" class="anchor">Exercise 1: Adding Ridge and Lasso Regression </h2>
 
 <p>
-This exercise is a continuation of exercise 2 from exercise set 1
-(week 35, August 30-September 3). We will use the same function to
-generate our data set, still staying with a simple function \( y(x) \)
-which we want to fit using linear regression, but now extending the
-analysis to include the Ridge and the Lasso regression methods.
-
-<p>
-We will thus again generate our own dataset for a function \( y(x) \) where 
+We will generate our own dataset for a function \( y(x) \) where 
 \( x \in [0,1] \) and defined by random numbers computed with the uniform
 distribution. The function \( y \) is a quadratic polynomial in \( x \) with
 added stochastic noise according to the normal distribution \( \cal{N}(0,1) \).
@@ -662,15 +652,6 @@ To set up the design matrix, the following code can be used
 			X[:,q<span style="color: #666666">+</span>k] <span style="color: #666666">=</span> (x<span style="color: #666666">**</span>(i<span style="color: #666666">-</span>k))<span style="color: #666666">*</span>(y<span style="color: #666666">**</span>k)
 
 	<span style="color: #008000; font-weight: bold">return</span> X
-
-
-<span style="color: #408080; font-style: italic"># Making meshgrid of datapoints and compute Franke&#39;s function</span>
-n <span style="color: #666666">=</span> <span style="color: #666666">5</span>
-N <span style="color: #666666">=</span> <span style="color: #666666">1000</span>
-x <span style="color: #666666">=</span> np<span style="color: #666666">.</span>sort(np<span style="color: #666666">.</span>random<span style="color: #666666">.</span>uniform(<span style="color: #666666">0</span>, <span style="color: #666666">1</span>, N))
-y <span style="color: #666666">=</span> np<span style="color: #666666">.</span>sort(np<span style="color: #666666">.</span>random<span style="color: #666666">.</span>uniform(<span style="color: #666666">0</span>, <span style="color: #666666">1</span>, N))
-z <span style="color: #666666">=</span> FrankeFunction(x, y)
-X <span style="color: #666666">=</span> create_X(x, y, n<span style="color: #666666">=</span>n)    
 </pre></div>
 <p>
 Write then your own code for the Ridge method or use <b>Scikit-Learn</b>.
