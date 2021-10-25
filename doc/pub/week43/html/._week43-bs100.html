@@ -348,7 +348,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._week43-bs001.html#video-of-lecture" style="font-size: 80%;">Video of Lecture</a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs002.html#preprocessing-our-data" style="font-size: 80%;">Preprocessing our data</a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs003.html#functionality-in-scikit-learn" style="font-size: 80%;">Functionality in Scikit-Learn</a></li>
-     <!-- navigation toc: --> <li><a href="#more-preprocessing" style="font-size: 80%;">More preprocessing</a></li>
+     <!-- navigation toc: --> <li><a href="._week43-bs004.html#more-preprocessing" style="font-size: 80%;">More preprocessing</a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs005.html#frequently-used-scaling-functions" style="font-size: 80%;">Frequently used scaling functions</a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs006.html#example-of-own-standard-scaling" style="font-size: 80%;">Example of own Standard scaling</a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs007.html#min-max-scaling" style="font-size: 80%;">Min-Max Scaling</a></li>
@@ -433,7 +433,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._week43-bs096.html#test-function-for-what-happens-with-ols-ridge-and-lasso" style="font-size: 80%;">Test Function for what happens with OLS, Ridge and Lasso</a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs098.html#invoking-bayes-theorem" style="font-size: 80%;">Invoking Bayes' theorem</a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs099.html#ridge-and-bayes" style="font-size: 80%;">Ridge and Bayes</a></li>
-     <!-- navigation toc: --> <li><a href="._week43-bs100.html#lasso-and-bayes" style="font-size: 80%;">Lasso and Bayes</a></li>
+     <!-- navigation toc: --> <li><a href="#lasso-and-bayes" style="font-size: 80%;">Lasso and Bayes</a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs090.html#deriving-ols-from-a-probability-distribution" style="font-size: 80%;">Deriving OLS from a probability distribution</a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs091.html#independent-and-identically-distrubuted-iid" style="font-size: 80%;">Independent and Identically Distrubuted (iid)</a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs092.html#maximum-likelihood-estimation-mle" style="font-size: 80%;">Maximum Likelihood Estimation (MLE)</a></li>
@@ -444,7 +444,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._week43-bs097.html#rerunning-the-above-code" style="font-size: 80%;">Rerunning the above code</a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs098.html#invoking-bayes-theorem" style="font-size: 80%;">Invoking Bayes' theorem</a></li>
      <!-- navigation toc: --> <li><a href="._week43-bs099.html#ridge-and-bayes" style="font-size: 80%;">Ridge and Bayes</a></li>
-     <!-- navigation toc: --> <li><a href="._week43-bs100.html#lasso-and-bayes" style="font-size: 80%;">Lasso and Bayes</a></li>
+     <!-- navigation toc: --> <li><a href="#lasso-and-bayes" style="font-size: 80%;">Lasso and Bayes</a></li>
 
         </ul>
       </li>
@@ -457,60 +457,58 @@ MathJax.Hub.Config({
 
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
 
-<a name="part0004"></a>
+<a name="part0100"></a>
 <!-- !split -->
 
-<h2 id="more-preprocessing" class="anchor">More preprocessing </h2>
+<h2 id="lasso-and-bayes" class="anchor">Lasso and Bayes </h2>
 
 <p>
-<div class="panel panel-default">
-<div class="panel-body">
-<p> <!-- subsequent paragraphs come in larger fonts, so start with a paragraph -->
-The <b>Normalizer</b> scales each data
-point such that the feature vector has a euclidean length of one. In other words, it
-projects a data point on the circle (or sphere in the case of higher dimensions) with a
-radius of 1. This means every data point is scaled by a different number (by the
-inverse of it&#8217;s length).
-This normalization is often used when only the direction (or angle) of the data matters,
-not the length of the feature vector.
+To derive the Lasso cost function, we simply replace the Gaussian prior with an exponential distribution (<a href="https://en.wikipedia.org/wiki/Laplace_distribution" target="_self">Laplace in this case</a>) with zero mean value,  that is
+
+$$
+p(\boldsymbol{\beta})=\prod_{j=0}^{p-1}\exp{\left(-\frac{\vert\beta_j\vert}{\tau}\right)}.
+$$
 
 <p>
-The <b>RobustScaler</b> works similarly to the StandardScaler in that it
-ensures statistical properties for each feature that guarantee that
-they are on the same scale. However, the RobustScaler uses the median
-and quartiles, instead of mean and variance. This makes the
-RobustScaler ignore data points that are very different from the rest
-(like measurement errors). These odd data points are also called
-outliers, and might often lead to trouble for other scaling
-techniques.
+Our posterior probability becomes then (omitting the normalization factor which is just a constant)
+$$
+p(\boldsymbol{\beta}\vert\boldsymbol{D})=\prod_{i=0}^{n-1}\frac{1}{\sqrt{2\pi\sigma^2}}\exp{\left[-\frac{(y_i-\boldsymbol{X}_{i,*}\boldsymbol{\beta})^2}{2\sigma^2}\right]}\prod_{j=0}^{p-1}\exp{\left(-\frac{\vert\beta_j\vert}{\tau}\right)}.
+$$
 
 <p>
-</div>
-</div>
+Taking the negative
+logarithm of the posterior probability and leaving out the
+constants terms that do not depend on \( \beta \), we have
 
+$$
+C(\boldsymbol{\beta}=\frac{\vert\vert (\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})\vert\vert_2^2}{2\sigma^2}+\frac{1}{\tau}\vert\vert\boldsymbol{\beta}\vert\vert_1,
+$$
+
+and replacing \( 1/\tau \) with \( \lambda \) we have
+
+$$
+C(\boldsymbol{\beta}=\frac{\vert\vert (\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})\vert\vert_2^2}{2\sigma^2}+\lambda\vert\vert\boldsymbol{\beta}\vert\vert_1,
+$$
+
+which is our Lasso cost function!
 
 <p>
+
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pagination">
-<li><a href="._week43-bs003.html">&laquo;</a></li>
+<li><a href="._week43-bs099.html">&laquo;</a></li>
   <li><a href="._week43-bs000.html">1</a></li>
-  <li><a href="._week43-bs001.html">2</a></li>
-  <li><a href="._week43-bs002.html">3</a></li>
-  <li><a href="._week43-bs003.html">4</a></li>
-  <li class="active"><a href="._week43-bs004.html">5</a></li>
-  <li><a href="._week43-bs005.html">6</a></li>
-  <li><a href="._week43-bs006.html">7</a></li>
-  <li><a href="._week43-bs007.html">8</a></li>
-  <li><a href="._week43-bs008.html">9</a></li>
-  <li><a href="._week43-bs009.html">10</a></li>
-  <li><a href="._week43-bs010.html">11</a></li>
-  <li><a href="._week43-bs011.html">12</a></li>
-  <li><a href="._week43-bs012.html">13</a></li>
-  <li><a href="._week43-bs013.html">14</a></li>
   <li><a href="">...</a></li>
-  <li><a href="._week43-bs100.html">101</a></li>
-  <li><a href="._week43-bs005.html">&raquo;</a></li>
+  <li><a href="._week43-bs092.html">93</a></li>
+  <li><a href="._week43-bs093.html">94</a></li>
+  <li><a href="._week43-bs094.html">95</a></li>
+  <li><a href="._week43-bs095.html">96</a></li>
+  <li><a href="._week43-bs096.html">97</a></li>
+  <li><a href="._week43-bs097.html">98</a></li>
+  <li><a href="._week43-bs098.html">99</a></li>
+  <li><a href="._week43-bs099.html">100</a></li>
+  <li class="active"><a href="._week43-bs100.html">101</a></li>
 </ul>
 <!-- ------------------- end of main content --------------- -->
 
