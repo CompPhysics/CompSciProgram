@@ -480,8 +480,6 @@ for i in range(nlambdas):
     OwnRidgeBeta = np.linalg.pinv(X_train_scaled.T @ X_train_scaled+lmb*I) @ X_train_scaled.T @ (y_train_scaled)
     intercept_ = y_scaler - X_train_mean@OwnRidgeBeta #The intercept can be shifted so the model can predict on uncentered data
     #Add intercept to prediction
-    ypredictOwnRidge = X_test @ OwnRidgeBeta + intercept_ 
-    #Add intercept to prediction
     ypredictOwnRidge = X_test_scaled @ OwnRidgeBeta + y_scaler 
     RegRidge = linear_model.Ridge(lmb)
     RegRidge.fit(X_train,y_train)

@@ -369,7 +369,7 @@ MathJax.Hub.Config({
 <center>[2] <b>Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University</b></center>
 <br>
 <p>
-<center><h4>Oct 25, 2021</h4></center> <!-- date -->
+<center><h4>Oct 26, 2021</h4></center> <!-- date -->
 <br>
 <p>
 <!-- !split --><br><br><br><br><br><br><br><br><br><br>
@@ -890,8 +890,6 @@ lambdas = np.logspace(-<span style="color: #B452CD">4</span>, <span style="color
     lmb = lambdas[i]
     OwnRidgeBeta = np.linalg.pinv(X_train_scaled.T @ X_train_scaled+lmb*I) @ X_train_scaled.T @ (y_train_scaled)
     intercept_ = y_scaler - X_train_mean<span style="color: #707a7c">@OwnRidgeBeta</span> <span style="color: #228B22">#The intercept can be shifted so the model can predict on uncentered data</span>
-    <span style="color: #228B22">#Add intercept to prediction</span>
-    ypredictOwnRidge = X_test @ OwnRidgeBeta + intercept_ 
     <span style="color: #228B22">#Add intercept to prediction</span>
     ypredictOwnRidge = X_test_scaled @ OwnRidgeBeta + y_scaler 
     RegRidge = linear_model.Ridge(lmb)
