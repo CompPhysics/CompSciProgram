@@ -7,8 +7,8 @@ pub_url = 'https://compphysics.github.io/CompSciProgram/doc/web'
 published = ['week42', 'week43', 'week44', 'week45', 'week46', 'week47', 'week48', ]
 chapters = {
  'week42': 'Week 42 October 18-22: Linear Regression and discussion of project 1',
- 'week43': 'Week 43 October 25-29: Regularization and Resampling'
- 'week44': 'Week 44 November 1-5: Kernel Regression ',
+ 'week43': 'Week 43 October 25-29: Regularization'
+ 'week44': 'Week 44 November 1-5: Resampling and more on Ridge and Lasso',
  'week45': 'Week 45 November 8-12: Logistic Regression',
  'week46': 'Week 46 November 15-19: Optimization and Gradient Methods',
  'week47': 'Week 47 November 22-26: Support Vector Machines',
