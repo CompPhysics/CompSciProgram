@@ -40,3 +40,7 @@ running mako on course.do.txt to make tmp_mako__course.do.txt
 This could indicate that the mako template code is not compatible with the version of Python currently used by DocOnce and mako, which is Python 3.9.7
 avoided abortion because of --no-abort
 *** mako error:
+running mako on course.do.txt to make tmp_mako__course.do.txt
+*** mako error: mako.exceptions.SyntaxException
+   (SyntaxError) invalid syntax (<unknown>, line 6) ("pub_url = 'https://compphysics.github.io/CompSciPr") at line: 5 char: 1
+This could indicate that the mako template code is not compatible with the version of Python currently used by DocOnce and mako, which is Python 3.9.7
