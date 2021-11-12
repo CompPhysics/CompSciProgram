@@ -1,6 +1,7 @@
 <!--
-Automatically generated HTML file from DocOnce source
+HTML file automatically generated from DocOnce source
 (https://github.com/doconce/doconce/)
+doconce format html Project1.do.txt --html_style=bootstrap --pygments_html_style=default --html_admon=bootstrap_panel --html_output=Project1-bs
 -->
 <html>
 <head>
@@ -8,24 +9,20 @@ Automatically generated HTML file from DocOnce source
 <meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Project 1 on Computational Physics and Machine Learning, deadline December 15, 2021">
-
 <title>Project 1 on Computational Physics and Machine Learning, deadline December 15, 2021</title>
-
 <!-- Bootstrap style: bootstrap -->
+<!-- doconce format html Project1.do.txt --html_style=bootstrap --pygments_html_style=default --html_admon=bootstrap_panel --html_output=Project1-bs -->
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 <!-- not necessary
 <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 -->
-
 <style type="text/css">
-
 /* Add scrollbar to dropdown menus in bootstrap navigation bar */
 .dropdown-menu {
    height: auto;
    max-height: 400px;
    overflow-x: hidden;
 }
-
 /* Adds an invisible element before each target to offset for the navigation
    bar */
 .anchor::before {
@@ -35,8 +32,6 @@ Automatically generated HTML file from DocOnce source
   margin:-50px 0 0; /* negative fixed header height */
 }
 </style>
-
-
 </head>
 
 <!-- tocinfo
@@ -121,8 +116,6 @@ MathJax.Hub.Config({
 </script>
 
 
-
-    
 <!-- Bootstrap navigation bar -->
 <div class="navbar navbar-default navbar-fixed-top">
   <div class="navbar-header">
@@ -133,7 +126,6 @@ MathJax.Hub.Config({
     </button>
     <a class="navbar-brand" href="Project1-bs.html">Project 1 on Computational Physics and Machine Learning, deadline December 15, 2021</a>
   </div>
-
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
@@ -161,56 +153,48 @@ MathJax.Hub.Config({
   </div>
 </div>
 </div> <!-- end of navigation bar -->
-
 <div class="container">
-
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
-
 <a name="part0000"></a>
 <!-- ------------------- main content ---------------------- -->
-
-
-
 <div class="jumbotron">
-<center><h1>Project 1 on Computational Physics and Machine Learning, deadline December 15, 2021</h1></center>  <!-- document title -->
+<center>
+<h1>Project 1 on Computational Physics and Machine Learning, deadline December 15, 2021</h1>
+</center>  <!-- document title -->
 
-<p>
 <!-- author(s): <a href="http://www.uio.no/studier/emner/matnat/fys/FYS3155/index-eng.html" target="_self">Data Analysis and Machine Learning FYS-STK3155/FYS4155</a> -->
-
 <center>
 <b><a href="http://www.uio.no/studier/emner/matnat/fys/FYS3155/index-eng.html" target="_self">Data Analysis and Machine Learning FYS-STK3155/FYS4155</a></b> 
 </center>
-
-<p>
 <!-- institution -->
+<center>
+<b>Department of Physics, University of Oslo, Norway</b>
+</center>
+<br>
+<center>
+<h4>Nov 12, 2021</h4>
+</center> <!-- date -->
+<br>
 
-<center><b>Department of Physics, University of Oslo, Norway</b></center>
-<br>
-<p>
-<center><h4>Oct 18, 2021</h4></center> <!-- date -->
-<br>
-<p>
+
 </div> <!-- end jumbotron -->
-
 <h2 id="regression-analysis-and-resampling-methods" class="anchor">Regression analysis and resampling methods  </h2>
 
-<p>
-The main aim of this project is to study in more detail various
+<p>The main aim of this project is to study in more detail various
 regression methods, including the Ordinary Least Squares (OLS) method,
 Ridge regression and finally Lasso regression and eventually kernel
 regression and/or Bayesian Linear Regression as well as Logistic
 Regression for classification problems. The project includes also a
 discussion of support vector machines for classification problems.
+</p>
 
-<p>
-The numerical methods include matrix inversion, singular value decomposition, convex optimization methods 
-(gradient descent, steepest descent, stochastic gradient descent, ie iterative solvers) and several central (deterministic) ML methods.
+<p>The numerical methods include matrix inversion, singular value decomposition, convex optimization methods 
+(gradient descent, steepest descent, stochastic gradient descent, ie iterative solvers) and several central (deterministic) ML methods. 
+</p>
 
-<p>
-The methods are in turn combined with resampling techniques like the bootstrap method and cross validation.
+<p>The methods are in turn combined with resampling techniques like the bootstrap method and cross validation. </p>
 
-<p>
-We will first study how to fit polynomials to a specific
+<p>We will first study how to fit polynomials to a specific
 two-dimensional function called <a href="http://www.dtic.mil/dtic/tr/fulltext/u2/a081688.pdf" target="_self">Franke's
 function</a>.  This
 is a function which has been widely used when testing various
@@ -219,9 +203,9 @@ established the model and the method, we will employ resamling
 techniques such as cross-validation and/or bootstrap in order to perform a
 proper assessment of our models. We will also study in detail the
 so-called Bias-Variance trade off.
+</p>
 
-<p>
-The Franke function, which is a weighted sum of four exponentials  reads as follows
+<p>The Franke function, which is a weighted sum of four exponentials  reads as follows</p>
 $$
 \begin{align*}
 f(x,y) &= \frac{3}{4}\exp{\left(-\frac{(9x-2)^2}{4} - \frac{(9y-2)^2}{4}\right)}+\frac{3}{4}\exp{\left(-\frac{(9x+1)^2}{49}- \frac{(9y+1)}{10}\right)} \\
@@ -229,14 +213,13 @@ f(x,y) &= \frac{3}{4}\exp{\left(-\frac{(9x-2)^2}{4} - \frac{(9y-2)^2}{4}\right)}
 \end{align*}
 $$
 
-<p>
-The function is  defined for \( x,y\in [0,1] \).  Our first step will
+<p>The function is  defined for \( x,y\in [0,1] \).  Our first step will
 be to perform an OLS regression analysis of this function, trying out
 a polynomial fit with an \( x \) and \( y \) dependence of the form \( [x, y,x^2, y^2, xy, \dots] \). We will also include bootstrap first as
 a resampling technique.  After that we will include the cross-validation technique.
+</p>
 
-<p>
-We can use a uniform
+<p>We can use a uniform
 distribution to set up the arrays of values for \( x \) and \( y \), or as in
 the example below just a set of fixed 
 values for \( x \) and \( y \) with a given step
@@ -245,13 +228,17 @@ function (for example a polynomial) of \( x \) and \( y \).  Thereafter we
 will repeat much of the same procedure using Ridge and Lasso
 regression, introducing thus a dependence on the regularization parameter 
 (also called penalty) \( \lambda \).
+</p>
 
-<p>
-The Python code for the Franke function is included here (it performs also a three-dimensional plot of it)
-<p>
+<p>The Python code for the Franke function is included here (it performs also a three-dimensional plot of it)</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">mpl_toolkits.mplot3d</span> <span style="color: #008000; font-weight: bold">import</span> Axes3D
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">mpl_toolkits.mplot3d</span> <span style="color: #008000; font-weight: bold">import</span> Axes3D
 <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
 <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">matplotlib</span> <span style="color: #008000; font-weight: bold">import</span> cm
 <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">matplotlib.ticker</span> <span style="color: #008000; font-weight: bold">import</span> LinearLocator, FormatStrFormatter
@@ -291,270 +278,256 @@ ax<span style="color: #666666">.</span>zaxis<span style="color: #666666">.</span
 fig<span style="color: #666666">.</span>colorbar(surf, shrink<span style="color: #666666">=0.5</span>, aspect<span style="color: #666666">=5</span>)
 
 plt<span style="color: #666666">.</span>show()
-</pre></div>
-
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <h3 id="discussion-of-data-sets-and-report-format" class="anchor">Discussion of data sets and report format </h3>
 
-<p>
-Before we proceed however, we would like to add some words about data sets and how to prepare your reports.
+<p>Before we proceed however, we would like to add some words about data sets and how to prepare your reports.</p>
 
-<p>
-The data sets that we propose here are (the default sets)
+<p>The data sets that we propose here are (the default sets)</p>
 
 <ul>
 <li> Regression (fitting a continuous function). 
-
 <ol type="a"></li>
  <li> Either the Franke function proposed by us or data sets your propose.</li>
 </ol>
-
 <li> Classification. Here you will also need to develop a Logistic regression code. The data set we propose are the so-called <a href="https://www.kaggle.com/uciml/breast-cancer-wisconsin-data" target="_self">Wisconsin Breat Cancer Data</a> data set of images representing various features of tumors. A longer explanation with links to the scientific literature can be found at the <a href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29" target="_self">Machine Learning repository of the University of California at Irvine</a>. Feel free to consult this site and the pertinent  literature.</li>
 </ul>
+<p>You can find more information about this at the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html" target="_self">Scikit-Learn site</a> or at the <a href="https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(original)" target="_self">University of California at Irvine</a>. </p>
 
-You can find more information about this at the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html" target="_self">Scikit-Learn site</a> or at the <a href="https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(original)" target="_self">University of California at Irvine</a>.
-
-<p>
-However, if you would like to study other data sets, feel free to
+<p>However, if you would like to study other data sets, feel free to
 propose other sets. What we list here are mere suggestions from our
 side. If you opt for another data set, consider using a set which
 has been studied in the scientific literature. This makes it easier
 for you to compare and analyze your results. Comparing with existing results from the scientific literature  is also an essential
 element of the scientific discussion.  The University of California at Irvine with its Machine Learning repository at <a href="https://archive.ics.uci.edu/ml/index.php" target="_self"><tt>https://archive.ics.uci.edu/ml/index.php</tt></a> is an excellent site to look up for examples and inspiration. <a href="https://www.kaggle.com/" target="_self">Kaggle.com</a> is an equally interesting site. Feel free to explore these sites.
+</p>
 
-<p>
-Your answers to the projects  have to be presented  as a standard scientific report. The instructions on how to do this and how we grade are available at <a href="https://github.com/CompPhysics/MachineLearning/blob/master/doc/Projects/EvaluationGrading/EvaluationForm.md" target="_self"><tt>https://github.com/CompPhysics/MachineLearning/blob/master/doc/Projects/EvaluationGrading/EvaluationForm.md</tt></a>.  Please do spend some time to read our guidelines. For PhD students the grades are either passed or not passed, with a threshold of at least  the grade B.
-
+<p>Your answers to the projects  have to be presented  as a standard scientific report. The instructions on how to do this and how we grade are available at <a href="https://github.com/CompPhysics/MachineLearning/blob/master/doc/Projects/EvaluationGrading/EvaluationForm.md" target="_self"><tt>https://github.com/CompPhysics/MachineLearning/blob/master/doc/Projects/EvaluationGrading/EvaluationForm.md</tt></a>.  Please do spend some time to read our guidelines. For PhD students the grades are either passed or not passed, with a threshold of at least  the grade B. </p>
 <h3 id="part-a-ordinary-least-square-ols-on-the-franke-function" class="anchor">Part a): Ordinary Least Square (OLS) on the Franke function </h3>
 
-<p>
-We will generate our own dataset for a function
+<p>We will generate our own dataset for a function
 \( \mathrm{FrankeFunction}(x,y) \) with \( x,y \in [0,1] \). The function
 \( f(x,y) \) is the Franke function. You should explore also the addition
 of an added stochastic noise to this function using the normal
 distribution \( N(0,1) \).
+</p>
 
-<p>
-<em>Write your own code</em> (using either a matrix inversion or a singular
+<p><em>Write your own code</em> (using either a matrix inversion or a singular
 value decomposition from e.g., <b>numpy</b> ) and perform a standard least square regression
 analysis using polynomials in \( x \) and \( y \) up to fifth order. You can use all the functionality of Numpy.
+</p>
 
 $$ MSE(\boldsymbol{y},\boldsymbol{\tilde{y}}) = \frac{1}{n}
 \sum_{i=0}^{n-1}(y_i-\tilde{y}_i)^2, 
 $$
 
-<p>
-and the \( R^2 \) score function.  If \( \tilde{\boldsymbol{y}}_i \) is the predicted
+<p>and the \( R^2 \) score function.  If \( \tilde{\boldsymbol{y}}_i \) is the predicted
 value of the \( i-th \) sample and \( y_i \) is the corresponding true value,
 then the score \( R^2 \) is defined as
+</p>
 
 $$
 R^2(\boldsymbol{y}, \tilde{\boldsymbol{y}}) = 1 - \frac{\sum_{i=0}^{n - 1} (y_i - \tilde{y}_i)^2}{\sum_{i=0}^{n - 1} (y_i - \bar{y})^2},
 $$
 
-<p>
-where we have defined the mean value  of \( \boldsymbol{y} \) as
+<p>where we have defined the mean value  of \( \boldsymbol{y} \) as</p>
 
 $$
 \bar{y} =  \frac{1}{n} \sum_{i=0}^{n - 1} y_i.
 $$
 
-<p>
-You should consider and discuss ways to scale your data and
+<p>You should consider and discuss ways to scale your data and
 split the data in training and test data. For this part you can
 either write your own code or use for example the function for
 splitting training data provided by the library <b>Scikit-Learn</b> (make
 sure you have installed it).  This function is called
 \( train\_test\_split \). Similarly, you can use the data normalization/scaling functionality of
 <b>Scikit-Learn</b>.
+</p>
 
-<p>
-It is normal in essentially all Machine Learning studies to split the
+<p>It is normal in essentially all Machine Learning studies to split the
 data in a training set and a test set (eventually  also an additional
 validation set).  There
 is no explicit recipe for how much data should be included as training
 data and say test data.  An accepted rule of thumb is to use
 approximately \( 2/3 \) to \( 4/5 \) of the data as training data.
-
+</p>
 <h3 id="part-b-bias-variance-trade-off-and-resamplng-techniques" class="anchor">Part b): Bias-variance trade-off and resamplng techniques </h3>
 
-<p>
-Our aim here is to study the bias-variance trade-off by implementing the <b>bootstrap</b> resampling technique.
+<p>Our aim here is to study the bias-variance trade-off by implementing the <b>bootstrap</b> resampling technique.</p>
 
-<p>
-With a code which does OLS and includes resampling techniques, 
+<p>With a code which does OLS and includes resampling techniques, 
 we will now discuss the bias-variance trade-off in the context of
 continuous predictions such as regression. However, many of the
 intuitions and ideas discussed here also carry over to classification
-tasks and basically all Machine Learning algorithms.
+tasks and basically all Machine Learning algorithms. 
+</p>
 
-<p>
-Before you perform an analysis of the bias-variance trade-off on your test data, make
+<p>Before you perform an analysis of the bias-variance trade-off on your test data, make
 first a figure similar to Fig. 2.11 of Hastie, Tibshirani, and
 Friedman. Figure 2.11 of this reference displays only the test and training MSEs. The test MSE can be used to 
 indicate possible regions of low/high bias and variance. You will most likely not get an
 equally smooth curve!
+</p>
 
-<p>
-With this result we move on to the bias-variance trade-off analysis.
+<p>With this result we move on to the bias-variance trade-off analysis.</p>
 
-<p>
-Consider a
+<p>Consider a
 dataset \( \mathcal{L} \) consisting of the data
 \( \mathbf{X}_\mathcal{L}=\{(y_j, \boldsymbol{x}_j), j=0\ldots n-1\} \).
+</p>
 
-<p>
-Let us assume that the true data is generated from a noisy model
+<p>Let us assume that the true data is generated from a noisy model</p>
 
 $$
 \boldsymbol{y}=f(\boldsymbol{x}) + \boldsymbol{\epsilon}.
 $$
 
-<p>
-Here \( \epsilon \) is normally distributed with mean zero and standard
+<p>Here \( \epsilon \) is normally distributed with mean zero and standard
 deviation \( \sigma^2 \).
+</p>
 
-<p>
-In our derivation of the ordinary least squares method we defined then
+<p>In our derivation of the ordinary least squares method we defined then
 an approximation to the function \( f \) in terms of the parameters
 \( \boldsymbol{\beta} \) and the design matrix \( \boldsymbol{X} \) which embody our model,
 that is \( \boldsymbol{\tilde{y}}=\boldsymbol{X}\boldsymbol{\beta} \).
+</p>
 
-<p>
-The parameters \( \boldsymbol{\beta} \) are in turn found by optimizing the means
+<p>The parameters \( \boldsymbol{\beta} \) are in turn found by optimizing the means
 squared error via the so-called cost function
+</p>
 
 $$
 C(\boldsymbol{X},\boldsymbol{\beta}) =\frac{1}{n}\sum_{i=0}^{n-1}(y_i-\tilde{y}_i)^2=\mathbb{E}\left[(\boldsymbol{y}-\boldsymbol{\tilde{y}})^2\right].
 $$
 
-Here the expected value \( \mathbb{E} \) is the sample value.
+<p>Here the expected value \( \mathbb{E} \) is the sample value. </p>
 
-<p>
-The mean squared error can be rewritten as
+<p>The mean squared error can be rewritten as</p>
 $$
 \mathbb{E}\left[(\boldsymbol{y}-\boldsymbol{\tilde{y}})^2\right]=\frac{1}{n}\sum_i(y_i-\mathbb{E}\left[\boldsymbol{\tilde{y}}\right])^2+\frac{1}{n}\sum_i(\tilde{y}_i-\mathbb{E}\left[\boldsymbol{\tilde{y}}\right])^2+\sigma^2.
 $$
 
-<p>
-Explain what the terms mean, which one is the bias and which one is
+<p>Explain what the terms mean, which one is the bias and which one is
 the variance and discuss their interpretations.
+</p>
 
-<p>
-Perform then a bias-variance analysis of the Franke function by
+<p>Perform then a bias-variance analysis of the Franke function by
 studying the MSE value as function of the complexity of your model.
+</p>
 
-<p>
-Discuss the bias and variance trade-off as function
+<p>Discuss the bias and variance trade-off as function
 of your model complexity (the degree of the polynomial) and the number
 of data points, and possibly also your training and test data using the <b>bootstrap</b> resampling method.
-
+</p>
 <h3 id="part-c-cross-validation-as-resampling-techniques-adding-more-complexity" class="anchor">Part c) Cross-validation as resampling techniques, adding more complexity </h3>
 
-<p>
-The aim here is to write your own code for another widely popular
+<p>The aim here is to write your own code for another widely popular
 resampling technique, the so-called cross-validation method.  Again,
 before you start with cross-validation approach, you should consider to scale your
 data.  You can use also folding splitting provided by <b>Scikit-Learn</b>.
+</p>
 
-<p>
-Implement the \( k \)-fold cross-validation algorithm and evaluate again the MSE function resulting
+<p>Implement the \( k \)-fold cross-validation algorithm and evaluate again the MSE function resulting
 from the test folds. You can compare your own code with that from
-<b>Scikit-Learn</b> if needed.
+<b>Scikit-Learn</b> if needed. 
+</p>
 
-<p>
-Compare the MSE you get from your cross-validation code with the one you got from your <b>bootstrap</b> code. Comment your results. Try \( 5-10 \) folds. 
-You can also compare your own cross-validation code with the one provided by <b>Scikit-Learn</b>.
-
+<p>Compare the MSE you get from your cross-validation code with the one you got from your <b>bootstrap</b> code. Comment your results. Try \( 5-10 \) folds. 
+You can also compare your own cross-validation code with the one provided by <b>Scikit-Learn</b>. 
+</p>
 <h3 id="part-d-ridge-regression-on-the-franke-function-with-resampling" class="anchor">Part d): Ridge Regression on the Franke function  with resampling </h3>
 
-<p>
-Write your own code for the Ridge method, either using matrix
+<p>Write your own code for the Ridge method, either using matrix
 inversion or the singular value decomposition as done in the previous
 exercise or howework 2 (see also chapter 3.4 of Hastie <em>et al.</em>,
 equations (3.43) and (3.44)). Perform the same bootstrap analysis as in the
 part b)  (for the same polynomials) and the cross-validation part in part c) but now for different values of \( \lambda \). Compare and
 analyze your results with those obtained in parts a-c). Study the
 dependence on \( \lambda \).
+</p>
 
-<p>
-Study also the bias-variance trade-off as function of various values of
-the parameter \( \lambda \). For the bias-variance trade-off, use the <b>bootstrap</b> resampling method. Comment your results.
-
+<p>Study also the bias-variance trade-off as function of various values of
+the parameter \( \lambda \). For the bias-variance trade-off, use the <b>bootstrap</b> resampling method. Comment your results. 
+</p>
 <h3 id="part-e-lasso-regression-on-the-franke-function-with-resampling" class="anchor">Part e): Lasso Regression on the Franke function  with resampling </h3>
 
-<p>
-This part is essentially a repeat of the previous two ones, but now
+<p>This part is essentially a repeat of the previous two ones, but now
 with Lasso regression. Write either your own code (difficult and optional) or, in this case,
 you can also use the functionalities of <b>Scikit-Learn</b> (recommended). 
 Give a
 critical discussion of the three methods and a judgement of which
-model fits the data best.  Perform here as well an analysis of the bias-variance trade-off using the <b>bootstrap</b> resampling technique and an analysis of the mean squared error using cross-validation.
-
+model fits the data best.  Perform here as well an analysis of the bias-variance trade-off using the <b>bootstrap</b> resampling technique and an analysis of the mean squared error using cross-validation. 
+</p>
 <h3 id="part-f-write-your-own-stochastic-gradient-descent-code-first-step" class="anchor">Part f): Write your own Stochastic Gradient Descent  code, first step </h3>
 
-<p>
-In order to get started with Logistic regression, we will now replace in our standard ordinary
+<p>In order to get started with Logistic regression, we will now replace in our standard ordinary
 least squares (OLS) and Ridge regression codes the matrix inversion
 algorithm with our own SGD code. You can choose whether you want to
 add the momentum SGD optionality or other SGD variants such as RMSprop
-or ADAgrad or ADAM.
+or ADAgrad or ADAM. 
+</p>
 
-<p>
-Perform an analysis of the results for OLS and Ridge regression as
+<p>Perform an analysis of the results for OLS and Ridge regression as
 function of the chosen learning rates, the number of mini-batches and
 epochs as well as algorithm for scaling the learning rate. You can
 also compare your own results with those that can be obtained using
 for example <b>Scikit-Learn</b>'s various SGD options.  Discuss your
 results. For Ridge regression you need now to study the results as functions of  the hyper-parameter \( \lambda \) and 
-the learning rate \( \gamma \).
+the learning rate \( \gamma \). 
+</p>
 
-<p>
-You will need your SGD code for the setup of the Logistic Regression codes. You will find the Python <a href="https://seaborn.pydata.org/generated/seaborn.heatmap.html" target="_self">Seaborn package</a> useful when plotting the results as function of the learning rate \( \eta \) and the hyper-parameter \( \lambda \) when you use Ridge regression.
-
+<p>You will need your SGD code for the setup of the Logistic Regression codes. You will find the Python <a href="https://seaborn.pydata.org/generated/seaborn.heatmap.html" target="_self">Seaborn package</a> useful when plotting the results as function of the learning rate \( \eta \) and the hyper-parameter \( \lambda \) when you use Ridge regression.</p>
 <h3 id="part-g-write-your-logistic-regression-code-final-step" class="anchor">Part g): Write your Logistic Regression code, final step </h3>
 
-<p>
-We will now study a classification problem (using the Wisconsin breast cancer data as possible data set) with 
+<p>We will now study a classification problem (using the Wisconsin breast cancer data as possible data set) with 
 Logistic regression.
+</p>
 
-<p>
-Define your cost function and the design matrix before you start writing your code.
+<p>Define your cost function and the design matrix before you start writing your code.
 Write thereafter a Logistic regression code using your SGD algorithm. You can also use standard gradient descent in this case, with a learning rate as hyper-parameter.
 Study the results as functions of the chosen learning rates.
-Add also an \( l_2 \) regularization parameter \( \lambda \). Compare your results with those from your FFNN code as well as those obtained using <b>Scikit-Learn</b>'s logistic regression functionality.
+Add also an \( l_2 \) regularization parameter \( \lambda \). Compare your results with those obtained using <b>Scikit-Learn</b>'s logistic regression functionality.
 You should consider scaling/normalizing your data and include cross-validation.
-
+</p>
 <h3 id="part-h-support-vector-machines" class="anchor">Part h): Support Vector Machines  </h3>
 
-<p>
-For the classification problem, we include now support vector machines. Feel free to use <b>Scikit-Learn's</b> functionality here and compare your results with those obtained from logistic regression.
-
+<p>For the classification problem, we include now support vector machines. Feel free to use <b>Scikit-Learn's</b> functionality here and compare your results with those obtained from logistic regression. </p>
 <h3 id="part-i-critical-evaluation-of-the-various-algorithms" class="anchor">Part i) Critical evaluation of the various algorithms </h3>
 
-<p>
-After all these glorious calculations, you should now summarize the
+<p>After all these glorious calculations, you should now summarize the
 various algorithms and come with a critical evaluation of their pros
 and cons. Which algorithm works best for the regression case and which
 is best for the classification case. These codes can also be part of
 your final project 3, but now applied to other data sets.
-
+</p>
 <h2 id="background-literature" class="anchor">Background literature </h2>
 
 <ol>
 <li> For a discussion and derivation of the variances and mean squared errors using linear regression, see the <a href="https://arxiv.org/abs/1509.09169" target="_self">Lecture notes on ridge regression by Wessel N. van Wieringen</a></li>
 <li> The textbook of <a href="https://www.springer.com/gp/book/9780387848570" target="_self">Trevor Hastie, Robert Tibshirani, Jerome H. Friedman, The Elements of Statistical Learning, Springer</a>, chapters 3 and 7 are the most relevant ones for the analysis here. 
-
 <ol type="a"></li>
 <li> <a href="https://arxiv.org/abs/1803.08823" target="_self">Mehta et al, arXiv 1803.08823</a>, <em>A high-bias, low-variance introduction to Machine Learning for physicists</em>, ArXiv:1803.08823.</li>
 </ol>
-
 </ol>
-
 <h2 id="introduction-to-numerical-projects" class="anchor">Introduction to numerical projects </h2>
 
-<p>
-Here follows a brief recipe and recommendation on how to write a report for each
+<p>Here follows a brief recipe and recommendation on how to write a report for each
 project.
+</p>
 
 <ul>
   <li> Give a short description of the nature of the problem and the eventual  numerical methods you have used.</li>
@@ -567,58 +540,46 @@ project.
   <li> Critique: if possible include your comments and reflections about the  exercise, whether you felt you learnt something, ideas for improvements and  other thoughts you've made when solving the exercise. We wish to keep this course at the interactive level and your comments can help us improve it.</li>
   <li> Try to establish a practice where you log your work at the  computerlab. You may find such a logbook very handy at later stages in your work, especially when you don't properly remember  what a previous test version  of your program did. Here you could also record  the time spent on solving the exercise, various algorithms you may have tested or other topics which you feel worthy of mentioning.</li>
 </ul>
-
 <h2 id="format-for-electronic-delivery-of-report-and-programs" class="anchor">Format for electronic delivery of report and programs </h2>
 
-<p>
-The preferred format for the report is a PDF file. You can also use DOC or postscript formats or as an ipython notebook file.  As programming language we prefer that you choose between C/C++, Fortran2008, Julia, Rust or Python. For the machine learning topics, Python is recommended. The following prescription should be followed when preparing the report:
+<p>The preferred format for the report is a PDF file. You can also use DOC or postscript formats or as an ipython notebook file.  As programming language we prefer that you choose between C/C++, Fortran2008, Julia, Rust or Python. For the machine learning topics, Python is recommended. The following prescription should be followed when preparing the report:</p>
 
 <ul>
   <li> Upload <b>only</b> the report file or the link to your GitHub/GitLab or similar typo of  repos!  For the source code file(s) you have developed please provide us with your link to your GitHub/GitLab or similar  domain.  The report file should include all of your discussions and a list of the codes you have developed.  Do not include library files which are available at the course homepage, unless you have made specific changes to them.</li>
   <li> In your GitHub/GitLab or similar repository, please include a folder which contains selected results. These can be in the form of output from your code for a selected set of runs and input parameters.</li>
 </ul>
-
 <h2 id="software-and-needed-installations" class="anchor">Software and needed installations </h2>
 
-<p>
-If you have Python installed (we recommend Python3) and you feel pretty familiar with installing different packages, 
+<p>If you have Python installed (we recommend Python3) and you feel pretty familiar with installing different packages, 
 we recommend that you install the following Python packages via <b>pip</b> as
-
+</p>
 <ol>
 <li> pip install numpy scipy matplotlib ipython scikit-learn tensorflow sympy pandas pillow</li>
 </ol>
+<p>For Python3, replace <b>pip</b> with <b>pip3</b>.</p>
 
-For Python3, replace <b>pip</b> with <b>pip3</b>.
+<p>See below for a discussion of <b>tensorflow</b> and <b>scikit-learn</b>. </p>
 
-<p>
-See below for a discussion of <b>tensorflow</b> and <b>scikit-learn</b>.
-
-<p>
-For OSX users we recommend also, after having installed Xcode, to install <b>brew</b>. Brew allows 
+<p>For OSX users we recommend also, after having installed Xcode, to install <b>brew</b>. Brew allows 
 for a seamless installation of additional software via for example
-
+</p>
 <ol>
 <li> brew install python3</li>
 </ol>
-
-For Linux users, with its variety of distributions like for example the widely popular Ubuntu distribution
+<p>For Linux users, with its variety of distributions like for example the widely popular Ubuntu distribution
 you can use <b>pip</b> as well and simply install Python as 
-
+</p>
 <ol>
 <li> sudo apt-get install python3  (or python for python2.7)</li>
 </ol>
+<p>etc etc. </p>
 
-etc etc.
-
-<p>
-If you don't want to install various Python packages with their dependencies separately, we recommend two widely used distrubutions which set up  all relevant dependencies for Python, namely
-
+<p>If you don't want to install various Python packages with their dependencies separately, we recommend two widely used distrubutions which set up  all relevant dependencies for Python, namely</p>
 <ol>
 <li> <a href="https://docs.anaconda.com/" target="_self">Anaconda</a> Anaconda is an open source distribution of the Python and R programming languages for large-scale data processing, predictive analytics, and scientific computing, that aims to simplify package management and deployment. Package versions are managed by the package management system <b>conda</b></li>
 <li> <a href="https://www.enthought.com/product/canopy/" target="_self">Enthought canopy</a>  is a Python distribution for scientific and analytic computing distribution and analysis environment, available for free and under a commercial license.</li>
 </ol>
-
-Popular software packages written in Python for ML are
+<p>Popular software packages written in Python for ML are</p>
 
 <ul>
 <li> <a href="http://scikit-learn.org/stable/" target="_self">Scikit-learn</a>,</li> 
@@ -626,12 +587,10 @@ Popular software packages written in Python for ML are
 <li> <a href="http://pytorch.org/" target="_self">PyTorch</a> and</li> 
 <li> <a href="https://keras.io/" target="_self">Keras</a>.</li>
 </ul>
-
-These are all freely available at their respective GitHub sites. They 
+<p>These are all freely available at their respective GitHub sites. They 
 encompass communities of developers in the thousands or more. And the number
 of code developers and contributors keeps increasing.
-
-<p>
+</p>
 
 <p>
 <!-- navigation buttons at the bottom of the page -->
@@ -639,25 +598,18 @@ of code developers and contributors keeps increasing.
   <li class="active"><a href="._Project1-bs000.html">1</a></li>
 </ul>
 <!-- ------------------- end of main content --------------- -->
-
 </div>  <!-- end container -->
 <!-- include javascript, jQuery *first* -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-
 <!-- Bootstrap footer
 <footer>
 <a href="https://..."><img width="250" align=right src="https://..."></a>
 </footer>
 -->
-
-
 <center style="font-size:80%">
 <!-- copyright --> &copy; 1999-2021, "Data Analysis and Machine Learning FYS-STK3155/FYS4155":"http://www.uio.no/studier/emner/matnat/fys/FYS3155/index-eng.html". Released under CC Attribution-NonCommercial 4.0 license
 </center>
-
-
 </body>
 </html>
-    
 

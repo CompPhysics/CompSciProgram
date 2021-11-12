@@ -1,7 +1,7 @@
 %%
 %% Automatically generated file from DocOnce source
-%% (https://github.com/hplgit/doconce/)
-%%
+%% (https://github.com/doconce/doconce/)
+%% doconce format latex Project1.do.txt --print_latex_style=trac --latex_admon=paragraph
 %%
 % #ifdef PTEX2TEX_EXPLANATION
 %%
@@ -155,7 +155,7 @@ Project 1 on Computational Physics and Machine Learning, deadline December 15, 2
 
 % --- begin date ---
 \begin{center}
-Oct 18, 2021
+Nov 12, 2021
 \end{center}
 % --- end date ---
 
@@ -163,9 +163,6 @@ Oct 18, 2021
 
 
 \subsection{Regression analysis and resampling methods}
-
-
-
 
 The main aim of this project is to study in more detail various
 regression methods, including the Ordinary Least Squares (OLS) method,
@@ -189,7 +186,6 @@ techniques such as cross-validation and/or bootstrap in order to perform a
 proper assessment of our models. We will also study in detail the
 so-called Bias-Variance trade off.
 
-
 The Franke function, which is a weighted sum of four exponentials  reads as follows
 \begin{align*}
 f(x,y) &= \frac{3}{4}\exp{\left(-\frac{(9x-2)^2}{4} - \frac{(9y-2)^2}{4}\right)}+\frac{3}{4}\exp{\left(-\frac{(9x+1)^2}{49}- \frac{(9y+1)}{10}\right)} \\
@@ -211,8 +207,49 @@ will repeat much of the same procedure using Ridge and Lasso
 regression, introducing thus a dependence on the regularization parameter 
 (also called penalty) $\lambda$.
 
-
 The Python code for the Franke function is included here (it performs also a three-dimensional plot of it)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \bpycod
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
@@ -255,6 +292,7 @@ fig.colorbar(surf, shrink=0.5, aspect=5)
 
 plt.show()
 
+
 \epycod
 
 
@@ -278,7 +316,6 @@ The data sets that we propose here are (the default sets)
 \noindent
 You can find more information about this at the \href{{https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html}}{Scikit-Learn site} or at the \href{{https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(original)}}{University of California at Irvine}. 
 
-
 However, if you would like to study other data sets, feel free to
 propose other sets. What we list here are mere suggestions from our
 side. If you opt for another data set, consider using a set which
@@ -287,8 +324,6 @@ for you to compare and analyze your results. Comparing with existing results fro
 element of the scientific discussion.  The University of California at Irvine with its Machine Learning repository at \href{{https://archive.ics.uci.edu/ml/index.php}}{\nolinkurl{https://archive.ics.uci.edu/ml/index.php}} is an excellent site to look up for examples and inspiration. \href{{https://www.kaggle.com/}}{Kaggle.com} is an equally interesting site. Feel free to explore these sites.
 
 Your answers to the projects  have to be presented  as a standard scientific report. The instructions on how to do this and how we grade are available at \href{{https://github.com/CompPhysics/MachineLearning/blob/master/doc/Projects/EvaluationGrading/EvaluationForm.md}}{\nolinkurl{https://github.com/CompPhysics/MachineLearning/blob/master/doc/Projects/EvaluationGrading/EvaluationForm.md}}.  Please do spend some time to read our guidelines. For PhD students the grades are either passed or not passed, with a threshold of at least  the grade B. 
-
-
 
 \paragraph{Part a): Ordinary Least Square (OLS) on the Franke function.}
 We will generate our own dataset for a function
@@ -319,8 +354,6 @@ where we have defined the mean value  of $\bm{y}$ as
 \bar{y} =  \frac{1}{n} \sum_{i=0}^{n - 1} y_i.
 \]
 
-
-
 You should consider and discuss ways to scale your data and
 split the data in training and test data. For this part you can
 either write your own code or use for example the function for
@@ -335,11 +368,6 @@ validation set).  There
 is no explicit recipe for how much data should be included as training
 data and say test data.  An accepted rule of thumb is to use
 approximately $2/3$ to $4/5$ of the data as training data.
-
-
-
-
-
 
 \paragraph{Part b): Bias-variance trade-off and resamplng techniques.}
 Our aim here is to study the bias-variance trade-off by implementing the \textbf{bootstrap} resampling technique.
@@ -399,7 +427,6 @@ Discuss the bias and variance trade-off as function
 of your model complexity (the degree of the polynomial) and the number
 of data points, and possibly also your training and test data using the \textbf{bootstrap} resampling method.
 
-
 \paragraph{Part c) Cross-validation as resampling techniques, adding more complexity.}
 The aim here is to write your own code for another widely popular
 resampling technique, the so-called cross-validation method.  Again,
@@ -412,7 +439,6 @@ from the test folds. You can compare your own code with that from
 
 Compare the MSE you get from your cross-validation code with the one you got from your \textbf{bootstrap} code. Comment your results. Try $5-10$ folds. 
 You can also compare your own cross-validation code with the one provided by \textbf{Scikit-Learn}. 
-
 
 \paragraph{Part d): Ridge Regression on the Franke function  with resampling.}
 Write your own code for the Ridge method, either using matrix
@@ -434,7 +460,6 @@ Give a
 critical discussion of the three methods and a judgement of which
 model fits the data best.  Perform here as well an analysis of the bias-variance trade-off using the \textbf{bootstrap} resampling technique and an analysis of the mean squared error using cross-validation. 
 
-
 \paragraph{Part f): Write your own Stochastic Gradient Descent  code, first step.}
 In order to get started with Logistic regression, we will now replace in our standard ordinary
 least squares (OLS) and Ridge regression codes the matrix inversion
@@ -452,17 +477,14 @@ the learning rate $\gamma$.
 
 You will need your SGD code for the setup of the Logistic Regression codes. You will find the Python \href{{https://seaborn.pydata.org/generated/seaborn.heatmap.html}}{Seaborn package} useful when plotting the results as function of the learning rate $\eta$ and the hyper-parameter $\lambda$ when you use Ridge regression.
 
-
-
 \paragraph{Part g): Write your Logistic Regression code, final step.}
 We will now study a classification problem (using the Wisconsin breast cancer data as possible data set) with 
 Logistic regression.
 
-
 Define your cost function and the design matrix before you start writing your code.
 Write thereafter a Logistic regression code using your SGD algorithm. You can also use standard gradient descent in this case, with a learning rate as hyper-parameter.
 Study the results as functions of the chosen learning rates.
-Add also an $l_2$ regularization parameter $\lambda$. Compare your results with those from your FFNN code as well as those obtained using \textbf{Scikit-Learn}'s logistic regression functionality.
+Add also an $l_2$ regularization parameter $\lambda$. Compare your results with those obtained using \textbf{Scikit-Learn}'s logistic regression functionality.
 You should consider scaling/normalizing your data and include cross-validation.
 
 \paragraph{Part h): Support Vector Machines.}
@@ -474,9 +496,6 @@ various algorithms and come with a critical evaluation of their pros
 and cons. Which algorithm works best for the regression case and which
 is best for the classification case. These codes can also be part of
 your final project 3, but now applied to other data sets.
-
-
-
 
 \subsection{Background literature}
 
@@ -583,19 +602,6 @@ Popular software packages written in Python for ML are
 These are all freely available at their respective GitHub sites. They 
 encompass communities of developers in the thousands or more. And the number
 of code developers and contributors keeps increasing.
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 % ------------------- end of main content ---------------

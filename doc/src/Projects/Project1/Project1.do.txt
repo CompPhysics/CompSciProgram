@@ -317,7 +317,7 @@ Logistic regression.
 Define your cost function and the design matrix before you start writing your code.
 Write thereafter a Logistic regression code using your SGD algorithm. You can also use standard gradient descent in this case, with a learning rate as hyper-parameter.
 Study the results as functions of the chosen learning rates.
-Add also an $l_2$ regularization parameter $\lambda$. Compare your results with those from your FFNN code as well as those obtained using _Scikit-Learn_'s logistic regression functionality.
+Add also an $l_2$ regularization parameter $\lambda$. Compare your results with those obtained using _Scikit-Learn_'s logistic regression functionality.
 You should consider scaling/normalizing your data and include cross-validation.
 
 ===  Part h): Support Vector Machines  ===
