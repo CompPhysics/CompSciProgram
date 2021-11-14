@@ -713,16 +713,9 @@ print(X_test.shape)
 logreg = LogisticRegression(solver='lbfgs')
 logreg.fit(X_train, y_train)
 print("Test set accuracy with Logistic Regression: {:.2f}".format(logreg.score(X_test,y_test)))
-#now scale the data
-from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
-scaler.fit(X_train)
-X_train_scaled = scaler.transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-# Logistic Regression
-logreg.fit(X_train_scaled, y_train)
-print("Test set accuracy Logistic Regression with scaled data: {:.2f}".format(logreg.score(X_test_scaled,y_test)))
 !ec
+
+Question: How would you scale these data?
 
 !split
 ===== Using the correlation matrix =====
@@ -818,30 +811,20 @@ print(X_test.shape)
 logreg = LogisticRegression(solver='lbfgs')
 logreg.fit(X_train, y_train)
 print("Test set accuracy with Logistic Regression: {:.2f}".format(logreg.score(X_test,y_test)))
-#now scale the data
-from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
-scaler.fit(X_train)
-X_train_scaled = scaler.transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-# Logistic Regression
-logreg.fit(X_train_scaled, y_train)
-print("Test set accuracy Logistic Regression with scaled data: {:.2f}".format(logreg.score(X_test_scaled,y_test)))
-
 
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import cross_validate
 #Cross validation
-accuracy = cross_validate(logreg,X_test_scaled,y_test,cv=10)['test_score']
+accuracy = cross_validate(logreg,X_test,y_test,cv=10)['test_score']
 print(accuracy)
-print("Test set accuracy with Logistic Regression  and scaled data: {:.2f}".format(logreg.score(X_test_scaled,y_test)))
+print("Test set accuracy with Logistic Regression: {:.2f}".format(logreg.score(X_test_scaled,y_test)))
 
 
 import scikitplot as skplt
-y_pred = logreg.predict(X_test_scaled)
+y_pred = logreg.predict(X_test)
 skplt.metrics.plot_confusion_matrix(y_test, y_pred, normalize=True)
 plt.show()
-y_probas = logreg.predict_proba(X_test_scaled)
+y_probas = logreg.predict_proba(X_test)
 skplt.metrics.plot_roc(y_test, y_probas)
 plt.show()
 skplt.metrics.plot_cumulative_gain(y_test, y_probas)
@@ -1902,6 +1885,51 @@ plt.show()
 
 Write a code which implements gradient descent for a logistic regression example.
 
+!split
+===== Overview video on Stochastic Gradient Descent =====
+
+"What is Stochastic Gradient Descent":"https://www.youtube.com/watch?v=vMh0zPT0tLI&ab_channel=StatQuestwithJoshStarmer"
+
+
+!split
+=====  Batches and mini-batches =====
+
+In gradient descent we compute the cost function and its gradient for all data points we have.
+
+In large-scale applications such as the "ILSVRC challenge":"https://www.image-net.org/challenges/LSVRC/", the
+training data can have on order of millions of examples. Hence, it
+seems wasteful to compute the full cost function over the entire
+training set in order to perform only a single parameter update. A
+very common approach to addressing this challenge is to compute the
+gradient over batches of the training data. For example, in current
+a typical batch could contain some thousand  examples from
+an  entire training set of several millions. This batch is then used to
+perform a parameter update.
+
+!split
+===== Stochastic Gradient Descent (SGD) =====
+
+In stochastic gradient descent, the extreme case is the case where we
+have only one batch, that is we include the whole data set.
+
+This process is called Stochastic Gradient
+Descent (SGD) (or also sometimes on-line gradient descent). This is
+relatively less common to see because in practice due to vectorized
+code optimizations it can be computationally much more efficient to
+evaluate the gradient for 100 examples, than the gradient for one
+example 100 times. Even though SGD technically refers to using a
+single example at a time to evaluate the gradient, you will hear
+people use the term SGD even when referring to mini-batch gradient
+descent (i.e. mentions of MGD for “Minibatch Gradient Descent”, or BGD
+for “Batch gradient descent” are rare to see), where it is usually
+assumed that mini-batches are used. The size of the mini-batch is a
+hyperparameter but it is not very common to cross-validate or bootstrap it. It is
+usually based on memory constraints (if any), or set to some value,
+e.g. 32, 64 or 128. We use powers of 2 in practice because many
+vectorized operation implementations work faster when their inputs are
+sized in powers of 2.
+
+In our notes with  SGD we mean stochastic gradient descent with mini-batches.
 
 
 
@@ -2216,292 +2244,6 @@ plt.show()
 
 !ec
 
-
-!split
-===== Overview video on Stochastic Gradient Descent =====
-
-"What is Stochastic Gradient Descent":"https://www.youtube.com/watch?v=vMh0zPT0tLI&ab_channel=StatQuestwithJoshStarmer"
-
-
-!split
-=====  Batches and mini-batches =====
-
-In gradient descent we compute the cost function and its gradient for all data points we have.
-
-In large-scale applications such as the "ILSVRC challenge":"https://www.image-net.org/challenges/LSVRC/", the
-training data can have on order of millions of examples. Hence, it
-seems wasteful to compute the full cost function over the entire
-training set in order to perform only a single parameter update. A
-very common approach to addressing this challenge is to compute the
-gradient over batches of the training data. For example, in current
-a typical batch could contain some thousand  examples from
-an  entire training set of several millions. This batch is then used to
-perform a parameter update.
-
-!split
-===== Stochastic Gradient Descent (SGD) =====
-
-In stochastic gradient descent, the extreme case is the case where we
-have only one batch, that is we include the whole data set.
-
-This process is called Stochastic Gradient
-Descent (SGD) (or also sometimes on-line gradient descent). This is
-relatively less common to see because in practice due to vectorized
-code optimizations it can be computationally much more efficient to
-evaluate the gradient for 100 examples, than the gradient for one
-example 100 times. Even though SGD technically refers to using a
-single example at a time to evaluate the gradient, you will hear
-people use the term SGD even when referring to mini-batch gradient
-descent (i.e. mentions of MGD for “Minibatch Gradient Descent”, or BGD
-for “Batch gradient descent” are rare to see), where it is usually
-assumed that mini-batches are used. The size of the mini-batch is a
-hyperparameter but it is not very common to cross-validate or bootstrap it. It is
-usually based on memory constraints (if any), or set to some value,
-e.g. 32, 64 or 128. We use powers of 2 in practice because many
-vectorized operation implementations work faster when their inputs are
-sized in powers of 2.
-
-In our notes with  SGD we mean stochastic gradient descent with mini-batches.
-
-
-!split
-===== Stochastic Gradient Descent =====
-
-Stochastic gradient descent (SGD) and variants thereof address some of
-the shortcomings of the Gradient descent method discussed above.
-
-The underlying idea of SGD comes from the observation that the cost
-function, which we want to minimize, can almost always be written as a
-sum over $n$ data points $\{\mathbf{x}_i\}_{i=1}^n$,
-!bt
-\[
-C(\mathbf{\beta}) = \sum_{i=1}^n c_i(\mathbf{x}_i,
-\mathbf{\beta}). 
-\]
-!et
-
-!split
-===== Computation of gradients =====
-
-This in turn means that the gradient can be
-computed as a sum over $i$-gradients 
-!bt
-\[
-\nabla_\beta C(\mathbf{\beta}) = \sum_i^n \nabla_\beta c_i(\mathbf{x}_i,
-\mathbf{\beta}).
-\]
-!et
-
-Stochasticity/randomness is introduced by only taking the
-gradient on a subset of the data called minibatches.  If there are $n$
-data points and the size of each minibatch is $M$, there will be $n/M$
-minibatches. We denote these minibatches by $B_k$ where
-$k=1,\cdots,n/M$.
-
-!split
-===== SGD example =====
-
-As an example, suppose we have $10$ data points $(\mathbf{x}_1,\cdots, \mathbf{x}_{10})$ 
-and we choose to have $M=5$ minibathces,
-then each minibatch contains two data points. In particular we have
-$B_1 = (\mathbf{x}_1,\mathbf{x}_2), \cdots, B_5 =
-(\mathbf{x}_9,\mathbf{x}_{10})$. Note that if you choose $M=1$ you
-have only a single batch with all data points and on the other extreme,
-you may choose $M=n$ resulting in a minibatch for each datapoint, i.e
-$B_k = \mathbf{x}_k$.
-
-The idea is now to approximate the gradient by replacing the sum over
-all data points with a sum over the data points in one the minibatches
-picked at random in each gradient descent step 
-!bt
-\[
-\nabla_{\beta}
-C(\mathbf{\beta}) = \sum_{i=1}^n \nabla_\beta c_i(\mathbf{x}_i,
-\mathbf{\beta}) \rightarrow \sum_{i \in B_k}^n \nabla_\beta
-c_i(\mathbf{x}_i, \mathbf{\beta}).
-\]
-!et
-
-!split
-===== The gradient step =====
-
-Thus a gradient descent step now looks like 
-!bt
-\[
-\beta_{j+1} = \beta_j - \gamma_j \sum_{i \in B_k}^n \nabla_\beta c_i(\mathbf{x}_i,
-\mathbf{\beta})
-\]
-!et
-
-where $k$ is picked at random with equal
-probability from $[1,n/M]$. An iteration over the number of
-minibathces (n/M) is commonly referred to as an epoch. Thus it is
-typical to choose a number of epochs and for each epoch iterate over
-the number of minibatches, as exemplified in the code below.
-
-!split
-===== Simple example code =====
-
-!bc pycod
-import numpy as np 
-
-n = 100 #100 datapoints 
-M = 5   #size of each mini-batche
-m = int(n/M) #number of minibatches
-n_epochs = 10 #number of epochs
-
-j = 0
-for epoch in range(1,n_epochs+1):
-    for i in range(m):
-        k = np.random.randint(m) #Pick the k-th minibatch at random
-        #Compute the gradient using the data in minibatch Bk
-        #Compute new suggestion for 
-        j += 1
-!ec
-
-Taking the gradient only on a subset of the data has two important
-benefits. First, it introduces randomness which decreases the chance
-that our opmization scheme gets stuck in a local minima. Second, if
-the size of the minibatches are small relative to the number of
-datapoints ($M <  n$), the computation of the gradient is much
-cheaper since we sum over the datapoints in the $k-th$ minibatch and not
-all $n$ datapoints.
-
-!split
-===== When do we stop? =====
-
-A natural question is when do we stop the search for a new minimum?
-One possibility is to compute the full gradient after a given number
-of epochs and check if the norm of the gradient is smaller than some
-threshold and stop if true. However, the condition that the gradient
-is zero is valid also for local minima, so this would only tell us
-that we are close to a local/global minimum. However, we could also
-evaluate the cost function at this point, store the result and
-continue the search. If the test kicks in at a later stage we can
-compare the values of the cost function and keep the $\beta$ that
-gave the lowest value.
-
-!split
-===== Slightly different approach =====
-
-Another approach is to let the step length $\gamma_j$ depend on the
-number of epochs in such a way that it becomes very small after a
-reasonable time such that we do not move at all.
-
-As an example, let $e = 0,1,2,3,\cdots$ denote the current epoch and let $t_0, t_1 > 0$ be two fixed numbers. Furthermore, let $t = e \cdot m + i$ where $m$ is the number of minibatches and $i=0,\cdots,m-1$. Then the function $$\gamma_j(t; t_0, t_1) = \frac{t_0}{t+t_1} $$ goes to zero as the number of epochs gets large. I.e. we start with a step length $\gamma_j (0; t_0, t_1) = t_0/t_1$ which decays in *time* $t$.
-
-In this way we can fix the number of epochs, compute $\beta$ and
-evaluate the cost function at the end. Repeating the computation will
-give a different result since the scheme is random by design. Then we
-pick the final $\beta$ that gives the lowest value of the cost
-function.
-
-!bc pycod
-import numpy as np 
-
-def step_length(t,t0,t1):
-    return t0/(t+t1)
-
-n = 100 #100 datapoints 
-M = 5   #size of each minibatch
-m = int(n/M) #number of minibatches
-n_epochs = 500 #number of epochs
-t0 = 1.0
-t1 = 10
-
-gamma_j = t0/t1
-j = 0
-for epoch in range(1,n_epochs+1):
-    for i in range(m):
-        k = np.random.randint(m) #Pick the k-th minibatch at random
-        #Compute the gradient using the data in minibatch Bk
-        #Compute new suggestion for beta
-        t = epoch*m+i
-        gamma_j = step_length(t,t0,t1)
-        j += 1
-
-print("gamma_j after %d epochs: %g" % (n_epochs,gamma_j))
-!ec
-
-
-We note that we have defined several hyperparameters. These are now the number of epochs, the number of mini-batches and the parameters $t_0$ and $t_1$.
-
-
-!split
-=====  Program for stochastic gradient =====
-
-!bc pycod
-# Importing various packages
-# Importing various packages
-from math import exp, sqrt
-from random import random, seed
-import numpy as np
-import matplotlib.pyplot as plt
-
-n = 100
-x = 2*np.random.rand(n,1)
-y = 4+3*x+np.random.randn(n,1)
-
-X = np.c_[np.ones((n,1)), x]
-XT_X = X.T @ X
-theta_linreg = np.linalg.inv(X.T @ X) @ (X.T @ y)
-print("Own inversion")
-print(theta_linreg)
-# Hessian matrix
-H = (2.0/n)* XT_X
-EigValues, EigVectors = np.linalg.eig(H)
-print(f"Eigenvalues of Hessian Matrix:{EigValues}")
-
-theta = np.random.randn(2,1)
-eta = 1.0/np.max(EigValues)
-Niterations = 1000
-
-
-for iter in range(Niterations):
-    gradients = 2.0/n*X.T @ ((X @ theta)-y)
-    theta -= eta*gradients
-print("theta from own gd")
-print(theta)
-
-xnew = np.array([[0],[2]])
-Xnew = np.c_[np.ones((2,1)), xnew]
-ypredict = Xnew.dot(theta)
-ypredict2 = Xnew.dot(theta_linreg)
-
-n_epochs = 50
-M = 5   #size of each minibatch
-m = int(n/M) #number of minibatches
-t0, t1 = 5, 50
-def learning_schedule(t):
-    return t0/(t+t1)
-
-theta = np.random.randn(2,1)
-
-for epoch in range(n_epochs):
-# Can you figure out a better way of setting up the contributions to each batch?
-    for i in range(m):
-        random_index = M*np.random.randint(m)
-        xi = X[random_index:random_index+M]
-        yi = y[random_index:random_index+M]
-        gradients = (2.0/M)* xi.T @ ((xi @ theta)-yi)
-        eta = learning_schedule(epoch*m+i)
-        theta = theta - eta*gradients
-print("theta from own sdg")
-print(theta)
-
-
-
-
-plt.plot(xnew, ypredict, "r-")
-plt.plot(xnew, ypredict2, "b-")
-plt.plot(x, y ,'ro')
-plt.axis([0,2.0,0, 15.0])
-plt.xlabel(r'$x$')
-plt.ylabel(r'$y$')
-plt.title(r'Random numbers ')
-plt.show()
-
-!ec
 
 
 
