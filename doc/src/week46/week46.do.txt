@@ -363,6 +363,14 @@ plt.show()
 !ec
 
 
+!split
+===== Replace or not =====
+
+In the above code, we have use replacement in setting up the
+mini-batches. The discussion
+"here":"https://sebastianraschka.com/faq/docs/sgd-methods.html" may be
+useful.  More material will be added later.
+
 
 
 
@@ -433,7 +441,7 @@ Rearranging this equation, we can rewrite this as
 !split
 ===== Momentum parameter =====
 
-Notice that this equation is identical to previous one if we identify
+Notice that this equation is identical to the previous one if we identify
 the position of the particle, $\mathbf{w}$, with the parameters
 $\boldsymbol{\theta}$. This allows us to identify the momentum
 parameter and learning rate with the mass of the particle and the
@@ -1103,7 +1111,7 @@ for epoch in range(n_epochs):
         random_index = M*np.random.randint(m)
         xi = X[random_index:random_index+M]
         yi = y[random_index:random_index+M]
-        gradients = (2.0/M)*training_gradient(yi, xi, theta)
+        gradients = (1.0/M)*training_gradient(yi, xi, theta)
         eta = learning_schedule(epoch*m+i)
         theta = theta - eta*gradients
 print("theta from own sdg")
@@ -1150,5 +1158,12 @@ for i in range(100):
 
 print("Trained loss:", training_loss(weights))
 !ec
+
+
+
+
+
+
+
 
 
