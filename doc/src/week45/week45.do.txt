@@ -4,6 +4,10 @@ DATE: today
 
 
 !split
+=====  Video of Lecture =====
+"Video of Lecture November 15":"https://www.uio.no/studier/emner/matnat/fys/FYS-STK4155/h21/forelesningsvideoer/LectureNovember15-1.mp4?vrtx=view-as-webpage"
+
+!split
 ===== Searching for Optimal Regularization Parameters $\lambda$ =====
 
 In project 1, when using Ridge and Lasso regression, we end up
