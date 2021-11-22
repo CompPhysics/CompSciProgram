@@ -4,6 +4,11 @@ DATE: today
 
 
 !split
+===== Video November 22 =====
+
+"Video of Lecture November 22":"https://www.uio.no/studier/emner/matnat/fys/FYS-STK3155/h21/forelesningsvideoer/LectureNovember22-1.mp4?vrtx=view-as-webpage"
+
+!split
 ===== Overview video on Stochastic Gradient Descent =====
 
 "What is Stochastic Gradient Descent":"https://www.youtube.com/watch?v=vMh0zPT0tLI&ab_channel=StatQuestwithJoshStarmer"
