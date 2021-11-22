@@ -62,3 +62,10 @@ In total 20 ECTS.
 ### November 15
 - Video of Lecture at https://www.uio.no/studier/emner/matnat/fys/FYS-STK4155/h21/forelesningsvideoer/LectureNovember15-1.mp4?vrtx=view-as-webpage
 -  Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week45/html/week45-reveal.html and https://compphysics.github.io/CompSciProgram/doc/pub/week46/html/week46-reveal.html 
+
+
+### November 22
+- Video of Lecture at https://www.uio.no/studier/emner/matnat/fys/FYS-STK3155/h21/forelesningsvideoer/LectureNovember22-1.mp4?vrtx=view-as-webpage
+-  Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week45/html/week45-reveal.html and https://compphysics.github.io/CompSciProgram/doc/pub/week46/html/week46-reveal.html 
+
+
