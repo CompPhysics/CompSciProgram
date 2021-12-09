@@ -6,6 +6,7 @@ DATE: today
 ===== Overview of week 49 =====
 
 * Discussion of Support Vector Machines and project 1
+* "Video of Lecture December 9":"https://www.uio.no/studier/emner/matnat/fys/FYS-STK3155/h21/forelesningsvideoer/LectureDecember9.mp4?vrtx=view-as-webpage"
 
 _Reading recommendations:
  o Geron's chapter 5.
