@@ -6,6 +6,7 @@ DATE: today
 ===== Overview of week 50 =====
 
 * Final part of Support Vector Machines and project 1
+* "Video of Lecture":"https://www.uio.no/studier/emner/matnat/fys/FYS-STK4155/h21/forelesningsvideoer/LectureDecember13-1.mp4?vrtx=view-as-webpage"
 
 _Reading recommendations:
  o Geron's chapter 5.
