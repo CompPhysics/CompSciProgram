@@ -75,5 +75,5 @@ In total 20 ECTS.
 
 
 ### December 13
-- Video of Lecture at https://www.uio.no/studier/emner/matnat/fys/FYS-STK3155/h21/forelesningsvideoer/LectureDecember13.mp4?vrtx=view-as-webpage (to be uploaded after the lecture)
+- Video of Lecture at https://www.uio.no/studier/emner/matnat/fys/FYS-STK4155/h21/forelesningsvideoer/LectureDecember13-1.mp4?vrtx=view-as-webpage
 -  Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week50/html/week50-reveal.html 
