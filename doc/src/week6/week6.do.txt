@@ -26,15 +26,13 @@ DATE: today
 * Aurelien Geron, chapter 14 on RNNs.
 
 
-!split
-===== Summary on Deep Learning Methods =====
 
-We have studied fully connected neural networks (also called artifical nueral networks) and convolutional neural networks (CNNs).
 
-The first type of deep learning networks work very well on homogeneous and structured input data while CCNs are normally tailored to recognizing images.
 
 !split
 ===== CNNs in brief =====
+
+To be revised.
 
 In summary:
 
