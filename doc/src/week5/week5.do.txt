@@ -1,4 +1,4 @@
-TITLE: Solving differential equations and Convolutional (CNN)
+TITLE: Solving differential equations and start CNNs
 AUTHOR: Morten Hjorth-Jensen {copyright, 1999-present|CC BY-NC} at Department of Physics, University of Oslo & Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University
 DATE: today
 
@@ -7,7 +7,7 @@ DATE: today
 ===== Plan for week 5 =====
 
 !bblock
-* Solving differential equations with Neural Networks and start Convolutional Neural Networks and examples.
+* Solving differential equations with Neural Networks
 * Start Convolutional  Neural Networks. 
 * Reading recommendations:
   o For neural networks we recommend Goodfellow et al chapters 6 and 7. For CNNs, see Goodfellow et al chapter 9. See also chapter 11 and 12 on practicalities and applications
