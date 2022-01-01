@@ -5,6 +5,8 @@ DATE: today
 !split
 ===== Plans for week 7 =====
 
+* Autoenconders and Variational Autoencoders
+* General Avdersarial Networks
 
 !bblock  Excellent lectures on CNNs and RNNs 
 * "Video  on Convolutional Neural Networks from MIT":"https://www.youtube.com/watch?v=iaSUYvmCekI&ab_channel=AlexanderAmini"
