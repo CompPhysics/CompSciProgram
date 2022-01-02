@@ -17,6 +17,7 @@ o "Video on Clustering":"https://www.youtube.com/watch?v=esmzYhuFnds&ab_channel=
 o Clustering and PCA, see Geron's chapter 8 and "Lecture notes":"https://compphysics.github.io/MachineLearning/doc/LectureNotes/_build/html/chapter8.html". Bishop's chapter 9.1 is also a good read.
 !eblock
 
+
 !split
 ===== Digression First =====
 
@@ -28,6 +29,37 @@ and hardware. The emphasis is onintegrating power Machine Learning
 methods into the real-time experimental data processing loop to
 accelerate scientific discovery.
 
+
+
+!split
+=====  A kind of Bird's view  on PCA =====
+
+
+_Why do we maximize variance during Principal Component Analysis?_
+
+Variance is a measure of the *variability* of the data you
+have. Potentially the number of components is infinite, so you want to "squeeze" the most
+information in each component of the finite set you build.
+
+If, to exaggerate, you were to select a single principal component,
+you would want it to account for the most variability possible: hence
+the search for maximum variance, so that the one component collects
+the most "uniqueness" from the data set.
+
+
+Maximizing the component vector variances is the same as maximizing
+the 'uniqueness' of those vectors. The vectors are as distant
+from each other as possible (orthogonal to each other).
+
+
+Take for example a situation where you have 2 lines that are
+orthogonal in a 3D space. You can capture the environment much more
+completely with those orthogonal lines than 2 lines that are parallel
+(or nearly parallel). When applied to very high dimensional states
+using very few vectors, this becomes a much more important
+relationship among the vectors to maintain. In a linear algebra sense
+you want independent rows to be produced by PCA, otherwise some of
+those rows will be redundant.
 
 
 !split
@@ -902,35 +934,6 @@ Here are some of the most popular:
 
 
 
-!split
-=====  A kind of Bird's view  on PCA =====
-
-
-_Why do we maximize variance during Principal Component Analysis?_
-
-Variance is a measure of the *variability* of the data you
-have. Potentially the number of components is infinite, so you want to "squeeze" the most
-information in each component of the finite set you build.
-
-If, to exaggerate, you were to select a single principal component,
-you would want it to account for the most variability possible: hence
-the search for maximum variance, so that the one component collects
-the most "uniqueness" from the data set.
-
-
-Maximizing the component vector variances is the same as maximizing
-the 'uniqueness' of those vectors. The vectors are as distant
-from each other as possible (orthogonal to each other).
-
-
-Take for example a situation where you have 2 lines that are
-orthogonal in a 3D space. You can capture the environment much more
-completely with those orthogonal lines than 2 lines that are parallel
-(or nearly parallel). When applied to very high dimensional states
-using very few vectors, this becomes a much more important
-relationship among the vectors to maintain. In a linear algebra sense
-you want independent rows to be produced by PCA, otherwise some of
-those rows will be redundant.
 
 !split
 ===== Clustering and Unsupervised Learning =====

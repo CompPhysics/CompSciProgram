@@ -38,6 +38,10 @@ doconce format html week8.do.txt --html_style=bootstrap --pygments_html_style=de
 {'highest level': 2,
  'sections': [('Plans for week 8', 2, None, 'plans-for-week-8'),
               ('Digression First', 2, None, 'digression-first'),
+              ("A kind of Bird's view  on PCA",
+               2,
+               None,
+               'a-kind-of-bird-s-view-on-pca'),
               ('Basic ideas of the Principal Component Analysis (PCA)',
                2,
                None,
@@ -99,10 +103,6 @@ doconce format html week8.do.txt --html_style=bootstrap --pygments_html_style=de
               ('Randomized PCA', 3, None, 'randomized-pca'),
               ('Kernel PCA', 3, None, 'kernel-pca'),
               ('Other techniques', 2, None, 'other-techniques'),
-              ("A kind of Bird's view  on PCA",
-               2,
-               None,
-               'a-kind-of-bird-s-view-on-pca'),
               ('Clustering and Unsupervised Learning',
                2,
                None,
@@ -174,6 +174,7 @@ MathJax.Hub.Config({
         <ul class="dropdown-menu">
      <!-- navigation toc: --> <li><a href="#plans-for-week-8" style="font-size: 80%;"><b>Plans for week 8</b></a></li>
      <!-- navigation toc: --> <li><a href="#digression-first" style="font-size: 80%;"><b>Digression First</b></a></li>
+     <!-- navigation toc: --> <li><a href="#a-kind-of-bird-s-view-on-pca" style="font-size: 80%;"><b>A kind of Bird's view  on PCA</b></a></li>
      <!-- navigation toc: --> <li><a href="#basic-ideas-of-the-principal-component-analysis-pca" style="font-size: 80%;"><b>Basic ideas of the Principal Component Analysis (PCA)</b></a></li>
      <!-- navigation toc: --> <li><a href="#introducing-the-covariance-and-correlation-functions" style="font-size: 80%;"><b>Introducing the Covariance and Correlation functions</b></a></li>
      <!-- navigation toc: --> <li><a href="#more-on-the-covariance" style="font-size: 80%;"><b>More on the covariance</b></a></li>
@@ -206,7 +207,6 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="#randomized-pca" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Randomized PCA</a></li>
      <!-- navigation toc: --> <li><a href="#kernel-pca" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Kernel PCA</a></li>
      <!-- navigation toc: --> <li><a href="#other-techniques" style="font-size: 80%;"><b>Other techniques</b></a></li>
-     <!-- navigation toc: --> <li><a href="#a-kind-of-bird-s-view-on-pca" style="font-size: 80%;"><b>A kind of Bird's view  on PCA</b></a></li>
      <!-- navigation toc: --> <li><a href="#clustering-and-unsupervised-learning" style="font-size: 80%;"><b>Clustering and Unsupervised Learning</b></a></li>
      <!-- navigation toc: --> <li><a href="#basic-idea-of-the-k-means-clustering-algorithm" style="font-size: 80%;"><b>Basic Idea of the \( k \)-means Clustering Algorithm</b></a></li>
      <!-- navigation toc: --> <li><a href="#the-k-means-algorithm" style="font-size: 80%;"><b>The \( k \)-means Algorithm</b></a></li>
@@ -249,7 +249,7 @@ MathJax.Hub.Config({
 </center>
 <br>
 <center>
-<h4>Jan 1, 2022</h4>
+<h4>Jan 2, 2022</h4>
 </center> <!-- date -->
 <br>
 
@@ -293,6 +293,37 @@ applications that link scientific discoveries with efficient software
 and hardware. The emphasis is onintegrating power Machine Learning
 methods into the real-time experimental data processing loop to
 accelerate scientific discovery.
+</p>
+
+<!-- !split -->
+<h2 id="a-kind-of-bird-s-view-on-pca" class="anchor">A kind of Bird's view  on PCA </h2>
+
+<b>Why do we maximize variance during Principal Component Analysis?</b>
+
+<p>Variance is a measure of the <em>variability</em> of the data you
+have. Potentially the number of components is infinite, so you want to "squeeze" the most
+information in each component of the finite set you build.
+</p>
+
+<p>If, to exaggerate, you were to select a single principal component,
+you would want it to account for the most variability possible: hence
+the search for maximum variance, so that the one component collects
+the most "uniqueness" from the data set.
+</p>
+
+<p>Maximizing the component vector variances is the same as maximizing
+the 'uniqueness' of those vectors. The vectors are as distant
+from each other as possible (orthogonal to each other).
+</p>
+
+<p>Take for example a situation where you have 2 lines that are
+orthogonal in a 3D space. You can capture the environment much more
+completely with those orthogonal lines than 2 lines that are parallel
+(or nearly parallel). When applied to very high dimensional states
+using very few vectors, this becomes a much more important
+relationship among the vectors to maintain. In a linear algebra sense
+you want independent rows to be produced by PCA, otherwise some of
+those rows will be redundant.
 </p>
 
 <!-- !split -->
@@ -1496,37 +1527,6 @@ X_reduced <span style="color: #666666">=</span> rbf_pca<span style="color: #6666
 <li> <b>t-Distributed Stochastic Neighbor Embedding</b> (t-SNE) reduces dimensionality while trying to keep similar instances close and dissimilar instances apart. It is mostly used for visualization, in particular to visualize clusters of instances in high-dimensional space (e.g., to visualize the MNIST images in 2D).</li>
 <li> Linear Discriminant Analysis (LDA) is actually a classification algorithm, but during training it learns the most discriminative axes between the classes, and these axes can then be used to define a hyperplane onto which to project the data. The benefit is that the projection will keep classes as far apart as possible, so LDA is a good technique to reduce dimensionality before running another classification algorithm such as a Support Vector Machine (SVM) classifier discussed in the SVM lectures.</li>
 </ul>
-<!-- !split -->
-<h2 id="a-kind-of-bird-s-view-on-pca" class="anchor">A kind of Bird's view  on PCA </h2>
-
-<b>Why do we maximize variance during Principal Component Analysis?</b>
-
-<p>Variance is a measure of the <em>variability</em> of the data you
-have. Potentially the number of components is infinite, so you want to "squeeze" the most
-information in each component of the finite set you build.
-</p>
-
-<p>If, to exaggerate, you were to select a single principal component,
-you would want it to account for the most variability possible: hence
-the search for maximum variance, so that the one component collects
-the most "uniqueness" from the data set.
-</p>
-
-<p>Maximizing the component vector variances is the same as maximizing
-the 'uniqueness' of those vectors. The vectors are as distant
-from each other as possible (orthogonal to each other).
-</p>
-
-<p>Take for example a situation where you have 2 lines that are
-orthogonal in a 3D space. You can capture the environment much more
-completely with those orthogonal lines than 2 lines that are parallel
-(or nearly parallel). When applied to very high dimensional states
-using very few vectors, this becomes a much more important
-relationship among the vectors to maintain. In a linear algebra sense
-you want independent rows to be produced by PCA, otherwise some of
-those rows will be redundant.
-</p>
-
 <!-- !split -->
 <h2 id="clustering-and-unsupervised-learning" class="anchor">Clustering and Unsupervised Learning </h2>
 
