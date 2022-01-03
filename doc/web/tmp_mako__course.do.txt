@@ -41,15 +41,6 @@ ${text_types(ch)}
 % endfor
 
 !split
-=====  Textbook =====
- * Lecture Notes:
-   * "Book":"https://compphysics.github.io/MachineLearning/doc/LectureNotes/_build/html/intro.html"
-
-
-
-
-
-!split
 ===== Projects Fall and Spring 2021/2022 (dates are tentative) =====
 
 
