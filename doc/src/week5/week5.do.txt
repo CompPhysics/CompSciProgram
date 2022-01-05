@@ -3066,9 +3066,9 @@ principles then apply to images and other similar data.
 
 
 !split
-===== CNNs in more detail, Lecture from IN5400 =====
+===== CNNs in more detail =====
 
-* "Lectures from IN5400 spring 2019":"https://www.uio.no/studier/emner/matnat/ifi/IN5400/v19/material/week5/in5400_2019_week5_convolutional_nerual_networks.pdf"
+More material to be added here
 
 
 !split
