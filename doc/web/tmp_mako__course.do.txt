@@ -17,11 +17,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week42/html/week42.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week42/html/week42-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week42/html/week42-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week42/html/week42.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week42/html/week42-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week42/html/week42-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week42/ipynb/week42.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week42/ipynb/week42.ipynb"
 
 
 ===== October 25-29 Regularization and Lasso and Ridge regression =====
@@ -29,11 +29,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week43/html/week43.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week43/html/week43-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week43/html/week43-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week43/html/week43.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week43/html/week43-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week43/html/week43-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week43/ipynb/week43.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week43/ipynb/week43.ipynb"
 
 
 ===== November 1-5 Resampling methods =====
@@ -41,11 +41,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week44/html/week44.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week44/html/week44-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week44/html/week44-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week44/html/week44.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week44/html/week44-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week44/html/week44-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week44/ipynb/week44.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week44/ipynb/week44.ipynb"
 
 
 ===== November 8-12 Logistic regression  =====
@@ -53,11 +53,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week45/html/week45.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week45/html/week45-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week45/html/week45-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week45/html/week45.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week45/html/week45-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week45/html/week45-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week45/ipynb/week45.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week45/ipynb/week45.ipynb"
 
 
 ===== November 15-19 Optimization methods  =====
@@ -65,11 +65,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week46/html/week46.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week46/html/week46-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week46/html/week46-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week46/html/week46.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week46/html/week46-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week46/html/week46-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week46/ipynb/week46.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week46/ipynb/week46.ipynb"
 
 
 ===== November 22-26 Stochastic gradient methods =====
@@ -77,11 +77,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week47/html/week47.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week47/html/week47-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week47/html/week47-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week47/html/week47.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week47/html/week47-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week47/html/week47-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week47/ipynb/week47.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week47/ipynb/week47.ipynb"
 
 
 ===== November 29-December 3 Support vector machines =====
@@ -89,11 +89,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week49/html/week49.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week49/html/week49-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week49/html/week49-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week49/html/week49.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week49/html/week49-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week49/html/week49-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week49/ipynb/week49.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week49/ipynb/week49.ipynb"
 
 
 ===== December 6-10 Support vector machines  =====
@@ -101,11 +101,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week50/html/week50.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week50/html/week50-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week50/html/week50-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week50/html/week50.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week50/html/week50-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week50/html/week50-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week50/ipynb/week50.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week50/ipynb/week50.ipynb"
 
 
 ===== January 17-21 Neural Networks and the back propagation algorithm =====
@@ -113,11 +113,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week3/html/week3.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week3/html/week3-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week3/html/week3-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week3.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week3-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week3-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week3/ipynb/week3.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week3/ipynb/week3.ipynb"
 
 
 ===== January 24-28 Buidling a neural network code and solving differential equations =====
@@ -125,11 +125,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week4/html/week4.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week4/html/week4-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week4/html/week4-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week4/html/week4.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week4/html/week4-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week4/html/week4-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week4/ipynb/week4.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week4/ipynb/week4.ipynb"
 
 
 ===== January 31-February 4 Solving differential equations and convolutional neural networks =====
@@ -137,11 +137,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week5/html/week5.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week5/html/week5-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week5/html/week5-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week5/html/week5.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week5/html/week5-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week5/html/week5-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week5/ipynb/week5.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week5/ipynb/week5.ipynb"
 
 
 ===== February 7-11 Convolutional and recurrent neural networks =====
@@ -149,11 +149,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week6/html/week6.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week6/html/week6-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week6/html/week6-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week6/html/week6.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week6/html/week6-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week6/html/week6-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week6/ipynb/week6.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week6/ipynb/week6.ipynb"
 
 
 ===== February 14-18 Variational autoencoders and general adversarial neural networks  =====
@@ -161,11 +161,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week7/html/week7.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week7/html/week7-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week7/html/week7-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week7/html/week7.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week7/html/week7-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week7/html/week7-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week7/ipynb/week7.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week7/ipynb/week7.ipynb"
 
 
 ===== February 21-25 Unsupervised learning, principal component analysis =====
@@ -173,11 +173,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week8/html/week8.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week8/html/week8-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week8/html/week8-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week8/html/week8.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week8/html/week8-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week8/html/week8-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week8/ipynb/week8.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week8/ipynb/week8.ipynb"
 
 
 ===== February 28-March 4 principal component analysis and clustering =====
@@ -185,11 +185,11 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
  * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/web/week9/html/week9.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/web/week9/html/week9-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/web/week9/html/week9-bs.html"
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week9/html/week9.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week9/html/week9-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week9/html/week9-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/web/week9/ipynb/week9.ipynb"
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week9/ipynb/week9.ipynb"
 
 
 
