@@ -1,7 +1,7 @@
 <!--
 HTML file automatically generated from DocOnce source
 (https://github.com/doconce/doconce/)
-doconce format html course.do.txt --no_mako
+doconce format html course.do.txt 
 -->
 <html>
 <head>
@@ -117,7 +117,72 @@ div.toc p,a {
 
 <!-- tocinfo
 {'highest level': 2,
- 'sections': [('${chapters[ch]}', 2, None, 'chapters-ch'),
+ 'sections': [('October 18-22 Linear regression and introduction',
+               2,
+               None,
+               'october-18-22-linear-regression-and-introduction'),
+              ('October 25-29 Regularization and Lasso and Ridge regression',
+               2,
+               None,
+               'october-25-29-regularization-and-lasso-and-ridge-regression'),
+              ('November 1-5 Resampling methods',
+               2,
+               None,
+               'november-1-5-resampling-methods'),
+              ('November 8-12 Logistic regression',
+               2,
+               None,
+               'november-8-12-logistic-regression'),
+              ('November 15-19 Optimization methods',
+               2,
+               None,
+               'november-15-19-optimization-methods'),
+              ('November 22-26 Stochastic gradient methods',
+               2,
+               None,
+               'november-22-26-stochastic-gradient-methods'),
+              ('November 29-December 3 Support vector machines',
+               2,
+               None,
+               'november-29-december-3-support-vector-machines'),
+              ('December 6-10 Support vector machines',
+               2,
+               None,
+               'december-6-10-support-vector-machines'),
+              ('January 17-21 Neural Networks and the back propagation '
+               'algorithm',
+               2,
+               None,
+               'january-17-21-neural-networks-and-the-back-propagation-algorithm'),
+              ('January 24-28 Buidling a neural network code and solving '
+               'differential equations',
+               2,
+               None,
+               'january-24-28-buidling-a-neural-network-code-and-solving-differential-equations'),
+              ('January 31-February 4 Solving differential equations and '
+               'convolutional neural networks',
+               2,
+               None,
+               'january-31-february-4-solving-differential-equations-and-convolutional-neural-networks'),
+              ('February 7-11 Convolutional and recurrent neural networks',
+               2,
+               None,
+               'february-7-11-convolutional-and-recurrent-neural-networks'),
+              ('February 14-18 Variational autoencoders and general '
+               'adversarial neural networks',
+               2,
+               None,
+               'february-14-18-variational-autoencoders-and-general-adversarial-neural-networks'),
+              ('February 21-25 Unsupervised learning, principal component '
+               'analysis',
+               2,
+               None,
+               'february-21-25-unsupervised-learning-principal-component-analysis'),
+              ('February 28-March 4 principal component analysis and '
+               'clustering',
+               2,
+               None,
+               'february-28-march-4-principal-component-analysis-and-clustering'),
               ('Projects Fall and Spring 2021/2022 (dates are tentative)',
                2,
                None,
@@ -137,22 +202,6 @@ div.toc p,a {
 end of tocinfo -->
 
 <body>
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: {
-     equationNumbers: {  autoNumber: "AMS"  },
-     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
-  }
-});
-</script>
-<script type="text/javascript" async
- src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
 <!-- ------------------- main content ---------------------- -->
 <center>
 <h1>Computational Physics and Machine Learning, Computational Science PhD program Fall and Spring 2021/2022</h1>
@@ -176,56 +225,216 @@ MathJax.Hub.Config({
 [3] <b>Department of Physics (office F&#216;447), University of Oslo, Norway</b>
 </center>
 <br>
-
-<p><%
-pub_url = 'https://compphysics.github.io/CompSciProgram/doc/web'
-published = ['week42', 'week43', 'week44', 'week45', 'week46', 'week47', 'week49', 'week50', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8',]
-chapters = {
- 'week42': 'Week 42 October 18-22: Linear Regression and discussion of project 1',
- 'week43': 'Week 43 October 25-29: Regularization'
- 'week44': 'Week 44 November 1-5: Resampling and more on Ridge and Lasso',
- 'week45': 'Week 45 November 8-12: Logistic Regression',
- 'week46': 'Week 46 November 15-19: Optimization and Gradient Methods',
- 'week47': 'Week 47 November 22-26: Stochastic  Gradient Methods',
- 'week49': 'Week 49 November 29- December 3: Support Vector Machines',
- 'week50': 'Week 50 December 6-10: Support Vector Machines',
- 'week3': 'Week 3 January 17-21: Feed Forward Neural Networks and Building our own Neural Network code',
- 'week4': 'Week 4 January 24-28: Building NNs and TensorFlow',
- 'week5': 'Week 5 January 31 -February 4: Solving differential equations and start CNNs',
- 'week6': 'Week 6 February 7-11: Convolutional and Recurrent Neural Networks',
- 'week7': 'Week 7 February 14-18: Variational Autoencoders and General Adversial Neural Networks',
- 'week8': 'Week 8 February 21-25: Unsupervised Learning, Principal Component analysis and \( k \)-means Clustering',  
-}
-%>
-</p>
-
-<%def name="text_types(name)">
+<h2 id="october-18-22-linear-regression-and-introduction">October 18-22 Linear regression and introduction </h2>
 
 <ul>
  <li> HTML:</li>
 <ul>
-   <li> <a href="${pub_url}/${name}/html/${name}.html" target="_self">Plain html</a></li>
-   <li> <a href="${pub_url}/${name}/html/${name}-reveal.html" target="_self">reveal.js beige slide style</a></li>
-   <li> <a href="${pub_url}/${name}/html/${name}-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week42/html/week42.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week42/html/week42-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week42/html/week42-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
 </ul>
  <li> Jupyter notebook:</li>
 <ul>
-   <li> <a href="${pub_url}/${name}/ipynb/${name}.ipynb" target="_self">ipynb file</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week42/ipynb/week42.ipynb" target="_self">ipynb file</a></li>
 </ul>
 </ul>
-</%def>
+<h2 id="october-25-29-regularization-and-lasso-and-ridge-regression">October 25-29 Regularization and Lasso and Ridge regression </h2>
 
-<%def name="slide_types(name)">
-</%def>
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week43/html/week43.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week43/html/week43-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week43/html/week43-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week43/ipynb/week43.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
+<h2 id="november-1-5-resampling-methods">November 1-5 Resampling methods </h2>
 
-<p>% for ch in published:
-<h2 id="chapters-ch">${chapters[ch]} </h2>
-</p>
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week44/html/week44.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week44/html/week44-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week44/html/week44-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week44/ipynb/week44.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
+<h2 id="november-8-12-logistic-regression">November 8-12 Logistic regression  </h2>
 
-<p>${text_types(ch)}</p>
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week45/html/week45.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week45/html/week45-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week45/html/week45-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week45/ipynb/week45.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
+<h2 id="november-15-19-optimization-methods">November 15-19 Optimization methods  </h2>
 
-<p>% endfor</p>
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week46/html/week46.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week46/html/week46-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week46/html/week46-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week46/ipynb/week46.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
+<h2 id="november-22-26-stochastic-gradient-methods">November 22-26 Stochastic gradient methods </h2>
 
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week47/html/week47.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week47/html/week47-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week47/html/week47-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week47/ipynb/week47.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
+<h2 id="november-29-december-3-support-vector-machines">November 29-December 3 Support vector machines </h2>
+
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week49/html/week49.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week49/html/week49-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week49/html/week49-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week49/ipynb/week49.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
+<h2 id="december-6-10-support-vector-machines">December 6-10 Support vector machines  </h2>
+
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week50/html/week50.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week50/html/week50-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week50/html/week50-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week50/ipynb/week50.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
+<h2 id="january-17-21-neural-networks-and-the-back-propagation-algorithm">January 17-21 Neural Networks and the back propagation algorithm </h2>
+
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week3/html/week3.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week3/html/week3-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week3/html/week3-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week3/ipynb/week3.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
+<h2 id="january-24-28-buidling-a-neural-network-code-and-solving-differential-equations">January 24-28 Buidling a neural network code and solving differential equations </h2>
+
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week4/html/week4.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week4/html/week4-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week4/html/week4-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week4/ipynb/week4.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
+<h2 id="january-31-february-4-solving-differential-equations-and-convolutional-neural-networks">January 31-February 4 Solving differential equations and convolutional neural networks </h2>
+
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week5/html/week5.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week5/html/week5-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week5/html/week5-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week5/ipynb/week5.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
+<h2 id="february-7-11-convolutional-and-recurrent-neural-networks">February 7-11 Convolutional and recurrent neural networks </h2>
+
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week6/html/week6.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week6/html/week6-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week6/html/week6-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week6/ipynb/week6.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
+<h2 id="february-14-18-variational-autoencoders-and-general-adversarial-neural-networks">February 14-18 Variational autoencoders and general adversarial neural networks  </h2>
+
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week7/html/week7.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week7/html/week7-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week7/html/week7-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week7/ipynb/week7.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
+<h2 id="february-21-25-unsupervised-learning-principal-component-analysis">February 21-25 Unsupervised learning, principal component analysis </h2>
+
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week8/html/week8.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week8/html/week8-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week8/html/week8-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week8/ipynb/week8.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
+<h2 id="february-28-march-4-principal-component-analysis-and-clustering">February 28-March 4 principal component analysis and clustering </h2>
+
+<ul>
+ <li> HTML:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week9/html/week9.html" target="_self">Plain html</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week9/html/week9-reveal.html" target="_self">reveal.js beige slide style</a></li>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week9/html/week9-bs.html" target="_self">Bootstrap  slide style, easy for reading on mobile devices</a></li>
+</ul>
+ <li> Jupyter notebook:</li>
+<ul>
+   <li> <a href="https://compphysics.github.io/CompSciProgram/doc/web/week9/ipynb/week9.ipynb" target="_self">ipynb file</a></li>
+</ul>
+</ul>
 <!-- !split -->
 <h2 id="projects-fall-and-spring-2021-2022-dates-are-tentative">Projects Fall and Spring 2021/2022 (dates are tentative) </h2>
 <h3 id="project-1-deadline-december-15-available-october-17">Project 1, Deadline December 15 (available October 17) </h3>
