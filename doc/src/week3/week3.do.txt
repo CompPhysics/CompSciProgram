@@ -4,23 +4,24 @@ DATE: today
 
 
 !split
-===== Plan for week 3 =====
+===== Plans for week 3 and 4, January 2022 =====
 
 
-* Building our own Feed-forward Neural Network and playing around with our own Feed-forward Neural Network and introduction to TensorFlow. Start convolutional Neural Networks (CNN). 
+* Building our own Feed-forward Neural Network and playing around with our own Feed-forward Neural Network and introduction to TensorFlow. . 
 
-
-Reading suggestions: "Aurelien Geron's chapters 10-11":"https://github.com/CompPhysics/MachineLearning/blob/master/doc/T\
-extbooks/TensorflowML.pdf".
-For a more in depth discussion on  neural networks we recommend Goodfellow et al chapters 6 and 7. For CNNs, see Goodfellow et al chapter 9. chapter 11 and 12 on practicalities and applications. We strongly recommend reading these chapters from Goodfellow et on Deep Learning, that is chapters 6-12. Bishop's chapter 5 on Neural Networks is an additional good read.
-
+!bblock Reading suggestions:
+* "Aurelien Geron's chapters 10-11":"https://github.com/CompPhysics/MachineLearning/blob/master/doc/Textbooks/TensorflowML.pdf".
+* For a more in depth discussion on  neural networks we recommend Goodfellow et al chapters 6 and 7. Chapters 11 and 12 contain alot of material on practicalities and applications. 
+* Bishop's chapter 5 on Neural Networks is an additional good read.
+!eblock 
 !split
 ===== Videos on Neural Networks =====
 
+!bblock 
 * "Video on Neural Networks":"https://www.youtube.com/watch?v=CqOfi41LfDw"
 
 * "Video on the back propagation algorithm":"https://www.youtube.com/watch?v=Ilg3gGewQ5U"
-
+!eblock
 
 
 
