@@ -1073,7 +1073,7 @@ plt.show()
 !split
 ===== Testing our code for the XOR, OR and AND gates =====
 
-Last week we discussed three different types of gates, the so-called
+Let us now discuss three different types of gates, the so-called
 XOR, the OR and the AND gates.  Their inputs and outputs can be
 summarized using the following tables, first for the OR gate with
 inputs $x_1$ and $x_2$ and outputs $y$:
