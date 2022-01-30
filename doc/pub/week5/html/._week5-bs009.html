@@ -8,8 +8,8 @@ doconce format html week5.do.txt --html_style=bootstrap --pygments_html_style=de
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Solving differential equations and start CNNs">
-<title>Solving differential equations and start CNNs</title>
+<meta name="description" content="Introduction to TensorFlow and Solving differential equations">
+<title>Introduction to TensorFlow and Solving differential equations</title>
 <!-- Bootstrap style: bootstrap -->
 <!-- doconce format html week5.do.txt --html_style=bootstrap --pygments_html_style=default --html_admon=bootstrap_panel --html_output=week5-bs --no_mako -->
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -37,6 +37,52 @@ doconce format html week5.do.txt --html_style=bootstrap --pygments_html_style=de
 <!-- tocinfo
 {'highest level': 2,
  'sections': [('Plan for week 5', 2, None, 'plan-for-week-5'),
+              ('Fine-tuning neural network hyperparameters',
+               2,
+               None,
+               'fine-tuning-neural-network-hyperparameters'),
+              ('Hidden layers', 2, None, 'hidden-layers'),
+              ('Which activation function should I use?',
+               2,
+               None,
+               'which-activation-function-should-i-use'),
+              ('Is the Logistic activation function (Sigmoid)  our choice?',
+               2,
+               None,
+               'is-the-logistic-activation-function-sigmoid-our-choice'),
+              ('The derivative of the Logistic funtion',
+               2,
+               None,
+               'the-derivative-of-the-logistic-funtion'),
+              ('The RELU function family', 2, None, 'the-relu-function-family'),
+              ('Which activation function should we use?',
+               2,
+               None,
+               'which-activation-function-should-we-use'),
+              ('More on activation functions, output layers',
+               2,
+               None,
+               'more-on-activation-functions-output-layers'),
+              ('Batch Normalization', 2, None, 'batch-normalization'),
+              ('Dropout', 2, None, 'dropout'),
+              ('Gradient Clipping', 2, None, 'gradient-clipping'),
+              ('A very nice website on Neural Networks',
+               2,
+               None,
+               'a-very-nice-website-on-neural-networks'),
+              ('A top-down perspective on Neural networks',
+               2,
+               None,
+               'a-top-down-perspective-on-neural-networks'),
+              ('Limitations of supervised learning with deep networks',
+               2,
+               None,
+               'limitations-of-supervised-learning-with-deep-networks'),
+              ('Reminder on the solution of ordinary and partial differential '
+               'equations',
+               2,
+               None,
+               'reminder-on-the-solution-of-ordinary-and-partial-differential-equations'),
               ('Using Automatic differentiation',
                2,
                None,
@@ -127,6 +173,127 @@ doconce format html week5.do.txt --html_style=bootstrap --pygments_html_style=de
                2,
                None,
                'partial-differential-equations'),
+              ('Famous PDEs', 2, None, 'famous-pdes'),
+              ('Famous PDEs, two dimension',
+               2,
+               None,
+               'famous-pdes-two-dimension'),
+              ('Famous PDEs, diffusion equation',
+               2,
+               None,
+               'famous-pdes-diffusion-equation'),
+              ("Famous PDEs, Laplace's equation",
+               2,
+               None,
+               'famous-pdes-laplace-s-equation'),
+              ("Famous PDEs, Helmholtz' equation",
+               2,
+               None,
+               'famous-pdes-helmholtz-equation'),
+              ("Famous PDEs, Schroedinger's equation in two dimensions",
+               2,
+               None,
+               'famous-pdes-schroedinger-s-equation-in-two-dimensions'),
+              ("Famous PDEs, Maxwell's equations",
+               2,
+               None,
+               'famous-pdes-maxwell-s-equations'),
+              ("Famous PDEs, Euler's equations",
+               2,
+               None,
+               'famous-pdes-euler-s-equations'),
+              ("Famous PDEs, the Navier-Stokes' equations",
+               2,
+               None,
+               'famous-pdes-the-navier-stokes-equations'),
+              ('Famous PDEs, general equation in two dimensions',
+               2,
+               None,
+               'famous-pdes-general-equation-in-two-dimensions'),
+              ('Diffusion equation', 2, None, 'diffusion-equation'),
+              ('Diffusion equation', 2, None, 'diffusion-equation'),
+              ('Diffusion equation, famous laws',
+               2,
+               None,
+               'diffusion-equation-famous-laws'),
+              ('Diffusion equation, heat equation',
+               2,
+               None,
+               'diffusion-equation-heat-equation'),
+              ('Diffusion equation, heat equation in one dimension',
+               2,
+               None,
+               'diffusion-equation-heat-equation-in-one-dimension'),
+              ('Diffusion equation, dimensionless form',
+               2,
+               None,
+               'diffusion-equation-dimensionless-form'),
+              ('Explicit Scheme', 2, None, 'explicit-scheme'),
+              ('Explicit Scheme, boundary conditions',
+               2,
+               None,
+               'explicit-scheme-boundary-conditions'),
+              ('Explicit Scheme, algorithm',
+               2,
+               None,
+               'explicit-scheme-algorithm'),
+              ('Explicit Scheme, simplifications',
+               2,
+               None,
+               'explicit-scheme-simplifications'),
+              ('Explicit Scheme, solving the equations',
+               2,
+               None,
+               'explicit-scheme-solving-the-equations'),
+              ('Explicit Scheme, simple case',
+               2,
+               None,
+               'explicit-scheme-simple-case'),
+              ('Explicit Scheme, matrix-vector formulation',
+               2,
+               None,
+               'explicit-scheme-matrix-vector-formulation'),
+              ('Explicit Scheme, sketch of code',
+               2,
+               None,
+               'explicit-scheme-sketch-of-code'),
+              ('Explicit Scheme, stability condition',
+               2,
+               None,
+               'explicit-scheme-stability-condition'),
+              ('Explicit Scheme, spectral radius and stability',
+               2,
+               None,
+               'explicit-scheme-spectral-radius-and-stability'),
+              ('Explicit Scheme, eigenvalues and stability',
+               2,
+               None,
+               'explicit-scheme-eigenvalues-and-stability'),
+              ('Explicit Scheme, final stability analysis',
+               2,
+               None,
+               'explicit-scheme-final-stability-analysis'),
+              ('Explicit Scheme, stability condition',
+               2,
+               None,
+               'explicit-scheme-stability-condition'),
+              ('Explicit Scheme, general tridiagonal matrix',
+               2,
+               None,
+               'explicit-scheme-general-tridiagonal-matrix'),
+              ('Implicit Scheme', 2, None, 'implicit-scheme'),
+              ('Implicit Scheme', 2, None, 'implicit-scheme'),
+              ('Implicit Scheme', 2, None, 'implicit-scheme'),
+              ('Implicit Scheme', 2, None, 'implicit-scheme'),
+              ('Implicit Scheme', 2, None, 'implicit-scheme'),
+              ('Program Example for Implicit Equation',
+               3,
+               None,
+               'program-example-for-implicit-equation'),
+              ('Crank-Nicolson scheme', 2, None, 'crank-nicolson-scheme'),
+              ('Derivation of CN scheme', 2, None, 'derivation-of-cn-scheme'),
+              ('Taylor expansions', 2, None, 'taylor-expansions'),
+              ('Error in CN scheme', 2, None, 'error-in-cn-scheme'),
               ('Type of problem', 2, None, 'type-of-problem'),
               ('Network requirements', 2, None, 'network-requirements'),
               ('More details', 2, None, 'more-details'),
@@ -162,103 +329,7 @@ doconce format html week5.do.txt --html_style=bootstrap --pygments_html_style=de
               ('Resources on differential equations and deep learning',
                2,
                None,
-               'resources-on-differential-equations-and-deep-learning'),
-              ('Convolutional Neural Networks (recognizing images)',
-               2,
-               None,
-               'convolutional-neural-networks-recognizing-images'),
-              ('What is the Difference', 2, None, 'what-is-the-difference'),
-              ('Neural Networks vs CNNs', 2, None, 'neural-networks-vs-cnns'),
-              ('Why CNNS for images, sound files, medical images from CT scans '
-               'etc?',
-               2,
-               None,
-               'why-cnns-for-images-sound-files-medical-images-from-ct-scans-etc'),
-              ('Regular NNs don’t scale well to full images',
-               2,
-               None,
-               'regular-nns-don-t-scale-well-to-full-images'),
-              ('3D volumes of neurons', 2, None, '3d-volumes-of-neurons'),
-              ('Layers used to build CNNs',
-               2,
-               None,
-               'layers-used-to-build-cnns'),
-              ('Transforming images', 2, None, 'transforming-images'),
-              ('CNNs in brief', 2, None, 'cnns-in-brief'),
-              ('Key Idea', 2, None, 'key-idea'),
-              ('Mathematics of CNNs', 2, None, 'mathematics-of-cnns'),
-              ('Convolution Examples: Polynomial multiplication',
-               2,
-               None,
-               'convolution-examples-polynomial-multiplication'),
-              ('Efficient Polynomial Multiplication',
-               2,
-               None,
-               'efficient-polynomial-multiplication'),
-              ('A more efficient way of coding the above Convolution',
-               2,
-               None,
-               'a-more-efficient-way-of-coding-the-above-convolution'),
-              ('Convolution Examples: Principle of Superposition and Periodic '
-               'Forces (Fourier Transforms)',
-               2,
-               None,
-               'convolution-examples-principle-of-superposition-and-periodic-forces-fourier-transforms'),
-              ('Principle of Superposition',
-               2,
-               None,
-               'principle-of-superposition'),
-              ('Simple Code Example', 2, None, 'simple-code-example'),
-              ('Wrapping up Fourier transforms',
-               2,
-               None,
-               'wrapping-up-fourier-transforms'),
-              ('Finding the Coefficients', 2, None, 'finding-the-coefficients'),
-              ('Final words on Fourier Transforms',
-               2,
-               None,
-               'final-words-on-fourier-transforms'),
-              ('Two-dimensional Objects', 2, None, 'two-dimensional-objects'),
-              ('Cross-Correlation', 2, None, 'cross-correlation'),
-              ('More on Dimensionalities', 2, None, 'more-on-dimensionalities'),
-              ('Further Dimensionality Remarks',
-               2,
-               None,
-               'further-dimensionality-remarks'),
-              ('CNNs in more detail', 2, None, 'cnns-in-more-detail'),
-              ('CNNs in more detail, building convolutional neural networks in '
-               'Tensorflow and Keras',
-               2,
-               None,
-               'cnns-in-more-detail-building-convolutional-neural-networks-in-tensorflow-and-keras'),
-              ('Setting it up', 2, None, 'setting-it-up'),
-              ('The MNIST dataset again', 2, None, 'the-mnist-dataset-again'),
-              ('Strong correlations', 2, None, 'strong-correlations'),
-              ('Layers of a CNN', 2, None, 'layers-of-a-cnn'),
-              ('Systematic reduction', 2, None, 'systematic-reduction'),
-              ('Prerequisites: Collect and pre-process data',
-               2,
-               None,
-               'prerequisites-collect-and-pre-process-data'),
-              ('Importing Keras and Tensorflow',
-               2,
-               None,
-               'importing-keras-and-tensorflow'),
-              ('Running with Keras', 2, None, 'running-with-keras'),
-              ('Final part', 2, None, 'final-part'),
-              ('Final visualization', 2, None, 'final-visualization'),
-              ('The CIFAR01 data set', 2, None, 'the-cifar01-data-set'),
-              ('Verifying the data set', 2, None, 'verifying-the-data-set'),
-              ('Set up  the model', 2, None, 'set-up-the-model'),
-              ('Add Dense layers on top', 2, None, 'add-dense-layers-on-top'),
-              ('Compile and train the model',
-               2,
-               None,
-               'compile-and-train-the-model'),
-              ('Finally, evaluate the model',
-               2,
-               None,
-               'finally-evaluate-the-model')]}
+               'resources-on-differential-equations-and-deep-learning')]}
 end of tocinfo -->
 
 <body>
@@ -286,105 +357,118 @@ MathJax.Hub.Config({
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="week5-bs.html">Solving differential equations and start CNNs</a>
+    <a class="navbar-brand" href="week5-bs.html">Introduction to TensorFlow and Solving differential equations</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
         <ul class="dropdown-menu">
-     <!-- navigation toc: --> <li><a href="._week5-bs001.html#plan-for-week-5" style="font-size: 80%;">Plan for week 5</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs002.html#using-automatic-differentiation" style="font-size: 80%;">Using Automatic differentiation</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs003.html#solving-odes-with-deep-learning" style="font-size: 80%;">Solving ODEs with Deep Learning</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs004.html#ordinary-differential-equations" style="font-size: 80%;">Ordinary Differential Equations</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs047.html#the-trial-solution" style="font-size: 80%;">The trial solution</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs006.html#minimization-process" style="font-size: 80%;">Minimization process</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs007.html#minimizing-the-cost-function-using-gradient-descent-and-automatic-differentiation" style="font-size: 80%;">Minimizing the cost function using gradient descent and automatic differentiation</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs008.html#example-exponential-decay" style="font-size: 80%;">Example: Exponential decay</a></li>
-     <!-- navigation toc: --> <li><a href="#the-function-to-solve-for" style="font-size: 80%;">The function to solve for</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs047.html#the-trial-solution" style="font-size: 80%;">The trial solution</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs011.html#setup-of-network" style="font-size: 80%;">Setup of Network</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs012.html#reformulating-the-problem" style="font-size: 80%;">Reformulating the problem</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs013.html#more-technicalities" style="font-size: 80%;">More technicalities</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs038.html#more-details" style="font-size: 80%;">More details</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs015.html#a-possible-implementation-of-a-neural-network" style="font-size: 80%;">A possible implementation of a neural network</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs016.html#technicalities" style="font-size: 80%;">Technicalities</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs017.html#final-technicalities-i" style="font-size: 80%;">Final technicalities I</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs018.html#final-technicalities-ii" style="font-size: 80%;">Final technicalities II</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs019.html#final-technicalities-iii" style="font-size: 80%;">Final technicalities III</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs020.html#final-technicalities-iv" style="font-size: 80%;">Final technicalities IV</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs021.html#back-propagation" style="font-size: 80%;">Back propagation</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs022.html#gradient-descent" style="font-size: 80%;">Gradient descent</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs023.html#the-code-for-solving-the-ode" style="font-size: 80%;">The code for solving the ODE</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs024.html#the-network-with-one-input-layer-specified-number-of-hidden-layers-and-one-output-layer" style="font-size: 80%;">The network with one input layer, specified number of hidden layers, and one output layer</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs025.html#example-population-growth" style="font-size: 80%;">Example: Population growth</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs026.html#setting-up-the-problem" style="font-size: 80%;">Setting up the problem</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs047.html#the-trial-solution" style="font-size: 80%;">The trial solution</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs028.html#the-program-using-autograd" style="font-size: 80%;">The program using Autograd</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs029.html#using-forward-euler-to-solve-the-ode" style="font-size: 80%;">Using forward Euler to solve the ODE</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs030.html#example-solving-the-one-dimensional-poisson-equation" style="font-size: 80%;">Example: Solving the one dimensional Poisson equation</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs031.html#the-specific-equation-to-solve-for" style="font-size: 80%;">The specific equation to solve for</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs032.html#solving-the-equation-using-autograd" style="font-size: 80%;">Solving the equation using Autograd</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs033.html#comparing-with-a-numerical-scheme" style="font-size: 80%;">Comparing with a numerical scheme</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs034.html#setting-up-the-code" style="font-size: 80%;">Setting up the code</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs035.html#partial-differential-equations" style="font-size: 80%;">Partial Differential Equations</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs036.html#type-of-problem" style="font-size: 80%;">Type of problem</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs037.html#network-requirements" style="font-size: 80%;">Network requirements</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs038.html#more-details" style="font-size: 80%;">More details</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs039.html#example-the-diffusion-equation" style="font-size: 80%;">Example: The diffusion equation</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs040.html#defining-the-problem" style="font-size: 80%;">Defining the problem</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs041.html#setting-up-the-network-using-autograd" style="font-size: 80%;">Setting up the network using Autograd</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs042.html#setting-up-the-network-using-autograd-the-trial-solution" style="font-size: 80%;">Setting up the network using Autograd; The trial solution</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs043.html#why-the-jacobian" style="font-size: 80%;">Why the jacobian?</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs044.html#setting-up-the-network-using-autograd-the-full-program" style="font-size: 80%;">Setting up the network using Autograd; The full program</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs045.html#example-solving-the-wave-equation-with-neural-networks" style="font-size: 80%;">Example: Solving the wave equation with Neural Networks</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs046.html#the-problem-to-solve-for" style="font-size: 80%;">The problem to solve for</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs047.html#the-trial-solution" style="font-size: 80%;">The trial solution</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs048.html#the-analytical-solution" style="font-size: 80%;">The analytical solution</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs049.html#solving-the-wave-equation-the-full-program-using-autograd" style="font-size: 80%;">Solving the wave equation - the full program using Autograd</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs050.html#resources-on-differential-equations-and-deep-learning" style="font-size: 80%;">Resources on differential equations and deep learning</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs051.html#convolutional-neural-networks-recognizing-images" style="font-size: 80%;">Convolutional Neural Networks (recognizing images)</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs052.html#what-is-the-difference" style="font-size: 80%;">What is the Difference</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs053.html#neural-networks-vs-cnns" style="font-size: 80%;">Neural Networks vs CNNs</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs054.html#why-cnns-for-images-sound-files-medical-images-from-ct-scans-etc" style="font-size: 80%;">Why CNNS for images, sound files, medical images from CT scans etc?</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs055.html#regular-nns-don-t-scale-well-to-full-images" style="font-size: 80%;">Regular NNs don’t scale well to full images</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs056.html#3d-volumes-of-neurons" style="font-size: 80%;">3D volumes of neurons</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs057.html#layers-used-to-build-cnns" style="font-size: 80%;">Layers used to build CNNs</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs058.html#transforming-images" style="font-size: 80%;">Transforming images</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs059.html#cnns-in-brief" style="font-size: 80%;">CNNs in brief</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs060.html#key-idea" style="font-size: 80%;">Key Idea</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs061.html#mathematics-of-cnns" style="font-size: 80%;">Mathematics of CNNs</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs062.html#convolution-examples-polynomial-multiplication" style="font-size: 80%;">Convolution Examples: Polynomial multiplication</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs063.html#efficient-polynomial-multiplication" style="font-size: 80%;">Efficient Polynomial Multiplication</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs064.html#a-more-efficient-way-of-coding-the-above-convolution" style="font-size: 80%;">A more efficient way of coding the above Convolution</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs065.html#convolution-examples-principle-of-superposition-and-periodic-forces-fourier-transforms" style="font-size: 80%;">Convolution Examples: Principle of Superposition and Periodic Forces (Fourier Transforms)</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs066.html#principle-of-superposition" style="font-size: 80%;">Principle of Superposition</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs067.html#simple-code-example" style="font-size: 80%;">Simple Code Example</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs068.html#wrapping-up-fourier-transforms" style="font-size: 80%;">Wrapping up Fourier transforms</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs069.html#finding-the-coefficients" style="font-size: 80%;">Finding the Coefficients</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs070.html#final-words-on-fourier-transforms" style="font-size: 80%;">Final words on Fourier Transforms</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs071.html#two-dimensional-objects" style="font-size: 80%;">Two-dimensional Objects</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs072.html#cross-correlation" style="font-size: 80%;">Cross-Correlation</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs073.html#more-on-dimensionalities" style="font-size: 80%;">More on Dimensionalities</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs074.html#further-dimensionality-remarks" style="font-size: 80%;">Further Dimensionality Remarks</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs075.html#cnns-in-more-detail" style="font-size: 80%;">CNNs in more detail</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs076.html#cnns-in-more-detail-building-convolutional-neural-networks-in-tensorflow-and-keras" style="font-size: 80%;">CNNs in more detail, building convolutional neural networks in Tensorflow and Keras</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs077.html#setting-it-up" style="font-size: 80%;">Setting it up</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs078.html#the-mnist-dataset-again" style="font-size: 80%;">The MNIST dataset again</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs079.html#strong-correlations" style="font-size: 80%;">Strong correlations</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs080.html#layers-of-a-cnn" style="font-size: 80%;">Layers of a CNN</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs081.html#systematic-reduction" style="font-size: 80%;">Systematic reduction</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs082.html#prerequisites-collect-and-pre-process-data" style="font-size: 80%;">Prerequisites: Collect and pre-process data</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs083.html#importing-keras-and-tensorflow" style="font-size: 80%;">Importing Keras and Tensorflow</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs084.html#running-with-keras" style="font-size: 80%;">Running with Keras</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs085.html#final-part" style="font-size: 80%;">Final part</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs086.html#final-visualization" style="font-size: 80%;">Final visualization</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs087.html#the-cifar01-data-set" style="font-size: 80%;">The CIFAR01 data set</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs088.html#verifying-the-data-set" style="font-size: 80%;">Verifying the data set</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs089.html#set-up-the-model" style="font-size: 80%;">Set up  the model</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs090.html#add-dense-layers-on-top" style="font-size: 80%;">Add Dense layers on top</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs091.html#compile-and-train-the-model" style="font-size: 80%;">Compile and train the model</a></li>
-     <!-- navigation toc: --> <li><a href="._week5-bs092.html#finally-evaluate-the-model" style="font-size: 80%;">Finally, evaluate the model</a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs001.html#plan-for-week-5" style="font-size: 80%;"><b>Plan for week 5</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs002.html#fine-tuning-neural-network-hyperparameters" style="font-size: 80%;"><b>Fine-tuning neural network hyperparameters</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs003.html#hidden-layers" style="font-size: 80%;"><b>Hidden layers</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs004.html#which-activation-function-should-i-use" style="font-size: 80%;"><b>Which activation function should I use?</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs005.html#is-the-logistic-activation-function-sigmoid-our-choice" style="font-size: 80%;"><b>Is the Logistic activation function (Sigmoid)  our choice?</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs006.html#the-derivative-of-the-logistic-funtion" style="font-size: 80%;"><b>The derivative of the Logistic funtion</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs007.html#the-relu-function-family" style="font-size: 80%;"><b>The RELU function family</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs008.html#which-activation-function-should-we-use" style="font-size: 80%;"><b>Which activation function should we use?</b></a></li>
+     <!-- navigation toc: --> <li><a href="#more-on-activation-functions-output-layers" style="font-size: 80%;"><b>More on activation functions, output layers</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs010.html#batch-normalization" style="font-size: 80%;"><b>Batch Normalization</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs011.html#dropout" style="font-size: 80%;"><b>Dropout</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs012.html#gradient-clipping" style="font-size: 80%;"><b>Gradient Clipping</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs013.html#a-very-nice-website-on-neural-networks" style="font-size: 80%;"><b>A very nice website on Neural Networks</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs014.html#a-top-down-perspective-on-neural-networks" style="font-size: 80%;"><b>A top-down perspective on Neural networks</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs015.html#limitations-of-supervised-learning-with-deep-networks" style="font-size: 80%;"><b>Limitations of supervised learning with deep networks</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs016.html#reminder-on-the-solution-of-ordinary-and-partial-differential-equations" style="font-size: 80%;"><b>Reminder on the solution of ordinary and partial differential equations</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs017.html#using-automatic-differentiation" style="font-size: 80%;"><b>Using Automatic differentiation</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs018.html#solving-odes-with-deep-learning" style="font-size: 80%;"><b>Solving ODEs with Deep Learning</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs019.html#ordinary-differential-equations" style="font-size: 80%;"><b>Ordinary Differential Equations</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs102.html#the-trial-solution" style="font-size: 80%;"><b>The trial solution</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs021.html#minimization-process" style="font-size: 80%;"><b>Minimization process</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs022.html#minimizing-the-cost-function-using-gradient-descent-and-automatic-differentiation" style="font-size: 80%;"><b>Minimizing the cost function using gradient descent and automatic differentiation</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs023.html#example-exponential-decay" style="font-size: 80%;"><b>Example: Exponential decay</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs024.html#the-function-to-solve-for" style="font-size: 80%;"><b>The function to solve for</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs102.html#the-trial-solution" style="font-size: 80%;"><b>The trial solution</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs026.html#setup-of-network" style="font-size: 80%;"><b>Setup of Network</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs027.html#reformulating-the-problem" style="font-size: 80%;"><b>Reformulating the problem</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs028.html#more-technicalities" style="font-size: 80%;"><b>More technicalities</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs093.html#more-details" style="font-size: 80%;"><b>More details</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs030.html#a-possible-implementation-of-a-neural-network" style="font-size: 80%;"><b>A possible implementation of a neural network</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs031.html#technicalities" style="font-size: 80%;"><b>Technicalities</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs032.html#final-technicalities-i" style="font-size: 80%;"><b>Final technicalities I</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs033.html#final-technicalities-ii" style="font-size: 80%;"><b>Final technicalities II</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs034.html#final-technicalities-iii" style="font-size: 80%;"><b>Final technicalities III</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs035.html#final-technicalities-iv" style="font-size: 80%;"><b>Final technicalities IV</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs036.html#back-propagation" style="font-size: 80%;"><b>Back propagation</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs037.html#gradient-descent" style="font-size: 80%;"><b>Gradient descent</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs038.html#the-code-for-solving-the-ode" style="font-size: 80%;"><b>The code for solving the ODE</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs039.html#the-network-with-one-input-layer-specified-number-of-hidden-layers-and-one-output-layer" style="font-size: 80%;"><b>The network with one input layer, specified number of hidden layers, and one output layer</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs040.html#example-population-growth" style="font-size: 80%;"><b>Example: Population growth</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs041.html#setting-up-the-problem" style="font-size: 80%;"><b>Setting up the problem</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs102.html#the-trial-solution" style="font-size: 80%;"><b>The trial solution</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs043.html#the-program-using-autograd" style="font-size: 80%;"><b>The program using Autograd</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs044.html#using-forward-euler-to-solve-the-ode" style="font-size: 80%;"><b>Using forward Euler to solve the ODE</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs045.html#example-solving-the-one-dimensional-poisson-equation" style="font-size: 80%;"><b>Example: Solving the one dimensional Poisson equation</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs046.html#the-specific-equation-to-solve-for" style="font-size: 80%;"><b>The specific equation to solve for</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs047.html#solving-the-equation-using-autograd" style="font-size: 80%;"><b>Solving the equation using Autograd</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs048.html#comparing-with-a-numerical-scheme" style="font-size: 80%;"><b>Comparing with a numerical scheme</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs049.html#setting-up-the-code" style="font-size: 80%;"><b>Setting up the code</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs050.html#partial-differential-equations" style="font-size: 80%;"><b>Partial Differential Equations</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs051.html#famous-pdes" style="font-size: 80%;"><b>Famous PDEs</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs052.html#famous-pdes-two-dimension" style="font-size: 80%;"><b>Famous PDEs, two dimension</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs053.html#famous-pdes-diffusion-equation" style="font-size: 80%;"><b>Famous PDEs, diffusion equation</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs054.html#famous-pdes-laplace-s-equation" style="font-size: 80%;"><b>Famous PDEs, Laplace's equation</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs055.html#famous-pdes-helmholtz-equation" style="font-size: 80%;"><b>Famous PDEs, Helmholtz' equation</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs056.html#famous-pdes-schroedinger-s-equation-in-two-dimensions" style="font-size: 80%;"><b>Famous PDEs, Schroedinger's equation in two dimensions</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs057.html#famous-pdes-maxwell-s-equations" style="font-size: 80%;"><b>Famous PDEs, Maxwell's equations</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs058.html#famous-pdes-euler-s-equations" style="font-size: 80%;"><b>Famous PDEs, Euler's equations</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs059.html#famous-pdes-the-navier-stokes-equations" style="font-size: 80%;"><b>Famous PDEs, the Navier-Stokes' equations</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs060.html#famous-pdes-general-equation-in-two-dimensions" style="font-size: 80%;"><b>Famous PDEs, general equation in two dimensions</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs062.html#diffusion-equation" style="font-size: 80%;"><b>Diffusion equation</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs062.html#diffusion-equation" style="font-size: 80%;"><b>Diffusion equation</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs063.html#diffusion-equation-famous-laws" style="font-size: 80%;"><b>Diffusion equation, famous laws</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs064.html#diffusion-equation-heat-equation" style="font-size: 80%;"><b>Diffusion equation, heat equation</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs065.html#diffusion-equation-heat-equation-in-one-dimension" style="font-size: 80%;"><b>Diffusion equation, heat equation in one dimension</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs066.html#diffusion-equation-dimensionless-form" style="font-size: 80%;"><b>Diffusion equation, dimensionless form</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs067.html#explicit-scheme" style="font-size: 80%;"><b>Explicit Scheme</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs068.html#explicit-scheme-boundary-conditions" style="font-size: 80%;"><b>Explicit Scheme, boundary conditions</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs069.html#explicit-scheme-algorithm" style="font-size: 80%;"><b>Explicit Scheme, algorithm</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs070.html#explicit-scheme-simplifications" style="font-size: 80%;"><b>Explicit Scheme, simplifications</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs071.html#explicit-scheme-solving-the-equations" style="font-size: 80%;"><b>Explicit Scheme, solving the equations</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs072.html#explicit-scheme-simple-case" style="font-size: 80%;"><b>Explicit Scheme, simple case</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs073.html#explicit-scheme-matrix-vector-formulation" style="font-size: 80%;"><b>Explicit Scheme, matrix-vector formulation</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs074.html#explicit-scheme-sketch-of-code" style="font-size: 80%;"><b>Explicit Scheme, sketch of code</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs079.html#explicit-scheme-stability-condition" style="font-size: 80%;"><b>Explicit Scheme, stability condition</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs076.html#explicit-scheme-spectral-radius-and-stability" style="font-size: 80%;"><b>Explicit Scheme, spectral radius and stability</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs077.html#explicit-scheme-eigenvalues-and-stability" style="font-size: 80%;"><b>Explicit Scheme, eigenvalues and stability</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs078.html#explicit-scheme-final-stability-analysis" style="font-size: 80%;"><b>Explicit Scheme, final stability analysis</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs079.html#explicit-scheme-stability-condition" style="font-size: 80%;"><b>Explicit Scheme, stability condition</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs080.html#explicit-scheme-general-tridiagonal-matrix" style="font-size: 80%;"><b>Explicit Scheme, general tridiagonal matrix</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs085.html#implicit-scheme" style="font-size: 80%;"><b>Implicit Scheme</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs085.html#implicit-scheme" style="font-size: 80%;"><b>Implicit Scheme</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs085.html#implicit-scheme" style="font-size: 80%;"><b>Implicit Scheme</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs085.html#implicit-scheme" style="font-size: 80%;"><b>Implicit Scheme</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs085.html#implicit-scheme" style="font-size: 80%;"><b>Implicit Scheme</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs086.html#program-example-for-implicit-equation" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Program Example for Implicit Equation</a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs087.html#crank-nicolson-scheme" style="font-size: 80%;"><b>Crank-Nicolson scheme</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs088.html#derivation-of-cn-scheme" style="font-size: 80%;"><b>Derivation of CN scheme</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs089.html#taylor-expansions" style="font-size: 80%;"><b>Taylor expansions</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs090.html#error-in-cn-scheme" style="font-size: 80%;"><b>Error in CN scheme</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs091.html#type-of-problem" style="font-size: 80%;"><b>Type of problem</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs092.html#network-requirements" style="font-size: 80%;"><b>Network requirements</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs093.html#more-details" style="font-size: 80%;"><b>More details</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs094.html#example-the-diffusion-equation" style="font-size: 80%;"><b>Example: The diffusion equation</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs095.html#defining-the-problem" style="font-size: 80%;"><b>Defining the problem</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs096.html#setting-up-the-network-using-autograd" style="font-size: 80%;"><b>Setting up the network using Autograd</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs097.html#setting-up-the-network-using-autograd-the-trial-solution" style="font-size: 80%;"><b>Setting up the network using Autograd; The trial solution</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs098.html#why-the-jacobian" style="font-size: 80%;"><b>Why the jacobian?</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs099.html#setting-up-the-network-using-autograd-the-full-program" style="font-size: 80%;"><b>Setting up the network using Autograd; The full program</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs100.html#example-solving-the-wave-equation-with-neural-networks" style="font-size: 80%;"><b>Example: Solving the wave equation with Neural Networks</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs101.html#the-problem-to-solve-for" style="font-size: 80%;"><b>The problem to solve for</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs102.html#the-trial-solution" style="font-size: 80%;"><b>The trial solution</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs103.html#the-analytical-solution" style="font-size: 80%;"><b>The analytical solution</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs104.html#solving-the-wave-equation-the-full-program-using-autograd" style="font-size: 80%;"><b>Solving the wave equation - the full program using Autograd</b></a></li>
+     <!-- navigation toc: --> <li><a href="._week5-bs105.html#resources-on-differential-equations-and-deep-learning" style="font-size: 80%;"><b>Resources on differential equations and deep learning</b></a></li>
 
         </ul>
       </li>
@@ -396,20 +480,18 @@ MathJax.Hub.Config({
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
 <a name="part0009"></a>
 <!-- !split -->
-<h2 id="the-function-to-solve-for" class="anchor">The function to solve for </h2>
+<h2 id="more-on-activation-functions-output-layers" class="anchor">More on activation functions, output layers </h2>
 
-<p>The program will use a neural network to solve</p>
+<p>In most cases you can use the ReLU activation function in the hidden layers (or one of its variants).</p>
 
-$$
-\begin{equation} \tag{6}
-g'(x) = -\gamma g(x)
-\end{equation}
-$$
+<p>It is a bit faster to compute than other activation functions, and the gradient descent optimization does in general not get stuck.</p>
 
-<p>where \( g(0) = g_0 \) with \( \gamma \) and \( g_0 \) being some chosen values.</p>
+<b>For the output layer:</b>
 
-<p>In this example, \( \gamma = 2 \) and \( g_0 = 10 \).</p>
-
+<ul>
+<li> For classification the softmax activation function is generally a good choice for classification tasks (when the classes are mutually exclusive).</li>
+<li> For regression tasks, you can simply use no activation function at all.</li>
+</ul>
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pagination">
@@ -434,7 +516,7 @@ $$
   <li><a href="._week5-bs017.html">18</a></li>
   <li><a href="._week5-bs018.html">19</a></li>
   <li><a href="">...</a></li>
-  <li><a href="._week5-bs092.html">93</a></li>
+  <li><a href="._week5-bs105.html">106</a></li>
   <li><a href="._week5-bs010.html">&raquo;</a></li>
 </ul>
 <!-- ------------------- end of main content --------------- -->
