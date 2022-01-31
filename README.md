@@ -86,7 +86,14 @@ In total 20 ECTS.
 -  Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesJanuary17.pdf 
 
 ### January 24
-- Video of Lecture with subtitles at
+- Video of Lecture with subtitles at https://youtu.be/QtpynpVaMuQ
 - Video without subtitles at https://www.uio.no/studier/emner/matnat/fys/FYS4411/v22/forelesningsvideoer/LectureCompSciJanuary24.mp4?vrtx=view-as-webpage
 - Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week4-reveal.html 
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesJanuary24.pdf 
+
+### January 31
+- Video of Lecture with subtitles at https://youtu.be/ygsvcdLJlWA
+- Video without subtitles at https://www.uio.no/studier/emner/matnat/fys/FYS4411/v22/forelesningsvideoer/CompSciLectureJanuary31.mp4?vrtx=view-as-webpage
+- Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week5-reveal.html 
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesJanuary31.pdf 
+
