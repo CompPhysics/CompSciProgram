@@ -120,7 +120,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week3/ipynb/week3.ipynb"
 
 
-===== January 24-28 Buidling a neural network code and solving differential equations =====
+===== January 24-28 Buildng a neural network code =====
 
 
 
@@ -132,7 +132,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week4/ipynb/week4.ipynb"
 
 
-===== January 31-February 4 Solving differential equations and convolutional neural networks =====
+===== January 31-February 4 Introduction to TensorFlow and Solving differential equations =====
 
 
 
@@ -144,7 +144,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week5/ipynb/week5.ipynb"
 
 
-===== February 7-11 Convolutional and recurrent neural networks =====
+===== February 7-11 Differential equations with neural networks and Convolutional network =====
 
 
 
