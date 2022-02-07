@@ -7,6 +7,8 @@ DATE: today
 
 !bblock
 * Solving differential equations with Neural Networks
+  * "Video of lecture without subtitles":"https://www.uio.no/studier/emner/matnat/fys/FYS4411/v22/forelesningsvideoer/CompSciLectureFeb7.mp4?vrtx=view-as-webpage"
+  * "Video of Lecture with subtitles":"https://youtu.be/XcqUFNkXOZU"
 * Convolutional Neural Networks
 !eblock
 

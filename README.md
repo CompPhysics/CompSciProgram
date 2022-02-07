@@ -97,3 +97,13 @@ In total 20 ECTS.
 - Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week5-reveal.html 
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesJanuary31.pdf 
 
+
+### February 7
+- Video of Lecture with subtitles at https://youtu.be/XcqUFNkXOZU
+- Video without subtitles at https://www.uio.no/studier/emner/matnat/fys/FYS4411/v22/forelesningsvideoer/CompSciLectureFeb7.mp4?vrtx=view-as-webpage
+- Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week6-reveal.html 
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesFebruary7.pdf 
+
+
+
+
