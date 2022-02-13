@@ -18,7 +18,7 @@ chapters = {
  'week4': 'January 24-28 Buildng a neural network code',
  'week5': 'January 31-February 4 Introduction to TensorFlow and Solving differential equations',
  'week6': 'February 7-11 Differential equations with neural networks and Convolutional network',
- 'week7': 'February 14-18 Variational autoencoders and general adversarial neural networks ',
+ 'week7': 'February 14-18 Discussion of project 2 and start convolutional neural networks',
  'week8': 'February 21-25 Unsupervised learning, principal component analysis',
  'week9': 'February 28-March 4 principal component analysis and clustering',
 }

@@ -156,7 +156,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week6/ipynb/week6.ipynb"
 
 
-===== February 14-18 Variational autoencoders and general adversarial neural networks  =====
+===== February 14-18 Discussion of project 2 and start convolutional neural networks =====
 
 
 
