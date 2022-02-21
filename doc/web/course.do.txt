@@ -64,7 +64,7 @@ ${text_types(ch)}
  * Jupyter notebook:
    * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project1/ipynb/Project1.ipynb"
 
-=== Project 2, Deadline February 28 (available December 15) ===
+=== Project 2, Deadline April 2 ===
  * LaTeX and PDF:
      * "Latex file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/pdf/Project2.tex"
      * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/pdf/Project2.pdf"
@@ -75,7 +75,7 @@ ${text_types(ch)}
    * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/ipynb/Project2.ipynb"
 
 
-=== Project 3, Deadline April 30 (available February 28) ===
+=== Project 3, Deadline May 31  ===
  * LaTeX and PDF:
      * "LaTex file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/pdf/Project3.tex"
      * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/pdf/Project3.pdf"
