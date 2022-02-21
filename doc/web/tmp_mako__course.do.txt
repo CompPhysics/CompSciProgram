@@ -144,7 +144,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week5/ipynb/week5.ipynb"
 
 
-===== February 7-11 Differential equations with neural networks and Convolutional network =====
+===== February 7-11 Differential equations with neural networks =====
 
 
 
@@ -168,7 +168,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week7/ipynb/week7.ipynb"
 
 
-===== February 21-25 Unsupervised learning, principal component analysis =====
+===== February 21-25 Convolutional neural networks =====
 
 
 
@@ -180,7 +180,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week8/ipynb/week8.ipynb"
 
 
-===== February 28-March 4 principal component analysis and clustering =====
+===== February 28-March 4 Convolutional and Recurrent Neural Networks =====
 
 
 
@@ -190,6 +190,30 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week9/html/week9-bs.html"
  * Jupyter notebook:
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week9/ipynb/week9.ipynb"
+
+
+===== March 7-11 Principal component analysis and clustering =====
+
+
+
+ * HTML:
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week10/html/week10.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week10/html/week10-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week10/html/week10-bs.html"
+ * Jupyter notebook:
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week10/ipynb/week10.ipynb"
+
+
+===== March 14-18 Principal component analysis and clustering =====
+
+
+
+ * HTML:
+   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week11/html/week11.html"
+   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week11/html/week11-reveal.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week11/html/week11-bs.html"
+ * Jupyter notebook:
+   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week11/ipynb/week11.ipynb"
 
 
 

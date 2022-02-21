@@ -4,7 +4,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 <%
 pub_url = 'https://compphysics.github.io/CompSciProgram/doc/pub'
-published = ['week42', 'week43', 'week44', 'week45', 'week46', 'week47', 'week49', 'week50', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9',]
+published = ['week42', 'week43', 'week44', 'week45', 'week46', 'week47', 'week49', 'week50', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9', 'week10', 'week11',]
 chapters = {
  'week42': 'October 18-22 Linear regression and introduction',
  'week43': 'October 25-29 Regularization and Lasso and Ridge regression',
@@ -17,10 +17,12 @@ chapters = {
  'week3': 'January 17-21 Neural Networks and the back propagation algorithm',
  'week4': 'January 24-28 Buildng a neural network code',
  'week5': 'January 31-February 4 Introduction to TensorFlow and Solving differential equations',
- 'week6': 'February 7-11 Differential equations with neural networks and Convolutional network',
+ 'week6': 'February 7-11 Differential equations with neural networks',
  'week7': 'February 14-18 Discussion of project 2 and start convolutional neural networks',
- 'week8': 'February 21-25 Unsupervised learning, principal component analysis',
- 'week9': 'February 28-March 4 principal component analysis and clustering',
+ 'week8': 'February 21-25 Convolutional neural networks',
+ 'week9': 'February 28-March 4 Convolutional and Recurrent Neural Networks',
+ 'week10': 'March 7-11 Principal component analysis and clustering',
+ 'week11': 'March 14-18 Principal component analysis and clustering',
 }
 %>
 
