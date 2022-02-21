@@ -3,7 +3,7 @@ AUTHOR: Morten Hjorth-Jensen {copyright, 1999-present|CC BY-NC} at Department of
 DATE: today
 
 !split
-===== Plans for week 7 =====
+===== Plans for week 7 and week 8 =====
 
 !bblock
 * Wrapping up Solving differential equations with Neural Networks
@@ -3963,12 +3963,6 @@ other than those that are very far away. Similarly, sounds are
 repeated in multiple times in the signal. While slightly simplistic,
 reasoning about such a sound example demonstrates this. The same
 principles then apply to images and other similar data.
-
-
-!split
-===== CNNs in more detail, Lecture from IN5400 =====
-
-* "Lectures from IN5400 spring 2019":"https://www.uio.no/studier/emner/matnat/ifi/IN5400/v19/material/week5/in5400_2019_week5_convolutional_nerual_networks.pdf"
 
 
 !split
