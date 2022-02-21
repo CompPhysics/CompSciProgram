@@ -88,21 +88,32 @@ In total 20 ECTS.
 ### January 24
 - Video of Lecture with subtitles at https://youtu.be/QtpynpVaMuQ
 - Video without subtitles at https://www.uio.no/studier/emner/matnat/fys/FYS4411/v22/forelesningsvideoer/LectureCompSciJanuary24.mp4?vrtx=view-as-webpage
-- Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week4-reveal.html 
+- Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week4/html/week4-reveal.html 
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesJanuary24.pdf 
 
 ### January 31
 - Video of Lecture with subtitles at https://youtu.be/ygsvcdLJlWA
 - Video without subtitles at https://www.uio.no/studier/emner/matnat/fys/FYS4411/v22/forelesningsvideoer/CompSciLectureJanuary31.mp4?vrtx=view-as-webpage
-- Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week5-reveal.html 
+- Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week5/html/week5-reveal.html 
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesJanuary31.pdf 
 
 
 ### February 7
 - Video of Lecture with subtitles at https://youtu.be/XcqUFNkXOZU
 - Video without subtitles at https://www.uio.no/studier/emner/matnat/fys/FYS4411/v22/forelesningsvideoer/CompSciLectureFeb7.mp4?vrtx=view-as-webpage
-- Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week6-reveal.html 
+- Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week6/html/week6-reveal.html 
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesFebruary7.pdf 
+
+
+### February 14 and 21
+- Video of Lecture with subtitles at https://youtu.be/RgLCl9ppHfI
+- Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week7/html/week7-reveal.html
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesFebruary21.pdf 
+
+
+
+
+
 
 
 
