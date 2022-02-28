@@ -111,6 +111,12 @@ In total 20 ECTS.
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesFebruary21.pdf 
 
 
+### February 28
+- Video of Lecture with subtitles at https://youtu.be/UWfLGcqmqt8
+- Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week9/html/week9-reveal.html
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesFebruary28.pdf 
+
+
 
 
 

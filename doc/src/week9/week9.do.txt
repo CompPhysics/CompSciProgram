@@ -10,6 +10,11 @@ DATE: today
 * Recurrent neural networks
 !eblock
 
+!bblock
+* "Video of Lecture with subtitles":"https://youtu.be/UWfLGcqmqt8"
+* "Handwritten notes":"https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesFebruary28.pdf"
+!eblock
+
 
 !split
 ===== Resources on Convolutional Networks =====
