@@ -3,16 +3,26 @@ AUTHOR: "Morten Hjorth-Jensen":"http://mhjgit.github.io/info/doc/web/" at Depart
 AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/anderkve/index.html" at Department of Physics (office FØ447), University of Oslo, Norway
 
 <%
-pub_url = 'https://compphysics.github.io/CompSciProgram/doc/web'
-published = ['week42', 'week43', 'week44', 'week45', 'week46', 'week47', 'week48', ]
+pub_url = 'https://compphysics.github.io/CompSciProgram/doc/pub'
+published = ['week42', 'week43', 'week44', 'week45', 'week46', 'week47', 'week49', 'week50', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9', 'week10', 'week11',]
 chapters = {
- 'week42': 'Week 42 October 18-22: Linear Regression and discussion of project 1',
- 'week43': 'Week 43 October 25-29: Regularization'
- 'week44': 'Week 44 November 1-5: Resampling and more on Ridge and Lasso',
- 'week45': 'Week 45 November 8-12: Logistic Regression',
- 'week46': 'Week 46 November 15-19: Optimization and Gradient Methods',
- 'week47': 'Week 47 November 22-26: Support Vector Machines',
- 'week48': 'Week 48 November 29- December 3: Support Vector Machines',
+ 'week42': 'October 18-22 Linear regression and introduction',
+ 'week43': 'October 25-29 Regularization and Lasso and Ridge regression',
+ 'week44': 'November 1-5 Resampling methods',
+ 'week45': 'November 8-12 Logistic regression ',
+ 'week46': 'November 15-19 Optimization methods ',
+ 'week47': 'November 22-26 Stochastic gradient methods',
+ 'week49': 'November 29-December 3 Support vector machines',
+ 'week50': 'December 6-10 Support vector machines ',
+ 'week3': 'January 17-21 Neural Networks and the back propagation algorithm',
+ 'week4': 'January 24-28 Buildng a neural network code',
+ 'week5': 'January 31-February 4 Introduction to TensorFlow and Solving differential equations',
+ 'week6': 'February 7-11 Differential equations with neural networks',
+ 'week7': 'February 14-18 Discussion of project 2 and start convolutional neural networks',
+ 'week8': 'February 21-25 Convolutional neural networks',
+ 'week9': 'February 28-March 4 Convolutional and Recurrent Neural Networks',
+ 'week10': 'March 7-11 Principal component analysis and clustering',
+ 'week11': 'March 14-18 Principal component analysis and clustering',
 }
 %>
 
@@ -41,15 +51,6 @@ ${text_types(ch)}
 % endfor
 
 !split
-=====  Textbook =====
- * Lecture Notes:
-   * "Book":"https://compphysics.github.io/MachineLearning/doc/LectureNotes/_build/html/intro.html"
-
-
-
-
-
-!split
 ===== Projects Fall and Spring 2021/2022 (dates are tentative) =====
 
 
@@ -63,7 +64,7 @@ ${text_types(ch)}
  * Jupyter notebook:
    * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project1/ipynb/Project1.ipynb"
 
-=== Project 2, Deadline February 28 (available December 15) ===
+=== Project 2, Deadline April 2 ===
  * LaTeX and PDF:
      * "Latex file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/pdf/Project2.tex"
      * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/pdf/Project2.pdf"
@@ -74,7 +75,7 @@ ${text_types(ch)}
    * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/ipynb/Project2.ipynb"
 
 
-=== Project 3, Deadline April 30 (available February 28) ===
+=== Project 3, Deadline May 31  ===
  * LaTeX and PDF:
      * "LaTex file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/pdf/Project3.tex"
      * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/pdf/Project3.pdf"
