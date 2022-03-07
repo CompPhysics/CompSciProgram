@@ -192,7 +192,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week9/ipynb/week9.ipynb"
 
 
-===== March 7-11 Principal component analysis and clustering =====
+===== March 7-11 Recurrent neural networks and summary of deep learning methods =====
 
 
 
@@ -202,18 +202,6 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week10/html/week10-bs.html"
  * Jupyter notebook:
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week10/ipynb/week10.ipynb"
-
-
-===== March 14-18 Principal component analysis and clustering =====
-
-
-
- * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week11/html/week11.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week11/html/week11-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week11/html/week11-bs.html"
- * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week11/ipynb/week11.ipynb"
 
 
 
