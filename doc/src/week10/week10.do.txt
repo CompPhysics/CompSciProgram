@@ -9,6 +9,9 @@ DATE: today
 !bblock
 * Wrapping up Convolutional Neural Networks
 * Recurrent neural networks
+* "Video of lecture at with subtitles":"https://youtu.be/JbXacJLs1TU"
+* "Handwritten notes":"https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesMarch7.pdf"
+
 !eblock
 
 !split
