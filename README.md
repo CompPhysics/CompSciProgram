@@ -121,6 +121,12 @@ In total 20 ECTS.
 - Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week10/html/week10-reveal.html
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesMarch7.pdf 
 
+### April 4, Bayesian Statistics lecture series by Anders Kvellestad
+- Video of lecture at with subtitles at https://youtu.be/awglstRNVoM
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesApril4.pdf 
+
+
+
 
 
 
