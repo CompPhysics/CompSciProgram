@@ -137,7 +137,10 @@ In total 20 ECTS.
 - Video of lecture at with subtitles at https://youtu.be/gFDgkzHMptM
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesMay2.pdf 
 
+### May 9, Bayesian Statistics lecture series by Anders Kvellestad
+- Video of lecture at with subtitles at https://youtu.be/vh3dlAIPTwM
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesMay9.pdf 
 
-
+https://youtu.be/vh3dlAIPTwM
 
 
