@@ -48,10 +48,11 @@ In total 20 ECTS.
 ##  Lectures
 
 ### October 26
-- Intro to machine learning and linear regression
+- Intro to machine learning and linear regression, slides at https://compphysics.github.io/CompSciProgram/doc/pub/week42/html/week42-reveal.html
 - Video of Lecture at https://youtu.be/C8dL1pLUJ3A
-- Handwritten notes at 
-- See also notes on derivatives of matrices and vectors at
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesOct262022.pdf
+- See also notes on derivatives of matrices and vectors at https://github.com/CompPhysics/MachineLearning/blob/master/doc/HandWrittenNotes/2022/NotesExercise5Week452022.pdf
+
 ### November 2
 - Video of Lecture at 
 
