@@ -29,7 +29,7 @@ Zoom link: URL:"https://msu.zoom.us/j/94805869973?pwd=ZVlBMXpBRlZ1aG5wamFFRFlkRl
 * Passcode: 900729
 
 The lectures will be recorded and updated videos will be posted after the lectures. 
-* "Video of lecture":""
+* "Video of lecture":"https://youtu.be/C8dL1pLUJ3A"
 
 
 !split
