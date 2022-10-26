@@ -49,8 +49,9 @@ In total 20 ECTS.
 
 ### October 26
 - Intro to machine learning and linear regression
-- Video of Lecture at 
-
+- Video of Lecture at https://youtu.be/C8dL1pLUJ3A
+- Handwritten notes at 
+- See also notes on derivatives of matrices and vectors at
 ### November 2
 - Video of Lecture at 
 
