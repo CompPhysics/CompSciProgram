@@ -1,5 +1,5 @@
-TITLE: Week 42: Introduction to the course, Logistics and Practicalities
-AUTHOR: Morten Hjorth-Jensen  {copyright, 1999-present|CC BY-NC} at Department of Physics, University of Oslo & Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University
+TITLE: Week 43: Introduction to the course, Logistics and Practicalities and linear regression
+AUTHOR: Morten Hjorth-Jensen  {copyright, 1999-present|CC BY-NC} at Department of Physics, University of Oslo, Norway & Department of Physics and Astronomy and Facility for Rare Isotope Beams, Michigan State University, Michigan, USA
 DATE: today
 
 
@@ -23,15 +23,13 @@ Reading recommendations this week: Refresh linear algebra, GBC chapters 1 and 2.
 !split
 ===== Week 42 =====
 
-Zoom link: URL:"https://msu.zoom.us/j/94432195360?pwd=bHBoV1dTb3JaQzBCRE1VbHRhNktkdz09"
+Zoom link: URL:"https://msu.zoom.us/j/94805869973?pwd=ZVlBMXpBRlZ1aG5wamFFRFlkRllPdz09"
 
-* Meeting ID: 944 3219 5360
-* Passcode: 916281
-
-
+* Meeting ID: 948 0586 9973
+* Passcode: 900729
 
 The lectures will be recorded and updated videos will be posted after the lectures. 
-* "Video of lecture":"https://www.uio.no/studier/emner/matnat/fys/FYS-STK4155/h21/forelesningsvideoer/CompSciOctober18.mp4?vrtx=view-as-webpage"
+* "Video of lecture":""
 
 
 !split
@@ -45,9 +43,9 @@ The lectures will be recorded and updated videos will be posted after the lectur
 ===== Course Format =====
 
 !bblock
-  * Three compulsory projects. Electronic reports only using "Canvas":"https://www.uio.no/english/services/it/education/canvas/" to hand in projects and "git":"https://git-scm.com/" as version control software and "GitHub":"https://github.com/" for repository (or "GitLab":"https://about.gitlab.com/") of all your material.
+  * Three compulsory projects. Electronic reports only using "git":"https://git-scm.com/" as version control software and "GitHub":"https://github.com/" for repository (or "GitLab":"https://about.gitlab.com/") of all your material.
   * Evaluation and grading: The three projects are graded and each counts 1/3 of the final mark. No final written or oral exam.
-    o For the last project each group/participant submits a proposal or works with suggested (by us) proposals for the project.
+    o For the last project (perhaps all projects?) each group/participant submits a proposal or works with suggested (by us) proposals for the project.
     o If possible, we would like to organize the last project as a workshop where each group makes a poster and presents this to all other participants of the course
     o Poster session where all participants can study and discuss the other proposals.
     o Based on feedback etc, each group finalizes the report and submits for grading. 
@@ -84,9 +82,9 @@ _Teachers :_
 
 !bblock
 
-o Project 1: December 15
-o Project 2: February 28
-o Project 3: April 30
+o Project 1: End January
+o Project 2: End March/begin April
+o Project 3: End May/begin June
 
 !eblock
 

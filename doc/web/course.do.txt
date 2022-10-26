@@ -6,22 +6,22 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 pub_url = 'https://compphysics.github.io/CompSciProgram/doc/pub'
 published = ['week42', 'week43', 'week44', 'week45', 'week46', 'week47', 'week49', 'week50', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9', 'week10',]
 chapters = {
- 'week42': 'October 18-22 Linear regression and introduction',
- 'week43': 'October 25-29 Regularization and Lasso and Ridge regression',
- 'week44': 'November 1-5 Resampling methods',
- 'week45': 'November 8-12 Logistic regression ',
- 'week46': 'November 15-19 Optimization methods ',
- 'week47': 'November 22-26 Stochastic gradient methods',
- 'week49': 'November 29-December 3 Support vector machines',
- 'week50': 'December 6-10 Support vector machines ',
- 'week3': 'January 17-21 Neural Networks and the back propagation algorithm',
- 'week4': 'January 24-28 Buildng a neural network code',
- 'week5': 'January 31-February 4 Introduction to TensorFlow and Solving differential equations',
- 'week6': 'February 7-11 Differential equations with neural networks',
- 'week7': 'February 14-18 Discussion of project 2 and start convolutional neural networks',
- 'week8': 'February 21-25 Convolutional neural networks',
- 'week9': 'February 28-March 4 Convolutional and Recurrent Neural Networks',
- 'week10': 'March 7-11 Recurrent neural networks and summary of deep learning methods',
+ 'week42': 'October 24-28 Linear regression and introduction',
+ 'week43': 'October 31 - November 4 Regularization and Lasso and Ridge regression',
+ 'week44': 'November 7-11 Resampling methods',
+ 'week45': 'November 14-18 Logistic regression ',
+ 'week46': 'November 21-25 Optimization methods ',
+ 'week47': 'November 28- December 2  Stochastic gradient methods',
+ 'week49': 'December 5-9  Support vector machines',
+ 'week50': 'December 12-16 Support vector machines ',
+ 'week3': 'January 16-20 Neural Networks and the back propagation algorithm',
+ 'week4': 'January 23-27 Buildng a neural network code',
+ 'week5': 'January 30-February 3 Introduction to TensorFlow and Solving differential equations',
+ 'week6': 'February 6-10 Differential equations with neural networks',
+ 'week7': 'February 13-17 Discussion of project 2 and start convolutional neural networks',
+ 'week8': 'February 20-24 Convolutional neural networks',
+ 'week9': 'February 27-March 3 Convolutional and Recurrent Neural Networks',
+ 'week10': 'March 6-12 Recurrent neural networks and summary of deep learning methods',
 }
 %>
 
