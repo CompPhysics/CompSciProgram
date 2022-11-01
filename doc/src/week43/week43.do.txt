@@ -1,11 +1,11 @@
-TITLE: Week 43: From Ordinary Linear Regression to Ridge and Lasso Regression
+TITLE: Week 44: From Ordinary Linear Regression to Ridge and Lasso Regression
 AUTHOR: Morten Hjorth-Jensen {copyright, 1999-present|CC BY-NC} at Department of Physics, University of Oslo & Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University
 DATE: today
 
 !split
 ===== Video of Lecture =====
 
-"Video of Lecture October 25":"https://www.uio.no/studier/emner/matnat/fys/FYS-STK4155/h21/forelesningsvideoer/CompSciLectureOctober25.mp4?vrtx=view-as-webpage"
+"Video of Lecture November 2 to be added":"https://www.uio.no/"
 
 !split
 ===== Preprocessing our data  =====
