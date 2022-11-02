@@ -54,7 +54,8 @@ In total 20 ECTS.
 - See also notes on derivatives of matrices and vectors at https://github.com/CompPhysics/MachineLearning/blob/master/doc/HandWrittenNotes/2022/NotesExercise5Week452022.pdf
 
 ### November 2
-- Video of Lecture at 
+- Video of Lecture at https://youtu.be/EiO7WOm_DLs
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesNov22022.pdf
 
 ### November 9
 - Video of Lecture at 
