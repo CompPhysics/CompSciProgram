@@ -5,7 +5,7 @@ DATE: today
 !split
 ===== Video of Lecture =====
 
-"Video of Lecture November 2 to be added":"https://www.uio.no/"
+"Video of Lecture November 2 to be added":"https://youtu.be/EiO7WOm_DLs"
 
 !split
 ===== Preprocessing our data  =====

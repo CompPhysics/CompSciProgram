@@ -3,9 +3,6 @@ AUTHOR: Morten Hjorth-Jensen {copyright, 1999-present|CC BY-NC} at Department of
 DATE: today
 
 
-!split
-=====  Video of Lecture =====
-"Video of Lecture November 15":"https://www.uio.no/studier/emner/matnat/fys/FYS-STK4155/h21/forelesningsvideoer/LectureNovember15-1.mp4?vrtx=view-as-webpage"
 
 !split
 ===== Searching for Optimal Regularization Parameters $\lambda$ =====
