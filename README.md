@@ -59,8 +59,8 @@ In total 20 ECTS.
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesNov22022.pdf
 
 ### November 9
-- Video of Lecture at 
-
+- Video of Lecture at https://youtu.be/XIdtY2_9rgk
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesNov92022.pdf
 ### November 16
 - Video of Lecture at 
 
