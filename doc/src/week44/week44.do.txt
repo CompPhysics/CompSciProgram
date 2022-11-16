@@ -7,7 +7,6 @@ DATE: today
 
 * More on Ridge and Lasso Regression
 * Statistics, probability theory and resampling methods
-* "Video of Lecture November 1":"https://www.uio.no/studier/emner/matnat/fys/FYS-STK4155/h21/forelesningsvideoer/CompSciLectureNovember1.mp4?vrtx=view-as-webpage"
 
 
 !split
