@@ -4,16 +4,16 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 <%
 pub_url = 'https://compphysics.github.io/CompSciProgram/doc/pub'
-published = ['week42', 'week43', 'week44', 'week45', 'week46', 'week47', 'week49', 'week50', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9', 'week10',]
+published = ['week42', 'week43', 'week44', 'week45', 'week46', 'week47', 'week49', 'week3', 'week4', 'week5', 'week6', 'week7', 'week8', 'week9', 'week10',]
 chapters = {
  'week42': 'October 24-28 Linear regression and introduction',
  'week43': 'October 31 - November 4 Regularization and Lasso and Ridge regression',
  'week44': 'November 7-11 Statistical interpretation of Regression methods',
- 'week45': 'November 14-18 Resampling Methods',
- 'week46': 'December 12 Logistic Regression',
- 'week47': 'december 13-14  Optimization and Stochastic gradient methods',
- 'week49': 'January 18  Support vector machines',
- 'week50': 'January 25 Support vector machines ',
+ 'week44': 'November 14-18 Resampling Methods',
+ 'week45': 'December 12 Logistic Regression',
+ 'week46': 'december 13-14  Optimization and Stochastic gradient methods',
+ 'week47': 'January 18  Support vector machines',
+ 'week49': 'January 25 Support vector machines ',
  'week3': 'February 1  Neural Networks and the back propagation algorithm',
  'week4': 'February 8 Buildng a neural network code',
  'week5': 'February 15 Introduction to TensorFlow and Solving differential equations',

@@ -36,7 +36,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week43/ipynb/week43.ipynb"
 
 
-===== November 7-11 Statistical interpretation of Regression methods =====
+===== November 14-18 Resampling Methods =====
 
 
 
@@ -48,7 +48,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week44/ipynb/week44.ipynb"
 
 
-===== November 14-18 Resampling Methods =====
+===== December 12 Logistic Regression =====
 
 
 
@@ -60,7 +60,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week45/ipynb/week45.ipynb"
 
 
-===== December 12 Logistic Regression =====
+===== december 13-14  Optimization and Stochastic gradient methods =====
 
 
 
@@ -72,7 +72,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week46/ipynb/week46.ipynb"
 
 
-===== december 13-14  Optimization and Stochastic gradient methods =====
+===== January 18  Support vector machines =====
 
 
 
@@ -84,7 +84,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week47/ipynb/week47.ipynb"
 
 
-===== January 18  Support vector machines =====
+===== January 25 Support vector machines  =====
 
 
 
@@ -94,18 +94,6 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week49/html/week49-bs.html"
  * Jupyter notebook:
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week49/ipynb/week49.ipynb"
-
-
-===== January 25 Support vector machines  =====
-
-
-
- * HTML:
-   * "Plain html": "https://compphysics.github.io/CompSciProgram/doc/pub/week50/html/week50.html"
-   * "reveal.js beige slide style": "https://compphysics.github.io/CompSciProgram/doc/pub/week50/html/week50-reveal.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "https://compphysics.github.io/CompSciProgram/doc/pub/week50/html/week50-bs.html"
- * Jupyter notebook:
-   * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week50/ipynb/week50.ipynb"
 
 
 ===== February 1  Neural Networks and the back propagation algorithm =====
