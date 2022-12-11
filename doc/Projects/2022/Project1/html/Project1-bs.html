@@ -76,10 +76,10 @@ doconce format html Project1.do.txt --html_style=bootstrap --pygments_html_style
                3,
                None,
                'part-g-write-your-logistic-regression-code-final-step'),
-              ('Part h): Support Vector Machines',
+              ('Part h): Support Vector Machines (optional)',
                3,
                None,
-               'part-h-support-vector-machines'),
+               'part-h-support-vector-machines-optional'),
               ('Part i) Critical evaluation of the various algorithms',
                3,
                None,
@@ -140,7 +140,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="#part-e-lasso-regression-on-the-franke-function-with-resampling" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Part e): Lasso Regression on the Franke function  with resampling</a></li>
      <!-- navigation toc: --> <li><a href="#part-f-write-your-own-stochastic-gradient-descent-code-first-step" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Part f): Write your own Stochastic Gradient Descent  code, first step</a></li>
      <!-- navigation toc: --> <li><a href="#part-g-write-your-logistic-regression-code-final-step" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Part g): Write your Logistic Regression code, final step</a></li>
-     <!-- navigation toc: --> <li><a href="#part-h-support-vector-machines" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Part h): Support Vector Machines</a></li>
+     <!-- navigation toc: --> <li><a href="#part-h-support-vector-machines-optional" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Part h): Support Vector Machines (optional)</a></li>
      <!-- navigation toc: --> <li><a href="#part-i-critical-evaluation-of-the-various-algorithms" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Part i) Critical evaluation of the various algorithms</a></li>
      <!-- navigation toc: --> <li><a href="#background-literature" style="font-size: 80%;"><b>Background literature</b></a></li>
      <!-- navigation toc: --> <li><a href="#introduction-to-numerical-projects" style="font-size: 80%;"><b>Introduction to numerical projects</b></a></li>
@@ -474,23 +474,42 @@ model fits the data best.  Perform here as well an analysis of the bias-variance
 </p>
 <h3 id="part-f-write-your-own-stochastic-gradient-descent-code-first-step" class="anchor">Part f): Write your own Stochastic Gradient Descent  code, first step </h3>
 
-<p>In order to get started with Logistic regression, we will now replace in our standard ordinary
-least squares (OLS) and Ridge regression codes the matrix inversion
-algorithm with our own SGD code. You can choose whether you want to
-add the momentum SGD optionality or other SGD variants such as RMSprop
-or ADAgrad or ADAM. 
+<p>In order to get started, we will now replace in our standard ordinary
+least squares (OLS) and Ridge regression codes (from project 1) the
+matrix inversion algorithm with our own gradient descent (GD) and SGD
+codes.  You can use the Franke function or other data of your choice. However, we recommend using a simpler function like
+\( f(x)=a_0+a_1x+a_2x^2 \) or higher-order one-dimensional polynomials.
+You can obviously test your final codes against for example the Franke
+function.
 </p>
 
-<p>Perform an analysis of the results for OLS and Ridge regression as
+<p>You should include in your analysis of the GD and SGD codes the following elements</p>
+<ol>
+<li> A plain gradient descent with a fixed learning rate (you will need to tune it).</li>
+<li> Add momentum to the plain GD code and compare convergence with a fixed learning rate (you may need to tune the learning rate).</li>
+<li> Repeat these steps for stochastic gradient descent with mini batches and a given number of epochs. Use a tunable learning rate as discussed in the lectures from week 50. Discuss the results as functions of the various parameters (size of batches, number of epochs etc)</li>
+<li> Implement the Adagrad method in order to tune the learning rate. Do this with and without momentum for plain gradient descent and SGD.</li>
+<li> Add RMSprop and Adam to your library of methods for tuning the learning rate.</li>
+</ol>
+<p>In summary, you should 
+perform an analysis of the results for OLS and Ridge regression as
 function of the chosen learning rates, the number of mini-batches and
 epochs as well as algorithm for scaling the learning rate. You can
 also compare your own results with those that can be obtained using
 for example <b>Scikit-Learn</b>'s various SGD options.  Discuss your
 results. For Ridge regression you need now to study the results as functions of  the hyper-parameter \( \lambda \) and 
-the learning rate \( \gamma \). 
+the learning rate \( \eta \).  Discuss your results.
 </p>
 
-<p>You will need your SGD code for the setup of the Logistic Regression codes. You will find the Python <a href="https://seaborn.pydata.org/generated/seaborn.heatmap.html" target="_self">Seaborn package</a> useful when plotting the results as function of the learning rate \( \eta \) and the hyper-parameter \( \lambda \) when you use Ridge regression.</p>
+<p>You will need your SGD code for the setup of the and
+Logistic Regression code. You will find the Python <a href="https://seaborn.pydata.org/generated/seaborn.heatmap.html" target="_self">Seaborn
+package</a>
+useful when plotting the results as function of the learning rate
+\( \eta \) and the hyper-parameter \( \lambda \) when you use Ridge
+regression.
+</p>
+
+<p>We recommend reading chapter 8 on optimization from the textbook of <a href="https://www.deeplearningbook.org/" target="_self">Goodfellow, Bengio and Courville</a>. This chapter contains many useful insights and discussions on the optimization part of machine learning.</p>
 <h3 id="part-g-write-your-logistic-regression-code-final-step" class="anchor">Part g): Write your Logistic Regression code, final step </h3>
 
 <p>We will now study a classification problem (using the Wisconsin breast cancer data as possible data set) with 
@@ -503,9 +522,9 @@ Study the results as functions of the chosen learning rates.
 Add also an \( l_2 \) regularization parameter \( \lambda \). Compare your results with those obtained using <b>Scikit-Learn</b>'s logistic regression functionality.
 You should consider scaling/normalizing your data and include cross-validation.
 </p>
-<h3 id="part-h-support-vector-machines" class="anchor">Part h): Support Vector Machines  </h3>
+<h3 id="part-h-support-vector-machines-optional" class="anchor">Part h): Support Vector Machines (optional)  </h3>
 
-<p>For the classification problem, we include now support vector machines. Feel free to use <b>Scikit-Learn's</b> functionality here and compare your results with those obtained from logistic regression. </p>
+<p>For the classification problem, we include now support vector machines. Feel free to use <b>Scikit-Learn's</b> functionality here and compare your results with those obtained from logistic regression.  This part will be discussed during our first lectures in January.</p>
 <h3 id="part-i-critical-evaluation-of-the-various-algorithms" class="anchor">Part i) Critical evaluation of the various algorithms </h3>
 
 <p>After all these glorious calculations, you should now summarize the

@@ -461,21 +461,45 @@ critical discussion of the three methods and a judgement of which
 model fits the data best.  Perform here as well an analysis of the bias-variance trade-off using the \textbf{bootstrap} resampling technique and an analysis of the mean squared error using cross-validation. 
 
 \paragraph{Part f): Write your own Stochastic Gradient Descent  code, first step.}
-In order to get started with Logistic regression, we will now replace in our standard ordinary
-least squares (OLS) and Ridge regression codes the matrix inversion
-algorithm with our own SGD code. You can choose whether you want to
-add the momentum SGD optionality or other SGD variants such as RMSprop
-or ADAgrad or ADAM. 
+In order to get started, we will now replace in our standard ordinary
+least squares (OLS) and Ridge regression codes (from project 1) the
+matrix inversion algorithm with our own gradient descent (GD) and SGD
+codes.  You can use the Franke function or other data of your choice. However, we recommend using a simpler function like
+$f(x)=a_0+a_1x+a_2x^2$ or higher-order one-dimensional polynomials.
+You can obviously test your final codes against for example the Franke
+function.
 
-Perform an analysis of the results for OLS and Ridge regression as
+You should include in your analysis of the GD and SGD codes the following elements
+\begin{enumerate}
+\item A plain gradient descent with a fixed learning rate (you will need to tune it).
+
+\item Add momentum to the plain GD code and compare convergence with a fixed learning rate (you may need to tune the learning rate).
+
+\item Repeat these steps for stochastic gradient descent with mini batches and a given number of epochs. Use a tunable learning rate as discussed in the lectures from week 50. Discuss the results as functions of the various parameters (size of batches, number of epochs etc)
+
+\item Implement the Adagrad method in order to tune the learning rate. Do this with and without momentum for plain gradient descent and SGD.
+
+\item Add RMSprop and Adam to your library of methods for tuning the learning rate.
+\end{enumerate}
+
+\noindent
+In summary, you should 
+perform an analysis of the results for OLS and Ridge regression as
 function of the chosen learning rates, the number of mini-batches and
 epochs as well as algorithm for scaling the learning rate. You can
 also compare your own results with those that can be obtained using
 for example \textbf{Scikit-Learn}'s various SGD options.  Discuss your
 results. For Ridge regression you need now to study the results as functions of  the hyper-parameter $\lambda$ and 
-the learning rate $\gamma$. 
+the learning rate $\eta$.  Discuss your results.
 
-You will need your SGD code for the setup of the Logistic Regression codes. You will find the Python \href{{https://seaborn.pydata.org/generated/seaborn.heatmap.html}}{Seaborn package} useful when plotting the results as function of the learning rate $\eta$ and the hyper-parameter $\lambda$ when you use Ridge regression.
+You will need your SGD code for the setup of the and
+Logistic Regression code. You will find the Python \href{{https://seaborn.pydata.org/generated/seaborn.heatmap.html}}{Seaborn
+package}
+useful when plotting the results as function of the learning rate
+$\eta$ and the hyper-parameter $\lambda$ when you use Ridge
+regression.
+
+We recommend reading chapter 8 on optimization from the textbook of \href{{https://www.deeplearningbook.org/}}{Goodfellow, Bengio and Courville}. This chapter contains many useful insights and discussions on the optimization part of machine learning.
 
 \paragraph{Part g): Write your Logistic Regression code, final step.}
 We will now study a classification problem (using the Wisconsin breast cancer data as possible data set) with 
@@ -487,8 +511,8 @@ Study the results as functions of the chosen learning rates.
 Add also an $l_2$ regularization parameter $\lambda$. Compare your results with those obtained using \textbf{Scikit-Learn}'s logistic regression functionality.
 You should consider scaling/normalizing your data and include cross-validation.
 
-\paragraph{Part h): Support Vector Machines.}
-For the classification problem, we include now support vector machines. Feel free to use \textbf{Scikit-Learn's} functionality here and compare your results with those obtained from logistic regression. 
+\paragraph{Part h): Support Vector Machines (optional).}
+For the classification problem, we include now support vector machines. Feel free to use \textbf{Scikit-Learn's} functionality here and compare your results with those obtained from logistic regression.  This part will be discussed during our first lectures in January.
 
 \paragraph{Part i) Critical evaluation of the various algorithms.}
 After all these glorious calculations, you should now summarize the
