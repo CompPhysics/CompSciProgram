@@ -8,20 +8,20 @@ published = ['week42', 'week43', 'week44', 'week45', 'week46', 'week47', 'week49
 chapters = {
  'week42': 'October 24-28 Linear regression and introduction',
  'week43': 'October 31 - November 4 Regularization and Lasso and Ridge regression',
- 'week44': 'November 7-11 Resampling methods',
- 'week45': 'November 14-18 Logistic regression ',
- 'week46': 'November 21-25 Optimization methods ',
- 'week47': 'November 28- December 2  Stochastic gradient methods',
- 'week49': 'December 5-9  Support vector machines',
- 'week50': 'December 12-16 Support vector machines ',
- 'week3': 'January 16-20 Neural Networks and the back propagation algorithm',
- 'week4': 'January 23-27 Buildng a neural network code',
- 'week5': 'January 30-February 3 Introduction to TensorFlow and Solving differential equations',
- 'week6': 'February 6-10 Differential equations with neural networks',
- 'week7': 'February 13-17 Discussion of project 2 and start convolutional neural networks',
- 'week8': 'February 20-24 Convolutional neural networks',
- 'week9': 'February 27-March 3 Convolutional and Recurrent Neural Networks',
- 'week10': 'March 6-12 Recurrent neural networks and summary of deep learning methods',
+ 'week44': 'November 7-11 Statistical interpretation of Regression methods',
+ 'week45': 'November 14-18 Resampling Methods',
+ 'week46': 'December 12 Logistic Regression',
+ 'week47': 'december 13-14  Optimization and Stochastic gradient methods',
+ 'week49': 'January 18  Support vector machines',
+ 'week50': 'January 25 Support vector machines ',
+ 'week3': 'February 1  Neural Networks and the back propagation algorithm',
+ 'week4': 'February 8 Buildng a neural network code',
+ 'week5': 'February 15 Introduction to TensorFlow and Solving differential equations',
+ 'week6': 'February 22  Differential equations with neural networks',
+ 'week7': 'March 1  Discussion of project 2 and start convolutional neural networks',
+ 'week8': 'March 8 Convolutional neural networks',
+ 'week9': 'March 15 Convolutional and Recurrent Neural Networks',
+ 'week10': 'March 22 Recurrent neural networks and summary of deep learning methods',
 }
 %>
 
@@ -50,39 +50,39 @@ ${text_types(ch)}
 % endfor
 
 !split
-===== Projects Fall and Spring 2021/2022 (dates are tentative) =====
+===== Projects Fall and Spring 2022/2023 (dates are tentative) =====
 
 
-=== Project 1, Deadline December 15 (available October 17) ===
+=== Project 1, Deadline January 31 (available December 12) ===
  * LaTeX and PDF:
-     * "LaTex file":"https://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project1/pdf/Project1.tex"
-     * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project1/pdf/Project1.pdf"
+     * "LaTex file":"https://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project1/pdf/Project1.tex"
+     * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project1/pdf/Project1.pdf"
  * HTML:
-   * "Plain html":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project1/html/Project1.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project1/html/Project1-bs.html"
+   * "Plain html":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project1/html/Project1.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project1/html/Project1-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project1/ipynb/Project1.ipynb"
+   * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project1/ipynb/Project1.ipynb"
 
-=== Project 2, Deadline April 2 ===
+=== Project 2, Deadline April 30 ===
  * LaTeX and PDF:
-     * "Latex file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/pdf/Project2.tex"
-     * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/pdf/Project2.pdf"
+     * "Latex file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project2/pdf/Project2.tex"
+     * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project2/pdf/Project2.pdf"
  * HTML:
-   * "Plain html":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/html/Project2.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/html/Project2-bs.html"
+   * "Plain html":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project2/html/Project2.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project2/html/Project2-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/ipynb/Project2.ipynb"
+   * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project2/ipynb/Project2.ipynb"
 
 
 === Project 3, Deadline May 31  ===
  * LaTeX and PDF:
-     * "LaTex file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/pdf/Project3.tex"
-     * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/pdf/Project3.pdf"
+     * "LaTex file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project3/pdf/Project3.tex"
+     * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project3/pdf/Project3.pdf"
  * HTML:
-   * "Plain html":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/html/Project3.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/html/Project3-bs.html"
+   * "Plain html":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project3/html/Project3.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project3/html/Project3-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/ipynb/Project3.ipynb"
+   * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project3/ipynb/Project3.ipynb"
 
 
 

@@ -36,7 +36,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week43/ipynb/week43.ipynb"
 
 
-===== November 7-11 Resampling methods =====
+===== November 7-11 Statistical interpretation of Regression methods =====
 
 
 
@@ -48,7 +48,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week44/ipynb/week44.ipynb"
 
 
-===== November 14-18 Logistic regression  =====
+===== November 14-18 Resampling Methods =====
 
 
 
@@ -60,7 +60,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week45/ipynb/week45.ipynb"
 
 
-===== November 21-25 Optimization methods  =====
+===== December 12 Logistic Regression =====
 
 
 
@@ -72,7 +72,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week46/ipynb/week46.ipynb"
 
 
-===== November 28- December 2  Stochastic gradient methods =====
+===== december 13-14  Optimization and Stochastic gradient methods =====
 
 
 
@@ -84,7 +84,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week47/ipynb/week47.ipynb"
 
 
-===== December 5-9  Support vector machines =====
+===== January 18  Support vector machines =====
 
 
 
@@ -96,7 +96,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week49/ipynb/week49.ipynb"
 
 
-===== December 12-16 Support vector machines  =====
+===== January 25 Support vector machines  =====
 
 
 
@@ -108,7 +108,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week50/ipynb/week50.ipynb"
 
 
-===== January 16-20 Neural Networks and the back propagation algorithm =====
+===== February 1  Neural Networks and the back propagation algorithm =====
 
 
 
@@ -120,7 +120,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week3/ipynb/week3.ipynb"
 
 
-===== January 23-27 Buildng a neural network code =====
+===== February 8 Buildng a neural network code =====
 
 
 
@@ -132,7 +132,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week4/ipynb/week4.ipynb"
 
 
-===== January 30-February 3 Introduction to TensorFlow and Solving differential equations =====
+===== February 15 Introduction to TensorFlow and Solving differential equations =====
 
 
 
@@ -144,7 +144,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week5/ipynb/week5.ipynb"
 
 
-===== February 6-10 Differential equations with neural networks =====
+===== February 22  Differential equations with neural networks =====
 
 
 
@@ -156,7 +156,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week6/ipynb/week6.ipynb"
 
 
-===== February 13-17 Discussion of project 2 and start convolutional neural networks =====
+===== March 1  Discussion of project 2 and start convolutional neural networks =====
 
 
 
@@ -168,7 +168,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week7/ipynb/week7.ipynb"
 
 
-===== February 20-24 Convolutional neural networks =====
+===== March 8 Convolutional neural networks =====
 
 
 
@@ -180,7 +180,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week8/ipynb/week8.ipynb"
 
 
-===== February 27-March 3 Convolutional and Recurrent Neural Networks =====
+===== March 15 Convolutional and Recurrent Neural Networks =====
 
 
 
@@ -192,7 +192,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week9/ipynb/week9.ipynb"
 
 
-===== March 6-12 Recurrent neural networks and summary of deep learning methods =====
+===== March 22 Recurrent neural networks and summary of deep learning methods =====
 
 
 
@@ -206,39 +206,39 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
 
 
 !split
-===== Projects Fall and Spring 2021/2022 (dates are tentative) =====
+===== Projects Fall and Spring 2022/2023 (dates are tentative) =====
 
 
-=== Project 1, Deadline December 15 (available October 17) ===
+=== Project 1, Deadline January 31 (available December 12) ===
  * LaTeX and PDF:
-     * "LaTex file":"https://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project1/pdf/Project1.tex"
-     * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project1/pdf/Project1.pdf"
+     * "LaTex file":"https://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project1/pdf/Project1.tex"
+     * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project1/pdf/Project1.pdf"
  * HTML:
-   * "Plain html":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project1/html/Project1.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project1/html/Project1-bs.html"
+   * "Plain html":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project1/html/Project1.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project1/html/Project1-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project1/ipynb/Project1.ipynb"
+   * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project1/ipynb/Project1.ipynb"
 
-=== Project 2, Deadline April 2 ===
+=== Project 2, Deadline April 30 ===
  * LaTeX and PDF:
-     * "Latex file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/pdf/Project2.tex"
-     * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/pdf/Project2.pdf"
+     * "Latex file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project2/pdf/Project2.tex"
+     * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project2/pdf/Project2.pdf"
  * HTML:
-   * "Plain html":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/html/Project2.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/html/Project2-bs.html"
+   * "Plain html":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project2/html/Project2.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project2/html/Project2-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project2/ipynb/Project2.ipynb"
+   * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project2/ipynb/Project2.ipynb"
 
 
 === Project 3, Deadline May 31  ===
  * LaTeX and PDF:
-     * "LaTex file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/pdf/Project3.tex"
-     * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/pdf/Project3.pdf"
+     * "LaTex file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project3/pdf/Project3.tex"
+     * "PDF file":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project3/pdf/Project3.pdf"
  * HTML:
-   * "Plain html":"http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/html/Project3.html"
-   * "Bootstrap  slide style, easy for reading on mobile devices": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/html/Project3-bs.html"
+   * "Plain html":"http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project3/html/Project3.html"
+   * "Bootstrap  slide style, easy for reading on mobile devices": "http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project3/html/Project3-bs.html"
  * Jupyter notebook:
-   * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2021/Project3/ipynb/Project3.ipynb"
+   * "ipynb file": "http://compphysics.github.io/CompSciProgram/doc/Projects/2022/Project3/ipynb/Project3.ipynb"
 
 
 
