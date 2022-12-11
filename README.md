@@ -67,16 +67,16 @@ In total 20 ECTS.
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesNov232022.pdf
 
 ### December 12
+- Logistic regression and intro to optimization problems, slides at https://compphysics.github.io/CompSciProgram/doc/pub/week45/html/week45-reveal.html
 - Video of Lecture 
--  Slides at 
 
 ### December 13
+- Gradient methods, from simple gradient descent to stochastic gradient descent, slides at https://compphysics.github.io/CompSciProgram/doc/pub/week46/html/week46-reveal.html
 - Video of Lecture 
--  Slides at 
 
 ### December 14
+- Stochastic gradient descent, from momentum to adaptive methods and discussions of project 1. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week46/html/week46-reveal.html
 - Video of Lecture 
--  Slides at 
 
 
 ### January 18
