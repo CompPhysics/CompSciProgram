@@ -2,6 +2,10 @@ TITLE: Logistic Regression and Gradient Methods
 AUTHOR: Morten Hjorth-Jensen {copyright, 1999-present|CC BY-NC} at Department of Physics and Center for Computing in Science Education, University of Oslo, Norway & Department of Physics and Astronomy and Facility for Rare Isotope Beams, Michigan State University, USA
 DATE: December 12, 2022
 
+!split
+===== Video of Lecture =====
+
+* "Video of lecture":"https://youtu.be/me_tglaPvI0"
 
 
 !split 
