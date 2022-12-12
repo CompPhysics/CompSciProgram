@@ -68,7 +68,8 @@ In total 20 ECTS.
 
 ### December 12
 - Logistic regression and intro to optimization problems, slides at https://compphysics.github.io/CompSciProgram/doc/pub/week45/html/week45-reveal.html
-- Video of Lecture 
+- Video of Lecture at https://youtu.be/me_tglaPvI0
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesDec122022.pdf
 
 ### December 13
 - Gradient methods, from simple gradient descent to stochastic gradient descent, slides at https://compphysics.github.io/CompSciProgram/doc/pub/week46/html/week46-reveal.html
