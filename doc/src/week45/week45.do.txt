@@ -630,7 +630,7 @@ from sklearn.model_selection import cross_validate
 #Cross validation
 accuracy = cross_validate(logreg,X_test,y_test,cv=10)['test_score']
 print(accuracy)
-print("Test set accuracy with Logistic Regression: {:.2f}".format(logreg.score(X_test_scaled,y_test)))
+print("Test set accuracy with Logistic Regression: {:.2f}".format(logreg.score(X_test,y_test)))
 
 
 import scikitplot as skplt
