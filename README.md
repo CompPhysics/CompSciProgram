@@ -78,7 +78,7 @@ In total 20 ECTS.
 
 ### December 14
 - Stochastic gradient descent, from momentum to adaptive methods and discussions of project 1. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week46/html/week46-reveal.html
-- Video of Lecture 
+- Video of Lecture at https://youtu.be/EFNlvtjhpMo
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesDec142022.pdf
 
 ### January 18
