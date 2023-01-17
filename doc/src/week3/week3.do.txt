@@ -6,7 +6,7 @@ DATE: today
 !split
 ===== Plans for January 17, 2023 =====
 
-
+* "Video of lecture":"https://youtu.be/JY-7F6TXK7U"
 * Building our own Feed-forward Neural Network and playing around with our own Feed-forward Neural Network and introduction to TensorFlow. . 
 
 !bblock Reading suggestions:
