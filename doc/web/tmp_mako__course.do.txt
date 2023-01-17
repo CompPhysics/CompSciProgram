@@ -60,7 +60,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week45/ipynb/week45.ipynb"
 
 
-===== december 13-14  Optimization and Stochastic gradient methods =====
+===== December 13-14  Optimization and Stochastic gradient methods =====
 
 
 
@@ -72,7 +72,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week46/ipynb/week46.ipynb"
 
 
-===== January 18  Support vector machines =====
+===== December 16 Support vector machines =====
 
 
 
@@ -84,7 +84,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week47/ipynb/week47.ipynb"
 
 
-===== January 25 Support vector machines  =====
+===== December 17 Support vector machines  =====
 
 
 
@@ -96,7 +96,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week49/ipynb/week49.ipynb"
 
 
-===== February 1  Neural Networks and the back propagation algorithm =====
+===== January 17  Neural Networks and the back propagation algorithm =====
 
 
 
@@ -108,7 +108,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week3/ipynb/week3.ipynb"
 
 
-===== February 8 Buildng a neural network code =====
+===== January 24 Buildng a neural network code =====
 
 
 
@@ -120,7 +120,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week4/ipynb/week4.ipynb"
 
 
-===== February 15 Introduction to TensorFlow and Solving differential equations =====
+===== January 31 Introduction to TensorFlow and Solving differential equations =====
 
 
 
@@ -132,7 +132,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week5/ipynb/week5.ipynb"
 
 
-===== February 22  Differential equations with neural networks =====
+===== February 7  Differential equations with neural networks =====
 
 
 
@@ -144,7 +144,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week6/ipynb/week6.ipynb"
 
 
-===== March 1  Discussion of project 2 and start convolutional neural networks =====
+===== February 14  Discussion of project 2 and start convolutional neural networks =====
 
 
 
@@ -156,7 +156,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week7/ipynb/week7.ipynb"
 
 
-===== March 8 Convolutional neural networks =====
+===== February 21 Convolutional neural networks =====
 
 
 
@@ -168,7 +168,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week8/ipynb/week8.ipynb"
 
 
-===== March 15 Convolutional and Recurrent Neural Networks =====
+===== February 28 Convolutional and Recurrent Neural Networks =====
 
 
 
@@ -180,7 +180,7 @@ AUTHOR: "Anders Kvellestad":"https://www.mn.uio.no/fysikk/english/people/aca/and
    * "ipynb file": "https://compphysics.github.io/CompSciProgram/doc/pub/week9/ipynb/week9.ipynb"
 
 
-===== March 22 Recurrent neural networks and summary of deep learning methods =====
+===== March 7 Recurrent neural networks and summary of deep learning methods =====
 
 
 
