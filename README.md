@@ -82,7 +82,9 @@ In total 20 ECTS.
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesDec142022.pdf
 
 ### January 18
-- Video of Lecture 
+- Start Deep Learning, basics of neural networks, mathematics and architecture. Slides at 
+- Video of Lecture  at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week3-reveal.html
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesJan172023.pdf
 
 ### January 25
 - Video of Lecture 
