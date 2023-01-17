@@ -81,54 +81,54 @@ In total 20 ECTS.
 - Video of Lecture at https://youtu.be/EFNlvtjhpMo
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesDec142022.pdf
 
-### January 18
-- Start Deep Learning, basics of neural networks, mathematics and architecture. Slides at 
-- Video of Lecture  at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week3-reveal.html
+### January 17
+- Start Deep Learning, basics of neural networks, mathematics and architecture. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week3-reveal.html
+- Video of Lecture  at https://youtu.be/JY-7F6TXK7U
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesJan172023.pdf
 
-### January 25
+### January 24
 - Video of Lecture 
 
-### February 1
+### January 31
 - Video of Lecture 
 
-### February 8
+### February 7
 - Video of Lecture 
 
 
-### February 15 
+### February 14 
 - Video of Lecture
 
-### February 22 
+### February 21 
 - Video of Lecture
 
 
-### March 1
+### February 28
 - Video of Lecture 
 
-### March 8
+### March 7
 - Video of lecture 
 
-### March 15
+### March 14
 - Video of lecture 
 
 
-### March 22
+### March 21
 - Video of lecture 
 
-### March 29
+### March 28
 - Video of lecture 
 
-### April 12
+### April xxx
 - Video of lecture 
 
-### April 17
+### April xxx
 - Video of lecture 
 
-### April 23
+### April xxx
 - Video of lecture 
 
-### April 30
+### April xxx
 - Video of lecture 
 
 
