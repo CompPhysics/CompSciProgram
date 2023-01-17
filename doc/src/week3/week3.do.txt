@@ -4,7 +4,7 @@ DATE: today
 
 
 !split
-===== Plans for week 3 and 4, January 2022 =====
+===== Plans for January 17, 2023 =====
 
 
 * Building our own Feed-forward Neural Network and playing around with our own Feed-forward Neural Network and introduction to TensorFlow. . 
