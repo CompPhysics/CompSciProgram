@@ -87,7 +87,9 @@ In total 20 ECTS.
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesJan172023.pdf
 
 ### January 24
-- Video of Lecture 
+- Deep learning, ack propagation algoritm and automatic differentiation. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week4-reveal.html
+- Video of Lecture  at TBA
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesJan242023.pdf
 
 ### January 31
 - Video of Lecture 
