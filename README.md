@@ -92,7 +92,9 @@ In total 20 ECTS.
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesJan242023.pdf
 
 ### January 31
-- Video of Lecture 
+- Deep learning, back propagation algoritm and automatic differentiation and code for neural networks, part 2. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week4-reveal.html
+- Video of Lecture  at https://youtu.be/
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesJan312023.pdf
 
 ### February 7
 - Video of Lecture 
