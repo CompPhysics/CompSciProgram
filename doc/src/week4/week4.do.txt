@@ -8,7 +8,7 @@ DATE: today
 
 
 * Building our own Feed-forward Neural Network
-
+* "Video of lecture":"https://youtu.be/cWCebuNKrA8"
 
 Reading suggestions: "Aurelien Geron's chapters 10-11":"https://github.com/CompPhysics/MachineLearning/blob/master/doc/T\
 extbooks/TensorflowML.pdf".
