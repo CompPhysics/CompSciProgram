@@ -4,7 +4,7 @@ DATE: today
 
 
 !split
-===== Plan for week 4 =====
+===== Plans for weeks 4 and 5 =====
 
 
 * Building our own Feed-forward Neural Network
