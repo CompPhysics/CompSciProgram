@@ -97,7 +97,8 @@ In total 20 ECTS.
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesJan312023.pdf
 
 ### February 7
-- Video of Lecture 
+- Deep learning and codes for neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week4-reveal.html
+- Video of Lecture at https://youtu.be/_pOf4__oN28
 
 
 ### February 14 
