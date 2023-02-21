@@ -1,0 +1,657 @@
+<!--
+HTML file automatically generated from DocOnce source
+(https://github.com/doconce/doconce/)
+doconce format html Project2.do.txt --pygments_html_style=default --html_style=bloodish --html_links_in_new_window --html_output=Project2
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Project 2 CompSci program, deadline May 31">
+<title>Project 2 CompSci program, deadline May 31</title>
+<style type="text/css">
+/* bloodish style */
+body {
+  font-family: Helvetica, Verdana, Arial, Sans-serif;
+  color: #404040;
+  background: #ffffff;
+}
+h1 { font-size: 1.8em; color: #8A0808; }
+h2 { font-size: 1.6em; color: #8A0808; }
+h3 { font-size: 1.4em; color: #8A0808; }
+h4 { font-size: 1.2em; color: #8A0808; }
+a { color: #8A0808; text-decoration:none; }
+tt { font-family: "Courier New", Courier; }
+p { text-indent: 0px; }
+hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+p.caption { width: 80%; font-style: normal; text-align: left; }
+hr.figure { border: 0; width: 80%; border-bottom: 1px solid #aaa; }div.highlight {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    line-height: 1.21429em;
+}
+div.cell {
+    width: 100%;
+    padding: 5px 5px 5px 0;
+    margin: 0;
+    outline: none;
+}
+div.input {
+    page-break-inside: avoid;
+    box-orient: horizontal;
+    box-align: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+div.inner_cell {
+    box-orient: vertical;
+    box-align: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-flex: 1;
+    flex: 1;
+}
+div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 4px;
+    background: #f7f7f7;
+    line-height: 1.21429em;
+}
+div.input_area > div.highlight {
+    margin: .4em;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+div.output_wrapper {
+    position: relative;
+    box-orient: vertical;
+    box-align: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.output {
+    box-orient: vertical;
+    box-align: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+div.output_area {
+    padding: 0;
+    page-break-inside: avoid;
+    box-orient: horizontal;
+    box-align: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+div.output_subarea {
+    padding: .4em .4em 0 .4em;
+    box-flex: 1;
+    flex: 1;
+}
+div.output_text {
+    text-align: left;
+    color: #000;
+    line-height: 1.21429em;
+}
+div { text-align: justify; text-justify: inter-word; }
+.tab {
+  padding-left: 1.5em;
+}
+div.toc p,a {
+  line-height: 1.3;
+  margin-top: 1.1;
+  margin-bottom: 1.1;
+}
+</style>
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Paths for project 2', 1, None, 'paths-for-project-2'),
+              ('Possible paths for project 2',
+               3,
+               None,
+               'possible-paths-for-project-2'),
+              ('Solving  differential equations with neural networks',
+               2,
+               None,
+               'solving-differential-equations-with-neural-networks'),
+              ('Solving partial differential equations with neural networks',
+               2,
+               None,
+               'solving-partial-differential-equations-with-neural-networks'),
+              ('Part a), setting up the problem',
+               3,
+               None,
+               'part-a-setting-up-the-problem'),
+              ('Part b)', 3, None, 'part-b'),
+              ('Part c) Neural networks', 3, None, 'part-c-neural-networks'),
+              ('Part d)', 3, None, 'part-d'),
+              ('Introduction to numerical projects',
+               2,
+               None,
+               'introduction-to-numerical-projects'),
+              ('Format for electronic delivery of report and programs',
+               2,
+               None,
+               'format-for-electronic-delivery-of-report-and-programs'),
+              ('Software and needed installations',
+               2,
+               None,
+               'software-and-needed-installations')]}
+end of tocinfo -->
+
+<body>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "AMS"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- ------------------- main content ---------------------- -->
+<center>
+<h1>Project 2 CompSci program, deadline May 31</h1>
+</center>  <!-- document title -->
+
+<!-- author(s): CompSci program -->
+<center>
+<b>CompSci program</b> 
+</center>
+<!-- institution -->
+<center>
+<b>Department of Physics, University of Oslo, Norway</b>
+</center>
+<br>
+<center>
+<h4>Feb 21, 2023</h4>
+</center> <!-- date -->
+<br>
+<h1 id="paths-for-project-2">Paths for project 2  </h1>
+<h3 id="possible-paths-for-project-2">Possible paths for project 2  </h3>
+
+<p>We discuss here several paths as well as data sets for the second project.</p>
+
+<ol>
+<li> The computational path: Here we propose a path where you develop your own code for a neural networks (or CNNs or RNNs) and apply this to data  of your own selection. The code should be object oriented and flexible allowing for eventual extensions by including different Loss/Cost functions and other functionalities. Feel free to select data sets from those suggested below here. This code can also be extended upon by adding for example autoencoders. You can compare your own codes with implementations using TensorFlow(Keras)/PyTorch or other libraries.</li>
+<li> The differential equation path: Here we propose a set of differential equations (ordinary and/or partial) to be solved first using neural networks (using either your own code or TensorFlow/Pytorch or similar libraries). Thereafter we plan to extend the set of methods for solving these equations to recurrent neural networks and autoencoders. All these approaches can be expanded into one large project. This project can also be extended into including <a href="https://github.com/maziarraissi/PINNs" target="_blank">Physics informed machine learning</a>. Here we can discuss neural networks that are trained to solve supervised learning tasks while respecting any given law of physics described by general nonlinear partial differential equations.</li> 
+<li> The application path: Here you can use the most relevant method(s) (say neural networks, convolutional neural networks for images) and apply this(these) to data sets relevant for your own research.</li>
+<li> And finally we propose also a partial differential equation path.</li>
+</ol>
+<p>You can propose own data sets that relate to your research interests or just use existing data sets from say</p>
+<ol>
+<li> <a href="https://www.kaggle.com/datasets" target="_blank">Kaggle</a></li> 
+<li> The <a href="https://archive.ics.uci.edu/ml/index.php" target="_blank">University of California at Irvine (UCI) with its  machine learning repository</a>.</li>
+<li> For the differential equation problems, you can generate your own datasets, as described below.</li>
+<li> If possible, you should link the data sets with existing research and analyses thereof. Scientific articles which have used Machine Learning algorithms to analyze the data are highly welcome. Perhaps you can improve previous analyses and even publish a new article?</li> 
+<li> A critical assessment of the methods with ditto perspectives and recommendations is also something you need to include.</li> 
+</ol>
+<p>The approach to the analysis of these new data sets should follow to a large extent what you did in project 1. That is:</p>
+<ol>
+<li> Whether you end up with a regression or a classification problem, you should employ at least two of the methods we have discussed among <b>linear regression (including Ridge and Lasso)</b>, <b>Logistic Regression</b>, <b>Neural Networks</b>, <b>Convolution Neural Networks</b>, <b>Recurrent Neural Networks</b>, <b>Adversarial Neural Networks</b>, <b>Support Vector Machines</b> and <b>Decision Trees, Random Forests, Bagging and Boosting</b>.</li> 
+<li> The estimates you used and tested in project 1 should also be included, that is the \( R2 \)-score, <b>MSE</b>, confusion matrix, accuracy score, information gain,  ROC and Cumulative gains curves and other, cross-validation and/or bootstrap if these are relevant.</li>
+<li> Similarly, feel free to explore various activations functions in deep learning and various approachs to stochastic gradient descent approaches.</li>
+</ol>
+<p>All in all, the report should follow the same pattern as project 1, with abstract, introduction, methods, code, results, conclusions etc.</p>
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="solving-differential-equations-with-neural-networks">Solving  differential equations with neural networks </h2>
+
+<p>Here we describe the possible differential equations we can study
+first with neural networks and thereafter with recurrent neural
+networks and/or AE and/or GANs.
+</p>
+
+<p>The differential equations are given by the so-called <a href="https://encyclopediaofmath.org/index.php?title=Lorenz_attractor" target="_blank">Lorenz attractor model</a>, and read</p>
+
+$$
+\frac{dx}{dt}=\sigma\left(y-x\right),
+$$
+
+<p>where \( \sigma =10 \) is a constant</p>
+$$
+\frac{dy}{dt}= x\left(\rho-z\right)-y,
+$$
+
+<p>with \( \rho=28 \) and</p>
+$$
+\frac{dz}{dt}=xy-\beta z
+$$
+
+<p>with \( \beta=8/3 \) as our final constant.</p>
+
+<p>The following function is a
+simple function which sets up the solution using the ordinary
+differential library which follows <b>NumPy</b>. Here we have fixed the
+time sted \( \Delta t=0.01 \) and the final time \( t_f=8 \).
+</p>
+
+<p>The program sets \( 100 \) random initial values and produces inputs and outputs for a neural network calculations.
+The inputs are given by the values of the array \( \boldsymbol{x} \) (which contains \( x,y,z \) as functions of time) for the time step \( \boldsymbol{x}_t \).
+The other array defined by \( \boldsymbol{x}_{t+1} \) contains the outputs (or targets) which we want the neural network to reproduce.
+</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #408080; font-style: italic"># Common imports</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">scipy.integrate</span> <span style="color: #008000; font-weight: bold">import</span> odeint
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">os</span>
+
+<span style="color: #408080; font-style: italic"># Where to save the figures and data files</span>
+PROJECT_ROOT_DIR <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;Results&quot;</span>
+FIGURE_ID <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;Results/FigureFiles&quot;</span>
+DATA_ID <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;DataFiles/&quot;</span>
+
+<span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>exists(PROJECT_ROOT_DIR):
+    os<span style="color: #666666">.</span>mkdir(PROJECT_ROOT_DIR)
+
+<span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>exists(FIGURE_ID):
+    os<span style="color: #666666">.</span>makedirs(FIGURE_ID)
+
+<span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>exists(DATA_ID):
+    os<span style="color: #666666">.</span>makedirs(DATA_ID)
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">image_path</span>(fig_id):
+    <span style="color: #008000; font-weight: bold">return</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>join(FIGURE_ID, fig_id)
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">data_path</span>(dat_id):
+    <span style="color: #008000; font-weight: bold">return</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>join(DATA_ID, dat_id)
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">save_fig</span>(fig_id):
+    plt<span style="color: #666666">.</span>savefig(image_path(fig_id) <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;.png&quot;</span>, <span style="color: #008000">format</span><span style="color: #666666">=</span><span style="color: #BA2121">&#39;png&#39;</span>)
+
+
+<span style="color: #408080; font-style: italic"># Selection of parameter values and setting array for time</span>
+dt <span style="color: #666666">=0.01</span>; tfinal <span style="color: #666666">=</span> <span style="color: #666666">8</span>
+t <span style="color: #666666">=</span> np<span style="color: #666666">.</span>arange(<span style="color: #666666">0</span>,tfinal<span style="color: #666666">+</span>dt, dt)
+beta <span style="color: #666666">=8.0/3.0</span>; rho <span style="color: #666666">=</span> <span style="color: #666666">28.0</span>; sigma <span style="color: #666666">=</span> <span style="color: #666666">10.0</span>
+
+<span style="color: #408080; font-style: italic"># define the inputs and outputs for the neural networks</span>
+nninput <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros((<span style="color: #666666">100*</span><span style="color: #008000">len</span>(t)<span style="color: #666666">-1</span>,<span style="color: #666666">3</span>))
+nnoutput <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros((<span style="color: #666666">100*</span><span style="color: #008000">len</span>(t)<span style="color: #666666">-1</span>,<span style="color: #666666">3</span>))
+<span style="color: #408080; font-style: italic"># Define the equations to integrate</span>
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">lorenz_derivative</span>(xyz, t0, sigma<span style="color: #666666">=</span>sigma,beta<span style="color: #666666">=</span>beta,rho<span style="color: #666666">=</span>rho):
+    x, y, z <span style="color: #666666">=</span> xyz
+    <span style="color: #008000; font-weight: bold">return</span> [sigma<span style="color: #666666">*</span>(x<span style="color: #666666">-</span>y), x<span style="color: #666666">*</span>(rho<span style="color: #666666">-</span>z)<span style="color: #666666">-</span>y, x<span style="color: #666666">*</span>y<span style="color: #666666">-</span>beta<span style="color: #666666">*</span>z]
+
+<span style="color: #408080; font-style: italic"># generate 100 random initial values</span>
+x0 <span style="color: #666666">=</span> <span style="color: #666666">-15.0+30.0*</span>np<span style="color: #666666">.</span>random<span style="color: #666666">.</span>random((<span style="color: #666666">100</span>,<span style="color: #666666">3</span>))
+
+<span style="color: #408080; font-style: italic"># Use odeint functionality by sending in derivative function</span>
+<span style="color: #408080; font-style: italic"># Feel free to change the choice of integrator</span>
+x_t <span style="color: #666666">=</span> np<span style="color: #666666">.</span>asarray([odeint(lorenz_derivative, x0_j, t) 
+                  <span style="color: #008000; font-weight: bold">for</span> x0_j <span style="color: #AA22FF; font-weight: bold">in</span> x0])
+
+<span style="color: #408080; font-style: italic"># define the inputs and outputs for the neural networks</span>
+<span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">100</span>):
+    nninput[j<span style="color: #666666">*</span>(<span style="color: #008000">len</span>(t)<span style="color: #666666">-1</span>):(j<span style="color: #666666">+1</span>)<span style="color: #666666">*</span>(<span style="color: #008000">len</span>(t)<span style="color: #666666">-1</span>),:] <span style="color: #666666">=</span> x_t[j,:<span style="color: #666666">-1</span>,:]
+    nnoutput[j<span style="color: #666666">*</span>(<span style="color: #008000">len</span>(t)<span style="color: #666666">-1</span>):(j<span style="color: #666666">+1</span>)<span style="color: #666666">*</span>(<span style="color: #008000">len</span>(t)<span style="color: #666666">-1</span>),:] <span style="color: #666666">=</span> x_t[j,<span style="color: #666666">1</span>:,:]
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>The input and output variables are those we will start trying our
+network with. Your first taks is to set up a neural code (either using
+your own code or TensorFlow/PyTorch or similar libraries)) and use the
+above data to a prediction for the time evolution of Lorenz system for
+various values of the randomly chosen initial values.  Study the
+dependence of the fit as function of the architecture of the network
+(number of nodes, hidden layers and types of activation functions) and
+various regularization schemes and optimization methods like standard
+gradient descent with momentum, stochastic gradient descent with
+batches and with and without momentum and various schedulers for the
+learning rate.
+</p>
+
+<p>Feel free to change the above differential equations. As an example,
+consider the following harmonic oscillator equations solved with the
+Runge-Kutta to fourth order method. This is a one-dimensional problem
+and it produces a position \( x_t \) and velocity \( v_t \). You could now try
+to fit both the velocities and positions using much of the same recipe
+as for Lorenz attractor.  You will find it convenient to analyze one
+set of initial conditions first. The code is included here.
+</p>
+
+<p>This code is an example code that solves Newton's equations of motion
+with a given force and produces an output which in turn can be used to
+train a neural network
+</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #408080; font-style: italic"># Common imports</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pandas</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">pd</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">math</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">os</span>
+
+<span style="color: #408080; font-style: italic"># Where to save the figures and data files</span>
+PROJECT_ROOT_DIR <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;Results&quot;</span>
+FIGURE_ID <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;Results/FigureFiles&quot;</span>
+DATA_ID <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;DataFiles/&quot;</span>
+
+<span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>exists(PROJECT_ROOT_DIR):
+    os<span style="color: #666666">.</span>mkdir(PROJECT_ROOT_DIR)
+
+<span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>exists(FIGURE_ID):
+    os<span style="color: #666666">.</span>makedirs(FIGURE_ID)
+
+<span style="color: #008000; font-weight: bold">if</span> <span style="color: #AA22FF; font-weight: bold">not</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>exists(DATA_ID):
+    os<span style="color: #666666">.</span>makedirs(DATA_ID)
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">image_path</span>(fig_id):
+    <span style="color: #008000; font-weight: bold">return</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>join(FIGURE_ID, fig_id)
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">data_path</span>(dat_id):
+    <span style="color: #008000; font-weight: bold">return</span> os<span style="color: #666666">.</span>path<span style="color: #666666">.</span>join(DATA_ID, dat_id)
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">save_fig</span>(fig_id):
+    plt<span style="color: #666666">.</span>savefig(image_path(fig_id) <span style="color: #666666">+</span> <span style="color: #BA2121">&quot;.png&quot;</span>, <span style="color: #008000">format</span><span style="color: #666666">=</span><span style="color: #BA2121">&#39;png&#39;</span>)
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">SpringForce</span>(v,x,t):
+<span style="color: #408080; font-style: italic">#   note here that we have divided by mass and we return the acceleration</span>
+    <span style="color: #008000; font-weight: bold">return</span>  <span style="color: #666666">-2*</span>gamma<span style="color: #666666">*</span>v<span style="color: #666666">-</span>x<span style="color: #666666">+</span>Ftilde<span style="color: #666666">*</span>cos(t<span style="color: #666666">*</span>Omegatilde)
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">RK4</span>(v,x,t,n,Force):
+    <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n<span style="color: #666666">-1</span>):
+<span style="color: #408080; font-style: italic"># Setting up k1</span>
+        k1x <span style="color: #666666">=</span> DeltaT<span style="color: #666666">*</span>v[i]
+        k1v <span style="color: #666666">=</span> DeltaT<span style="color: #666666">*</span>Force(v[i],x[i],t[i])
+<span style="color: #408080; font-style: italic"># Setting up k2</span>
+        vv <span style="color: #666666">=</span> v[i]<span style="color: #666666">+</span>k1v<span style="color: #666666">*0.5</span>
+        xx <span style="color: #666666">=</span> x[i]<span style="color: #666666">+</span>k1x<span style="color: #666666">*0.5</span>
+        k2x <span style="color: #666666">=</span> DeltaT<span style="color: #666666">*</span>vv
+        k2v <span style="color: #666666">=</span> DeltaT<span style="color: #666666">*</span>Force(vv,xx,t[i]<span style="color: #666666">+</span>DeltaT<span style="color: #666666">*0.5</span>)
+<span style="color: #408080; font-style: italic"># Setting up k3</span>
+        vv <span style="color: #666666">=</span> v[i]<span style="color: #666666">+</span>k2v<span style="color: #666666">*0.5</span>
+        xx <span style="color: #666666">=</span> x[i]<span style="color: #666666">+</span>k2x<span style="color: #666666">*0.5</span>
+        k3x <span style="color: #666666">=</span> DeltaT<span style="color: #666666">*</span>vv
+        k3v <span style="color: #666666">=</span> DeltaT<span style="color: #666666">*</span>Force(vv,xx,t[i]<span style="color: #666666">+</span>DeltaT<span style="color: #666666">*0.5</span>)
+<span style="color: #408080; font-style: italic"># Setting up k4</span>
+        vv <span style="color: #666666">=</span> v[i]<span style="color: #666666">+</span>k3v
+        xx <span style="color: #666666">=</span> x[i]<span style="color: #666666">+</span>k3x
+        k4x <span style="color: #666666">=</span> DeltaT<span style="color: #666666">*</span>vv
+        k4v <span style="color: #666666">=</span> DeltaT<span style="color: #666666">*</span>Force(vv,xx,t[i]<span style="color: #666666">+</span>DeltaT)
+<span style="color: #408080; font-style: italic"># Final result</span>
+        x[i<span style="color: #666666">+1</span>] <span style="color: #666666">=</span> x[i]<span style="color: #666666">+</span>(k1x<span style="color: #666666">+2*</span>k2x<span style="color: #666666">+2*</span>k3x<span style="color: #666666">+</span>k4x)<span style="color: #666666">/6.</span>
+        v[i<span style="color: #666666">+1</span>] <span style="color: #666666">=</span> v[i]<span style="color: #666666">+</span>(k1v<span style="color: #666666">+2*</span>k2v<span style="color: #666666">+2*</span>k3v<span style="color: #666666">+</span>k4v)<span style="color: #666666">/6.</span>
+        t[i<span style="color: #666666">+1</span>] <span style="color: #666666">=</span> t[i] <span style="color: #666666">+</span> DeltaT
+
+
+<span style="color: #408080; font-style: italic"># Main part begins here</span>
+
+DeltaT <span style="color: #666666">=</span> <span style="color: #666666">0.001</span>
+<span style="color: #408080; font-style: italic">#set up arrays </span>
+tfinal <span style="color: #666666">=</span> <span style="color: #666666">20</span> <span style="color: #408080; font-style: italic"># in dimensionless time</span>
+n <span style="color: #666666">=</span> ceil(tfinal<span style="color: #666666">/</span>DeltaT)
+<span style="color: #408080; font-style: italic"># set up arrays for t, v, and x</span>
+t <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(n)
+v <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(n)
+x <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(n)
+<span style="color: #408080; font-style: italic"># Initial conditions (can change to more than one dim)</span>
+x0 <span style="color: #666666">=</span>  <span style="color: #666666">1.0</span> 
+v0 <span style="color: #666666">=</span> <span style="color: #666666">0.0</span>
+x[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> x0
+v[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> v0
+gamma <span style="color: #666666">=</span> <span style="color: #666666">0.2</span>
+Omegatilde <span style="color: #666666">=</span> <span style="color: #666666">0.5</span>
+Ftilde <span style="color: #666666">=</span> <span style="color: #666666">1.0</span>
+<span style="color: #408080; font-style: italic"># Start integrating using Euler&#39;s method</span>
+<span style="color: #408080; font-style: italic"># Note that we define the force function as a SpringForce</span>
+RK4(v,x,t,n,SpringForce)
+
+<span style="color: #408080; font-style: italic"># Plot position as function of time    </span>
+fig, ax <span style="color: #666666">=</span> plt<span style="color: #666666">.</span>subplots()
+ax<span style="color: #666666">.</span>set_ylabel(<span style="color: #BA2121">&#39;x[m]&#39;</span>)
+ax<span style="color: #666666">.</span>set_xlabel(<span style="color: #BA2121">&#39;t[s]&#39;</span>)
+ax<span style="color: #666666">.</span>plot(t, x)
+fig<span style="color: #666666">.</span>tight_layout()
+save_fig(<span style="color: #BA2121">&quot;ForcedBlockRK4&quot;</span>)
+plt<span style="color: #666666">.</span>show()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>The next step is to include recurrent neural networks. These will be discussed in connection with coming lectures.</p>
+
+<p>Finally we add a so-called differential equation path as well.</p>
+<h2 id="solving-partial-differential-equations-with-neural-networks">Solving partial differential equations with neural networks </h2>
+
+<p>For this variant of project 2, we will assume that you have some
+background in the solution of partial differential equations using
+finite difference schemes. In the lecture slides from weeks 6 and 7 you may find additional material.
+We will study the solution of the diffusion
+equation in one dimension using a standard explicit or implicit scheme and neural
+networks to solve the same equations.
+</p>
+
+<p>For the explicit and/or implicit schemes, you can study for example chapter 10 of the lecture notes in <a href="https://github.com/CompPhysics/ComputationalPhysics/blob/master/doc/Lectures/lectures2015.pdf" target="_blank">Computational Physics</a> or alternative sources. </p>
+
+<p>For the machine learning part you can use the functionality of for example <b>Tensorflow/Keras</b>.</p>
+<h3 id="part-a-setting-up-the-problem">Part a), setting up the problem </h3>
+
+<p>The physical problem can be that of the temperature gradient in a rod of length \( L=1 \) at \( x=0 \) and \( x=1 \).
+We are looking at a one-dimensional
+problem
+</p>
+
+$$
+\begin{equation*}
+ \frac{\partial^2 u(x,t)}{\partial x^2} =\frac{\partial u(x,t)}{\partial t}, t> 0, x\in [0,L]
+\end{equation*}
+$$
+
+<p>or</p>
+
+$$
+\begin{equation*}
+u_{xx} = u_t,
+\end{equation*}
+$$
+
+<p>with initial conditions, i.e., the conditions at \( t=0 \),</p>
+$$
+\begin{equation*}
+u(x,0)= \sin{(\pi x)} \hspace{0.5cm} 0 < x < L,
+\end{equation*}
+$$
+
+<p>with \( L=1 \) the length of the \( x \)-region of interest. The 
+boundary conditions are
+</p>
+
+$$
+\begin{equation*}
+u(0,t)= 0 \hspace{0.5cm} t \ge 0,
+\end{equation*}
+$$
+
+<p>and</p>
+
+$$
+\begin{equation*}
+u(L,t)= 0 \hspace{0.5cm} t \ge 0.
+\end{equation*}
+$$
+
+<p>The function \( u(x,t) \)  can be the temperature gradient of a  rod.
+As time increases, the velocity approaches a linear variation with \( x \). 
+</p>
+
+<p>We will limit ourselves to the so-called explicit forward Euler algorithm with discretized versions of time given by a forward formula and a centered difference in space resulting in   </p>
+$$
+\begin{equation*} 
+u_t\approx \frac{u(x,t+\Delta t)-u(x,t)}{\Delta t}=\frac{u(x_i,t_j+\Delta t)-u(x_i,t_j)}{\Delta t}
+\end{equation*}
+$$
+
+<p>and</p>
+
+$$
+\begin{equation*}
+u_{xx}\approx \frac{u(x+\Delta x,t)-2u(x,t)+u(x-\Delta x,t)}{\Delta x^2},
+\end{equation*}
+$$
+
+<p>or</p>
+
+$$
+\begin{equation*}
+u_{xx}\approx \frac{u(x_i+\Delta x,t_j)-2u(x_i,t_j)+u(x_i-\Delta x,t_j)}{\Delta x^2}.
+\end{equation*}
+$$
+
+<p>Write down the algorithm and the equations you need to implement.
+Find also the analytical solution to the problem. 
+</p>
+<h3 id="part-b">Part b) </h3>
+
+<p>Implement the explicit scheme  algorithm and perform tests of the solution 
+for \( \Delta x=1/10 \), \( \Delta x=1/100 \) using  \( \Delta t \) as dictated by the stability limit of the explicit scheme. The stability criterion for the explicit scheme requires that \( \Delta t/\Delta x^2 \leq 1/2 \). 
+</p>
+
+<p>Study the solutions at two time points \( t_1 \) and \( t_2 \) where \( u(x,t_1) \) is smooth but still significantly curved
+and \( u(x,t_2) \) is almost linear, close to the stationary state.
+</p>
+<h3 id="part-c-neural-networks">Part c) Neural networks </h3>
+
+<p>Study now the lecture notes on solving ODEs and PDEs with neural
+network and use either your own code or the
+functionality of tensorflow/keras to solve the same equation as in
+part b).  Discuss your results and compare them with the standard
+explicit or implicit scheme. Include also the analytical solution and compare with
+that.
+</p>
+<h3 id="part-d">Part d) </h3>
+
+<p>Finally, present a critical assessment of the methods you have studied and discuss the potential for the solving differential equations and eigenvalue problems with machine learning methods. </p>
+<h2 id="introduction-to-numerical-projects">Introduction to numerical projects </h2>
+
+<p>Here follows a brief recipe and recommendation on how to write a report for each
+project.
+</p>
+
+<ul>
+  <li> Give a short description of the nature of the problem and the eventual  numerical methods you have used.</li>
+  <li> Describe the algorithm you have used and/or developed. Here you may find it convenient to use pseudocoding. In many cases you can describe the algorithm in the program itself.</li>
+  <li> Include the source code of your program. Comment your program properly.</li>
+  <li> If possible, try to find analytic solutions, or known limits in order to test your program when developing the code.</li>
+  <li> Include your results either in figure form or in a table. Remember to        label your results. All tables and figures should have relevant captions        and labels on the axes.</li>
+  <li> Try to evaluate the reliabilty and numerical stability/precision of your results. If possible, include a qualitative and/or quantitative discussion of the numerical stability, eventual loss of precision etc.</li>
+  <li> Try to give an interpretation of you results in your answers to  the problems.</li>
+  <li> Critique: if possible include your comments and reflections about the  exercise, whether you felt you learnt something, ideas for improvements and  other thoughts you've made when solving the exercise. We wish to keep this course at the interactive level and your comments can help us improve it.</li>
+  <li> Try to establish a practice where you log your work at the  computerlab. You may find such a logbook very handy at later stages in your work, especially when you don't properly remember  what a previous test version  of your program did. Here you could also record  the time spent on solving the exercise, various algorithms you may have tested or other topics which you feel worthy of mentioning.</li>
+</ul>
+<h2 id="format-for-electronic-delivery-of-report-and-programs">Format for electronic delivery of report and programs </h2>
+
+<p>The preferred format for the report is a PDF file. You can also use DOC or postscript formats or as an ipython notebook file.  As programming language we prefer that you choose between C/C++, Fortran2008 or Python. The following prescription should be followed when preparing the report:</p>
+
+<ul>
+  <li> Send us an email in order  to hand in your projects with a link to your GitHub/Gitlab repository.</li>
+  <li> In your GitHub/GitLab or similar repository, please include a folder which contains selected results. These can be in the form of output from your code for a selected set of runs and input parameters.</li>
+</ul>
+<p>Finally, 
+we encourage you to collaborate. Optimal working groups consist of 
+2-3 students. You can then hand in a common report. 
+</p>
+<h2 id="software-and-needed-installations">Software and needed installations </h2>
+
+<p>If you have Python installed (we recommend Python3) and you feel pretty familiar with installing different packages, 
+we recommend that you install the following Python packages via <b>pip</b> as
+</p>
+<ol>
+<li> pip install numpy scipy matplotlib ipython scikit-learn tensorflow sympy pandas pillow</li>
+</ol>
+<p>For Python3, replace <b>pip</b> with <b>pip3</b>.</p>
+
+<p>See below for a discussion of <b>tensorflow</b> and <b>scikit-learn</b>. </p>
+
+<p>For OSX users we recommend also, after having installed Xcode, to install <b>brew</b>. Brew allows 
+for a seamless installation of additional software via for example
+</p>
+<ol>
+<li> brew install python3</li>
+</ol>
+<p>For Linux users, with its variety of distributions like for example the widely popular Ubuntu distribution
+you can use <b>pip</b> as well and simply install Python as 
+</p>
+<ol>
+<li> sudo apt-get install python3  (or python for python2.7)</li>
+</ol>
+<p>etc etc. </p>
+
+<p>If you don't want to install various Python packages with their dependencies separately, we recommend two widely used distrubutions which set up  all relevant dependencies for Python, namely</p>
+<ol>
+<li> <a href="https://docs.anaconda.com/" target="_blank">Anaconda</a> Anaconda is an open source distribution of the Python and R programming languages for large-scale data processing, predictive analytics, and scientific computing, that aims to simplify package management and deployment. Package versions are managed by the package management system <b>conda</b></li>
+<li> <a href="https://www.enthought.com/product/canopy/" target="_blank">Enthought canopy</a>  is a Python distribution for scientific and analytic computing distribution and analysis environment, available for free and under a commercial license.</li>
+</ol>
+<p>Popular software packages written in Python for ML are</p>
+
+<ul>
+<li> <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>,</li> 
+<li> <a href="https://www.tensorflow.org/" target="_blank">Tensorflow</a>,</li>
+<li> <a href="http://pytorch.org/" target="_blank">PyTorch</a> and</li> 
+<li> <a href="https://keras.io/" target="_blank">Keras</a>.</li>
+</ul>
+<p>These are all freely available at their respective GitHub sites. They 
+encompass communities of developers in the thousands or more. And the number
+of code developers and contributors keeps increasing.
+</p>
+
+<!-- ------------------- end of main content --------------- -->
+</body>
+</html>
+
