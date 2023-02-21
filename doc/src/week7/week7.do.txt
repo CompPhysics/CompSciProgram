@@ -1,1984 +1,326 @@
-TITLE: Deep Learning: Solving differential equations and Convolutional Neural Networks
+TITLE: Deep Learning: Project 2 and Convolutional Neural Networks
 AUTHOR: Morten Hjorth-Jensen {copyright, 1999-present|CC BY-NC} at Department of Physics, University of Oslo & Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University
-DATE: today
+DATE: February 20-24
 
 !split
 ===== Plans for week 7 and week 8 =====
 
-!bblock
-* Wrapping up Solving differential equations with Neural Networks
-  * "Video of lecture without subtitles":"https://www.uio.no/studier/emner/matnat/fys/FYS4411/v22/forelesningsvideoer/CompSciLectureFeb7.mp4?vrtx=view-as-webpage"
-  * "Video of Lecture with subtitles":"https://youtu.be/XcqUFNkXOZU"
-* Discussion of project 2
-* Convolutional Neural Networks
-!eblock
 
-!split
-===== Resources on differential equations and deep learning =====
 
 !bblock
-o "Artificial neural networks for solving ordinary and partial differential equations by I.E. Lagaris et al":"https://pdfs.semanticscholar.org/d061/df393e0e8fbfd0ea24976458b7d42419040d.pdf"
-o "Neural networks for solving differential equations by A. Honchar":"https://becominghuman.ai/neural-networks-for-solving-differential-equations-fa230ac5e04c"
-o "Solving differential equations using neural networks by M.M Chiaramonte and M. Kiener":"http://cs229.stanford.edu/proj2013/ChiaramonteKiener-SolvingDifferentialEquationsUsingNeuralNetworks.pdf"
-o "Introduction to Partial Differential Equations by A. Tveito, R. Winther":"https://www.springer.com/us/book/9783540225515"
+* Discussion of project paths
+* Convolutional  Neural Networks.
+* "Video of lecture":"https://youtu.be"
+
+* Reading recommendations:
+  o For neural networks we recommend Goodfellow et al chapters 6 and 7. For CNNs, see Goodfellow et al chapter 9. See also chapter 11 and 12 on practicalities and applications
+  o Reading suggestions for implementation of CNNs: "Aurelien Geron's chapter 13":"https://github.com/CompPhysics/MachineLearning/blob/master/doc/Textbooks/TensorflowML.pdf". 
 !eblock
 
-!split
-===== Resources on Convolutional Networks =====
 
-!bblock  Excellent lectures on CNNs
-* "Video  on Convolutional Neural Networks from MIT":"https://www.youtube.com/watch?v=iaSUYvmCekI&ab_channel=AlexanderAmini"
+!bblock  Excellent lectures on CNNs and Neural Networks
 * "Video on Deep Learning":"https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi"
+* "Video  on Convolutional Neural Networks from MIT":"https://www.youtube.com/watch?v=iaSUYvmCekI&ab_channel=AlexanderAmini"
+* "Video on CNNs from Stanford":"https://www.youtube.com/watch?v=bNb2fEVKeEo&list=PLC1qU-LWwrF64f4QKQT-Vg5Wr4qEE1Zxk&index=6&ab_channel=StanfordUniversitySchoolofEngineering"
 !eblock
+m
 
-!bblock More resources
-* "IN5400 at UiO Lecture":"https://www.uio.no/studier/emner/matnat/ifi/IN5400/v20/material/week10/in5400_2020_week10_recurrent_neural_network.pdf"
-* "CS231 at Stanford Lecture":"https://www.youtube.com/watch?v=6niqTuYFZLQ&list=PLzUTmXVwsnXod6WNdg57Yc3zFx_f-RYsq&index=10&ab_channel=StanfordUniversitySchoolofEngineering"
-!eblock
-
-!bblock Reading Recommendations
-* Goodfellow et al, chapter 9 on CNNs, chapters 11 and 12 on various practicalities around deep learning are also recommended.
-* Aurelien Geron, chapter 13 on CNNs.
-!eblock
-
-
-
-!split
-===== Using Automatic differentiation =====
-
-In our discussions of ordinary differential equations 
-we will also study the usage of "Autograd":"https://www.youtube.com/watch?v=fRf4l5qaX1M&ab_channel=AlexSmola" in computing gradients for deep learning. 
-
-
-!split
-===== Solving ODEs with Deep Learning =====
-
-!bblock
-The Universal Approximation Theorem states that a neural network can
-approximate any function at a single hidden layer along with one input
-and output layer to any given precision.  
-!eblock
-
-!bblock  Book on solving differential equations with ML methods
-"An Introduction to Neural Network Methods for Differential Equations":"https://www.springer.com/gp/book/9789401798150", by Yadav and Kumar.
-!eblock
-
-!bblock Thanks to Kristine Baluka Hein
-The lectures on differential equations were developed by Kristine Baluka Hein, now PhD student at IFI.
-A great thank you  to Kristine.
+!bblock  And Lecture material on CNNs
+* "Lectures from IN5400 spring 2019":"https://www.uio.no/studier/emner/matnat/ifi/IN5400/v19/material/week5/in5400_2019_week5_convolutional_nerual_networks.pdf"
+* "Lectures from IN5400 spring 2021":"https://www.uio.no/studier/emner/matnat/ifi/IN5400/v21/lecture-slides/in5400_2021_w5_lecture_convolutions.pdf"
+* "See also Michael Nielsen's Lectures":"http://neuralnetworksanddeeplearning.com/chap6.html"
 !eblock
 
 
-
-
 !split
-===== Ordinary Differential Equations =====
+===== Second project =====
 
-An ordinary differential equation (ODE) is an equation involving functions having one variable.
 
-In general, an ordinary differential equation looks like
+=== Possible paths for project 2  ===
 
-!bt
-\begin{equation} \label{ode}
-f\left(x, \, g(x), \, g'(x), \, g''(x), \, \dots \, , \, g^{(n)}(x)\right) = 0
-\end{equation}
-!et
+We discuss here several paths as well as data sets for the second project
 
-where $g(x)$ is the function to find, and $g^{(n)}(x)$ is the $n$-th derivative of $g(x)$.
 
-The $f\left(x, g(x), g'(x), g''(x), \, \dots \, , g^{(n)}(x)\right)$ is just a way to write that there is an expression involving $x$ and $g(x), \ g'(x), \ g''(x), \, \dots \, , \text{ and } g^{(n)}(x)$ on the left side of the equality sign in (ref{ode}).
-The highest order of derivative, that is the value of $n$, determines to the order of the equation.
-The equation is referred to as a $n$-th order ODE.
-Along with (ref{ode}), some additional conditions of the function $g(x)$ are typically given
-for the solution to be unique.
 
-!split
-===== The trial solution =====
 
-Let the trial solution $g_t(x)$ be
 
-!bt
-\begin{equation}
-	g_t(x) = h_1(x) + h_2(x,N(x,P))
-\end{equation}
-!et
+o The computational path: Here we propose a path where you develop your own code for a neural networks (or CNNs or RNNs) and apply this to data  of your own selection. The code should be object oriented and flexible allowing for eventual extensions by including different Loss/Cost functions and other functionalities. Feel free to select data sets from those suggested below here. This code can also be extended upon by adding for example autoencoders. You can compare your own codes with implementations using TensorFlow(Keras)/PyTorch or other libraries.
 
+o The differential equation path: Here we propose a set of differential equations (ordinary and/or partial) to be solved first using neural networks (using either your own code or TensorFlow/Pytorch or similar libraries). Thereafter we plan to extend the set of methods for solving these equations to recurrent neural networks and autoencoders. All these approaches can be expanded into one large project. This project can also be extended into including "Physics informed machine learning":"https://github.com/maziarraissi/PINNs". Here we can discuss neural networks that are trained to solve supervised learning tasks while respecting any given law of physics described by general nonlinear partial differential equations. 
 
-where $h_1(x)$ is a function that makes $g_t(x)$ satisfy a given set
-of conditions, $N(x,P)$ a neural network with weights and biases
-described by $P$ and $h_2(x, N(x,P))$ some expression involving the
-neural network.  The role of the function $h_2(x, N(x,P))$, is to
-ensure that the output from $N(x,P)$ is zero when $g_t(x)$ is
-evaluated at the values of $x$ where the given conditions must be
-satisfied.  The function $h_1(x)$ should alone make $g_t(x)$ satisfy
-the conditions.
+o The application path: Here you can use the most relevant method(s) (say neural networks, convolutional neural networks for images) and apply this(these) to data sets relevant for your own research.
 
-But what about the network $N(x,P)$?
+o And finally we propose also a partial differential equation path.
 
+You can propose own data sets that relate to your research interests or just use existing data sets from say
+o "Kaggle":"https://www.kaggle.com/datasets" 
+o The "University of California at Irvine (UCI) with its  machine learning repository":"https://archive.ics.uci.edu/ml/index.php".
+o For the differential equation problems, you can generate your own datasets, as described below.
 
-As described previously, an optimization method could be used to minimize the parameters of a neural network, that being its weights and biases, through backward propagation.
+o If possible, you should link the data sets with existing research and analyses thereof. Scientific articles which have used Machine Learning algorithms to analyze the data are highly welcome. Perhaps you can improve previous analyses and even publish a new article? 
 
+o A critical assessment of the methods with ditto perspectives and recommendations is also something you need to include. 
 
-!split
-===== Minimization process =====
+The approach to the analysis of these new data sets should follow to a large extent what you did in project 1. That is:
+o Whether you end up with a regression or a classification problem, you should employ at least two of the methods we have discussed among _linear regression (including Ridge and Lasso)_, _Logistic Regression_, _Neural Networks_, _Convolution Neural Networks_, _Recurrent Neural Networks_, _Adversarial Neural Networks_, _Support Vector Machines_ and _Decision Trees, Random Forests, Bagging and Boosting_. 
 
-For the minimization to be defined, we need to have a cost function at hand to minimize.
 
-It is given that $f\left(x, \, g(x), \, g'(x), \, g''(x), \, \dots \, , \, g^{(n)}(x)\right)$ should be equal to zero in (ref{ode}).
-We can choose to consider the mean squared error as the cost function for an input $x$.
-Since we are looking at one input, the cost function is just $f$ squared.
-The cost function $c\left(x, P \right)$ can therefore be expressed as
+o The estimates you used and tested in project 1 should also be included, that is the $R2$-score, _MSE_, confusion matrix, accuracy score, information gain,  ROC and Cumulative gains curves and other, cross-validation and/or bootstrap if these are relevant.
 
-!bt
-C\left(x, P\right) = \big(f\left(x, \, g(x), \, g'(x), \, g''(x), \, \dots \, , \, g^{(n)}(x)\right)\big)^2
-!et
+o Similarly, feel free to explore various activations functions in deep learning and various approachs to stochastic gradient descent approaches.
 
-If $N$ inputs are given as a vector $\bm{x}$ with elements $x_i$ for $i = 1,\dots,N$,
-the cost function becomes
 
-!bt
-\begin{equation} \label{cost}
-	C\left(\bm{x}, P\right) = \frac{1}{N} \sum_{i=1}^N \big(f\left(x_i, \, g(x_i), \, g'(x_i), \, g''(x_i), \, \dots \, , \, g^{(n)}(x_i)\right)\big)^2
-\end{equation}
-!et
+All in all, the report should follow the same pattern as project 1, with abstract, introduction, methods, code, results, conclusions etc.
 
-The neural net should then find the parameters $P$ that minimizes the cost function in
-(ref{cost}) for a set of $N$ training samples $x_i$.
 
-!split
-===== Minimizing the cost function using gradient descent and automatic differentiation =====
-
-To perform the minimization using gradient descent, the gradient of $C\left(\bm{x}, P\right)$ is needed.
-It might happen so that finding an analytical expression of the gradient of $C(\bm{x}, P)$ from (ref{cost}) gets too messy, depending on which cost function one desires to use.
-
-Luckily, there exists libraries that makes the job for us through automatic differentiation.
-Automatic differentiation is a method of finding the derivatives numerically with very high precision.
-
-
-!split
-===== Example: Exponential decay =====
-
-An exponential decay of a quantity $g(x)$ is described by the equation
-
-!bt
-\begin{equation} \label{solve_expdec}
-  g'(x) = -\gamma g(x)
-\end{equation}
-!et
-
-with $g(0) = g_0$ for some chosen initial value $g_0$.
-
-The analytical solution of (ref{solve_expdec}) is
-
-!bt
-\begin{equation}
-  g(x) = g_0 \exp\left(-\gamma x\right)
-\end{equation}
-!et
-
-Having an analytical solution at hand, it is possible to use it to compare how well a neural network finds a solution of (ref{solve_expdec}).
-
-
-!split
-===== The function to solve for =====
-
-The program will use a neural network to solve
-
-!bt
-\begin{equation} \label{solveode}
-g'(x) = -\gamma g(x)
-\end{equation}
-!et
-
-where $g(0) = g_0$ with $\gamma$ and $g_0$ being some chosen values.
-
-In this example, $\gamma = 2$ and $g_0 = 10$.
-
-!split
-===== The trial solution =====
-To begin with, a trial solution $g_t(t)$ must be chosen. A general trial solution for ordinary differential equations could be
-
-!bt
-g_t(x, P) = h_1(x) + h_2(x, N(x, P))
-!et
-
-with $h_1(x)$ ensuring that $g_t(x)$ satisfies some conditions and $h_2(x,N(x, P))$ an expression involving $x$ and the output from the neural network $N(x,P)$ with $P $ being the collection of the weights and biases for each layer. For now, it is assumed that the network consists of one input layer, one hidden layer, and one output layer.
-
-!split
-===== Setup of Network =====
-
-In this network, there are no weights and bias at the input layer, so $P = \{ P_{\text{hidden}},  P_{\text{output}} \}$.
-If there are $N_{\text{hidden} }$ neurons in the hidden layer, then $P_{\text{hidden}}$ is a $N_{\text{hidden} } \times (1 + N_{\text{input}})$ matrix, given that there are $N_{\text{input}}$ neurons in the input layer.
-
-The first column in $P_{\text{hidden} }$ represents the bias for each neuron in the hidden layer and the second column represents the weights for each neuron in the hidden layer from the input layer.
-If there are $N_{\text{output} }$ neurons in the output layer, then $P_{\text{output}} $ is a $N_{\text{output} } \times (1 + N_{\text{hidden} })$ matrix.
-
-Its first column represents the bias of each neuron and the remaining columns represents the weights to each neuron.
-
-It is given that $g(0) = g_0$. The trial solution must fulfill this condition to be a proper solution of (ref{solveode}). A possible way to ensure that $g_t(0, P) = g_0$, is to let $F(N(x,P)) = x \cdot N(x,P)$ and $A(x) = g_0$. This gives the following trial solution:
-
-!bt
-\begin{equation} \label{trial}
-g_t(x, P) = g_0 + x \cdot N(x, P)
-\end{equation}
-!et
-
-!split
-===== Reformulating the problem =====
-
-We wish that our neural network manages to minimize a given cost function.
-
-A reformulation of out equation, (ref{solveode}), must therefore be done,
-such that it describes the problem a neural network can solve for.
-
-The neural network must find the set of weights and biases $P$ such that the trial solution in (ref{trial}) satisfies (ref{solveode}).
-
-The trial solution
-
-!bt
-g_t(x, P) = g_0 + x \cdot N(x, P)
-!et
-
-has been chosen such that it already solves the condition $g(0) = g_0$. What remains, is to find $P$ such that
-
-!bt
-\begin{equation} \label{nnmin}
-g_t'(x, P) = - \gamma g_t(x, P)
-\end{equation}
-!et
-
-is fulfilled as *best as possible*.
-
-!split
-===== More technicalities =====
-
-The left hand side and right hand side of (ref{nnmin}) must be computed separately, and then the neural network must choose weights and biases, contained in $P$, such that the sides are equal as best as possible.
-This means that the absolute or squared difference between the sides must be as close to zero, ideally equal to zero.
-In this case, the difference squared shows to be an appropriate measurement of how erroneous the trial solution is with respect to $P$ of the neural network.
-
-This gives the following cost function our neural network must solve for:
-
-!bt
-\min_{P}\Big\{ \big(g_t'(x, P) - ( -\gamma g_t(x, P) \big)^2 \Big\}
-!et
-
-(the notation $\min_{P}\{ f(x, P) \}$ means that we desire to find $P$ that yields the minimum of $f(x, P)$)
-
-or, in terms of weights and biases for the hidden and output layer in our network:
-
-!bt
-\min_{P_{\text{hidden} }, \ P_{\text{output} }}\Big\{ \big(g_t'(x, \{ P_{\text{hidden} }, P_{\text{output} }\}) - ( -\gamma g_t(x, \{ P_{\text{hidden} }, P_{\text{output} }\}) \big)^2 \Big\}
-!et
-
-for an input value $x$.
-
-!split
-=====  More details =====
-
-If the neural network evaluates $g_t(x, P)$ at more values for $x$, say $N$ values $x_i$ for $i = 1, \dots, N$, then the *total* error to minimize becomes
-
-!bt
-\begin{equation} \label{min}
-\min_{P}\Big\{\frac{1}{N} \sum_{i=1}^N  \big(g_t'(x_i, P) - ( -\gamma g_t(x_i, P) \big)^2 \Big\}
-\end{equation}
-!et
-
-Letting $\bm{x}$ be a vector with elements $x_i$ and $C(\bm{x}, P) = \frac{1}{N} \sum_i  \big(g_t'(x_i, P) - ( -\gamma g_t(x_i, P) \big)^2$ denote the cost function, the minimization problem that our network must solve, becomes
-
-!bt
-\min_{P} C(\bm{x}, P)
-!et
-
-In terms of $P_{\text{hidden} }$ and $P_{\text{output} }$, this could also be expressed as
-
-$$
-\min_{P_{\text{hidden} }, \ P_{\text{output} }} C(\bm{x}, \{P_{\text{hidden} }, P_{\text{output} }\})
-$$
-
-!split
-===== A possible implementation of a neural network =====
-
-For simplicity, it is assumed that the input is an array $\bm{x} = (x_1, \dots, x_N)$ with $N$ elements. It is at these points the neural network should find $P$ such that it fulfills (ref{min}).
-
-First, the neural network must feed forward the inputs.
-This means that $\bm{x}s$ must be passed through an input layer, a hidden layer and a output layer. The input layer in this case, does not need to process the data any further.
-The input layer will consist of $N_{\text{input} }$ neurons, passing its element to each neuron in the hidden layer.  The number of neurons in the hidden layer will be $N_{\text{hidden} }$.
-
-!split
-===== Technicalities =====
-
-For the $i$-th in the hidden layer with weight $w_i^{\text{hidden} }$ and bias $b_i^{\text{hidden} }$, the weighting from the $j$-th neuron at the input layer is:
-
-!bt
-\begin{aligned}
-z_{i,j}^{\text{hidden}} &= b_i^{\text{hidden}} + w_i^{\text{hidden}}x_j \\
-&=
-\begin{pmatrix}
-b_i^{\text{hidden}} & w_i^{\text{hidden}}
-\end{pmatrix}
-\begin{pmatrix}
-1 \\
-x_j
-\end{pmatrix}
-\end{aligned}
-!et
-
-!split
-=====  Final technicalities I =====
-
-The result after weighting the inputs at the $i$-th hidden neuron can be written as a vector:
-
-!bt
-\begin{aligned}
-\bm{z}_{i}^{\text{hidden}} &= \Big( b_i^{\text{hidden}} + w_i^{\text{hidden}}x_1 , \ b_i^{\text{hidden}} + w_i^{\text{hidden}} x_2, \ \dots \, , \ b_i^{\text{hidden}} + w_i^{\text{hidden}} x_N\Big)  \\
-&=
-\begin{pmatrix}
- b_i^{\text{hidden}}  & w_i^{\text{hidden}}
-\end{pmatrix}
-\begin{pmatrix}
-1  & 1 & \dots & 1 \\
-x_1 & x_2 & \dots & x_N
-\end{pmatrix} \\
-&= \bm{p}_{i, \text{hidden}}^T X
-\end{aligned}
-!et
-
-!split
-=====  Final technicalities II =====
-
-The vector $\bm{p}_{i, \text{hidden}}^T$ constitutes each row in $P_{\text{hidden} }$, which contains the weights for the neural network to minimize according to (ref{min}).
-
-After having found $\bm{z}_{i}^{\text{hidden}} $ for every $i$-th neuron within the hidden layer, the vector will be sent to an activation function $a_i(\bm{z})$.
-
-In this example, the sigmoid function has been chosen to be the activation function for each hidden neuron:
-
-!bt
-f(z) = \frac{1}{1 + \exp{(-z)}}
-!et
-
-It is possible to use other activations functions for the hidden layer also.
-
-The output $\bm{x}_i^{\text{hidden}}$ from each $i$-th hidden neuron is:
-
-$$
-\bm{x}_i^{\text{hidden} } = f\big(  \bm{z}_{i}^{\text{hidden}} \big)
-$$
-
-The outputs $\bm{x}_i^{\text{hidden} } $ are then sent to the output layer.
-
-The output layer consists of one neuron in this case, and combines the
-output from each of the neurons in the hidden layers. The output layer
-combines the results from the hidden layer using some weights $w_i^{\text{output}}$
-and biases $b_i^{\text{output}}$. In this case,
-it is assumes that the number of neurons in the output layer is one.
-
-!split
-=====  Final technicalities III =====
-
-
-The procedure of weighting the output neuron $j$ in the hidden layer to the $i$-th neuron in the output layer is similar as for the hidden layer described previously.
-
-!bt
-\begin{aligned}
-z_{1,j}^{\text{output}} & =
-\begin{pmatrix}
-b_1^{\text{output}} & \bm{w}_1^{\text{output}}
-\end{pmatrix}
-\begin{pmatrix}
-1 \\
-\bm{x}_j^{\text{hidden}}
-\end{pmatrix}
-\end{aligned}
-!et
-
-!split
-=====  Final technicalities IV =====
-
-Expressing $z_{1,j}^{\text{output}}$ as a vector gives the following way of weighting the inputs from the hidden layer:
-
-!bt
-\bm{z}_{1}^{\text{output}} =
-\begin{pmatrix}
-b_1^{\text{output}} & \bm{w}_1^{\text{output}}
-\end{pmatrix}
-\begin{pmatrix}
-1  & 1 & \dots & 1 \\
-\bm{x}_1^{\text{hidden}} & \bm{x}_2^{\text{hidden}} & \dots & \bm{x}_N^{\text{hidden}}
-\end{pmatrix}
-!et
-
-In this case we seek a continuous range of values since we are approximating a function. This means that after computing $\bm{z}_{1}^{\text{output}}$ the neural network has finished its feed forward step, and $\bm{z}_{1}^{\text{output}}$ is the final output of the network.
-
-!split
-===== Back propagation =====
-
-The next step is to decide how the parameters should be changed such that they minimize the cost function.
-
-The chosen cost function for this problem is
-
-!bt
-C(\bm{x}, P) = \frac{1}{N} \sum_i  \big(g_t'(x_i, P) - ( -\gamma g_t(x_i, P) \big)^2
-!et
-
-In order to minimize the cost function, an optimization method must be chosen.
-
-Here, gradient descent with a constant step size has been chosen.
-
-!split
-===== Gradient descent =====
-
-The idea of the gradient descent algorithm is to update parameters in
-a direction where the cost function decreases goes to a minimum.
-
-In general, the update of some parameters $\bm{\omega}$ given a cost
-function defined by some weights $\bm{\omega}$, $C(\bm{x},
-\bm{\omega})$, goes as follows:
-
-!bt
-\bm{\omega}_{\text{new} } = \bm{\omega} - \lambda \nabla_{\bm{\omega}} C(\bm{x}, \bm{\omega})
-!et
-
-for a number of iterations or until $ \big|\big| \bm{\omega}_{\text{new} } - \bm{\omega} \big|\big|$ becomes smaller than some given tolerance.
-
-The value of $\lambda$ decides how large steps the algorithm must take
-in the direction of $ \nabla_{\bm{\omega}} C(\bm{x}, \bm{\omega})$.
-The notation $\nabla_{\bm{\omega}}$ express the gradient with respect
-to the elements in $\bm{\omega}$.
-
-In our case, we have to minimize the cost function $C(\bm{x}, P)$ with
-respect to the two sets of weights and biases, that is for the hidden
-layer $P_{\text{hidden} }$ and for the output layer $P_{\text{output}
-}$ .
-
-This means that $P_{\text{hidden} }$ and $P_{\text{output} }$ is updated by
-
-!bt
-\begin{aligned}
-P_{\text{hidden},\text{new}} &= P_{\text{hidden}} - \lambda \nabla_{P_{\text{hidden}}} C(\bm{x}, P)  \\
-P_{\text{output},\text{new}} &= P_{\text{output}} - \lambda \nabla_{P_{\text{output}}} C(\bm{x}, P)
-\end{aligned}
-!et
-
-!split
-===== The code for solving the ODE =====
-
-!bc pycod
-import autograd.numpy as np
-from autograd import grad, elementwise_grad
-import autograd.numpy.random as npr
-from matplotlib import pyplot as plt
-
-def sigmoid(z):
-    return 1/(1 + np.exp(-z))
-
-# Assuming one input, hidden, and output layer
-def neural_network(params, x):
-
-    # Find the weights (including and biases) for the hidden and output layer.
-    # Assume that params is a list of parameters for each layer.
-    # The biases are the first element for each array in params,
-    # and the weights are the remaning elements in each array in params.
-
-    w_hidden = params[0]
-    w_output = params[1]
-
-    # Assumes input x being an one-dimensional array
-    num_values = np.size(x)
-    x = x.reshape(-1, num_values)
-
-    # Assume that the input layer does nothing to the input x
-    x_input = x
-
-    ## Hidden layer:
-
-    # Add a row of ones to include bias
-    x_input = np.concatenate((np.ones((1,num_values)), x_input ), axis = 0)
-
-    z_hidden = np.matmul(w_hidden, x_input)
-    x_hidden = sigmoid(z_hidden)
-
-    ## Output layer:
-
-    # Include bias:
-    x_hidden = np.concatenate((np.ones((1,num_values)), x_hidden ), axis = 0)
-
-    z_output = np.matmul(w_output, x_hidden)
-    x_output = z_output
-
-    return x_output
-
-# The trial solution using the deep neural network:
-def g_trial(x,params, g0 = 10):
-    return g0 + x*neural_network(params,x)
-
-# The right side of the ODE:
-def g(x, g_trial, gamma = 2):
-    return -gamma*g_trial
-
-# The cost function:
-def cost_function(P, x):
-
-    # Evaluate the trial function with the current parameters P
-    g_t = g_trial(x,P)
-
-    # Find the derivative w.r.t x of the neural network
-    d_net_out = elementwise_grad(neural_network,1)(P,x)
-
-    # Find the derivative w.r.t x of the trial function
-    d_g_t = elementwise_grad(g_trial,0)(x,P)
-
-    # The right side of the ODE
-    func = g(x, g_t)
-
-    err_sqr = (d_g_t - func)**2
-    cost_sum = np.sum(err_sqr)
-
-    return cost_sum / np.size(err_sqr)
-
-# Solve the exponential decay ODE using neural network with one input, hidden, and output layer
-def solve_ode_neural_network(x, num_neurons_hidden, num_iter, lmb):
-    ## Set up initial weights and biases
-
-    # For the hidden layer
-    p0 = npr.randn(num_neurons_hidden, 2 )
-
-    # For the output layer
-    p1 = npr.randn(1, num_neurons_hidden + 1 ) # +1 since bias is included
-
-    P = [p0, p1]
-
-    print('Initial cost: %g'%cost_function(P, x))
-
-    ## Start finding the optimal weights using gradient descent
-
-    # Find the Python function that represents the gradient of the cost function
-    # w.r.t the 0-th input argument -- that is the weights and biases in the hidden and output layer
-    cost_function_grad = grad(cost_function,0)
-
-    # Let the update be done num_iter times
-    for i in range(num_iter):
-        # Evaluate the gradient at the current weights and biases in P.
-        # The cost_grad consist now of two arrays;
-        # one for the gradient w.r.t P_hidden and
-        # one for the gradient w.r.t P_output
-        cost_grad =  cost_function_grad(P, x)
-
-        P[0] = P[0] - lmb * cost_grad[0]
-        P[1] = P[1] - lmb * cost_grad[1]
-
-    print('Final cost: %g'%cost_function(P, x))
-
-    return P
-
-def g_analytic(x, gamma = 2, g0 = 10):
-    return g0*np.exp(-gamma*x)
-
-# Solve the given problem
-if __name__ == '__main__':
-    # Set seed such that the weight are initialized
-    # with same weights and biases for every run.
-    npr.seed(15)
-
-    ## Decide the vales of arguments to the function to solve
-    N = 10
-    x = np.linspace(0, 1, N)
-
-    ## Set up the initial parameters
-    num_hidden_neurons = 10
-    num_iter = 10000
-    lmb = 0.001
-
-    # Use the network
-    P = solve_ode_neural_network(x, num_hidden_neurons, num_iter, lmb)
-
-    # Print the deviation from the trial solution and true solution
-    res = g_trial(x,P)
-    res_analytical = g_analytic(x)
-
-    print('Max absolute difference: %g'%np.max(np.abs(res - res_analytical)))
-
-    # Plot the results
-    plt.figure(figsize=(10,10))
-
-    plt.title('Performance of neural network solving an ODE compared to the analytical solution')
-    plt.plot(x, res_analytical)
-    plt.plot(x, res[0,:])
-    plt.legend(['analytical','nn'])
-    plt.xlabel('x')
-    plt.ylabel('g(x)')
-    plt.show()
-!ec
-
-
-!split
-===== The network with one input layer, specified number of hidden layers, and one output layer =====
-
-It is also possible to extend the construction of our network into a more general one, allowing the network to contain more than one hidden layers.
-
-The number of neurons within each hidden layer are given as a list of integers in the program below.
-
-!bc pycod
-import autograd.numpy as np
-from autograd import grad, elementwise_grad
-import autograd.numpy.random as npr
-from matplotlib import pyplot as plt
-
-def sigmoid(z):
-    return 1/(1 + np.exp(-z))
-
-# The neural network with one input layer and one output layer,
-# but with number of hidden layers specified by the user.
-def deep_neural_network(deep_params, x):
-    # N_hidden is the number of hidden layers
-
-    N_hidden = np.size(deep_params) - 1 # -1 since params consists of
-                                        # parameters to all the hidden
-                                        # layers AND the output layer.
-
-    # Assumes input x being an one-dimensional array
-    num_values = np.size(x)
-    x = x.reshape(-1, num_values)
-
-    # Assume that the input layer does nothing to the input x
-    x_input = x
-
-    # Due to multiple hidden layers, define a variable referencing to the
-    # output of the previous layer:
-    x_prev = x_input
-
-    ## Hidden layers:
-
-    for l in range(N_hidden):
-        # From the list of parameters P; find the correct weigths and bias for this layer
-        w_hidden = deep_params[l]
-
-        # Add a row of ones to include bias
-        x_prev = np.concatenate((np.ones((1,num_values)), x_prev ), axis = 0)
-
-        z_hidden = np.matmul(w_hidden, x_prev)
-        x_hidden = sigmoid(z_hidden)
-
-        # Update x_prev such that next layer can use the output from this layer
-        x_prev = x_hidden
-
-    ## Output layer:
-
-    # Get the weights and bias for this layer
-    w_output = deep_params[-1]
-
-    # Include bias:
-    x_prev = np.concatenate((np.ones((1,num_values)), x_prev), axis = 0)
-
-    z_output = np.matmul(w_output, x_prev)
-    x_output = z_output
-
-    return x_output
-
-# The trial solution using the deep neural network:
-def g_trial_deep(x,params, g0 = 10):
-    return g0 + x*deep_neural_network(params, x)
-
-# The right side of the ODE:
-def g(x, g_trial, gamma = 2):
-    return -gamma*g_trial
-
-# The same cost function as before, but calls deep_neural_network instead.
-def cost_function_deep(P, x):
-
-    # Evaluate the trial function with the current parameters P
-    g_t = g_trial_deep(x,P)
-
-    # Find the derivative w.r.t x of the neural network
-    d_net_out = elementwise_grad(deep_neural_network,1)(P,x)
-
-    # Find the derivative w.r.t x of the trial function
-    d_g_t = elementwise_grad(g_trial_deep,0)(x,P)
-
-    # The right side of the ODE
-    func = g(x, g_t)
-
-    err_sqr = (d_g_t - func)**2
-    cost_sum = np.sum(err_sqr)
-
-    return cost_sum / np.size(err_sqr)
-
-# Solve the exponential decay ODE using neural network with one input and one output layer,
-# but with specified number of hidden layers from the user.
-def solve_ode_deep_neural_network(x, num_neurons, num_iter, lmb):
-    # num_hidden_neurons is now a list of number of neurons within each hidden layer
-
-    # The number of elements in the list num_hidden_neurons thus represents
-    # the number of hidden layers.
-
-    # Find the number of hidden layers:
-    N_hidden = np.size(num_neurons)
-
-    ## Set up initial weights and biases
-
-    # Initialize the list of parameters:
-    P = [None]*(N_hidden + 1) # + 1 to include the output layer
-
-    P[0] = npr.randn(num_neurons[0], 2 )
-    for l in range(1,N_hidden):
-        P[l] = npr.randn(num_neurons[l], num_neurons[l-1] + 1) # +1 to include bias
-
-    # For the output layer
-    P[-1] = npr.randn(1, num_neurons[-1] + 1 ) # +1 since bias is included
-
-    print('Initial cost: %g'%cost_function_deep(P, x))
-
-    ## Start finding the optimal weights using gradient descent
-
-    # Find the Python function that represents the gradient of the cost function
-    # w.r.t the 0-th input argument -- that is the weights and biases in the hidden and output layer
-    cost_function_deep_grad = grad(cost_function_deep,0)
-
-    # Let the update be done num_iter times
-    for i in range(num_iter):
-        # Evaluate the gradient at the current weights and biases in P.
-        # The cost_grad consist now of N_hidden + 1 arrays; the gradient w.r.t the weights and biases
-        # in the hidden layers and output layers evaluated at x.
-        cost_deep_grad =  cost_function_deep_grad(P, x)
-
-        for l in range(N_hidden+1):
-            P[l] = P[l] - lmb * cost_deep_grad[l]
-
-    print('Final cost: %g'%cost_function_deep(P, x))
-
-    return P
-
-def g_analytic(x, gamma = 2, g0 = 10):
-    return g0*np.exp(-gamma*x)
-
-# Solve the given problem
-if __name__ == '__main__':
-    npr.seed(15)
-
-    ## Decide the vales of arguments to the function to solve
-    N = 10
-    x = np.linspace(0, 1, N)
-
-    ## Set up the initial parameters
-    num_hidden_neurons = np.array([10,10])
-    num_iter = 10000
-    lmb = 0.001
-
-    P = solve_ode_deep_neural_network(x, num_hidden_neurons, num_iter, lmb)
-
-    res = g_trial_deep(x,P)
-    res_analytical = g_analytic(x)
-
-    plt.figure(figsize=(10,10))
-
-    plt.title('Performance of a deep neural network solving an ODE compared to the analytical solution')
-    plt.plot(x, res_analytical)
-    plt.plot(x, res[0,:])
-    plt.legend(['analytical','dnn'])
-    plt.ylabel('g(x)')
-    plt.show()
-!ec
-
-
-!split
-===== Example: Population growth =====
-
-A logistic model of population growth assumes that a population converges toward an equilibrium.
-The population growth can be modeled by
-
-!bt
-\begin{equation} \label{log}
-	g'(t) = \alpha g(t)(A - g(t))
-\end{equation}
-!et
-
-where $g(t)$ is the population density at time $t$, $\alpha > 0$ the growth rate and $A > 0$ is the maximum population number in the environment.
-Also, at $t = 0$ the population has the size $g(0) = g_0$, where $g_0$ is some chosen constant.
-
-In this example, similar network as for the exponential decay using Autograd has been used to solve the equation. However, as the implementation might suffer from e.g numerical instability
-and high execution time (this might be more apparent in the examples solving PDEs),
-using a library like  TensorFlow is recommended.
-Here, we stay with a more simple approach and implement for comparison, the simple forward Euler method.
-
-!split
-===== Setting up the problem =====
-
-Here, we will model a population $g(t)$ in an environment having carrying capacity $A$.
-The population follows the model
-
-!bt
-\begin{equation} \label{solveode_population}
-g'(t) = \alpha g(t)(A - g(t))
-\end{equation}
-!et
-
-where $g(0) = g_0$.
-
-In this example, we let $\alpha = 2$, $A = 1$, and $g_0 = 1.2$.
-
-!split
-===== The trial solution =====
-
-We will get a slightly different trial solution, as the boundary conditions are different
-compared to the case for exponential decay.
-
-A possible trial solution satisfying the condition $g(0) = g_0$ could be
-
-$$
-h_1(t) = g_0 + t \cdot N(t,P)
-$$
-
-with $N(t,P)$ being the output from the neural network with weights and biases for each layer collected in the set $P$.
-
-The analytical solution is
-
-$$
-g(t) = \frac{Ag_0}{g_0 + (A - g_0)\exp(-\alpha A t)}
-$$
-
-!split
-===== The program using Autograd =====
-
-The network will be the similar as for the exponential decay example, but with some small modifications for our problem.
-
-!bc pycod
-import autograd.numpy as np
-from autograd import grad, elementwise_grad
-import autograd.numpy.random as npr
-from matplotlib import pyplot as plt
-
-def sigmoid(z):
-    return 1/(1 + np.exp(-z))
-
-# Function to get the parameters.
-# Done such that one can easily change the paramaters after one's liking.
-def get_parameters():
-    alpha = 2
-    A = 1
-    g0 = 1.2
-    return alpha, A, g0
-
-def deep_neural_network(P, x):
-    # N_hidden is the number of hidden layers
-    N_hidden = np.size(P) - 1 # -1 since params consist of parameters to all the hidden layers AND the output layer
-
-    # Assumes input x being an one-dimensional array
-    num_values = np.size(x)
-    x = x.reshape(-1, num_values)
-
-    # Assume that the input layer does nothing to the input x
-    x_input = x
-
-    # Due to multiple hidden layers, define a variable referencing to the
-    # output of the previous layer:
-    x_prev = x_input
-
-    ## Hidden layers:
-
-    for l in range(N_hidden):
-        # From the list of parameters P; find the correct weigths and bias for this layer
-        w_hidden = P[l]
-
-        # Add a row of ones to include bias
-        x_prev = np.concatenate((np.ones((1,num_values)), x_prev ), axis = 0)
-
-        z_hidden = np.matmul(w_hidden, x_prev)
-        x_hidden = sigmoid(z_hidden)
-
-        # Update x_prev such that next layer can use the output from this layer
-        x_prev = x_hidden
-
-    ## Output layer:
-
-    # Get the weights and bias for this layer
-    w_output = P[-1]
-
-    # Include bias:
-    x_prev = np.concatenate((np.ones((1,num_values)), x_prev), axis = 0)
-
-    z_output = np.matmul(w_output, x_prev)
-    x_output = z_output
-
-    return x_output
-
-
-def cost_function_deep(P, x):
-
-    # Evaluate the trial function with the current parameters P
-    g_t = g_trial_deep(x,P)
-
-    # Find the derivative w.r.t x of the trial function
-    d_g_t = elementwise_grad(g_trial_deep,0)(x,P)
-
-    # The right side of the ODE
-    func = f(x, g_t)
-
-    err_sqr = (d_g_t - func)**2
-    cost_sum = np.sum(err_sqr)
-
-    return cost_sum / np.size(err_sqr)
-
-# The right side of the ODE:
-def f(x, g_trial):
-    alpha,A, g0 = get_parameters()
-    return alpha*g_trial*(A - g_trial)
-
-# The trial solution using the deep neural network:
-def g_trial_deep(x, params):
-    alpha,A, g0 = get_parameters()
-    return g0 + x*deep_neural_network(params,x)
-
-# The analytical solution:
-def g_analytic(t):
-    alpha,A, g0 = get_parameters()
-    return A*g0/(g0 + (A - g0)*np.exp(-alpha*A*t))
-
-def solve_ode_deep_neural_network(x, num_neurons, num_iter, lmb):
-    # num_hidden_neurons is now a list of number of neurons within each hidden layer
-
-    # Find the number of hidden layers:
-    N_hidden = np.size(num_neurons)
-
-    ## Set up initial weigths and biases
-
-    # Initialize the list of parameters:
-    P = [None]*(N_hidden + 1) # + 1 to include the output layer
-
-    P[0] = npr.randn(num_neurons[0], 2 )
-    for l in range(1,N_hidden):
-        P[l] = npr.randn(num_neurons[l], num_neurons[l-1] + 1) # +1 to include bias
-
-    # For the output layer
-    P[-1] = npr.randn(1, num_neurons[-1] + 1 ) # +1 since bias is included
-
-    print('Initial cost: %g'%cost_function_deep(P, x))
-
-    ## Start finding the optimal weigths using gradient descent
-
-    # Find the Python function that represents the gradient of the cost function
-    # w.r.t the 0-th input argument -- that is the weights and biases in the hidden and output layer
-    cost_function_deep_grad = grad(cost_function_deep,0)
-
-    # Let the update be done num_iter times
-    for i in range(num_iter):
-        # Evaluate the gradient at the current weights and biases in P.
-        # The cost_grad consist now of N_hidden + 1 arrays; the gradient w.r.t the weights and biases
-        # in the hidden layers and output layers evaluated at x.
-        cost_deep_grad =  cost_function_deep_grad(P, x)
-
-        for l in range(N_hidden+1):
-            P[l] = P[l] - lmb * cost_deep_grad[l]
-
-    print('Final cost: %g'%cost_function_deep(P, x))
-
-    return P
-
-if __name__ == '__main__':
-    npr.seed(4155)
-
-    ## Decide the vales of arguments to the function to solve
-    Nt = 10
-    T = 1
-    t = np.linspace(0,T, Nt)
-
-    ## Set up the initial parameters
-    num_hidden_neurons = [100, 50, 25]
-    num_iter = 1000
-    lmb = 1e-3
-
-    P = solve_ode_deep_neural_network(t, num_hidden_neurons, num_iter, lmb)
-
-    g_dnn_ag = g_trial_deep(t,P)
-    g_analytical = g_analytic(t)
-
-    # Find the maximum absolute difference between the solutons:
-    diff_ag = np.max(np.abs(g_dnn_ag - g_analytical))
-    print("The max absolute difference between the solutions is: %g"%diff_ag)
-
-    plt.figure(figsize=(10,10))
-
-    plt.title('Performance of neural network solving an ODE compared to the analytical solution')
-    plt.plot(t, g_analytical)
-    plt.plot(t, g_dnn_ag[0,:])
-    plt.legend(['analytical','nn'])
-    plt.xlabel('t')
-    plt.ylabel('g(t)')
-
-    plt.show()
-!ec
-
-!split
-===== Using forward Euler to solve the ODE =====
-
-A straightforward way of solving an ODE numerically, is to use Euler's method.
-
-Euler's method uses Taylor series to approximate the value at a function $f$ at a step $\Delta x$ from $x$:
-
-$$
-f(x + \Delta x) \approx f(x) + \Delta x f'(x)
-$$
-
-In our case, using Euler's method to approximate the value of $g$ at a step $\Delta t$ from $t$ yields
-
-!bt
-\begin{aligned}
-  g(t + \Delta t) &\approx g(t) + \Delta t g'(t) \\
-  &= g(t) + \Delta t \big(\alpha g(t)(A - g(t))\big)
-\end{aligned}
-!et
-along with the condition that $g(0) = g_0$.
-
-Let $t_i = i \cdot \Delta t$ where $\Delta t = \frac{T}{N_t-1}$ where $T$ is the final time our solver must solve for and $N_t$ the number of values for $t \in [0, T]$ for $i = 0, \dots, N_t-1$.
-
-For $i \geq 1$, we have that
-!bt
-\begin{aligned}
-t_i &= i\Delta t \\
-&= (i - 1)\Delta t + \Delta t \\
-&= t_{i-1} + \Delta t
-\end{aligned}
-!et
-
-Now, if $g_i = g(t_i)$ then
-
-!bt
-\begin{equation}
-  \begin{aligned}
-  g_i &= g(t_i) \\
-  &= g(t_{i-1} + \Delta t) \\
-  &\approx g(t_{i-1}) + \Delta t \big(\alpha g(t_{i-1})(A - g(t_{i-1}))\big) \\
-  &= g_{i-1} + \Delta t \big(\alpha g_{i-1}(A - g_{i-1})\big)
-  \end{aligned}
-\end{equation} \label{odenum}
-!et
-for $i \geq 1$ and $g_0 = g(t_0) = g(0) = g_0$.
-
-Equation (ref{odenum}) could be implemented in the following way,
-extending the program that uses the network using Autograd:
-
-!bc pycod
-# Assume that all function definitions from the example program using Autograd
-# are located here.
-
-if __name__ == '__main__':
-    npr.seed(4155)
-
-    ## Decide the vales of arguments to the function to solve
-    Nt = 10
-    T = 1
-    t = np.linspace(0,T, Nt)
-
-    ## Set up the initial parameters
-    num_hidden_neurons = [100,50,25]
-    num_iter = 1000
-    lmb = 1e-3
-
-    P = solve_ode_deep_neural_network(t, num_hidden_neurons, num_iter, lmb)
-
-    g_dnn_ag = g_trial_deep(t,P)
-    g_analytical = g_analytic(t)
-
-    # Find the maximum absolute difference between the solutons:
-    diff_ag = np.max(np.abs(g_dnn_ag - g_analytical))
-    print("The max absolute difference between the solutions is: %g"%diff_ag)
-
-    plt.figure(figsize=(10,10))
-
-    plt.title('Performance of neural network solving an ODE compared to the analytical solution')
-    plt.plot(t, g_analytical)
-    plt.plot(t, g_dnn_ag[0,:])
-    plt.legend(['analytical','nn'])
-    plt.xlabel('t')
-    plt.ylabel('g(t)')
-
-    ## Find an approximation to the funtion using forward Euler
-
-    alpha, A, g0 = get_parameters()
-    dt = T/(Nt - 1)
-
-    # Perform forward Euler to solve the ODE
-    g_euler = np.zeros(Nt)
-    g_euler[0] = g0
-
-    for i in range(1,Nt):
-        g_euler[i] = g_euler[i-1] + dt*(alpha*g_euler[i-1]*(A - g_euler[i-1]))
-
-    # Print the errors done by each method
-    diff1 = np.max(np.abs(g_euler - g_analytical))
-    diff2 = np.max(np.abs(g_dnn_ag[0,:] - g_analytical))
-
-    print('Max absolute difference between Euler method and analytical: %g'%diff1)
-    print('Max absolute difference between deep neural network and analytical: %g'%diff2)
-
-    # Plot results
-    plt.figure(figsize=(10,10))
-
-    plt.plot(t,g_euler)
-    plt.plot(t,g_analytical)
-    plt.plot(t,g_dnn_ag[0,:])
-
-    plt.legend(['euler','analytical','dnn'])
-    plt.xlabel('Time t')
-    plt.ylabel('g(t)')
-
-    plt.show()
-!ec
 
 
 
 !split
-===== Example: Solving the one dimensional Poisson equation =====
+===== Solving  differential equations with neural networks =====
 
-The Poisson equation for $g(x)$ in one dimension is
+Here we describe the possible differential equations we can study
+first with neural networks and thereafter with recurrent neural
+networks and/or AE and/or GANs.
 
-!bt
-\begin{equation} \label{poisson}
-  -g''(x) = f(x)
-\end{equation}
-!et
-
-where $f(x)$ is a given function for $x \in (0,1)$.
-
-The conditions that $g(x)$ is chosen to fulfill, are
-!bt
-\begin{align*}
-  g(0) &= 0 \\
-  g(1) &= 0
-\end{align*}
-!et
-
-This equation can be solved numerically using programs where e.g Autograd and TensorFlow are used.
-The results from the networks can then be compared to the analytical solution.
-In addition, it could be interesting to see how a typical method for numerically solving second order ODEs compares to the neural networks.
-
-!split
-===== The specific equation to solve for =====
-
-Here, the function $g(x)$ to solve for follows the equation
-
-!bt
--g''(x) = f(x),\qquad x \in (0,1)
-!et
-
-where $f(x)$ is a given function, along with the chosen conditions
-
-!bt
-\begin{aligned}
-g(0) = g(1) = 0
-\end{aligned}\label{cond}
-!et
-
-In this example, we consider the case when $f(x) = (3x + x^2)\exp(x)$.
-
-For this case, a possible trial solution satisfying the conditions could be
-
-!bt
-g_t(x) = x \cdot (1-x) \cdot N(P,x)
-!et
-
-The analytical solution for this problem is
-
-!bt
-g(x) = x(1 - x)\exp(x)
-!et
-
-!split
-===== Solving the equation using Autograd =====
-
-!bc pycod
-import autograd.numpy as np
-from autograd import grad, elementwise_grad
-import autograd.numpy.random as npr
-from matplotlib import pyplot as plt
-
-def sigmoid(z):
-    return 1/(1 + np.exp(-z))
-
-def deep_neural_network(deep_params, x):
-    # N_hidden is the number of hidden layers
-    N_hidden = np.size(deep_params) - 1 # -1 since params consist of parameters to all the hidden layers AND the output layer
-
-    # Assumes input x being an one-dimensional array
-    num_values = np.size(x)
-    x = x.reshape(-1, num_values)
-
-    # Assume that the input layer does nothing to the input x
-    x_input = x
-
-    # Due to multiple hidden layers, define a variable referencing to the
-    # output of the previous layer:
-    x_prev = x_input
-
-    ## Hidden layers:
-
-    for l in range(N_hidden):
-        # From the list of parameters P; find the correct weigths and bias for this layer
-        w_hidden = deep_params[l]
-
-        # Add a row of ones to include bias
-        x_prev = np.concatenate((np.ones((1,num_values)), x_prev ), axis = 0)
-
-        z_hidden = np.matmul(w_hidden, x_prev)
-        x_hidden = sigmoid(z_hidden)
-
-        # Update x_prev such that next layer can use the output from this layer
-        x_prev = x_hidden
-
-    ## Output layer:
-
-    # Get the weights and bias for this layer
-    w_output = deep_params[-1]
-
-    # Include bias:
-    x_prev = np.concatenate((np.ones((1,num_values)), x_prev), axis = 0)
-
-    z_output = np.matmul(w_output, x_prev)
-    x_output = z_output
-
-    return x_output
-
-def solve_ode_deep_neural_network(x, num_neurons, num_iter, lmb):
-    # num_hidden_neurons is now a list of number of neurons within each hidden layer
-
-    # Find the number of hidden layers:
-    N_hidden = np.size(num_neurons)
-
-    ## Set up initial weigths and biases
-
-    # Initialize the list of parameters:
-    P = [None]*(N_hidden + 1) # + 1 to include the output layer
-
-    P[0] = npr.randn(num_neurons[0], 2 )
-    for l in range(1,N_hidden):
-        P[l] = npr.randn(num_neurons[l], num_neurons[l-1] + 1) # +1 to include bias
-
-    # For the output layer
-    P[-1] = npr.randn(1, num_neurons[-1] + 1 ) # +1 since bias is included
-
-    print('Initial cost: %g'%cost_function_deep(P, x))
-
-    ## Start finding the optimal weigths using gradient descent
-
-    # Find the Python function that represents the gradient of the cost function
-    # w.r.t the 0-th input argument -- that is the weights and biases in the hidden and output layer
-    cost_function_deep_grad = grad(cost_function_deep,0)
-
-    # Let the update be done num_iter times
-    for i in range(num_iter):
-        # Evaluate the gradient at the current weights and biases in P.
-        # The cost_grad consist now of N_hidden + 1 arrays; the gradient w.r.t the weights and biases
-        # in the hidden layers and output layers evaluated at x.
-        cost_deep_grad =  cost_function_deep_grad(P, x)
-
-        for l in range(N_hidden+1):
-            P[l] = P[l] - lmb * cost_deep_grad[l]
-
-    print('Final cost: %g'%cost_function_deep(P, x))
-
-    return P
-
-## Set up the cost function specified for this Poisson equation:
-
-# The right side of the ODE
-def f(x):
-    return (3*x + x**2)*np.exp(x)
-
-def cost_function_deep(P, x):
-
-    # Evaluate the trial function with the current parameters P
-    g_t = g_trial_deep(x,P)
-
-    # Find the derivative w.r.t x of the trial function
-    d2_g_t = elementwise_grad(elementwise_grad(g_trial_deep,0))(x,P)
-
-    right_side = f(x)
-
-    err_sqr = (-d2_g_t - right_side)**2
-    cost_sum = np.sum(err_sqr)
-
-    return cost_sum/np.size(err_sqr)
-
-# The trial solution:
-def g_trial_deep(x,P):
-    return x*(1-x)*deep_neural_network(P,x)
-
-# The analytic solution;
-def g_analytic(x):
-    return x*(1-x)*np.exp(x)
-
-if __name__ == '__main__':
-    npr.seed(4155)
-
-    ## Decide the vales of arguments to the function to solve
-    Nx = 10
-    x = np.linspace(0,1, Nx)
-
-    ## Set up the initial parameters
-    num_hidden_neurons = [200,100]
-    num_iter = 1000
-    lmb = 1e-3
-
-    P = solve_ode_deep_neural_network(x, num_hidden_neurons, num_iter, lmb)
-
-    g_dnn_ag = g_trial_deep(x,P)
-    g_analytical = g_analytic(x)
-
-    # Find the maximum absolute difference between the solutons:
-    max_diff = np.max(np.abs(g_dnn_ag - g_analytical))
-    print("The max absolute difference between the solutions is: %g"%max_diff)
-
-    plt.figure(figsize=(10,10))
-
-    plt.title('Performance of neural network solving an ODE compared to the analytical solution')
-    plt.plot(x, g_analytical)
-    plt.plot(x, g_dnn_ag[0,:])
-    plt.legend(['analytical','nn'])
-    plt.xlabel('x')
-    plt.ylabel('g(x)')
-    plt.show()
-!ec
-
-!split
-===== Comparing with a numerical scheme =====
-
-The Poisson equation is possible to solve using Taylor series to approximate the second derivative.
-
-Using Taylor series, the second derivative can be expressed as
-
-$$
-g''(x) = \frac{g(x + \Delta x) - 2g(x) + g(x-\Delta x)}{\Delta x^2} + E_{\Delta x}(x)
-$$
-
-where $\Delta x$ is a small step size and $E_{\Delta x}(x)$ being the error term.
-
-Looking away from the error terms gives an approximation to the second derivative:
-
-!bt
-\begin{equation} \label{approx}
-g''(x) \approx \frac{g(x + \Delta x) - 2g(x) + g(x-\Delta x)}{\Delta x^2}
-\end{equation}
-!et
-
-If $x_i = i \Delta x = x_{i-1} + \Delta x$ and $g_i = g(x_i)$ for $i = 1,\dots N_x - 2$ with $N_x$ being the number of values for $x$, (ref{approx}) becomes
-
-!bt
-\begin{aligned}
-g''(x_i) &\approx \frac{g(x_i + \Delta x) - 2g(x_i) + g(x_i -\Delta x)}{\Delta x^2} \\
-&= \frac{g_{i+1} - 2g_i + g_{i-1}}{\Delta x^2}
-\end{aligned}
-!et
-
-Since we know from our problem that
-
-!bt
-\begin{aligned}
--g''(x) &= f(x) \\
-&= (3x + x^2)\exp(x)
-\end{aligned}
-!et
-
-along with the conditions $g(0) = g(1) = 0$,
-the following scheme can be used to find an approximate solution for $g(x)$ numerically:
-
-!bt
-\begin{equation}
-  \begin{aligned}
-  -\Big( \frac{g_{i+1} - 2g_i + g_{i-1}}{\Delta x^2} \Big) &= f(x_i) \\
-  -g_{i+1} + 2g_i - g_{i-1} &= \Delta x^2 f(x_i)
-  \end{aligned}
-\end{equation} \label{odesys}
-!et
-
-for $i = 1, \dots, N_x - 2$ where $g_0 = g_{N_x - 1} = 0$ and $f(x_i) = (3x_i + x_i^2)\exp(x_i)$, which is given for our specific problem.
-
-The equation can be rewritten into a matrix equation:
-
-!bt
-\begin{aligned}
-\begin{pmatrix}
-2 & -1 & 0 & \dots & 0 \\
--1 & 2 & -1 & \dots & 0 \\
-\vdots & & \ddots & & \vdots \\
-0 & \dots & -1 & 2 & -1  \\
-0 & \dots & 0 & -1 & 2\\
-\end{pmatrix}
-\begin{pmatrix}
-g_1 \\
-g_2 \\
-\vdots \\
-g_{N_x - 3} \\
-g_{N_x - 2}
-\end{pmatrix}
-&=
-\Delta x^2
-\begin{pmatrix}
-f(x_1) \\
-f(x_2) \\
-\vdots \\
-f(x_{N_x - 3}) \\
-f(x_{N_x - 2})
-\end{pmatrix} \\
-\bm{A}\bm{g} &= \bm{f},
-\end{aligned}
-!et
-
-which makes it possible to solve for the vector $\bm{g}$.
-
-!split
-===== Setting up the code =====
-
-We can then compare the result from this numerical scheme with the output from our network using Autograd:
-
-!bc pycod
-import autograd.numpy as np
-from autograd import grad, elementwise_grad
-import autograd.numpy.random as npr
-from matplotlib import pyplot as plt
-
-def sigmoid(z):
-    return 1/(1 + np.exp(-z))
-
-def deep_neural_network(deep_params, x):
-    # N_hidden is the number of hidden layers
-    N_hidden = np.size(deep_params) - 1 # -1 since params consist of parameters to all the hidden layers AND the output layer
-
-    # Assumes input x being an one-dimensional array
-    num_values = np.size(x)
-    x = x.reshape(-1, num_values)
-
-    # Assume that the input layer does nothing to the input x
-    x_input = x
-
-    # Due to multiple hidden layers, define a variable referencing to the
-    # output of the previous layer:
-    x_prev = x_input
-
-    ## Hidden layers:
-
-    for l in range(N_hidden):
-        # From the list of parameters P; find the correct weigths and bias for this layer
-        w_hidden = deep_params[l]
-
-        # Add a row of ones to include bias
-        x_prev = np.concatenate((np.ones((1,num_values)), x_prev ), axis = 0)
-
-        z_hidden = np.matmul(w_hidden, x_prev)
-        x_hidden = sigmoid(z_hidden)
-
-        # Update x_prev such that next layer can use the output from this layer
-        x_prev = x_hidden
-
-    ## Output layer:
-
-    # Get the weights and bias for this layer
-    w_output = deep_params[-1]
-
-    # Include bias:
-    x_prev = np.concatenate((np.ones((1,num_values)), x_prev), axis = 0)
-
-    z_output = np.matmul(w_output, x_prev)
-    x_output = z_output
-
-    return x_output
-
-def solve_ode_deep_neural_network(x, num_neurons, num_iter, lmb):
-    # num_hidden_neurons is now a list of number of neurons within each hidden layer
-
-    # Find the number of hidden layers:
-    N_hidden = np.size(num_neurons)
-
-    ## Set up initial weigths and biases
-
-    # Initialize the list of parameters:
-    P = [None]*(N_hidden + 1) # + 1 to include the output layer
-
-    P[0] = npr.randn(num_neurons[0], 2 )
-    for l in range(1,N_hidden):
-        P[l] = npr.randn(num_neurons[l], num_neurons[l-1] + 1) # +1 to include bias
-
-    # For the output layer
-    P[-1] = npr.randn(1, num_neurons[-1] + 1 ) # +1 since bias is included
-
-    print('Initial cost: %g'%cost_function_deep(P, x))
-
-    ## Start finding the optimal weigths using gradient descent
-
-    # Find the Python function that represents the gradient of the cost function
-    # w.r.t the 0-th input argument -- that is the weights and biases in the hidden and output layer
-    cost_function_deep_grad = grad(cost_function_deep,0)
-
-    # Let the update be done num_iter times
-    for i in range(num_iter):
-        # Evaluate the gradient at the current weights and biases in P.
-        # The cost_grad consist now of N_hidden + 1 arrays; the gradient w.r.t the weights and biases
-        # in the hidden layers and output layers evaluated at x.
-        cost_deep_grad =  cost_function_deep_grad(P, x)
-
-        for l in range(N_hidden+1):
-            P[l] = P[l] - lmb * cost_deep_grad[l]
-
-    print('Final cost: %g'%cost_function_deep(P, x))
-
-    return P
-
-## Set up the cost function specified for this Poisson equation:
-
-# The right side of the ODE
-def f(x):
-    return (3*x + x**2)*np.exp(x)
-
-def cost_function_deep(P, x):
-
-    # Evaluate the trial function with the current parameters P
-    g_t = g_trial_deep(x,P)
-
-    # Find the derivative w.r.t x of the trial function
-    d2_g_t = elementwise_grad(elementwise_grad(g_trial_deep,0))(x,P)
-
-    right_side = f(x)
-
-    err_sqr = (-d2_g_t - right_side)**2
-    cost_sum = np.sum(err_sqr)
-
-    return cost_sum/np.size(err_sqr)
-
-# The trial solution:
-def g_trial_deep(x,P):
-    return x*(1-x)*deep_neural_network(P,x)
-
-# The analytic solution;
-def g_analytic(x):
-    return x*(1-x)*np.exp(x)
-
-if __name__ == '__main__':
-    npr.seed(4155)
-
-    ## Decide the vales of arguments to the function to solve
-    Nx = 10
-    x = np.linspace(0,1, Nx)
-
-    ## Set up the initial parameters
-    num_hidden_neurons = [200,100]
-    num_iter = 1000
-    lmb = 1e-3
-
-    P = solve_ode_deep_neural_network(x, num_hidden_neurons, num_iter, lmb)
-
-    g_dnn_ag = g_trial_deep(x,P)
-    g_analytical = g_analytic(x)
-
-    # Find the maximum absolute difference between the solutons:
-
-    plt.figure(figsize=(10,10))
-
-    plt.title('Performance of neural network solving an ODE compared to the analytical solution')
-    plt.plot(x, g_analytical)
-    plt.plot(x, g_dnn_ag[0,:])
-    plt.legend(['analytical','nn'])
-    plt.xlabel('x')
-    plt.ylabel('g(x)')
-
-    ## Perform the computation using the numerical scheme
-
-    dx = 1/(Nx - 1)
-
-    # Set up the matrix A
-    A = np.zeros((Nx-2,Nx-2))
-
-    A[0,0] = 2
-    A[0,1] = -1
-
-    for i in range(1,Nx-3):
-        A[i,i-1] = -1
-        A[i,i] = 2
-        A[i,i+1] = -1
-
-    A[Nx - 3, Nx - 4] = -1
-    A[Nx - 3, Nx - 3] = 2
-
-    # Set up the vector f
-    f_vec = dx**2 * f(x[1:-1])
-
-    # Solve the equation
-    g_res = np.linalg.solve(A,f_vec)
-
-    g_vec = np.zeros(Nx)
-    g_vec[1:-1] = g_res
-
-    # Print the differences between each method
-    max_diff1 = np.max(np.abs(g_dnn_ag - g_analytical))
-    max_diff2 = np.max(np.abs(g_vec - g_analytical))
-    print("The max absolute difference between the analytical solution and DNN Autograd: %g"%max_diff1)
-    print("The max absolute difference between the analytical solution and numerical scheme: %g"%max_diff2)
-
-    # Plot the results
-    plt.figure(figsize=(10,10))
-
-    plt.plot(x,g_vec)
-    plt.plot(x,g_analytical)
-    plt.plot(x,g_dnn_ag[0,:])
-
-    plt.legend(['numerical scheme','analytical','dnn'])
-    plt.show()
-
-!ec
-
-
-
-!split
-===== Partial Differential Equations =====
-
-A partial differential equation (PDE) has a solution here the function
-is defined by multiple variables.  The equation may involve all kinds
-of combinations of which variables the function is differentiated with
-respect to.
-
-In general, a partial differential equation for a function $g(x_1,\dots,x_N)$ with $N$ variables may be expressed as
-
-!bt
-\begin{equation} \label{PDE}
-  f\left(x_1, \, \dots \, , x_N, \frac{\partial g(x_1,\dots,x_N) }{\partial x_1}, \dots , \frac{\partial g(x_1,\dots,x_N) }{\partial x_N}, \frac{\partial g(x_1,\dots,x_N) }{\partial x_1\partial x_2}, \, \dots \, , \frac{\partial^n g(x_1,\dots,x_N) }{\partial x_N^n} \right) = 0
-\end{equation}
-!et
-
-where $f$ is an expression involving all kinds of possible mixed derivatives of $g(x_1,\dots,x_N)$ up to an order $n$. In order for the solution to be unique, some additional conditions must also be given.
-
-
-!split
-===== Famous PDEs =====
-In the Natural Sciences we often encounter problems with many variables
-constrained by boundary conditions and initial values. Many of these problems
-can be modelled as partial differential equations. One case which arises 
-in many situations is the so-called wave equation whose one-dimensional form
-reads
-!bt
-\begin{equation}
-label{eq:waveeqpde}
- \frac{\partial^2 u}{\partial x^2}=A\frac{\partial^2 u}{\partial t^2},
-\end{equation}
-!et
-where $A$ is a constant. The solution $u$ depends on both spatial and temporal variables, viz. $u=u(x,t)$.
-
-
-!split
-===== Famous PDEs, two dimension =====
-In two dimension we have $u=u(x,y,t)$.  We will, unless otherwise stated, simply use $u$ in our discussion below.
-Familiar situations which this equation can model
-are waves on a string, pressure waves, waves on the surface of a fjord or a 
-lake, electromagnetic waves and sound waves to mention a few. For e.g., electromagnetic
-waves we have the constant $A=c^2$, with $c$ the speed of light. It is rather
-straightforward to extend this equation to two or three dimension. In two dimensions
-we have
-!bt
-\begin{equation*}
- \frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=A\frac{\partial^2 u}{\partial t^2},
-\end{equation*}
-!et
-
-
-!split
-===== Famous PDEs, diffusion equation =====
-The diffusion equation whose one-dimensional version   reads
-
-!bt
-\begin{equation}
-label{eq:diffusionpde}
- \frac{\partial^2 u}{\partial x^2}=A\frac{\partial u}{\partial t},
-\end{equation}
-!et
-and  $A$ is in this case called the diffusion constant. It can be used to model
-a wide selection of diffusion processes, from molecules to the diffusion of heat
-in a given material.
-
-!split
-===== Famous PDEs, Laplace's equation =====
-Another familiar equation from electrostatics is Laplace's equation, which looks similar
-to the wave equation in Eq. (ref{eq:waveeqpde}) except that we have set $A=0$
-
-!bt
-\begin{equation}
-label{eq:laplacepde}
- \frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=0,
-\end{equation}
-!et
-or if we have a finite electric charge represented by a charge density 
-$\rho(\mathbf{x})$ we have the familiar Poisson equation
-
-!bt
-\begin{equation}
-label{eq:poissonpde}
- \frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=-4\pi \rho(\mathbf{x}).
-\end{equation}
-!et
-
-!split
-===== Famous PDEs, Helmholtz' equation =====
-Other famous partial differential equations  are the Helmholtz (or eigenvalue) equation, here specialized to two 
-dimensions only
-
-!bt
-\begin{equation}
-label{eq:helmholtz}
- -\frac{\partial^2 u}{\partial x^2}-\frac{\partial^2 u}{\partial y^2}=\lambda u,
-\end{equation}
-!et
-the linear transport equation  (in $2+1$ dimensions) familiar from Brownian motion as well
-
-!bt
-\begin{equation}
-label{eq:transport}
-\frac{\partial u}{\partial t} +\frac{\partial u}{\partial x}+\frac{\partial u}{\partial y }=0,
-\end{equation}
-!et
-
-!split
-===== Famous PDEs, Schroedinger's equation in two dimensions =====
-Schroedinger's equation
-
-!bt
-\begin{equation*}
- -\frac{\partial^2 u}{\partial x^2}-\frac{\partial^2 u}{\partial y^2}+f(x,y)u = \imath\frac{\partial u}{\partial t}.
-\end{equation*}
-!et
-
-
-!split
-===== Famous PDEs, Maxwell's equations =====
-Important systems of linear partial differential equations are the famous Maxwell equations
+The differential equations are given by the so-called "Lorenz attractor model":"https://encyclopediaofmath.org/index.php?title=Lorenz_attractor", and read
 
 !bt
 \[
- \frac{\partial \mathbf{E}}{\partial t} =  \mathrm{curl}\mathbf{B},
+\frac{dx}{dt}=\sigma\left(y-x\right),
 \]
 !et
-and
+where $\sigma =10$ is a constant
 !bt
 \[
--\mathrm{curl} \mathbf{E} =  \mathbf{B} 
+\frac{dy}{dt}= x\left(\rho-z\right)-y,
 \]
 !et
-and
+with $\rho=28$ and
 !bt
 \[
-\mathrm{div} \mathbf{E} =   \mathrm{div}\mathbf{B}  = 0.
+\frac{dz}{dt}=xy-\beta z
 \]
 !et
 
-!split
-===== Famous PDEs, Euler's equations =====
-Similarly, famous systems of non-linear partial differential equations are for example Euler's equations for 
-incompressible, inviscid flow
+with $\beta=8/3$ as our final constant.
+
+The following function is a
+simple function which sets up the solution using the ordinary
+differential library which follows _NumPy_. Here we have fixed the
+time sted $\Delta t=0.01$ and the final time $t_f=8$.
+
+The program sets $100$ random initial values and produces inputs and outputs for a neural network calculations.
+The inputs are given by the values of the array $\bm{x}$ (which contains $x,y,z$ as functions of time) for the time step $\bm{x}_t$.
+The other array defined by $\bm{x}_{t+1}$ contains the outputs (or targets) which we want the neural network to reproduce.
+
+!bc pycod
+# Common imports
+import numpy as np
+from scipy.integrate import odeint
+import matplotlib.pyplot as plt
+import os
+
+# Where to save the figures and data files
+PROJECT_ROOT_DIR = "Results"
+FIGURE_ID = "Results/FigureFiles"
+DATA_ID = "DataFiles/"
+
+if not os.path.exists(PROJECT_ROOT_DIR):
+    os.mkdir(PROJECT_ROOT_DIR)
+
+if not os.path.exists(FIGURE_ID):
+    os.makedirs(FIGURE_ID)
+
+if not os.path.exists(DATA_ID):
+    os.makedirs(DATA_ID)
+
+def image_path(fig_id):
+    return os.path.join(FIGURE_ID, fig_id)
+
+def data_path(dat_id):
+    return os.path.join(DATA_ID, dat_id)
+
+def save_fig(fig_id):
+    plt.savefig(image_path(fig_id) + ".png", format='png')
+
+
+# Selection of parameter values and setting array for time
+dt =0.01; tfinal = 8
+t = np.arange(0,tfinal+dt, dt)
+beta =8.0/3.0; rho = 28.0; sigma = 10.0
+
+# define the inputs and outputs for the neural networks
+nninput = np.zeros((100*len(t)-1,3))
+nnoutput = np.zeros((100*len(t)-1,3))
+# Define the equations to integrate
+def lorenz_derivative(xyz, t0, sigma=sigma,beta=beta,rho=rho):
+    x, y, z = xyz
+    return [sigma*(x-y), x*(rho-z)-y, x*y-beta*z]
+
+# generate 100 random initial values
+x0 = -15.0+30.0*np.random.random((100,3))
+
+# Use odeint functionality by sending in derivative function
+# Feel free to change the choice of integrator
+x_t = np.asarray([odeint(lorenz_derivative, x0_j, t) 
+                  for x0_j in x0])
+
+# define the inputs and outputs for the neural networks
+for j in range(100):
+    nninput[j*(len(t)-1):(j+1)*(len(t)-1),:] = x_t[j,:-1,:]
+    nnoutput[j*(len(t)-1):(j+1)*(len(t)-1),:] = x_t[j,1:,:]
+
+!ec
+
+The input and output variables are those we will start trying our
+network with. Your first taks is to set up a neural code (either using
+your own code or TensorFlow/PyTorch or similar libraries)) and use the
+above data to a prediction for the time evolution of Lorenz system for
+various values of the randomly chosen initial values.  Study the
+dependence of the fit as function of the architecture of the network
+(number of nodes, hidden layers and types of activation functions) and
+various regularization schemes and optimization methods like standard
+gradient descent with momentum, stochastic gradient descent with
+batches and with and without momentum and various schedulers for the
+learning rate.
+
+Feel free to change the above differential equations. As an example,
+consider the following harmonic oscillator equations solved with the
+Runge-Kutta to fourth order method. This is a one-dimensional problem
+and it produces a position $x_t$ and velocity $v_t$. You could now try
+to fit both the velocities and positions using much of the same recipe
+as for Lorenz attractor.  You will find it convenient to analyze one
+set of initial conditions first. The code is included here.
+
+
+This code is an example code that solves Newton's equations of motion
+with a given force and produces an output which in turn can be used to
+train a neural network
+
+
+!bc pycod
+# Common imports
+import numpy as np
+import pandas as pd
+from math import *
+import matplotlib.pyplot as plt
+import os
+
+# Where to save the figures and data files
+PROJECT_ROOT_DIR = "Results"
+FIGURE_ID = "Results/FigureFiles"
+DATA_ID = "DataFiles/"
+
+if not os.path.exists(PROJECT_ROOT_DIR):
+    os.mkdir(PROJECT_ROOT_DIR)
+
+if not os.path.exists(FIGURE_ID):
+    os.makedirs(FIGURE_ID)
+
+if not os.path.exists(DATA_ID):
+    os.makedirs(DATA_ID)
+
+def image_path(fig_id):
+    return os.path.join(FIGURE_ID, fig_id)
+
+def data_path(dat_id):
+    return os.path.join(DATA_ID, dat_id)
+
+def save_fig(fig_id):
+    plt.savefig(image_path(fig_id) + ".png", format='png')
+
+
+def SpringForce(v,x,t):
+#   note here that we have divided by mass and we return the acceleration
+    return  -2*gamma*v-x+Ftilde*cos(t*Omegatilde)
+
+
+def RK4(v,x,t,n,Force):
+    for i in range(n-1):
+# Setting up k1
+        k1x = DeltaT*v[i]
+        k1v = DeltaT*Force(v[i],x[i],t[i])
+# Setting up k2
+        vv = v[i]+k1v*0.5
+        xx = x[i]+k1x*0.5
+        k2x = DeltaT*vv
+        k2v = DeltaT*Force(vv,xx,t[i]+DeltaT*0.5)
+# Setting up k3
+        vv = v[i]+k2v*0.5
+        xx = x[i]+k2x*0.5
+        k3x = DeltaT*vv
+        k3v = DeltaT*Force(vv,xx,t[i]+DeltaT*0.5)
+# Setting up k4
+        vv = v[i]+k3v
+        xx = x[i]+k3x
+        k4x = DeltaT*vv
+        k4v = DeltaT*Force(vv,xx,t[i]+DeltaT)
+# Final result
+        x[i+1] = x[i]+(k1x+2*k2x+2*k3x+k4x)/6.
+        v[i+1] = v[i]+(k1v+2*k2v+2*k3v+k4v)/6.
+        t[i+1] = t[i] + DeltaT
+
+
+# Main part begins here
+
+DeltaT = 0.001
+#set up arrays 
+tfinal = 20 # in dimensionless time
+n = ceil(tfinal/DeltaT)
+# set up arrays for t, v, and x
+t = np.zeros(n)
+v = np.zeros(n)
+x = np.zeros(n)
+# Initial conditions (can change to more than one dim)
+x0 =  1.0 
+v0 = 0.0
+x[0] = x0
+v[0] = v0
+gamma = 0.2
+Omegatilde = 0.5
+Ftilde = 1.0
+# Start integrating using Euler's method
+# Note that we define the force function as a SpringForce
+RK4(v,x,t,n,SpringForce)
+
+# Plot position as function of time    
+fig, ax = plt.subplots()
+ax.set_ylabel('x[m]')
+ax.set_xlabel('t[s]')
+ax.plot(t, x)
+fig.tight_layout()
+save_fig("ForcedBlockRK4")
+plt.show()
+
+!ec
+
+The next step is to include recurrent neural networks. These will be discussed in connection with coming lectures.
+
+Finally we add a so-called differential equation path as well.
+
+===== Solving partial differential equations with neural networks =====
+
+For this variant of project 2, we will assume that you have some
+background in the solution of partial differential equations using
+finite difference schemes. In the lecture slides from weeks 6 and 7 you may find additional material.
+We will study the solution of the diffusion
+equation in one dimension using a standard explicit or implicit scheme and neural
+networks to solve the same equations.
+
+For the explicit and/or implicit schemes, you can study for example chapter 10 of the lecture notes in "Computational Physics":"https://github.com/CompPhysics/ComputationalPhysics/blob/master/doc/Lectures/lectures2015.pdf" or alternative sources. 
+
+For the machine learning part you can use the functionality of for example _Tensorflow/Keras_.
+
+=== Part a), setting up the problem ===
+
+The physical problem can be that of the temperature gradient in a rod of length $L=1$ at $x=0$ and $x=1$.
+We are looking at a one-dimensional
+problem
+
 !bt
 \begin{equation*}
- \frac{\partial \mathbf{u}}{\partial t} +\mathbf{u}\nabla\mathbf{u}=  -Dp; \hspace{1cm} \mathrm{div} \mathbf{u} =  0,
-\end{equation*}
-!et
-with $p$ being the pressure and
-!bt
-\begin{equation*}
-\nabla = \frac{\partial}{\partial x}e_x+\frac{\partial}{\partial y}e_y,
-\end{equation*}
-!et
-in the two dimensions. The unit vectors are $e_x$ and $e_y$. 
-
-!split
-===== Famous PDEs, the Navier-Stokes' equations =====
-Another example is the set of   
-Navier-Stokes equations for incompressible, viscous flow
-
-!bt
-\begin{equation*}
- \frac{\partial \mathbf{u}}{\partial t} +\mathbf{u}\nabla\mathbf{u}-\Delta \mathbf{u}=  -Dp; \hspace{1cm} \mathrm{div} \mathbf{u} =  0.
-\end{equation*}
-!et
-
-
-!split
-===== Famous PDEs, general equation in two dimensions =====
-A general partial differential equation with two given dimensions
-reads
-
-!bt
-\begin{equation*}
-A(x,y)\frac{\partial^2 u}{\partial x^2}+B(x,y)\frac{\partial^2 u}{\partial x\partial y}
-+C(x,y)\frac{\partial^2 u}{\partial y^2}=F(x,y,u,\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}),
-\end{equation*}
-!et
-and if we set
-
-!bt
-\begin{equation*}
-  B=C=0,
-\end{equation*}
-!et
-we recover the $1+1$-dimensional diffusion equation which is an example
-of a so-called parabolic partial differential equation.
-With
-
-!bt
-\begin{equation*}
-  B=0, \hspace{1cm} AC < 0
-\end{equation*}
-!et
-we get the $2+1$-dim wave equation which is an example of a so-called 
-elliptic PDE, where more generally we have
-$B^2 > AC$.
-For $B^2 <  AC$ 
-we obtain a so-called hyperbolic PDE, with the Laplace equation in 
-Eq. (ref{eq:laplacepde}) as one of the 
-classical examples.
-These equations can all be easily extended to non-linear partial differential
-equations and $3+1$ dimensional cases.
-
-
-!split
-===== Diffusion equation =====
-The diffusion equation describes in typical applications the evolution in time of the density $u$ of a quantity like
-the particle density, energy density, temperature gradient, chemical concentrations etc.
-
-The basis is the assumption that the flux density $\mathbf{\rho}$ obeys the Gauss-Green theorem
-
-!bt
-\begin{equation*}
-\int_V \mathrm{div}\mathbf{\rho} dx = \int_{\partial V} \mathbf{\rho}\mathbf{n}dS,
-\end{equation*}
-!et
-where $n$ is the unit outer normal field and $V$ is a smooth region with the space where
-we seek a solution.  
-The Gauss-Green theorem leads to
-
-!bt
-\begin{equation*} 
- \mathrm{div} \mathbf{\rho} = 0.
-\end{equation*}
-!et
-
-!split
-===== Diffusion equation =====
-Assuming that the flux is proportional to the gradient $\mathbf{\nabla} u$ but pointing in the opposite direction
-since the flow is from regions  of high concetration to lower concentrations, we obtain
-
-!bt
-\begin{equation*}
-\mathbf{\rho} = -D\mathbf{\nabla} u,
-\end{equation*}
-!et
-resulting in
-
-!bt
-\begin{equation*} 
-\mathrm{div} \mathbf{\nabla} u  = D\Delta u = 0,
-\end{equation*}
-!et
-which is Laplace's equation. The constant $D$ can be coupled with various physical 
-constants, such as the diffusion constant or the specific heat and thermal conductivity discussed below. 
-
-!split
-===== Diffusion equation, famous laws =====
-If we let $u$ denote the concetration of a particle species, this results in Fick's law of diffusion. 
-If it denotes the temperature gradient, we have Fourier'slaw of heat conduction and if it refers to the 
-electrostatic potential we have Ohm's law of electrical conduction.
-
-Coupling the rate of change (temporal dependence) of $u$ with the flux density we have
-
-!bt
-\begin{equation*}   
-\frac{\partial u}{\partial t} = -\mathrm{div}\mathbf{\rho}, 
-\end{equation*}
-!et
-which results in
-
-!bt
-\begin{equation*} 
-\frac{\partial u}{\partial t}= D \mathrm{div} \mathbf{\nabla} u  = D \Delta u,
-\end{equation*}
-!et
-the diffusion equation, or heat equation.
-
-!split
-===== Diffusion equation, heat equation =====
-If we specialize to the heat equation, 
-we assume that the diffusion of heat through some 
-material is proportional with the temperature gradient $T(\mathbf{x},t)$
-and using 
-conservation of energy we arrive at the diffusion equation
-
-!bt
-\begin{equation*}
- \frac{\kappa}{C\rho}\nabla^2 T(\mathbf{x},t) =\frac{\partial T(\mathbf{x},t)}{\partial t}
-\end{equation*}
-!et
-where $C$ is the specific heat and  $\rho$ 
-the density of the material. 
-Here we let the density be represented by a 
-constant, but there is no problem introducing  an explicit spatial dependence, viz.,
-
-!bt
-\begin{equation*}
- \frac{\kappa}{C\rho(\mathbf{x},t)}\nabla^2 T(\mathbf{x},t) =
-\frac{\partial T(\mathbf{x},t)}{\partial t}.
-\end{equation*}
-!et
-
-!split
-===== Diffusion equation, heat equation in one dimension =====
-Setting all constants equal to the diffusion constant $D$, i.e.,
-
-!bt
-\begin{equation*}
-    D=\frac{C\rho}{\kappa},
-\end{equation*}
-!et
-we arrive at
-
-!bt
-\begin{equation*}
- \nabla^2 T(\mathbf{x},t) =
-D\frac{\partial T(\mathbf{x},t)}{\partial t}.
-\end{equation*}
-!et
-Specializing to the $1+1$-dimensional case we have
-
-!bt
-\begin{equation*}
- \frac{\partial^2 T(x,t)}{\partial x^2}=D\frac{\partial T(x,t)}{\partial t}.
-\end{equation*}
-!et
-
-!split
-===== Diffusion equation, dimensionless form =====
-We note that the dimension of $D$ is time/length$^2$.
-Introducing the dimensionless variables $\alpha\hat{x}=x$
-we get
-
-!bt
-\begin{equation*}
- \frac{\partial^2 T(x,t)}{\alpha^2\partial \hat{x}^2}=
-D\frac{\partial T(x,t)}{\partial t},
-\end{equation*}
-!et
-and since $\alpha$ is just a constant we could define
-$\alpha^2D= 1$ or use the last expression to define a dimensionless time-variable 
-$\hat{t}$. This yields a simplified diffusion equation
-
-!bt
-\begin{equation*}
- \frac{\partial^2 T(\hat{x},\hat{t})}{\partial \hat{x}^2}=
-\frac{\partial T(\hat{x},\hat{t})}{\partial \hat{t}}.
-\end{equation*}
-!et
-It is now a partial differential equation in terms of dimensionless
-variables. In the discussion below, we will however, for the sake
-of notational simplicity replace $\hat{x}\rightarrow x$ and 
-$\hat{t}\rightarrow t$. Moreover, the solution to the $1+1$-dimensional
-partial differential equation is replaced by $T(\hat{x},\hat{t})\rightarrow u(x,t)$.
-
-!split
-===== Explicit Scheme =====
-In one dimension we have the following equation
-
-!bt
-\begin{equation*}
- \nabla^2 u(x,t) =\frac{\partial u(x,t)}{\partial t},
+ \frac{\partial^2 u(x,t)}{\partial x^2} =\frac{\partial u(x,t)}{\partial t}, t> 0, x\in [0,L]
 \end{equation*}
 !et
 or
@@ -1989,62 +331,35 @@ u_{xx} = u_t,
 \end{equation*}
 !et
 with initial conditions, i.e., the conditions at $t=0$,
-
 !bt
 \begin{equation*}
-u(x,0)= g(x) \hspace{0.5cm} 0 < x < L
+u(x,0)= \sin{(\pi x)} \hspace{0.5cm} 0 < x < L,
 \end{equation*}
 !et
-with $L=1$ the length of the $x$-region of interest. 
-
-!split
-===== Explicit Scheme, boundary conditions =====
-The  boundary conditions are
+with $L=1$ the length of the $x$-region of interest. The 
+boundary conditions are
 
 !bt
 \begin{equation*}
-u(0,t)= a(t) \hspace{0.5cm} t \ge 0,
+u(0,t)= 0 \hspace{0.5cm} t \ge 0,
 \end{equation*}
 !et
 and
 
 !bt
 \begin{equation*}
-u(L,t)= b(t) \hspace{0.5cm} t \ge 0,
+u(L,t)= 0 \hspace{0.5cm} t \ge 0.
 \end{equation*}
 !et
-where $a(t)$ and $b(t)$ are two functions which depend on time only, while
-$g(x)$ depends only on the position $x$.
-Our next step is to find a numerical algorithm for solving this equation. Here we recur
-to our familiar equal-step methods
-and introduce different step lengths for the space-variable $x$ and time $t$ through
-the  step length for $x$
+The function $u(x,t)$  can be the temperature gradient of a  rod.
+As time increases, the velocity approaches a linear variation with $x$. 
 
-!bt
-\begin{equation*}
-\Delta x=\frac{1}{n+1}
-\end{equation*}
-!et
-and the time step length $\Delta t$. The position after $i$ steps and
-time at time-step $j$ are now given by
-
-!bt
-\begin{equation*}
-\begin{array}{cc} t_j=j\Delta t & j \ge 0 \\
-                  x_i=i\Delta x & 0 \le i \le n+1\end{array} 
-\end{equation*}
-!et
-
-!split
-===== Explicit Scheme, algorithm =====
-If we use standard approximations for the derivatives we obtain
-
-!bt
-\begin{equation*}
+We will limit ourselves to the so-called explicit forward Euler algorithm with discretized versions of time given by a forward formula and a centered difference in space resulting in   
+!bt 
+\begin{equation*} 
 u_t\approx \frac{u(x,t+\Delta t)-u(x,t)}{\Delta t}=\frac{u(x_i,t_j+\Delta t)-u(x_i,t_j)}{\Delta t}
 \end{equation*}
 !et
-with a local approximation error $O(\Delta t)$  
 and
 
 !bt
@@ -2056,1279 +371,35 @@ or
 
 !bt
 \begin{equation*}
-u_{xx}\approx \frac{u(x_i+\Delta x,t_j)-2u(x_i,t_j)+u(x_i-\Delta x,t_j)}{\Delta x^2},
-\end{equation*}
-!et
-with a local approximation error $O(\Delta x^2)$. Our approximation is to higher order
-in coordinate space. This can be justified since in most cases it is the spatial
-dependence which causes numerical problems.
-
-!split
-===== Explicit Scheme, simplifications =====
-These equations can be further simplified as
-
-!bt
-\begin{equation*}
-u_t\approx \frac{u_{i,j+1}-u_{i,j}}{\Delta t}, 
-\end{equation*}
-!et
-and
-
-!bt
-\begin{equation*}
-u_{xx}\approx \frac{u_{i+1,j}-2u_{i,j}+u_{i-1,j}}{\Delta x^2}.
-\end{equation*}
-!et
-The one-dimensional diffusion equation can then be rewritten in its
-discretized version as
-
-!bt
-\begin{equation*}
-\frac{u_{i,j+1}-u_{i,j}}{\Delta t}=\frac{u_{i+1,j}-2u_{i,j}+u_{i-1,j}}{\Delta x^2}.
-\end{equation*}
-!et
-Defining $\alpha = \Delta t/\Delta x^2$ results in the explicit scheme
-
-!bt
-\begin{equation}
-label{eq:explicitpde}
- u_{i,j+1}= \alpha u_{i-1,j}+(1-2\alpha)u_{i,j}+\alpha u_{i+1,j}.
-\end{equation}
-!et
-
-!split
-===== Explicit Scheme, solving the equations =====
-Since all the discretized initial values
-
-!bt
-\begin{equation*}
-   u_{i,0} = g(x_i),
-\end{equation*}
-!et
-are known, then after one time-step the only unknown quantity is
-$u_{i,1}$ which is given by
-
-!bt
-\begin{equation*}
- u_{i,1}= \alpha u_{i-1,0}+(1-2\alpha)u_{i,0}+\alpha u_{i+1,0}=
-\alpha g(x_{i-1})+(1-2\alpha)g(x_{i})+\alpha g(x_{i+1}).
-\end{equation*}
-!et
-We can then obtain $u_{i,2}$ using the previously calculated values $u_{i,1}$
-and the boundary conditions $a(t)$ and $b(t)$. 
-This algorithm results in a so-called explicit scheme, since the next functions
-$u_{i,j+1}$ are explicitely given by Eq. (ref{eq:explicitpde}).
-
-
-!split
-===== Explicit Scheme, simple case =====
-We specialize to the case
-$a(t)=b(t)=0$ which results in  $u_{0,j}=u_{n+1,j}=0$.
-We can then reformulate our partial differential equation through the vector 
-$V_j$ at the time  $t_j=j\Delta t$
-
-!bt
-\begin{equation*}
- V_j=\begin{bmatrix}u_{1,j}\\ u_{2,j} \\ \dots \\ u_{n,j}\end{bmatrix}.
+u_{xx}\approx \frac{u(x_i+\Delta x,t_j)-2u(x_i,t_j)+u(x_i-\Delta x,t_j)}{\Delta x^2}.
 \end{equation*}
 !et
 
-!split
-===== Explicit Scheme, matrix-vector formulation =====
-This results in a matrix-vector multiplication
-!bt
-\begin{equation*}
-   V_{j+1} = \mathbf{A}V_{j}
-\end{equation*}
-!et
-with the matrix $\mathbf{A}$ given by
-!bt
-\begin{equation*}
- \mathbf{A}=\begin{bmatrix}1-2\alpha&\alpha&0& 0\dots\\ 
-                            \alpha&1-2\alpha&\alpha & 0\dots \\ 
-                            \dots & \dots & \dots & \dots \\
-                      0\dots & 0\dots &\alpha& 1-2\alpha\end{bmatrix}
-\end{equation*}
-!et
-which means we can rewrite the original partial differential equation as
-a set of matrix-vector multiplications
-!bt
-\begin{equation*}
-   V_{j+1} = \mathbf{A}V_{j}=\dots = \mathbf{A}^{j+1}V_0,
-\end{equation*}
-!et
-where $V_0$ is the initial vector at time $t=0$ defined by the initial value
-$g(x)$. 
-In the numerical implementation 
-one should avoid to treat this problem as a matrix vector multiplication
-since the matrix is triangular and at most three elements in each row are different from zero.
+Write down the algorithm and the equations you need to implement.
+Find also the analytical solution to the problem. 
 
+=== Part b) ===
 
-!split
-===== Explicit Scheme, sketch of code =====
-It is rather easy to implement this matrix-vector multiplication as seen in the following piece of code
+Implement the explicit scheme  algorithm and perform tests of the solution 
+for $\Delta x=1/10$, $\Delta x=1/100$ using  $\Delta t$ as dictated by the stability limit of the explicit scheme. The stability criterion for the explicit scheme requires that $\Delta t/\Delta x^2 \leq 1/2$. 
 
-!bc
-//  First we set initialise the new and old vectors
-//  Here we have chosen the boundary conditions to be zero.
-//  n+1 is the number of mesh points in x
-//  Armadillo notation for vectors
-    u(0) = unew(0) = u(n) = unew(n) = 0.0;
-    for (int i = 1; i < n; i++) {
-      x =  i*step;
-      //  initial condition
-      u(i) =  func(x);
-      //  intitialise the new vector 
-      unew(i) = 0;
-    }
-   // Time integration
-   for (int t = 1; t <= tsteps; t++) {
-      for (int i = 1; i < n; i++) {
-         // Discretized diff eq
-         unew(i) = alpha * u(i-1) + (1 - 2*alpha) * u(i) + alpha * u(i+1);
-      }
-   //  note that the boundaries are not changed.
-!ec
+Study the solutions at two time points $t_1$ and $t_2$ where $u(x,t_1)$ is smooth but still significantly curved
+and $u(x,t_2)$ is almost linear, close to the stationary state.
 
-!split
-===== Explicit Scheme, stability condition =====
-However, although the explicit scheme is easy to implement, it has a very weak 
-stability condition,  given by
 
-!bt
-\begin{equation*}
-  \Delta t/\Delta x^2 \le 1/2.
-\end{equation*}
-!et
-This means that if $\Delta x = 0.01$ (a rather frequent choice), then $\Delta t= 5\times 10^{-5}$. This has obviously 
-bad consequences if our time interval is large.
-In order to derive this relation we need some results from studies of iterative schemes. 
-If we require that our solution approaches a definite value after 
-a certain amount of time steps we need to require that the so-called
-spectral radius $\rho(\mathbf{A})$ of our matrix $\mathbf{A}$ satisfies the condition
+=== Part c) Neural networks ===
 
-!bt
-\begin{equation}
-label{eq:rhoconverge}
-   \rho(\mathbf{A}) < 1.
-\end{equation}
-!et
+Study now the lecture notes on solving ODEs and PDEs with neural
+network and use either your own code or the
+functionality of tensorflow/keras to solve the same equation as in
+part b).  Discuss your results and compare them with the standard
+explicit or implicit scheme. Include also the analytical solution and compare with
+that.
 
-!split
-===== Explicit Scheme, spectral radius and stability =====
-The spectral radius is defined 
-as
 
-!bt
-\begin{equation*}
-    \rho(\mathbf{A}) = \hspace{0.1cm}\mathrm{max}\left\{|\lambda|:\mathrm{det}(\mathbf{A}-\lambda\hat{I})=0\right\},
-\end{equation*}
-!et 
-which is interpreted as the smallest number such that a circle  with radius centered at zero in the complex plane
-contains all eigenvalues of $\mathbf{A}$. If the matrix is positive definite, the condition in 
-Eq. (ref{eq:rhoconverge}) is always satisfied.
+=== Part d) ===
 
-!split
-===== Explicit Scheme, eigenvalues and stability =====
-We can obtain closed-form expressions for the  eigenvalues of $\mathbf{A}$. To achieve this it is convenient
-to rewrite the matrix as
-
-!bt
-\begin{equation*}
- \mathbf{A}=\hat{I}-\alpha\hat{B},
-\end{equation*}
-!et
-with
-
-!bt
-\begin{equation*}
-\hat{B} =\begin{bmatrix}2&-1&0& 0 &\dots\\ 
-                           -1&2&-1& 0&\dots \\ 
-                            \dots & \dots & \dots & \dots & -1 \\
-                      0 & 0 &\dots &-1&2\end{bmatrix}.
-\end{equation*}
-!et
- 
-!split
-===== Explicit Scheme, final stability analysis =====
-The eigenvalues of $\mathbf{A}$ are $\lambda_i=1-\alpha\mu_i$, with $\mu_i$ being the
-eigenvalues of $\hat{B}$. To find $\mu_i$ we note that the matrix elements of $\hat{B}$ are
-
-!bt
-\begin{equation*}
-b_{ij} = 2\delta_{ij}-\delta_{i+1j}-\delta_{i-1j},
-\end{equation*}
-!et
-meaning that we 
-have the following set of eigenequations for component $i$
-
-!bt
-\begin{equation*}
-(\hat{B}\hat{x})_i = \mu_ix_i, 
-\end{equation*}
-!et
-resulting in
-
-!bt
-\begin{equation*}
-(\hat{B}\hat{x})_i=\sum_{j=1}^n\left(2\delta_{ij}-\delta_{i+1j}-\delta_{i-1j}\right)x_j =
-2x_i-x_{i+1}-x_{i-1}=\mu_ix_i.
-\end{equation*}
-!et
-
-!split
-===== Explicit Scheme, stability condition =====
-If we assume that $x$ can be expanded in a basis of $x=(\sin{(\theta)}, \sin{(2\theta)},\dots, \sin{(n\theta)})$
-with $\theta = l\pi/n+1$, where we have the endpoints given by $x_0 = 0$ and $x_{n+1}=0$, we can rewrite the 
-last equation as
-
-!bt
-\begin{equation*}
-2\sin{(i\theta)}-\sin{((i+1)\theta)}-\sin{((i-1)\theta)}=\mu_i\sin{(i\theta)},
-\end{equation*}
-!et
-or
-
-!bt
-\begin{equation*}
-2\left(1-\cos{(\theta)}\right)\sin{(i\theta)}=\mu_i\sin{(i\theta)},
-\end{equation*}
-!et
-which is nothing but
-
-!bt
-\begin{equation*}
-2\left(1-\cos{(\theta)}\right)x_i=\mu_ix_i,
-\end{equation*}
-!et
-with eigenvalues $\mu_i = 2-2\cos{(\theta)}$. 
-
-Our requirement in 
-Eq. (ref{eq:rhoconverge}) results in
-
-!bt
-\begin{equation*}
--1 < 1-\alpha2\left(1-\cos{(\theta)}\right) < 1,
-\end{equation*}
-!et
-which is satisfied only if $\alpha < \left(1-\cos{(\theta)}\right)^{-1}$ resulting in
-$\alpha \le 1/2$ or $\Delta t/\Delta x^2 \le 1/2$. 
-
-!split
-===== Explicit Scheme, general tridiagonal matrix =====
-A more general tridiagonal matrix
-!bt
-\begin{equation*}
-\mathbf{A} =\begin{bmatrix}a&b&0& 0 &\dots\\ 
-                           c&a&b& 0&\dots \\ 
-                            \dots & \dots & \dots & \dots & b \\
-                      0 & 0 &\dots &c&a\end{bmatrix},
-\end{equation*}
-!et
-has eigenvalues $\mu_i=a+s\sqrt{bc}\cos{(i\pi/n+1)}$ with $i=1:n$. 
-
-
-!split
-===== Implicit Scheme =====
-In deriving the equations for the explicit scheme we started with the so-called 
-forward formula for the first derivative, i.e., we used the discrete approximation
-
-!bt
-\begin{equation*}
-u_t\approx \frac{u(x_i,t_j+\Delta t)-u(x_i,t_j)}{\Delta t}.
-\end{equation*}
-!et
-However, there is nothing which hinders us from using the backward formula
-
-!bt
-\begin{equation*}
-u_t\approx \frac{u(x_i,t_j)-u(x_i,t_j-\Delta t)}{\Delta t},
-\end{equation*}
-!et
-still with a truncation error which goes like $O(\Delta t)$.
-
-!split
-===== Implicit Scheme =====
-We could also have used a midpoint approximation for the first derivative, resulting in
-
-!bt
-\begin{equation*}
-u_t\approx \frac{u(x_i,t_j+\Delta t)-u(x_i,t_j-\Delta t)}{2\Delta t},
-\end{equation*}
-!et
-with a truncation error $O(\Delta t^2)$. 
-Here we will stick to the backward formula and come back to the latter below. 
-For the second derivative we use however
-
-!bt
-\begin{equation*}
-u_{xx}\approx \frac{u(x_i+\Delta x,t_j)-2u(x_i,t_j)+u(x_i-\Delta x,t_j)}{\Delta x^2},
-\end{equation*}
-!et
-and define again $\alpha = \Delta t/\Delta x^2$.  
-
-!split
-===== Implicit Scheme =====
-We obtain now
-!bt
-\begin{equation*}
- u_{i,j-1}= -\alpha u_{i-1,j}+(1-2\alpha)u_{i,j}-\alpha u_{i+1,j}.
-\end{equation*}
-!et
-Here $u_{i,j-1}$ is the only unknown quantity. 
-Defining the matrix 
-$\mathbf{A}$
-!bt
-\begin{equation*}
- \mathbf{A}=\begin{bmatrix}1+2\alpha&-\alpha&0& 0 &\dots\\ 
-                            -\alpha&1+2\alpha&-\alpha & 0 & \dots \\ 
-                            \dots & \dots & \dots & \dots &\dots  \\
-                            \dots & \dots & \dots & \dots & -\alpha \\
-                      0 & 0 &\dots &-\alpha& 1+2\alpha\end{bmatrix},
-\end{equation*}
-!et
-we can reformulate again the problem as a matrix-vector multiplication
-!bt
-\begin{equation*}
-   \mathbf{A}V_{j} = V_{j-1}
-\end{equation*}
-!et
-!split
-===== Implicit Scheme =====
-It means that we can rewrite the problem as
-!bt
-\begin{equation*}
-   V_{j} = \mathbf{A}^{-1}V_{j-1}=\mathbf{A}^{-1}\left(\mathbf{A}^{-1}V_{j-2}\right)=\dots = \mathbf{A}^{-j}V_0.
-\end{equation*}
-!et
-This is an implicit scheme since it relies on determining the vector
-$u_{i,j-1}$ instead of $u_{i,j+1}$.
-If $\alpha$ does not depend on time $t$, we need 
-to invert a matrix only once. Alternatively we can solve this system of equations using our methods
-from linear algebra.
-These are however very cumbersome ways of solving since they involve $\sim O(N^3)$ operations 
-for  a $N\times N$ matrix. 
-It is much faster to solve these linear equations using methods for tridiagonal matrices,
-since these involve only $\sim O(N)$ operations. 
-
-!split
-===== Implicit Scheme =====
-The implicit scheme is always stable since the spectral radius satisfies $\rho(\mathbf{A}) < 1 $. We could have inferred this by noting that 
-the matrix is positive definite, viz. all eigenvalues are larger than zero. We see this from
-the fact that $\mathbf{A}=\hat{I}+\alpha\hat{B}$ has eigenvalues
-$\lambda_i = 1+\alpha(2-2cos(\theta))$ which satisfy $\lambda_i > 1$. Since it is the inverse which stands
-to the right of our iterative equation, we have $\rho(\mathbf{A}^{-1}) < 1 $ 
-and the method is stable for all combinations
-of $\Delta t$ and $\Delta x$.
-
-!split
-=== Program Example for Implicit Equation ===
-We show here parts of a  simple example of how to solve the one-dimensional diffusion equation using the implicit
-scheme discussed above. The program uses the function to solve linear equations with a tridiagonal 
-matrix.
-
-!bc
-//  parts of the function for backward Euler
-void backward_euler(int n, int tsteps, double delta_x, double alpha)
-{
-   double a, b, c;
-   vec u(n+1); // This is u  of Au = y
-   vec y(n+1); // Right side of matrix equation Au=y, the solution at a previous step
-   
-   // Initial conditions
-   for (int i = 1; i < n; i++) {
-      y(i) = u(i) = func(delta_x*i);
-   }
-   // Boundary conditions (zero here)
-   y(n) = u(n) = u(0) = y(0);
-   // Matrix A, only constants
-   a = c = - alpha;
-   b = 1 + 2*alpha;
-   // Time iteration
-   for (int t = 1; t <= tsteps; t++) {
-      //  here we solve the tridiagonal linear set of equations, 
-      tridag(a, b, c, y, u, n+1);
-      // boundary conditions
-      u(0) = 0;
-      u(n) = 0;
-      // replace previous time solution with new
-      for (int i = 0; i <= n; i++) {
-	 y(i) = u(i);
-      }
-      //  You may consider printing the solution at regular time intervals
-      ....   // print statements
-   }  // end time iteration
-   ...
-}
-!ec
-
-!split
-===== Crank-Nicolson scheme =====
-It is possible to combine the implicit and explicit methods in a slightly more general
-approach. Introducing a parameter $\theta$ (the so-called $\theta$-rule) we can set up 
-an equation
-!bt
-\begin{equation}
-label{eq:cranknicolson}
-  \frac{\theta}{\Delta x^2}\left(u_{i-1,j}-2u_{i,j}+u_{i+1,j}\right)+
-  \frac{1-\theta}{\Delta x^2}\left(u_{i+1,j-1}-2u_{i,j-1}+u_{i-1,j-1}\right)=
-  \frac{1}{\Delta t}\left(u_{i,j}-u_{i,j-1}\right),
-\end{equation}
-!et
-which for $\theta=0$ yields the forward formula for the first derivative and
-the explicit scheme, while $\theta=1$ yields the backward formula and the implicit
-scheme. These two schemes are called the backward and forward Euler schemes, respectively.
-For $\theta = 1/2$ we obtain a new scheme after its inventors, Crank and Nicolson.
-This scheme yields a truncation in time which goes like $O(\Delta t^2)$ and it is stable 
-for all possible combinations of $\Delta t$ and $\Delta x$.
-
-!split
-===== Derivation of CN scheme =====
-To derive the Crank-Nicolson equation, 
-we start with the forward Euler scheme and Taylor expand $u(x,t+\Delta t)$,
-$u(x+\Delta x, t)$ and $u(x-\Delta x,t)$
-!bt
-\begin{align}
-u(x+\Delta x,t)&=u(x,t)+\frac{\partial u(x,t)}{\partial x} \Delta x+\frac{\partial^2 u(x,t)}{2\partial x^2}\Delta x^2+\mathcal{O}(\Delta x^3),\\ \nonumber
-u(x-\Delta x,t)&=u(x,t)-\frac{\partial u(x,t)}{\partial x}\Delta x+\frac{\partial^2 u(x,t)}{2\partial x^2} \Delta x^2+\mathcal{O}(\Delta x^3),\\ \nonumber
-u(x,t+\Delta t)&=u(x,t)+\frac{\partial u(x,t)}{\partial t}\Delta t+  \mathcal{O}(\Delta t^2).
-label{eq:deltat0}
-\end{align}
-!et
-
-!split
-===== Taylor expansions =====
-With these Taylor expansions the approximations for the derivatives takes the form
-!bt
-\begin{align}
-&\left[\frac{\partial u(x,t)}{\partial t}\right]_{\text{approx}} =\frac{\partial u(x,t)}{\partial t}+\mathcal{O}(\Delta t) , \\ \nonumber
-&\left[\frac{\partial^2 u(x,t)}{\partial x^2}\right]_{\text{approx}}=\frac{\partial^2 u(x,t)}{\partial x^2}+\mathcal{O}(\Delta x^2).
-\end{align}
-!et
-It is easy to convince oneself that the backward Euler method must have the same truncation errors as the forward Euler scheme.
-
-
-!split
-===== Error in CN scheme =====
-For the Crank-Nicolson scheme we also need to Taylor expand $u(x+\Delta x, t+\Delta t)$ and $u(x-\Delta x, t+\Delta t)$ around $t'=t+\Delta t/2$.
-!bt
-\begin{align}
-u(x+\Delta x, t+\Delta t)&=u(x,t')+\frac{\partial u(x,t')}{\partial x}\Delta x+\frac{\partial u(x,t')}{\partial t} \frac{\Delta t}{2} +\frac{\partial^2 u(x,t')}{2\partial x^2}\Delta x^2+\frac{\partial^2 u(x,t')}{2\partial t^2}\frac{\Delta t^2}{4} +\notag \\  \nonumber
-&\frac{\partial^2 u(x,t')}{\partial x\partial t}\frac{\Delta t}{2} \Delta x+ \mathcal{O}(\Delta t^3)\\ \nonumber
-u(x-\Delta x, t+\Delta t)&=u(x,t')-\frac{\partial u(x,t')}{\partial x}\Delta x+\frac{\partial u(x,t')}{\partial t} \frac{\Delta t}{2} +\frac{\partial^2 u(x,t')}{2\partial x^2}\Delta x^2+\frac{\partial^2 u(x,t')}{2\partial t^2}\frac{\Delta t^2}{4} - \notag\\  \nonumber
-&\frac{\partial^2 u(x,t')}{\partial x\partial t}\frac{\Delta t}{2} \Delta x+ \mathcal{O}(\Delta t^3)\\
-u(x+\Delta x,t)&=u(x,t')+\frac{\partial u(x,t')}{\partial x}\Delta x-\frac{\partial u(x,t')}{\partial t} \frac{\Delta t}{2} +\frac{\partial^2 u(x,t')}{2\partial x^2}\Delta x^2+\frac{\partial^2 u(x,t')}{2\partial t^2}\frac{\Delta t^2}{4} -\notag \\  \nonumber
-&\frac{\partial^2 u(x,t')}{\partial x\partial t}\frac{\Delta t}{2} \Delta x+ \mathcal{O}(\Delta t^3)\\  \nonumber
-u(x-\Delta x,t)&=u(x,t')-\frac{\partial u(x,t')}{\partial x}\Delta x-\frac{\partial u(x,t')}{\partial t} \frac{\Delta t}{2} +\frac{\partial^2 u(x,t')}{2\partial x^2}\Delta x^2+\frac{\partial^2 u(x,t')}{2\partial t^2}\frac{\Delta t^2}{4} +\notag \\  \nonumber
-&\frac{\partial^2 u(x,t')}{\partial x\partial t}\frac{\Delta t}{2} \Delta x+ \mathcal{O}(\Delta t^3)\\  \nonumber
-u(x,t+\Delta t)&=u(x,t')+\frac{\partial u(x,t')}{\partial t}\frac{\Delta_t}{2} +\frac{\partial ^2 u(x,t')}{2\partial t^2}\Delta t^2 + \mathcal{O}(\Delta t^3)\\  \nonumber
-u(x,t)&=u(x,t')-\frac{\partial u(x,t')}{\partial t}\frac{\Delta t}{2}+\frac{\partial ^2 u(x,t')}{2\partial t^2}\Delta t^2 + \mathcal{O}(\Delta t^3)
-label{eq:deltat}
-\end{align}
-!et
-We now insert these expansions in the approximations for the derivatives to find
-!bt
-\begin{align}
-&\left[\frac{\partial u(x,t')}{\partial t}\right]_{\text{approx}} =\frac{\partial u(x,t')}{\partial t}+\mathcal{O}(\Delta t^2) , \\ \nonumber
-&\left[\frac{\partial^2 u(x,t')}{\partial x^2}\right]_{\text{approx}}=\frac{\partial^2 u(x,t')}{\partial x^2}+\mathcal{O}(\Delta x^2).
-\end{align}
-!et
-
-
-
-
-
-
-!split
-===== Type of problem =====
-
-The problem our network must solve for, is similar to the ODE case.
-We must have a trial solution $g_t$ at hand.
-
-For instance, the trial solution could be expressed as
-!bt
-\begin{align*}
-  g_t(x_1,\dots,x_N) = h_1(x_1,\dots,x_N) + h_2(x_1,\dots,x_N,N(x_1,\dots,x_N,P))
-\end{align*}
-!et
-where $h_1(x_1,\dots,x_N)$ is a function that ensures $g_t(x_1,\dots,x_N)$ satisfies some given conditions.
-The neural network $N(x_1,\dots,x_N,P)$ has weights and biases described by $P$ and $h_2(x_1,\dots,x_N,N(x_1,\dots,x_N,P))$ is an expression using the output from the neural network in some way.
-
-The role of the function $h_2(x_1,\dots,x_N,N(x_1,\dots,x_N,P))$, is to ensure that the output of $N(x_1,\dots,x_N,P)$ is zero when $g_t(x_1,\dots,x_N)$ is evaluated at the values of $x_1,\dots,x_N$ where the given conditions must be satisfied. The function $h_1(x_1,\dots,x_N)$ should alone make $g_t(x_1,\dots,x_N)$ satisfy the conditions.
-
-
-!split
-===== Network requirements =====
-
-The network tries then to minimize the cost function following the
-same ideas as described for the ODE case, but now with more than one
-variables to consider.  The concept still remains the same; find a set
-of parameters $P$ such that the expression $f$ in (ref{PDE}) is as
-close to zero as possible.
-
-As for the ODE case, the cost function is the mean squared error that
-the network must try to minimize. The cost function for the network to
-minimize is
-
-!bt
-\begin{equation*}
-C\left(x_1, \dots, x_N, P\right) = \left(  f\left(x_1, \, \dots \, , x_N, \frac{\partial g(x_1,\dots,x_N) }{\partial x_1}, \dots , \frac{\partial g(x_1,\dots,x_N) }{\partial x_N}, \frac{\partial g(x_1,\dots,x_N) }{\partial x_1\partial x_2}, \, \dots \, , \frac{\partial^n g(x_1,\dots,x_N) }{\partial x_N^n} \right) \right)^2
-\end{equation*}
-!et
-
-!split
-===== More details =====
-
-If we let $\bm{x} = \big( x_1, \dots, x_N \big)$ be an array containing the values for $x_1, \dots, x_N$ respectively, the cost function can be reformulated into the following:
-!bt
-\[
-	C\left(\bm{x}, P\right) = f\left( \left( \bm{x}, \frac{\partial g(\bm{x}) }{\partial x_1}, \dots , \frac{\partial g(\bm{x}) }{\partial x_N}, \frac{\partial g(\bm{x}) }{\partial x_1\partial x_2}, \, \dots \, , \frac{\partial^n g(\bm{x}) }{\partial x_N^n} \right) \right)^2
-\]
-!et
-
-If we also have $M$ different sets of values for $x_1, \dots, x_N$, that is $\bm{x}_i = \big(x_1^{(i)}, \dots, x_N^{(i)}\big)$ for $i = 1,\dots,M$ being the rows in matrix $X$, the cost function can be generalized into
-!bt
-\begin{equation*}
-C\left(X, P \right) = \sum_{i=1}^M f\left( \left( \bm{x}_i, \frac{\partial g(\bm{x}_i) }{\partial x_1}, \dots , \frac{\partial g(\bm{x}_i) }{\partial x_N}, \frac{\partial g(\bm{x}_i) }{\partial x_1\partial x_2}, \, \dots \, , \frac{\partial^n g(\bm{x}_i) }{\partial x_N^n} \right) \right)^2.
-\end{equation*}
-!et
-
-!split
-===== Example: The diffusion equation =====
-
-In one spatial dimension, the equation reads
-!bt
-\begin{equation*}
-  \frac{\partial g(x,t)}{\partial t} = \frac{\partial^2 g(x,t)}{\partial x^2}
-\end{equation*}
-!et
-
-where a possible choice of conditions are
-!bt
-\begin{align*}
-g(0,t) &= 0 ,\qquad t \geq 0 \\
-g(1,t) &= 0, \qquad t \geq 0 \\
-g(x,0) &= u(x),\qquad x\in [0,1]
-\end{align*}
-!et
-with $u(x)$ being some given function.
-
-!split
-===== Defining the problem =====
-
-For this case, we want to find $g(x,t)$ such that
-
-!bt
-\begin{equation}
-  \frac{\partial g(x,t)}{\partial t} = \frac{\partial^2 g(x,t)}{\partial x^2}
-\end{equation} \label{diffonedim}
-!et
-
-and
-
-!bt
-\begin{align*}
-g(0,t) &= 0 ,\qquad t \geq 0 \\
-g(1,t) &= 0, \qquad t \geq 0 \\
-g(x,0) &= u(x),\qquad x\in [0,1]
-\end{align*}
-!et
-with $u(x) = \sin(\pi x)$.
-
-First, let us set up the deep neural network.
-The deep neural network will follow the same structure as discussed in the examples solving the ODEs.
-First, we will look into how Autograd could be used in a network tailored to solve for bivariate functions.
-
-
-
-!split
-===== Setting up the network using Autograd =====
-
-The only change to do here, is to extend our network such that
-functions of multiple parameters are correctly handled.  In this case
-we have two variables in our function to solve for, that is time $t$
-and position $x$.  The variables will be represented by a
-one-dimensional array in the program.  The program will evaluate the
-network at each possible pair $(x,t)$, given an array for the desired
-$x$-values and $t$-values to approximate the solution at.
-
-!bc pycod
-def sigmoid(z):
-    return 1/(1 + np.exp(-z))
-
-def deep_neural_network(deep_params, x):
-    # x is now a point and a 1D numpy array; make it a column vector
-    num_coordinates = np.size(x,0)
-    x = x.reshape(num_coordinates,-1)
-
-    num_points = np.size(x,1)
-
-    # N_hidden is the number of hidden layers
-    N_hidden = np.size(deep_params) - 1 # -1 since params consist of parameters to all the hidden layers AND the output layer
-
-    # Assume that the input layer does nothing to the input x
-    x_input = x
-    x_prev = x_input
-
-    ## Hidden layers:
-
-    for l in range(N_hidden):
-        # From the list of parameters P; find the correct weigths and bias for this layer
-        w_hidden = deep_params[l]
-
-        # Add a row of ones to include bias
-        x_prev = np.concatenate((np.ones((1,num_points)), x_prev ), axis = 0)
-
-        z_hidden = np.matmul(w_hidden, x_prev)
-        x_hidden = sigmoid(z_hidden)
-
-        # Update x_prev such that next layer can use the output from this layer
-        x_prev = x_hidden
-
-    ## Output layer:
-
-    # Get the weights and bias for this layer
-    w_output = deep_params[-1]
-
-    # Include bias:
-    x_prev = np.concatenate((np.ones((1,num_points)), x_prev), axis = 0)
-
-    z_output = np.matmul(w_output, x_prev)
-    x_output = z_output
-
-    return x_output[0][0]
-!ec
-
-!split
-===== Setting up the network using Autograd; The trial solution =====
-
-The cost function must then iterate through the given arrays
-containing values for $x$ and $t$, defines a point $(x,t)$ the deep
-neural network and the trial solution is evaluated at, and then finds
-the Jacobian of the trial solution.
-
-A possible trial solution for this PDE is
-
-$$
-g_t(x,t) = h_1(x,t) + x(1-x)tN(x,t,P)
-$$
-
-with $A(x,t)$ being a function ensuring that $g_t(x,t)$ satisfies our given conditions, and $N(x,t,P)$ being the output from the deep neural network using weights and biases for each layer from $P$.
-
-To fulfill the conditions, $A(x,t)$ could be:
-
-$$
-h_1(x,t) = (1-t)\Big(u(x) - \big((1-x)u(0) + x u(1)\big)\Big) = (1-t)u(x) = (1-t)\sin(\pi x)
-$$
-since $(0) = u(1) = 0$ and $u(x) = \sin(\pi x)$.
-
-!split
-===== Why the jacobian? =====
-
-The Jacobian is used because the program must find the derivative of
-the trial solution with respect to $x$ and $t$.
-
-This gives the necessity of computing the Jacobian matrix, as we want
-to evaluate the gradient with respect to $x$ and $t$ (note that the
-Jacobian of a scalar-valued multivariate function is simply its
-gradient).
-
-In Autograd, the differentiation is by default done with respect to
-the first input argument of your Python function. Since the points is
-an array representing $x$ and $t$, the Jacobian is calculated using
-the values of $x$ and $t$.
-
-To find the second derivative with respect to $x$ and $t$, the
-Jacobian can be found for the second time. The result is a Hessian
-matrix, which is the matrix containing all the possible second order
-mixed derivatives of $g(x,t)$.
-
-!bc pycod
-# Set up the trial function:
-def u(x):
-    return np.sin(np.pi*x)
-
-def g_trial(point,P):
-    x,t = point
-    return (1-t)*u(x) + x*(1-x)*t*deep_neural_network(P,point)
-
-# The right side of the ODE:
-def f(point):
-    return 0.
-
-# The cost function:
-def cost_function(P, x, t):
-    cost_sum = 0
-
-    g_t_jacobian_func = jacobian(g_trial)
-    g_t_hessian_func = hessian(g_trial)
-
-    for x_ in x:
-        for t_ in t:
-            point = np.array([x_,t_])
-
-            g_t = g_trial(point,P)
-            g_t_jacobian = g_t_jacobian_func(point,P)
-            g_t_hessian = g_t_hessian_func(point,P)
-
-            g_t_dt = g_t_jacobian[1]
-            g_t_d2x = g_t_hessian[0][0]
-
-            func = f(point)
-
-            err_sqr = ( (g_t_dt - g_t_d2x) - func)**2
-            cost_sum += err_sqr
-
-    return cost_sum
-!ec
-
-!split
-===== Setting up the network using Autograd; The full program =====
-
-Having set up the network, along with the trial solution and cost function, we can now see how the deep neural network performs by comparing the results to the analytical solution.
-
-The analytical solution of our problem is
-
-$$
-g(x,t) = \exp(-\pi^2 t)\sin(\pi x)
-$$
-
-A possible way to implement a neural network solving the PDE, is given below.
-Be aware, though, that it is fairly slow for the parameters used.
-A better result is possible, but requires more iterations, and thus longer time to complete.
-
-
-Indeed, the program below is not optimal in its implementation, but rather serves as an example on how to implement and use a neural network to solve a PDE.
-Using TensorFlow results in a much better execution time. Try it!
-
-!bc pycod
-import autograd.numpy as np
-from autograd import jacobian,hessian,grad
-import autograd.numpy.random as npr
-from matplotlib import cm
-from matplotlib import pyplot as plt
-from mpl_toolkits.mplot3d import axes3d
-
-## Set up the network
-
-def sigmoid(z):
-    return 1/(1 + np.exp(-z))
-
-def deep_neural_network(deep_params, x):
-    # x is now a point and a 1D numpy array; make it a column vector
-    num_coordinates = np.size(x,0)
-    x = x.reshape(num_coordinates,-1)
-
-    num_points = np.size(x,1)
-
-    # N_hidden is the number of hidden layers
-    N_hidden = np.size(deep_params) - 1 # -1 since params consist of parameters to all the hidden layers AND the output layer
-
-    # Assume that the input layer does nothing to the input x
-    x_input = x
-    x_prev = x_input
-
-    ## Hidden layers:
-
-    for l in range(N_hidden):
-        # From the list of parameters P; find the correct weigths and bias for this layer
-        w_hidden = deep_params[l]
-
-        # Add a row of ones to include bias
-        x_prev = np.concatenate((np.ones((1,num_points)), x_prev ), axis = 0)
-
-        z_hidden = np.matmul(w_hidden, x_prev)
-        x_hidden = sigmoid(z_hidden)
-
-        # Update x_prev such that next layer can use the output from this layer
-        x_prev = x_hidden
-
-    ## Output layer:
-
-    # Get the weights and bias for this layer
-    w_output = deep_params[-1]
-
-    # Include bias:
-    x_prev = np.concatenate((np.ones((1,num_points)), x_prev), axis = 0)
-
-    z_output = np.matmul(w_output, x_prev)
-    x_output = z_output
-
-    return x_output[0][0]
-
-## Define the trial solution and cost function
-def u(x):
-    return np.sin(np.pi*x)
-
-def g_trial(point,P):
-    x,t = point
-    return (1-t)*u(x) + x*(1-x)*t*deep_neural_network(P,point)
-
-# The right side of the ODE:
-def f(point):
-    return 0.
-
-# The cost function:
-def cost_function(P, x, t):
-    cost_sum = 0
-
-    g_t_jacobian_func = jacobian(g_trial)
-    g_t_hessian_func = hessian(g_trial)
-
-    for x_ in x:
-        for t_ in t:
-            point = np.array([x_,t_])
-
-            g_t = g_trial(point,P)
-            g_t_jacobian = g_t_jacobian_func(point,P)
-            g_t_hessian = g_t_hessian_func(point,P)
-
-            g_t_dt = g_t_jacobian[1]
-            g_t_d2x = g_t_hessian[0][0]
-
-            func = f(point)
-
-            err_sqr = ( (g_t_dt - g_t_d2x) - func)**2
-            cost_sum += err_sqr
-
-    return cost_sum /( np.size(x)*np.size(t) )
-
-## For comparison, define the analytical solution
-def g_analytic(point):
-    x,t = point
-    return np.exp(-np.pi**2*t)*np.sin(np.pi*x)
-
-## Set up a function for training the network to solve for the equation
-def solve_pde_deep_neural_network(x,t, num_neurons, num_iter, lmb):
-    ## Set up initial weigths and biases
-    N_hidden = np.size(num_neurons)
-
-    ## Set up initial weigths and biases
-
-    # Initialize the list of parameters:
-    P = [None]*(N_hidden + 1) # + 1 to include the output layer
-
-    P[0] = npr.randn(num_neurons[0], 2 + 1 ) # 2 since we have two points, +1 to include bias
-    for l in range(1,N_hidden):
-        P[l] = npr.randn(num_neurons[l], num_neurons[l-1] + 1) # +1 to include bias
-
-    # For the output layer
-    P[-1] = npr.randn(1, num_neurons[-1] + 1 ) # +1 since bias is included
-
-    print('Initial cost: ',cost_function(P, x, t))
-
-    cost_function_grad = grad(cost_function,0)
-
-    # Let the update be done num_iter times
-    for i in range(num_iter):
-        cost_grad =  cost_function_grad(P, x , t)
-
-        for l in range(N_hidden+1):
-            P[l] = P[l] - lmb * cost_grad[l]
-
-    print('Final cost: ',cost_function(P, x, t))
-
-    return P
-
-if __name__ == '__main__':
-    ### Use the neural network:
-    npr.seed(15)
-
-    ## Decide the vales of arguments to the function to solve
-    Nx = 10; Nt = 10
-    x = np.linspace(0, 1, Nx)
-    t = np.linspace(0,1,Nt)
-
-    ## Set up the parameters for the network
-    num_hidden_neurons = [100, 25]
-    num_iter = 250
-    lmb = 0.01
-
-    P = solve_pde_deep_neural_network(x,t, num_hidden_neurons, num_iter, lmb)
-
-    ## Store the results
-    g_dnn_ag = np.zeros((Nx, Nt))
-    G_analytical = np.zeros((Nx, Nt))
-    for i,x_ in enumerate(x):
-        for j, t_ in enumerate(t):
-            point = np.array([x_, t_])
-            g_dnn_ag[i,j] = g_trial(point,P)
-
-            G_analytical[i,j] = g_analytic(point)
-
-    # Find the map difference between the analytical and the computed solution
-    diff_ag = np.abs(g_dnn_ag - G_analytical)
-    print('Max absolute difference between the analytical solution and the network: %g'%np.max(diff_ag))
-
-    ## Plot the solutions in two dimensions, that being in position and time
-
-    T,X = np.meshgrid(t,x)
-
-    fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
-    ax.set_title('Solution from the deep neural network w/ %d layer'%len(num_hidden_neurons))
-    s = ax.plot_surface(T,X,g_dnn_ag,linewidth=0,antialiased=False,cmap=cm.viridis)
-    ax.set_xlabel('Time $t$')
-    ax.set_ylabel('Position $x$');
-
-
-    fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
-    ax.set_title('Analytical solution')
-    s = ax.plot_surface(T,X,G_analytical,linewidth=0,antialiased=False,cmap=cm.viridis)
-    ax.set_xlabel('Time $t$')
-    ax.set_ylabel('Position $x$');
-
-    fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
-    ax.set_title('Difference')
-    s = ax.plot_surface(T,X,diff_ag,linewidth=0,antialiased=False,cmap=cm.viridis)
-    ax.set_xlabel('Time $t$')
-    ax.set_ylabel('Position $x$');
-
-    ## Take some slices of the 3D plots just to see the solutions at particular times
-    indx1 = 0
-    indx2 = int(Nt/2)
-    indx3 = Nt-1
-
-    t1 = t[indx1]
-    t2 = t[indx2]
-    t3 = t[indx3]
-
-    # Slice the results from the DNN
-    res1 = g_dnn_ag[:,indx1]
-    res2 = g_dnn_ag[:,indx2]
-    res3 = g_dnn_ag[:,indx3]
-
-    # Slice the analytical results
-    res_analytical1 = G_analytical[:,indx1]
-    res_analytical2 = G_analytical[:,indx2]
-    res_analytical3 = G_analytical[:,indx3]
-
-    # Plot the slices
-    plt.figure(figsize=(10,10))
-    plt.title("Computed solutions at time = %g"%t1)
-    plt.plot(x, res1)
-    plt.plot(x,res_analytical1)
-    plt.legend(['dnn','analytical'])
-
-    plt.figure(figsize=(10,10))
-    plt.title("Computed solutions at time = %g"%t2)
-    plt.plot(x, res2)
-    plt.plot(x,res_analytical2)
-    plt.legend(['dnn','analytical'])
-
-    plt.figure(figsize=(10,10))
-    plt.title("Computed solutions at time = %g"%t3)
-    plt.plot(x, res3)
-    plt.plot(x,res_analytical3)
-    plt.legend(['dnn','analytical'])
-
-    plt.show()
-!ec
-
-!split
-===== Example: Solving the wave equation with Neural Networks =====
-
-The wave equation is
-!bt
-\begin{equation*}
-	\frac{\partial^2 g(x,t)}{\partial t^2} = c^2\frac{\partial^2 g(x,t)}{\partial x^2}
-\end{equation*}
-!et
-
-with $c$ being the specified wave speed.
-
-Here, the chosen conditions are
-!bt
-\begin{align*}
-	g(0,t) &= 0 \\
-	g(1,t) &= 0 \\
-	g(x,0) &= u(x) \\
-	\frac{\partial g(x,t)}{\partial t} \Big |_{t = 0} &= v(x)
-\end{align*}
-!et
-where $\frac{\partial g(x,t)}{\partial t} \Big |_{t = 0}$ means the derivative of $g(x,t)$ with respect to $t$ is evaluated at $t = 0$, and $u(x)$ and $v(x)$ being given functions.
-
-!split
-===== The problem to solve for =====
-
-The wave equation to solve for, is
-
-!bt
-\begin{equation} \label{wave}
-\frac{\partial^2 g(x,t)}{\partial t^2} = c^2 \frac{\partial^2 g(x,t)}{\partial x^2}
-\end{equation}
-!et
-
-where $c$ is the given wave speed.
-The chosen conditions for this equation are
-
-!bt
-\begin{aligned}
-g(0,t) &= 0, &t \geq 0 \\
-g(1,t) &= 0, &t \geq 0 \\
-g(x,0) &= u(x), &x\in[0,1] \\
-\frac{\partial g(x,t)}{\partial t}\Big |_{t = 0} &= v(x), &x \in [0,1]
-\end{aligned} \label{condwave}
-!et
-
-In this example, let $c = 1$ and $u(x) = \sin(\pi x)$ and $v(x) = -\pi\sin(\pi x)$.
-
-
-!split
-===== The trial solution =====
-Setting up the network is done in similar matter as for the example of solving the diffusion equation.
-The only things we have to change, is the trial solution such that it satisfies the conditions from (ref{condwave}) and the cost function.
-
-The trial solution becomes slightly different since we have other conditions than in the example of solving the diffusion equation. Here, a possible trial solution $g_t(x,t)$ is
-
-$$
-g_t(x,t) = h_1(x,t) + x(1-x)t^2N(x,t,P)
-$$
-
-where
-
-$$
-h_1(x,t) = (1-t^2)u(x) + tv(x)
-$$
-
-Note that this trial solution satisfies the conditions only if $u(0) = v(0) = u(1) = v(1) = 0$, which is the case in this example.
-
-!split
-===== The analytical solution =====
-
-The analytical solution for our specific problem, is
-
-$$
-g(x,t) = \sin(\pi x)\cos(\pi t) - \sin(\pi x)\sin(\pi t)
-$$
-
-!split
-===== Solving the wave equation - the full program using Autograd =====
-
-!bc pycod
-import autograd.numpy as np
-from autograd import hessian,grad
-import autograd.numpy.random as npr
-from matplotlib import cm
-from matplotlib import pyplot as plt
-from mpl_toolkits.mplot3d import axes3d
-
-## Set up the trial function:
-def u(x):
-    return np.sin(np.pi*x)
-
-def v(x):
-    return -np.pi*np.sin(np.pi*x)
-
-def h1(point):
-    x,t = point
-    return (1 - t**2)*u(x) + t*v(x)
-
-def g_trial(point,P):
-    x,t = point
-    return h1(point) + x*(1-x)*t**2*deep_neural_network(P,point)
-
-## Define the cost function
-def cost_function(P, x, t):
-    cost_sum = 0
-
-    g_t_hessian_func = hessian(g_trial)
-
-    for x_ in x:
-        for t_ in t:
-            point = np.array([x_,t_])
-
-            g_t_hessian = g_t_hessian_func(point,P)
-
-            g_t_d2x = g_t_hessian[0][0]
-            g_t_d2t = g_t_hessian[1][1]
-
-            err_sqr = ( (g_t_d2t - g_t_d2x) )**2
-            cost_sum += err_sqr
-
-    return cost_sum / (np.size(t) * np.size(x))
-
-## The neural network
-def sigmoid(z):
-    return 1/(1 + np.exp(-z))
-
-def deep_neural_network(deep_params, x):
-    # x is now a point and a 1D numpy array; make it a column vector
-    num_coordinates = np.size(x,0)
-    x = x.reshape(num_coordinates,-1)
-
-    num_points = np.size(x,1)
-
-    # N_hidden is the number of hidden layers
-    N_hidden = np.size(deep_params) - 1 # -1 since params consist of parameters to all the hidden layers AND the output layer
-
-    # Assume that the input layer does nothing to the input x
-    x_input = x
-    x_prev = x_input
-
-    ## Hidden layers:
-
-    for l in range(N_hidden):
-        # From the list of parameters P; find the correct weigths and bias for this layer
-        w_hidden = deep_params[l]
-
-        # Add a row of ones to include bias
-        x_prev = np.concatenate((np.ones((1,num_points)), x_prev ), axis = 0)
-
-        z_hidden = np.matmul(w_hidden, x_prev)
-        x_hidden = sigmoid(z_hidden)
-
-        # Update x_prev such that next layer can use the output from this layer
-        x_prev = x_hidden
-
-    ## Output layer:
-
-    # Get the weights and bias for this layer
-    w_output = deep_params[-1]
-
-    # Include bias:
-    x_prev = np.concatenate((np.ones((1,num_points)), x_prev), axis = 0)
-
-    z_output = np.matmul(w_output, x_prev)
-    x_output = z_output
-
-    return x_output[0][0]
-
-## The analytical solution
-def g_analytic(point):
-    x,t = point
-    return np.sin(np.pi*x)*np.cos(np.pi*t) - np.sin(np.pi*x)*np.sin(np.pi*t)
-
-def solve_pde_deep_neural_network(x,t, num_neurons, num_iter, lmb):
-    ## Set up initial weigths and biases
-    N_hidden = np.size(num_neurons)
-
-    ## Set up initial weigths and biases
-
-    # Initialize the list of parameters:
-    P = [None]*(N_hidden + 1) # + 1 to include the output layer
-
-    P[0] = npr.randn(num_neurons[0], 2 + 1 ) # 2 since we have two points, +1 to include bias
-    for l in range(1,N_hidden):
-        P[l] = npr.randn(num_neurons[l], num_neurons[l-1] + 1) # +1 to include bias
-
-    # For the output layer
-    P[-1] = npr.randn(1, num_neurons[-1] + 1 ) # +1 since bias is included
-
-    print('Initial cost: ',cost_function(P, x, t))
-
-    cost_function_grad = grad(cost_function,0)
-
-    # Let the update be done num_iter times
-    for i in range(num_iter):
-        cost_grad =  cost_function_grad(P, x , t)
-
-        for l in range(N_hidden+1):
-            P[l] = P[l] - lmb * cost_grad[l]
-
-
-    print('Final cost: ',cost_function(P, x, t))
-
-    return P
-
-if __name__ == '__main__':
-    ### Use the neural network:
-    npr.seed(15)
-
-    ## Decide the vales of arguments to the function to solve
-    Nx = 10; Nt = 10
-    x = np.linspace(0, 1, Nx)
-    t = np.linspace(0,1,Nt)
-
-    ## Set up the parameters for the network
-    num_hidden_neurons = [50,20]
-    num_iter = 1000
-    lmb = 0.01
-
-    P = solve_pde_deep_neural_network(x,t, num_hidden_neurons, num_iter, lmb)
-
-    ## Store the results
-    res = np.zeros((Nx, Nt))
-    res_analytical = np.zeros((Nx, Nt))
-    for i,x_ in enumerate(x):
-        for j, t_ in enumerate(t):
-            point = np.array([x_, t_])
-            res[i,j] = g_trial(point,P)
-
-            res_analytical[i,j] = g_analytic(point)
-
-    diff = np.abs(res - res_analytical)
-    print("Max difference between analytical and solution from nn: %g"%np.max(diff))
-
-    ## Plot the solutions in two dimensions, that being in position and time
-
-    T,X = np.meshgrid(t,x)
-
-    fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
-    ax.set_title('Solution from the deep neural network w/ %d layer'%len(num_hidden_neurons))
-    s = ax.plot_surface(T,X,res,linewidth=0,antialiased=False,cmap=cm.viridis)
-    ax.set_xlabel('Time $t$')
-    ax.set_ylabel('Position $x$');
-
-
-    fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
-    ax.set_title('Analytical solution')
-    s = ax.plot_surface(T,X,res_analytical,linewidth=0,antialiased=False,cmap=cm.viridis)
-    ax.set_xlabel('Time $t$')
-    ax.set_ylabel('Position $x$');
-
-
-    fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
-    ax.set_title('Difference')
-    s = ax.plot_surface(T,X,diff,linewidth=0,antialiased=False,cmap=cm.viridis)
-    ax.set_xlabel('Time $t$')
-    ax.set_ylabel('Position $x$');
-
-    ## Take some slices of the 3D plots just to see the solutions at particular times
-    indx1 = 0
-    indx2 = int(Nt/2)
-    indx3 = Nt-1
-
-    t1 = t[indx1]
-    t2 = t[indx2]
-    t3 = t[indx3]
-
-    # Slice the results from the DNN
-    res1 = res[:,indx1]
-    res2 = res[:,indx2]
-    res3 = res[:,indx3]
-
-    # Slice the analytical results
-    res_analytical1 = res_analytical[:,indx1]
-    res_analytical2 = res_analytical[:,indx2]
-    res_analytical3 = res_analytical[:,indx3]
-
-    # Plot the slices
-    plt.figure(figsize=(10,10))
-    plt.title("Computed solutions at time = %g"%t1)
-    plt.plot(x, res1)
-    plt.plot(x,res_analytical1)
-    plt.legend(['dnn','analytical'])
-
-    plt.figure(figsize=(10,10))
-    plt.title("Computed solutions at time = %g"%t2)
-    plt.plot(x, res2)
-    plt.plot(x,res_analytical2)
-    plt.legend(['dnn','analytical'])
-
-    plt.figure(figsize=(10,10))
-    plt.title("Computed solutions at time = %g"%t3)
-    plt.plot(x, res3)
-    plt.plot(x,res_analytical3)
-    plt.legend(['dnn','analytical'])
-
-    plt.show()
-!ec
+Finally, present a critical assessment of the methods you have studied and discuss the potential for the solving differential equations and eigenvalue problems with machine learning methods. 
 
 
 
@@ -3528,7 +599,7 @@ We say we perform a filtering (convolution is the mathematical operation).
 
 The mathematics of CNNs is based on the mathematical operation of
 _convolution_.  In mathematics (in particular in functional analysis),
-convolution is represented by matheematical operation (integration,
+convolution is represented by mathematical operation (integration,
 summation etc) on two function in order to produce a third function
 that expresses how the shape of one gets modified by the other.
 Convolution has a plethora of applications in a variety of disciplines, spanning from statistics to signal processing, computer vision, solutions of differential equations,linear algebra, engineering,  and yes, machine learning.
@@ -3966,6 +1037,12 @@ principles then apply to images and other similar data.
 
 
 !split
+===== CNNs in more detail, Lecture from IN5400 =====
+
+* "Lectures from IN5400 spring 2019":"https://www.uio.no/studier/emner/matnat/ifi/IN5400/v19/material/week5/in5400_2019_week5_convolutional_nerual_networks.pdf"
+
+
+!split
 ===== CNNs in more detail, building convolutional neural networks in Tensorflow and Keras =====
 
   
@@ -4340,7 +1417,6 @@ test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
 print(test_acc)
 
 !ec
-
 
 
 
