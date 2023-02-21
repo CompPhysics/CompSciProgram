@@ -103,7 +103,7 @@ In total 20 ECTS.
 
 ### February 21
 - Discussion of project 2 and start discussion of Convolutional neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week7-reveal.html
-- Video of Lecture
+- Video of Lecture at https://youtu.be/leazXTMbRCM
 
 
 ### February 28
