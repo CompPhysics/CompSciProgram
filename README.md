@@ -101,17 +101,17 @@ In total 20 ECTS.
 - Video of Lecture at https://youtu.be/_pOf4__oN28
 
 
-### February 14 
-- Video of Lecture
-
-### February 21 
+### February 21
+- Discussion of project 2 and start discussion of Convolutional neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week7-reveal.html
 - Video of Lecture
 
 
 ### February 28
+- Convolutional neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week8-reveal.html
 - Video of Lecture 
 
 ### March 7
+- Recurrent neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week9-reveal.html
 - Video of lecture 
 
 ### March 14
