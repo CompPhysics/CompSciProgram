@@ -99,16 +99,18 @@ In total 20 ECTS.
 ### February 7
 - Deep learning and codes for neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week4/html/week4-reveal.html
 - Video of Lecture at https://youtu.be/_pOf4__oN28
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesFeb72023.pdf
 
 
 ### February 21
 - Discussion of project 2 and start discussion of Convolutional neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week7/html/week7-reveal.html
 - Video of Lecture at https://youtu.be/leazXTMbRCM
-
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesFeb212023.pdf
 
 ### February 28
 - Convolutional neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week9/html/week9-reveal.html
-- Video of Lecture at TBA
+- Video of Lecture at https://youtu.be/C8Pj7Wq_7fw
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesFeb282023.pdf
 
 ### March 7
 - Recurrent neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week9-reveal.html
