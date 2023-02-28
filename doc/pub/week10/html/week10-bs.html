@@ -36,15 +36,14 @@ doconce format html week10.do.txt --html_style=bootstrap --pygments_html_style=d
 
 <!-- tocinfo
 {'highest level': 2,
- 'sections': [('Plans for week 10, March 7-11',
+ 'sections': [('Plans for week 10, March 6-10',
                2,
                None,
-               'plans-for-week-10-march-7-11'),
+               'plans-for-week-10-march-6-10'),
               ('Resources on Deeep learning',
                2,
                None,
                'resources-on-deeep-learning'),
-              ('CNNs in brief', 2, None, 'cnns-in-brief'),
               ('Recurrent neural networks: Overarching view',
                2,
                None,
@@ -124,9 +123,8 @@ MathJax.Hub.Config({
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
         <ul class="dropdown-menu">
-     <!-- navigation toc: --> <li><a href="#plans-for-week-10-march-7-11" style="font-size: 80%;">Plans for week 10, March 7-11</a></li>
+     <!-- navigation toc: --> <li><a href="#plans-for-week-10-march-6-10" style="font-size: 80%;">Plans for week 10, March 6-10</a></li>
      <!-- navigation toc: --> <li><a href="#resources-on-deeep-learning" style="font-size: 80%;">Resources on Deeep learning</a></li>
-     <!-- navigation toc: --> <li><a href="#cnns-in-brief" style="font-size: 80%;">CNNs in brief</a></li>
      <!-- navigation toc: --> <li><a href="#recurrent-neural-networks-overarching-view" style="font-size: 80%;">Recurrent neural networks: Overarching view</a></li>
      <!-- navigation toc: --> <li><a href="#a-simple-example" style="font-size: 80%;">A simple example</a></li>
      <!-- navigation toc: --> <li><a href="#an-extrapolation-example" style="font-size: 80%;">An extrapolation example</a></li>
@@ -172,11 +170,11 @@ MathJax.Hub.Config({
 [1] <b>Department of Physics, University of Oslo</b>
 </center>
 <center>
-[2] <b>Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University</b>
+[2] <b>Department of Physics and Astronomy and Facility for Rare Isotope Beams, Michigan State University</b>
 </center>
 <br>
 <center>
-<h4>Mar 7, 2022</h4>
+<h4>March 6-10, 2023</h4>
 </center> <!-- date -->
 <br>
 
@@ -184,7 +182,7 @@ MathJax.Hub.Config({
 </div> <!-- end jumbotron -->
 
 <!-- !split -->
-<h2 id="plans-for-week-10-march-7-11" class="anchor">Plans for week 10, March 7-11 </h2>
+<h2 id="plans-for-week-10-march-6-10" class="anchor">Plans for week 10, March 6-10 </h2>
 
 <div class="panel panel-default">
 <div class="panel-body">
@@ -192,8 +190,7 @@ MathJax.Hub.Config({
 <ul>
 <li> Wrapping up Convolutional Neural Networks</li>
 <li> Recurrent neural networks</li>
-<li> <a href="https://youtu.be/JbXacJLs1TU" target="_self">Video of lecture at with subtitles</a></li>
-<li> <a href="https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesMarch7.pdf" target="_self">Handwritten notes</a></li>
+<li> <a href="https://youtube.be" target="_self">Video of lecture at with subtitles</a></li>
 </ul>
 </div>
 </div>
@@ -237,28 +234,6 @@ MathJax.Hub.Config({
 
 
 <!-- !split -->
-<h2 id="cnns-in-brief" class="anchor">CNNs in brief </h2>
-
-<p>In summary:</p>
-
-<ul>
-<li> A CNN architecture is in the simplest case a list of Layers that transform the image volume into an output volume (e.g. holding the class scores)</li>
-<li> There are a few distinct types of Layers (e.g. CONV/FC/RELU/POOL are by far the most popular)</li>
-<li> Each Layer accepts an input 3D volume and transforms it to an output 3D volume through a differentiable function</li>
-<li> Each Layer may or may not have parameters (e.g. CONV/FC do, RELU/POOL don&#8217;t)</li>
-<li> Each Layer may or may not have additional hyperparameters (e.g. CONV/FC/POOL do, RELU doesn&#8217;t)</li>
-</ul>
-<p>For more material on convolutional networks, we strongly recommend
-the course
-<a href="https://www.uio.no/studier/emner/matnat/ifi/IN5400/index-eng.html" target="_self">IN5400 &#8211; Machine Learning for Image Analysis</a>
-and the slides of <a href="http://cs231n.github.io/convolutional-networks/" target="_self">CS231</a> which is taught at Stanford University (consistently ranked as one of the top computer science programs in the world). <a href="http://neuralnetworksanddeeplearning.com/chap6.html" target="_self">Michael Nielsen's book is a must read, in particular chapter 6 which deals with CNNs</a>.
-</p>
-
-<p>However, both standard feed forwards networks and CNNs perform well on data with unknown length.</p>
-
-<p>This is where recurrent nueral networks (RNNs) come to our rescue.</p>
-
-<!-- !split -->
 <h2 id="recurrent-neural-networks-overarching-view" class="anchor">Recurrent neural networks: Overarching view </h2>
 
 <p>Till now our focus has been, including convolutional neural networks
@@ -280,6 +255,8 @@ example, they can take sentences, documents, or audio samples as
 input, making them extremely useful for natural language processing
 systems such as automatic translation and speech-to-text.
 </p>
+
+<b>Note: more material to be added here</b>
 
 <!-- !split -->
 <h2 id="a-simple-example" class="anchor">A simple example </h2>
@@ -2139,7 +2116,7 @@ plot_results(results, plot_number)
 </footer>
 -->
 <center style="font-size:80%">
-<!-- copyright --> &copy; 1999-2022, Morten Hjorth-Jensen. Released under CC Attribution-NonCommercial 4.0 license
+<!-- copyright --> &copy; 1999-2023, Morten Hjorth-Jensen. Released under CC Attribution-NonCommercial 4.0 license
 </center>
 </body>
 </html>

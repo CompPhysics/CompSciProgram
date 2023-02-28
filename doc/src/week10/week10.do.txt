@@ -1,16 +1,15 @@
 TITLE: Week 10: Recurrent neural networks 
-AUTHOR: Morten Hjorth-Jensen {copyright, 1999-present|CC BY-NC} at Department of Physics, University of Oslo & Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University
-DATE: today
+AUTHOR: Morten Hjorth-Jensen {copyright, 1999-present|CC BY-NC} at Department of Physics, University of Oslo & Department of Physics and Astronomy and Facility for Rare Isotope Beams, Michigan State University
+DATE: March 6-10, 2023
 
 
 !split
-===== Plans for week 10, March 7-11 =====
+===== Plans for week 10, March 6-10 =====
 
 !bblock
 * Wrapping up Convolutional Neural Networks
 * Recurrent neural networks
-* "Video of lecture at with subtitles":"https://youtu.be/JbXacJLs1TU"
-* "Handwritten notes":"https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2021/NotesMarch7.pdf"
+* "Video of lecture at with subtitles":"https://youtube.be"
 
 !eblock
 
@@ -41,27 +40,6 @@ DATE: today
 
 
 !split
-===== CNNs in brief =====
-
-In summary:
-
-* A CNN architecture is in the simplest case a list of Layers that transform the image volume into an output volume (e.g. holding the class scores)
-* There are a few distinct types of Layers (e.g. CONV/FC/RELU/POOL are by far the most popular)
-* Each Layer accepts an input 3D volume and transforms it to an output 3D volume through a differentiable function
-* Each Layer may or may not have parameters (e.g. CONV/FC do, RELU/POOL don’t)
-* Each Layer may or may not have additional hyperparameters (e.g. CONV/FC/POOL do, RELU doesn’t)
-
-For more material on convolutional networks, we strongly recommend
-the course
-"IN5400 – Machine Learning for Image Analysis":"https://www.uio.no/studier/emner/matnat/ifi/IN5400/index-eng.html"
-and the slides of "CS231":"http://cs231n.github.io/convolutional-networks/" which is taught at Stanford University (consistently ranked as one of the top computer science programs in the world). "Michael Nielsen's book is a must read, in particular chapter 6 which deals with CNNs":"http://neuralnetworksanddeeplearning.com/chap6.html".
-
-
-However, both standard feed forwards networks and CNNs perform well on data with unknown length.
-
-This is where recurrent nueral networks (RNNs) come to our rescue.
-
-!split
 ===== Recurrent neural networks: Overarching view =====
 
 Till now our focus has been, including convolutional neural networks
@@ -81,6 +59,8 @@ example, they can take sentences, documents, or audio samples as
 input, making them extremely useful for natural language processing
 systems such as automatic translation and speech-to-text.
 
+
+_Note: more material to be added here_
 
 !split
 ===== A simple example =====
