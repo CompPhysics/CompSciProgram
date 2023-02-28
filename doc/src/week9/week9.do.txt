@@ -7,6 +7,7 @@ DATE: today
 
 !bblock
 * Basics and mathematics of Convolutional  Neural Networks.
+* "Video of lecture":"https://youtu.be/C8Pj7Wq_7fw"
 !eblock
 
 !bblock
