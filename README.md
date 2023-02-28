@@ -108,7 +108,7 @@ In total 20 ECTS.
 
 ### February 28
 - Convolutional neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week8-reveal.html
-- Video of Lecture 
+- Video of Lecture at TBA
 
 ### March 7
 - Recurrent neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week9-reveal.html

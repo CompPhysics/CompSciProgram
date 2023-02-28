@@ -1,6 +1,6 @@
 TITLE: Deep Learning: Solving differential equations and Convolutional Neural Networks
 AUTHOR: Morten Hjorth-Jensen {copyright, 1999-present|CC BY-NC} at Department of Physics, University of Oslo & Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University
-DATE: today
+DATE: February 20 and 27
 
 !split
 ===== Plans for week 7 and week 8 =====
