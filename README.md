@@ -87,27 +87,27 @@ In total 20 ECTS.
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesJan172023.pdf
 
 ### January 24
-- Deep learning, back propagation algoritm and automatic differentiation, part 1. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week4-reveal.html
+- Deep learning, back propagation algoritm and automatic differentiation, part 1. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week4/html/week4-reveal.html
 - Video of Lecture  at https://youtu.be/KaL0W1jaRmQ
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesJan242023.pdf
 
 ### January 31
-- Deep learning, back propagation algoritm and automatic differentiation and code for neural networks, part 2. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week4-reveal.html
+- Deep learning, back propagation algoritm and automatic differentiation and code for neural networks, part 2. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week5/html/week5-reveal.html
 - Video of Lecture  at https://youtu.be/cWCebuNKrA8
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesJan312023.pdf
 
 ### February 7
-- Deep learning and codes for neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week4-reveal.html
+- Deep learning and codes for neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week4/html/week4-reveal.html
 - Video of Lecture at https://youtu.be/_pOf4__oN28
 
 
 ### February 21
-- Discussion of project 2 and start discussion of Convolutional neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week7-reveal.html
+- Discussion of project 2 and start discussion of Convolutional neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week8/html/week8-reveal.html
 - Video of Lecture at https://youtu.be/leazXTMbRCM
 
 
 ### February 28
-- Convolutional neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week3/html/week8-reveal.html
+- Convolutional neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week9/html/week9-reveal.html
 - Video of Lecture at TBA
 
 ### March 7
