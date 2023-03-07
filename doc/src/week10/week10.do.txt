@@ -575,6 +575,15 @@ With enough neurons and time, RNNs
 can compute anything that can be
 computed by your computer.
 
+FIGURE: [figslides/RNN1.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN2.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN3.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN4.png, width=700 frac=0.9]
+
+
 === Do generative models need to be stochastic? ===
 
 !bblock Linear dynamical systems and hidden Markov models are stochastic models.
