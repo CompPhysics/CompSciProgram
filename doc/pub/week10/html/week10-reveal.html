@@ -245,7 +245,7 @@ MathJax.Hub.Config({
 <section>
 <h2 id="building-convolutional-neural-networks-in-tensorflow-and-keras">Building convolutional neural networks in Tensorflow and Keras </h2>
 
-<p>As discussed above, CNNs are neural networks built from the assumption that the inputs
+<p>As discussed earlier, CNNs are neural networks built from the assumption that the inputs
 to the network are 2D images. This is important because the number of features or pixels in images
 grows very fast with the image size, and an enormous number of weights and biases are needed in order to build an accurate network.  
 </p>
@@ -865,9 +865,8 @@ systems such as automatic translation and speech-to-text.
 
 <section>
 <h2 id="more-examples">More examples </h2>
-<p>When applying machine learning to sequences, we often want to turn an input
-sequence into an output sequence that lives in a different domain.
-</p>
+
+<p>When applying machine learning to sequences, we often want to turn an input sequence into an output sequence that lives in a different domain.</p>
 <ul>
 <p><li> As example, consider turning a sequence of sound pressures into a sequence of word identities.
 <ol type="a"></li>
@@ -975,7 +974,7 @@ plt.show()
 <h3 id="memoryless-models">Memoryless models </h3>
 
 <p>Autoregressive models Predict the next term in a sequence from a fixed number of
-previous terms using &#8220;delay taps&#8221;.
+previous terms using <b>delay taps</b>.
 </p>
 
 <div class="alert alert-block alert-block alert-text-normal">
@@ -1042,30 +1041,6 @@ combine two properties:
 can compute anything that can be
 computed by your computer.
 </p>
-
-<br/><br/>
-<center>
-<p><img src="figslides/RNN1.png" width="700" align="bottom"></p>
-</center>
-<br/><br/>
-
-<br/><br/>
-<center>
-<p><img src="figslides/RNN2.png" width="700" align="bottom"></p>
-</center>
-<br/><br/>
-
-<br/><br/>
-<center>
-<p><img src="figslides/RNN3.png" width="700" align="bottom"></p>
-</center>
-<br/><br/>
-
-<br/><br/>
-<center>
-<p><img src="figslides/RNN4.png" width="700" align="bottom"></p>
-</center>
-<br/><br/>
 <h3 id="do-generative-models-need-to-be-stochastic">Do generative models need to be stochastic? </h3>
 
 <div class="alert alert-block alert-block alert-text-normal">
@@ -1122,6 +1097,35 @@ with weight constraints.
 <p><li> After the backward pass we add together the derivatives at all the different times for each weight.</li> 
 </ol>
 <p>
+<br/><br/>
+<center>
+<p><img src="figslides/RNN1.png" width="700" align="bottom"></p>
+</center>
+<br/><br/>
+
+<br/><br/>
+<center>
+<p><img src="figslides/RNN2.png" width="700" align="bottom"></p>
+</center>
+<br/><br/>
+
+<br/><br/>
+<center>
+<p><img src="figslides/RNN3.png" width="700" align="bottom"></p>
+</center>
+<br/><br/>
+
+<br/><br/>
+<center>
+<p><img src="figslides/RNN4.png" width="700" align="bottom"></p>
+</center>
+<br/><br/>
+
+<br/><br/>
+<center>
+<p><img src="figslides/RNN5.png" width="700" align="bottom"></p>
+</center>
+<br/><br/>
 <h3 id="we-need-to-specify-the-initial-activity-state-of-all-the-hidden-and-output-units">We need to specify the initial activity state of all the hidden and output units </h3>
 <ol>
 <p><li> We could just fix these initial states to have some default value like 0.5.</li>
@@ -1136,6 +1140,7 @@ with weight constraints.
 </ol>
 <p>
 <h3 id="we-can-specify-inputs-in-several-ways">We can specify inputs in several ways </h3>
+
 <ol>
 <p><li> Specify the initial states of all the units.</li>
 <p><li> Specify the initial states of a subset of the units.</li>
@@ -1159,6 +1164,7 @@ with weight constraints.
 </ol>
 <p>
 <h3 id="the-backward-pass-is-linear">The backward pass is linear </h3>
+
 <ul>
 <p><li> There is a big difference between the forward and backward passes.</li>
 <p><li> In the forward pass we use squashing functions (like the logistic) to prevent the activity vectors from exploding.</li>
@@ -1168,6 +1174,75 @@ with weight constraints.
 <p>The forward pass determines the slope of the linear function used for
 backpropagating through each neuron
 </p>
+</section>
+
+<section>
+<h2 id="weight-matrices-in-a-single-hidden-layer-rnn-part-1">Weight matrices in a single hidden-layer RNN, part 1 </h2>
+<br/><br/>
+<center>
+<p><img src="figslides/RNN6.png" width="700" align="bottom"></p>
+</center>
+<br/><br/>
+</section>
+
+<section>
+<h2 id="weight-matrices-in-a-single-hidden-layer-rnn-part-2">Weight matrices in a single hidden-layer RNN, part 2 </h2>
+
+<br/><br/>
+<center>
+<p><img src="figslides/RNN7.png" width="700" align="bottom"></p>
+</center>
+<br/><br/>
+</section>
+
+<section>
+<h2 id="weight-matrices-in-a-single-hidden-layer-rnn-part-3">Weight matrices in a single hidden-layer RNN, part 3 </h2>
+
+<br/><br/>
+<center>
+<p><img src="figslides/RNN8.png" width="700" align="bottom"></p>
+</center>
+<br/><br/>
+</section>
+
+<section>
+<h2 id="backpropagation-through-time-part-1">Backpropagation through  time, part 1  </h2>
+
+<br/><br/>
+<center>
+<p><img src="figslides/RNN9.png" width="700" align="bottom"></p>
+</center>
+<br/><br/>
+</section>
+
+<section>
+<h2 id="backpropagation-through-time-part-2">Backpropagation through  time, part 2  </h2>
+
+<br/><br/>
+<center>
+<p><img src="figslides/RNN10.png" width="700" align="bottom"></p>
+</center>
+<br/><br/>
+</section>
+
+<section>
+<h2 id="backpropagation-through-time-part-3">Backpropagation through  time, part 3  </h2>
+
+<br/><br/>
+<center>
+<p><img src="figslides/RNN11.png" width="700" align="bottom"></p>
+</center>
+<br/><br/>
+</section>
+
+<section>
+<h2 id="backpropagation-through-time-part-4">Backpropagation through  time, part 4  </h2>
+
+<br/><br/>
+<center>
+<p><img src="figslides/RNN12.png" width="700" align="bottom"></p>
+</center>
+<br/><br/>
 <h3 id="the-problem-of-exploding-or-vanishing-gradients">The problem of exploding or vanishing gradients </h3>
 <ul>
 <p><li> What happens to the magnitude of the gradients as we backpropagate through many layers?

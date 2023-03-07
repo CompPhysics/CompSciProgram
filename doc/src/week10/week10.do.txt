@@ -38,7 +38,7 @@ DATE: March 6-10, 2023
 ===== Building convolutional neural networks in Tensorflow and Keras =====
 
   
-As discussed above, CNNs are neural networks built from the assumption that the inputs
+As discussed earlier, CNNs are neural networks built from the assumption that the inputs
 to the network are 2D images. This is important because the number of features or pixels in images
 grows very fast with the image size, and an enormous number of weights and biases are needed in order to build an accurate network.  
   
@@ -435,8 +435,8 @@ systems such as automatic translation and speech-to-text.
 
 !split
 ===== More examples =====
-When applying machine learning to sequences, we often want to turn an input
-sequence into an output sequence that lives in a different domain.
+
+When applying machine learning to sequences, we often want to turn an input sequence into an output sequence that lives in a different domain.
 * As example, consider turning a sequence of sound pressures into a sequence of word identities.
   o When there is no separate target sequence, we can get a teaching signal by trying to predict the next term in the input sequence.
   o The target output sequence is the input sequence with an advance of 1 step.
@@ -522,7 +522,7 @@ plt.show()
 === Memoryless models ===
 
 Autoregressive models Predict the next term in a sequence from a fixed number of
-previous terms using “delay taps”.
+previous terms using _delay taps_.
 
 !bblock Feed-forward neural networks
 These generalize autoregressive
@@ -570,18 +570,9 @@ combine two properties:
 o Distributed hidden state that allows them to store a lot of information about the past efficiently.
 o Non-linear dynamics that allows them to update their hidden state in complicated ways.
 
-
 With enough neurons and time, RNNs
 can compute anything that can be
 computed by your computer.
-
-FIGURE: [figslides/RNN1.png, width=700 frac=0.9]
-
-FIGURE: [figslides/RNN2.png, width=700 frac=0.9]
-
-FIGURE: [figslides/RNN3.png, width=700 frac=0.9]
-
-FIGURE: [figslides/RNN4.png, width=700 frac=0.9]
 
 
 === Do generative models need to be stochastic? ===
@@ -630,6 +621,16 @@ o The forward pass builds up a stack of the activities of all the units at each 
 o The backward pass peels activities off the stack to compute the error derivatives at each time step.
 o After the backward pass we add together the derivatives at all the different times for each weight. 
 
+FIGURE: [figslides/RNN1.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN2.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN3.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN4.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN5.png, width=700 frac=0.9]
+
 
 
 === We need to specify the initial activity state of all the hidden and output units ===
@@ -644,6 +645,7 @@ o We learn them in the same way as we learn the weights.
 
 
 === We can specify inputs in several ways ===
+
 o Specify the initial states of all the units.
 o Specify the initial states of a subset of the units.
 o Specify the states of the same subset of the units at every time step.
@@ -663,12 +665,58 @@ o Specify desired activities of all units for the last few steps
 
 
 === The backward pass is linear ===
+
 * There is a big difference between the forward and backward passes.
 * In the forward pass we use squashing functions (like the logistic) to prevent the activity vectors from exploding.
 * The backward pass, is completely linear. If you double the error derivatives at the final layer, all the error derivatives will double.
 
 The forward pass determines the slope of the linear function used for
 backpropagating through each neuron
+
+
+!split
+===== Weight matrices in a single hidden-layer RNN, part 1 =====
+FIGURE: [figslides/RNN6.png, width=700 frac=0.9]
+
+
+!split
+===== Weight matrices in a single hidden-layer RNN, part 2 =====
+
+
+FIGURE: [figslides/RNN7.png, width=700 frac=0.9]
+
+
+!split
+===== Weight matrices in a single hidden-layer RNN, part 3 =====
+
+
+FIGURE: [figslides/RNN8.png, width=700 frac=0.9]
+
+
+!split
+===== Backpropagation through  time, part 1  =====
+
+
+FIGURE: [figslides/RNN9.png, width=700 frac=0.9]
+
+!split
+===== Backpropagation through  time, part 2  =====
+
+
+FIGURE: [figslides/RNN10.png, width=700 frac=0.9]
+
+!split
+===== Backpropagation through  time, part 3  =====
+
+
+FIGURE: [figslides/RNN11.png, width=700 frac=0.9]
+
+!split
+===== Backpropagation through  time, part 4  =====
+
+FIGURE: [figslides/RNN12.png, width=700 frac=0.9]
+
+
 
 
 === The problem of exploding or vanishing gradients ===
