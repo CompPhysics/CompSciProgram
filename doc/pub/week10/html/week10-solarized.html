@@ -71,11 +71,93 @@ div.toc p,a {
                2,
                None,
                'resources-on-deeep-learning'),
-              ('Recurrent neural networks: Overarching view',
+              ('Building convolutional neural networks in Tensorflow and Keras',
                2,
                None,
-               'recurrent-neural-networks-overarching-view'),
+               'building-convolutional-neural-networks-in-tensorflow-and-keras'),
+              ('Setting it up', 2, None, 'setting-it-up'),
+              ('The MNIST dataset again', 2, None, 'the-mnist-dataset-again'),
+              ('Strong correlations', 2, None, 'strong-correlations'),
+              ('Layers of a CNN', 2, None, 'layers-of-a-cnn'),
+              ('Systematic reduction', 2, None, 'systematic-reduction'),
+              ('Prerequisites: Collect and pre-process data',
+               2,
+               None,
+               'prerequisites-collect-and-pre-process-data'),
+              ('Importing Keras and Tensorflow',
+               2,
+               None,
+               'importing-keras-and-tensorflow'),
+              ('Running with Keras', 2, None, 'running-with-keras'),
+              ('Final part', 2, None, 'final-part'),
+              ('Final visualization', 2, None, 'final-visualization'),
+              ('The CIFAR01 data set', 2, None, 'the-cifar01-data-set'),
+              ('Verifying the data set', 2, None, 'verifying-the-data-set'),
+              ('Set up  the model', 2, None, 'set-up-the-model'),
+              ('Add Dense layers on top', 2, None, 'add-dense-layers-on-top'),
+              ('Compile and train the model',
+               2,
+               None,
+               'compile-and-train-the-model'),
+              ('Finally, evaluate the model',
+               2,
+               None,
+               'finally-evaluate-the-model'),
+              ('Recurrent neural networks (RNNs): Overarching view',
+               2,
+               None,
+               'recurrent-neural-networks-rnns-overarching-view'),
+              ('More examples', 2, None, 'more-examples'),
               ('A simple example', 2, None, 'a-simple-example'),
+              ('Memoryless models', 3, None, 'memoryless-models'),
+              ('Linear dynamical model', 3, None, 'linear-dynamical-model'),
+              ('Hidden Markov Models', 3, None, 'hidden-markov-models'),
+              ('RNNs', 3, None, 'rnns'),
+              ('Do generative models need to be stochastic?',
+               3,
+               None,
+               'do-generative-models-need-to-be-stochastic'),
+              ('What kinds of behaviour can RNNs exhibit?',
+               3,
+               None,
+               'what-kinds-of-behaviour-can-rnns-exhibit'),
+              ('Backpropagation through time',
+               3,
+               None,
+               'backpropagation-through-time'),
+              ('We need to specify the initial activity state of all the '
+               'hidden and output units',
+               3,
+               None,
+               'we-need-to-specify-the-initial-activity-state-of-all-the-hidden-and-output-units'),
+              ('We can specify inputs in several ways',
+               3,
+               None,
+               'we-can-specify-inputs-in-several-ways'),
+              ('We can specify targets in several ways',
+               3,
+               None,
+               'we-can-specify-targets-in-several-ways'),
+              ('The backward pass is linear',
+               3,
+               None,
+               'the-backward-pass-is-linear'),
+              ('The problem of exploding or vanishing gradients',
+               3,
+               None,
+               'the-problem-of-exploding-or-vanishing-gradients'),
+              ('Four effective ways to learn an RNN',
+               3,
+               None,
+               'four-effective-ways-to-learn-an-rnn'),
+              ('Long Short Term Memory (LSTM)',
+               3,
+               None,
+               'long-short-term-memory-lstm'),
+              ('Implementing a memory cell in a neural network',
+               3,
+               None,
+               'implementing-a-memory-cell-in-a-neural-network'),
               ('An extrapolation example', 2, None, 'an-extrapolation-example'),
               ('Formatting the Data', 2, None, 'formatting-the-data'),
               ('Predicting New Points With A Trained Recurrent Neural Network',
@@ -86,36 +168,7 @@ div.toc p,a {
               ('Other Types of Recurrent Neural Networks',
                2,
                None,
-               'other-types-of-recurrent-neural-networks'),
-              ('Generative Models', 2, None, 'generative-models'),
-              ('Generative Adversarial Networks',
-               2,
-               None,
-               'generative-adversarial-networks'),
-              ('Discriminator', 2, None, 'discriminator'),
-              ('Learning Process', 2, None, 'learning-process'),
-              ('More about the Learning Process',
-               2,
-               None,
-               'more-about-the-learning-process'),
-              ('Additional References', 2, None, 'additional-references'),
-              ('Writing Our First Generative Adversarial Network',
-               2,
-               None,
-               'writing-our-first-generative-adversarial-network'),
-              ('MNIST and GANs', 2, None, 'mnist-and-gans'),
-              ('Other Models', 2, None, 'other-models'),
-              ('Training Step', 2, None, 'training-step'),
-              ('Checkpoints', 2, None, 'checkpoints'),
-              ('Exploring the Latent Space',
-               2,
-               None,
-               'exploring-the-latent-space'),
-              ('Getting Results', 2, None, 'getting-results'),
-              ('Interpolating Between MNIST Digits',
-               2,
-               None,
-               'interpolating-between-mnist-digits')]}
+               'other-types-of-recurrent-neural-networks')]}
 end of tocinfo -->
 
 <body>
@@ -206,7 +259,598 @@ MathJax.Hub.Config({
 
 
 <!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="recurrent-neural-networks-overarching-view">Recurrent neural networks: Overarching view </h2>
+<h2 id="building-convolutional-neural-networks-in-tensorflow-and-keras">Building convolutional neural networks in Tensorflow and Keras </h2>
+
+<p>As discussed above, CNNs are neural networks built from the assumption that the inputs
+to the network are 2D images. This is important because the number of features or pixels in images
+grows very fast with the image size, and an enormous number of weights and biases are needed in order to build an accurate network.  
+</p>
+
+<p>As before, we still have our input, a hidden layer and an output. What's novel about convolutional networks
+are the <b>convolutional</b> and <b>pooling</b> layers stacked in pairs between the input and the hidden layer.
+In addition, the data is no longer represented as a 2D feature matrix, instead each input is a number of 2D
+matrices, typically 1 for each color dimension (Red, Green, Blue). 
+</p>
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="setting-it-up">Setting it up </h2>
+
+<p>It means that to represent the entire
+dataset of images, we require a 4D matrix or <b>tensor</b>. This tensor has the dimensions:  
+</p>
+$$  
+(n_{inputs},\, n_{pixels, width},\, n_{pixels, height},\, depth) .
+$$
+
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="the-mnist-dataset-again">The MNIST dataset again </h2>
+
+<p>The MNIST dataset consists of grayscale images with a pixel size of
+\( 28\times 28 \), meaning we require \( 28 \times 28 = 724 \) weights to each
+neuron in the first hidden layer.
+</p>
+
+<p>If we were to analyze images of size \( 128\times 128 \) we would require
+\( 128 \times 128 = 16384 \) weights to each neuron. Even worse if we were
+dealing with color images, as most images are, we have an image matrix
+of size \( 128\times 128 \) for each color dimension (Red, Green, Blue),
+meaning 3 times the number of weights \( = 49152 \) are required for every
+single neuron in the first hidden layer.
+</p>
+
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="strong-correlations">Strong correlations </h2>
+
+<p>Images typically have strong local correlations, meaning that a small
+part of the image varies little from its neighboring regions. If for
+example we have an image of a blue car, we can roughly assume that a
+small blue part of the image is surrounded by other blue regions.
+</p>
+
+<p>Therefore, instead of connecting every single pixel to a neuron in the
+first hidden layer, as we have previously done with deep neural
+networks, we can instead connect each neuron to a small part of the
+image (in all 3 RGB depth dimensions).  The size of each small area is
+fixed, and known as a <a href="https://en.wikipedia.org/wiki/Receptive_field" target="_blank">receptive</a>.
+</p>
+
+
+<!-- !split  -->
+<h2 id="layers-of-a-cnn">Layers of a CNN </h2>
+<p>The layers of a convolutional neural network arrange neurons in 3D: width, height and depth.  
+The input image is typically a square matrix of depth 3. 
+</p>
+
+<p>A <b>convolution</b> is performed on the image which outputs
+a 3D volume of neurons. The weights to the input are arranged in a number of 2D matrices, known as <b>filters</b>.
+</p>
+
+<p>Each filter slides along the input image, taking the dot product
+between each small part of the image and the filter, in all depth
+dimensions. This is then passed through a non-linear function,
+typically the <b>Rectified Linear (ReLu)</b> function, which serves as the
+activation of the neurons in the first convolutional layer. This is
+further passed through a <b>pooling layer</b>, which reduces the size of the
+convolutional layer, e.g. by taking the maximum or average across some
+small regions, and this serves as input to the next convolutional
+layer.
+</p>
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="systematic-reduction">Systematic reduction </h2>
+
+<p>By systematically reducing the size of the input volume, through
+convolution and pooling, the network should create representations of
+small parts of the input, and then from them assemble representations
+of larger areas.  The final pooling layer is flattened to serve as
+input to a hidden layer, such that each neuron in the final pooling
+layer is connected to every single neuron in the hidden layer. This
+then serves as input to the output layer, e.g. a softmax output for
+classification.
+</p>
+
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="prerequisites-collect-and-pre-process-data">Prerequisites: Collect and pre-process data </h2>
+
+<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #eeeedd">
+  <pre style="line-height: 125%;"><span style="color: #228B22"># import necessary packages</span>
+<span style="color: #8B008B; font-weight: bold">import</span> <span style="color: #008b45; text-decoration: underline">numpy</span> <span style="color: #8B008B; font-weight: bold">as</span> <span style="color: #008b45; text-decoration: underline">np</span>
+<span style="color: #8B008B; font-weight: bold">import</span> <span style="color: #008b45; text-decoration: underline">matplotlib.pyplot</span> <span style="color: #8B008B; font-weight: bold">as</span> <span style="color: #008b45; text-decoration: underline">plt</span>
+<span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">sklearn</span> <span style="color: #8B008B; font-weight: bold">import</span> datasets
+
+
+<span style="color: #228B22"># ensure the same random numbers appear every time</span>
+np.random.seed(<span style="color: #B452CD">0</span>)
+
+<span style="color: #228B22"># display images in notebook</span>
+%matplotlib inline
+plt.rcParams[<span style="color: #CD5555">&#39;figure.figsize&#39;</span>] = (<span style="color: #B452CD">12</span>,<span style="color: #B452CD">12</span>)
+
+
+<span style="color: #228B22"># download MNIST dataset</span>
+digits = datasets.load_digits()
+
+<span style="color: #228B22"># define inputs and labels</span>
+inputs = digits.images
+labels = digits.target
+
+<span style="color: #228B22"># RGB images have a depth of 3</span>
+<span style="color: #228B22"># our images are grayscale so they should have a depth of 1</span>
+inputs = inputs[:,:,:,np.newaxis]
+
+<span style="color: #658b00">print</span>(<span style="color: #CD5555">&quot;inputs = (n_inputs, pixel_width, pixel_height, depth) = &quot;</span> + <span style="color: #658b00">str</span>(inputs.shape))
+<span style="color: #658b00">print</span>(<span style="color: #CD5555">&quot;labels = (n_inputs) = &quot;</span> + <span style="color: #658b00">str</span>(labels.shape))
+
+
+<span style="color: #228B22"># choose some random images to display</span>
+n_inputs = <span style="color: #658b00">len</span>(inputs)
+indices = np.arange(n_inputs)
+random_indices = np.random.choice(indices, size=<span style="color: #B452CD">5</span>)
+
+<span style="color: #8B008B; font-weight: bold">for</span> i, image <span style="color: #8B008B">in</span> <span style="color: #658b00">enumerate</span>(digits.images[random_indices]):
+    plt.subplot(<span style="color: #B452CD">1</span>, <span style="color: #B452CD">5</span>, i+<span style="color: #B452CD">1</span>)
+    plt.axis(<span style="color: #CD5555">&#39;off&#39;</span>)
+    plt.imshow(image, cmap=plt.cm.gray_r, interpolation=<span style="color: #CD5555">&#39;nearest&#39;</span>)
+    plt.title(<span style="color: #CD5555">&quot;Label: %d&quot;</span> % digits.target[random_indices[i]])
+plt.show()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="importing-keras-and-tensorflow">Importing Keras and Tensorflow </h2>
+
+<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #eeeedd">
+  <pre style="line-height: 125%;"><span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">tensorflow.keras</span> <span style="color: #8B008B; font-weight: bold">import</span> datasets, layers, models
+<span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">tensorflow.keras.layers</span> <span style="color: #8B008B; font-weight: bold">import</span> Input
+<span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">tensorflow.keras.models</span> <span style="color: #8B008B; font-weight: bold">import</span> Sequential      <span style="color: #228B22">#This allows appending layers to existing models</span>
+<span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">tensorflow.keras.layers</span> <span style="color: #8B008B; font-weight: bold">import</span> Dense           <span style="color: #228B22">#This allows defining the characteristics of a particular layer</span>
+<span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">tensorflow.keras</span> <span style="color: #8B008B; font-weight: bold">import</span> optimizers             <span style="color: #228B22">#This allows using whichever optimiser we want (sgd,adam,RMSprop)</span>
+<span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">tensorflow.keras</span> <span style="color: #8B008B; font-weight: bold">import</span> regularizers           <span style="color: #228B22">#This allows using whichever regularizer we want (l1,l2,l1_l2)</span>
+<span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">tensorflow.keras.utils</span> <span style="color: #8B008B; font-weight: bold">import</span> to_categorical   <span style="color: #228B22">#This allows using categorical cross entropy as the cost function</span>
+<span style="color: #228B22">#from tensorflow.keras import Conv2D</span>
+<span style="color: #228B22">#from tensorflow.keras import MaxPooling2D</span>
+<span style="color: #228B22">#from tensorflow.keras import Flatten</span>
+
+<span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">sklearn.model_selection</span> <span style="color: #8B008B; font-weight: bold">import</span> train_test_split
+
+<span style="color: #228B22"># representation of labels</span>
+labels = to_categorical(labels)
+
+<span style="color: #228B22"># split into train and test data</span>
+<span style="color: #228B22"># one-liner from scikit-learn library</span>
+train_size = <span style="color: #B452CD">0.8</span>
+test_size = <span style="color: #B452CD">1</span> - train_size
+X_train, X_test, Y_train, Y_test = train_test_split(inputs, labels, train_size=train_size,
+                                                    test_size=test_size)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- !split  -->
+<h2 id="running-with-keras">Running with Keras </h2>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #eeeedd">
+  <pre style="line-height: 125%;"><span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">create_convolutional_neural_network_keras</span>(input_shape, receptive_field,
+                                              n_filters, n_neurons_connected, n_categories,
+                                              eta, lmbd):
+    model = Sequential()
+    model.add(layers.Conv2D(n_filters, (receptive_field, receptive_field), input_shape=input_shape, padding=<span style="color: #CD5555">&#39;same&#39;</span>,
+              activation=<span style="color: #CD5555">&#39;relu&#39;</span>, kernel_regularizer=regularizers.l2(lmbd)))
+    model.add(layers.MaxPooling2D(pool_size=(<span style="color: #B452CD">2</span>, <span style="color: #B452CD">2</span>)))
+    model.add(layers.Flatten())
+    model.add(layers.Dense(n_neurons_connected, activation=<span style="color: #CD5555">&#39;relu&#39;</span>, kernel_regularizer=regularizers.l2(lmbd)))
+    model.add(layers.Dense(n_categories, activation=<span style="color: #CD5555">&#39;softmax&#39;</span>, kernel_regularizer=regularizers.l2(lmbd)))
+    
+    sgd = optimizers.SGD(lr=eta)
+    model.compile(loss=<span style="color: #CD5555">&#39;categorical_crossentropy&#39;</span>, optimizer=sgd, metrics=[<span style="color: #CD5555">&#39;accuracy&#39;</span>])
+    
+    <span style="color: #8B008B; font-weight: bold">return</span> model
+
+epochs = <span style="color: #B452CD">100</span>
+batch_size = <span style="color: #B452CD">100</span>
+input_shape = X_train.shape[<span style="color: #B452CD">1</span>:<span style="color: #B452CD">4</span>]
+receptive_field = <span style="color: #B452CD">3</span>
+n_filters = <span style="color: #B452CD">10</span>
+n_neurons_connected = <span style="color: #B452CD">50</span>
+n_categories = <span style="color: #B452CD">10</span>
+
+eta_vals = np.logspace(-<span style="color: #B452CD">5</span>, <span style="color: #B452CD">1</span>, <span style="color: #B452CD">7</span>)
+lmbd_vals = np.logspace(-<span style="color: #B452CD">5</span>, <span style="color: #B452CD">1</span>, <span style="color: #B452CD">7</span>)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="final-part">Final part </h2>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #eeeedd">
+  <pre style="line-height: 125%;">CNN_keras = np.zeros((<span style="color: #658b00">len</span>(eta_vals), <span style="color: #658b00">len</span>(lmbd_vals)), dtype=<span style="color: #658b00">object</span>)
+        
+<span style="color: #8B008B; font-weight: bold">for</span> i, eta <span style="color: #8B008B">in</span> <span style="color: #658b00">enumerate</span>(eta_vals):
+    <span style="color: #8B008B; font-weight: bold">for</span> j, lmbd <span style="color: #8B008B">in</span> <span style="color: #658b00">enumerate</span>(lmbd_vals):
+        CNN = create_convolutional_neural_network_keras(input_shape, receptive_field,
+                                              n_filters, n_neurons_connected, n_categories,
+                                              eta, lmbd)
+        CNN.fit(X_train, Y_train, epochs=epochs, batch_size=batch_size, verbose=<span style="color: #B452CD">0</span>)
+        scores = CNN.evaluate(X_test, Y_test)
+        
+        CNN_keras[i][j] = CNN
+        
+        <span style="color: #658b00">print</span>(<span style="color: #CD5555">&quot;Learning rate = &quot;</span>, eta)
+        <span style="color: #658b00">print</span>(<span style="color: #CD5555">&quot;Lambda = &quot;</span>, lmbd)
+        <span style="color: #658b00">print</span>(<span style="color: #CD5555">&quot;Test accuracy: %.3f&quot;</span> % scores[<span style="color: #B452CD">1</span>])
+        <span style="color: #658b00">print</span>()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="final-visualization">Final visualization </h2>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #eeeedd">
+  <pre style="line-height: 125%;"><span style="color: #228B22"># visual representation of grid search</span>
+<span style="color: #228B22"># uses seaborn heatmap, could probably do this in matplotlib</span>
+<span style="color: #8B008B; font-weight: bold">import</span> <span style="color: #008b45; text-decoration: underline">seaborn</span> <span style="color: #8B008B; font-weight: bold">as</span> <span style="color: #008b45; text-decoration: underline">sns</span>
+
+sns.set()
+
+train_accuracy = np.zeros((<span style="color: #658b00">len</span>(eta_vals), <span style="color: #658b00">len</span>(lmbd_vals)))
+test_accuracy = np.zeros((<span style="color: #658b00">len</span>(eta_vals), <span style="color: #658b00">len</span>(lmbd_vals)))
+
+<span style="color: #8B008B; font-weight: bold">for</span> i <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(<span style="color: #658b00">len</span>(eta_vals)):
+    <span style="color: #8B008B; font-weight: bold">for</span> j <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(<span style="color: #658b00">len</span>(lmbd_vals)):
+        CNN = CNN_keras[i][j]
+
+        train_accuracy[i][j] = CNN.evaluate(X_train, Y_train)[<span style="color: #B452CD">1</span>]
+        test_accuracy[i][j] = CNN.evaluate(X_test, Y_test)[<span style="color: #B452CD">1</span>]
+
+        
+fig, ax = plt.subplots(figsize = (<span style="color: #B452CD">10</span>, <span style="color: #B452CD">10</span>))
+sns.heatmap(train_accuracy, annot=<span style="color: #8B008B; font-weight: bold">True</span>, ax=ax, cmap=<span style="color: #CD5555">&quot;viridis&quot;</span>)
+ax.set_title(<span style="color: #CD5555">&quot;Training Accuracy&quot;</span>)
+ax.set_ylabel(<span style="color: #CD5555">&quot;$\eta$&quot;</span>)
+ax.set_xlabel(<span style="color: #CD5555">&quot;$\lambda$&quot;</span>)
+plt.show()
+
+fig, ax = plt.subplots(figsize = (<span style="color: #B452CD">10</span>, <span style="color: #B452CD">10</span>))
+sns.heatmap(test_accuracy, annot=<span style="color: #8B008B; font-weight: bold">True</span>, ax=ax, cmap=<span style="color: #CD5555">&quot;viridis&quot;</span>)
+ax.set_title(<span style="color: #CD5555">&quot;Test Accuracy&quot;</span>)
+ax.set_ylabel(<span style="color: #CD5555">&quot;$\eta$&quot;</span>)
+ax.set_xlabel(<span style="color: #CD5555">&quot;$\lambda$&quot;</span>)
+plt.show()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="the-cifar01-data-set">The CIFAR01 data set </h2>
+
+<p>The CIFAR10 dataset contains 60,000 color images in 10 classes, with
+6,000 images in each class. The dataset is divided into 50,000
+training images and 10,000 testing images. The classes are mutually
+exclusive and there is no overlap between them.
+</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #eeeedd">
+  <pre style="line-height: 125%;"><span style="color: #8B008B; font-weight: bold">import</span> <span style="color: #008b45; text-decoration: underline">tensorflow</span> <span style="color: #8B008B; font-weight: bold">as</span> <span style="color: #008b45; text-decoration: underline">tf</span>
+
+<span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">tensorflow.keras</span> <span style="color: #8B008B; font-weight: bold">import</span> datasets, layers, models
+<span style="color: #8B008B; font-weight: bold">import</span> <span style="color: #008b45; text-decoration: underline">matplotlib.pyplot</span> <span style="color: #8B008B; font-weight: bold">as</span> <span style="color: #008b45; text-decoration: underline">plt</span>
+
+<span style="color: #228B22"># We import the data set</span>
+(train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
+
+<span style="color: #228B22"># Normalize pixel values to be between 0 and 1 by dividing by 255. </span>
+train_images, test_images = train_images / <span style="color: #B452CD">255.0</span>, test_images / <span style="color: #B452CD">255.0</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="verifying-the-data-set">Verifying the data set </h2>
+
+<p>To verify that the dataset looks correct, let's plot the first 25 images from the training set and display the class name below each image.</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #eeeedd">
+  <pre style="line-height: 125%;">class_names = [<span style="color: #CD5555">&#39;airplane&#39;</span>, <span style="color: #CD5555">&#39;automobile&#39;</span>, <span style="color: #CD5555">&#39;bird&#39;</span>, <span style="color: #CD5555">&#39;cat&#39;</span>, <span style="color: #CD5555">&#39;deer&#39;</span>,
+               <span style="color: #CD5555">&#39;dog&#39;</span>, <span style="color: #CD5555">&#39;frog&#39;</span>, <span style="color: #CD5555">&#39;horse&#39;</span>, <span style="color: #CD5555">&#39;ship&#39;</span>, <span style="color: #CD5555">&#39;truck&#39;</span>]
+<span style="color: #a61717; background-color: #e3d2d2">​</span>
+plt.figure(figsize=(<span style="color: #B452CD">10</span>,<span style="color: #B452CD">10</span>))
+<span style="color: #8B008B; font-weight: bold">for</span> i <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(<span style="color: #B452CD">25</span>):
+    plt.subplot(<span style="color: #B452CD">5</span>,<span style="color: #B452CD">5</span>,i+<span style="color: #B452CD">1</span>)
+    plt.xticks([])
+    plt.yticks([])
+    plt.grid(<span style="color: #8B008B; font-weight: bold">False</span>)
+    plt.imshow(train_images[i], cmap=plt.cm.binary)
+    <span style="color: #228B22"># The CIFAR labels happen to be arrays, </span>
+    <span style="color: #228B22"># which is why you need the extra index</span>
+    plt.xlabel(class_names[train_labels[i][<span style="color: #B452CD">0</span>]])
+plt.show()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="set-up-the-model">Set up  the model </h2>
+
+<p>The 6 lines of code below define the convolutional base using a common pattern: a stack of Conv2D and MaxPooling2D layers.</p>
+
+<p>As input, a CNN takes tensors of shape (image_height, image_width, color_channels), ignoring the batch size. If you are new to these dimensions, color_channels refers to (R,G,B). In this example, you will configure our CNN to process inputs of shape (32, 32, 3), which is the format of CIFAR images. You can do this by passing the argument input_shape to our first layer.</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #eeeedd">
+  <pre style="line-height: 125%;">model = models.Sequential()
+model.add(layers.Conv2D(<span style="color: #B452CD">32</span>, (<span style="color: #B452CD">3</span>, <span style="color: #B452CD">3</span>), activation=<span style="color: #CD5555">&#39;relu&#39;</span>, input_shape=(<span style="color: #B452CD">32</span>, <span style="color: #B452CD">32</span>, <span style="color: #B452CD">3</span>)))
+model.add(layers.MaxPooling2D((<span style="color: #B452CD">2</span>, <span style="color: #B452CD">2</span>)))
+model.add(layers.Conv2D(<span style="color: #B452CD">64</span>, (<span style="color: #B452CD">3</span>, <span style="color: #B452CD">3</span>), activation=<span style="color: #CD5555">&#39;relu&#39;</span>))
+model.add(layers.MaxPooling2D((<span style="color: #B452CD">2</span>, <span style="color: #B452CD">2</span>)))
+model.add(layers.Conv2D(<span style="color: #B452CD">64</span>, (<span style="color: #B452CD">3</span>, <span style="color: #B452CD">3</span>), activation=<span style="color: #CD5555">&#39;relu&#39;</span>))
+
+<span style="color: #228B22"># Let&#39;s display the architecture of our model so far.</span>
+
+model.summary()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>You can see that the output of every Conv2D and MaxPooling2D layer is a 3D tensor of shape (height, width, channels). The width and height dimensions tend to shrink as you go deeper in the network. The number of output channels for each Conv2D layer is controlled by the first argument (e.g., 32 or 64). Typically, as the width and height shrink, you can afford (computationally) to add more output channels in each Conv2D layer.</p>
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="add-dense-layers-on-top">Add Dense layers on top </h2>
+
+<p>To complete our model, you will feed the last output tensor from the
+convolutional base (of shape (4, 4, 64)) into one or more Dense layers
+to perform classification. Dense layers take vectors as input (which
+are 1D), while the current output is a 3D tensor. First, you will
+flatten (or unroll) the 3D output to 1D, then add one or more Dense
+layers on top. CIFAR has 10 output classes, so you use a final Dense
+layer with 10 outputs and a softmax activation.
+</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #eeeedd">
+  <pre style="line-height: 125%;">model.add(layers.Flatten())
+model.add(layers.Dense(<span style="color: #B452CD">64</span>, activation=<span style="color: #CD5555">&#39;relu&#39;</span>))
+model.add(layers.Dense(<span style="color: #B452CD">10</span>))
+Here<span style="color: #CD5555">&#39;s the complete architecture of our model.</span>
+
+model.summary()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>As you can see, our (4, 4, 64) outputs were flattened into vectors of shape (1024) before going through two Dense layers.</p>
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="compile-and-train-the-model">Compile and train the model </h2>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #eeeedd">
+  <pre style="line-height: 125%;">model.compile(optimizer=<span style="color: #CD5555">&#39;adam&#39;</span>,
+              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=<span style="color: #8B008B; font-weight: bold">True</span>),
+              metrics=[<span style="color: #CD5555">&#39;accuracy&#39;</span>])
+<span style="color: #a61717; background-color: #e3d2d2">​</span>
+history = model.fit(train_images, train_labels, epochs=<span style="color: #B452CD">10</span>, 
+                    validation_data=(test_images, test_labels))
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="finally-evaluate-the-model">Finally, evaluate the model </h2>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #eeeedd">
+  <pre style="line-height: 125%;">plt.plot(history.history[<span style="color: #CD5555">&#39;accuracy&#39;</span>], label=<span style="color: #CD5555">&#39;accuracy&#39;</span>)
+plt.plot(history.history[<span style="color: #CD5555">&#39;val_accuracy&#39;</span>], label = <span style="color: #CD5555">&#39;val_accuracy&#39;</span>)
+plt.xlabel(<span style="color: #CD5555">&#39;Epoch&#39;</span>)
+plt.ylabel(<span style="color: #CD5555">&#39;Accuracy&#39;</span>)
+plt.ylim([<span style="color: #B452CD">0.5</span>, <span style="color: #B452CD">1</span>])
+plt.legend(loc=<span style="color: #CD5555">&#39;lower right&#39;</span>)
+
+test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=<span style="color: #B452CD">2</span>)
+
+<span style="color: #658b00">print</span>(test_acc)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="recurrent-neural-networks-rnns-overarching-view">Recurrent neural networks (RNNs): Overarching view </h2>
 
 <p>Till now our focus has been, including convolutional neural networks
 as well, on feedforward neural networks. The output or the activations
@@ -228,8 +872,20 @@ input, making them extremely useful for natural language processing
 systems such as automatic translation and speech-to-text.
 </p>
 
-<b>Note: more material to be added here</b>
-
+<!-- !split --><br><br><br><br><br><br><br><br><br><br>
+<h2 id="more-examples">More examples </h2>
+<p>When applying machine learning to sequences, we often want to turn an input
+sequence into an output sequence that lives in a different domain.
+</p>
+<ul>
+<li> As example, consider turning a sequence of sound pressures into a sequence of word identities.
+<ol type="a"></li>
+ <li> When there is no separate target sequence, we can get a teaching signal by trying to predict the next term in the input sequence.</li>
+ <li> The target output sequence is the input sequence with an advance of 1 step.</li>
+ <li> This seems much more natural than trying to predict one pixel in an image from the other pixels, or one patch of an image from the rest of the image.</li>
+ <li> For temporal sequences there is a natural order for the predictions.</li>
+</ol>
+</ul>
 <!-- !split --><br><br><br><br><br><br><br><br><br><br>
 <h2 id="a-simple-example">A simple example </h2>
 
@@ -322,8 +978,212 @@ plt.show()
     </div>
   </div>
 </div>
+<h3 id="memoryless-models">Memoryless models </h3>
+
+<p>Autoregressive models Predict the next term in a sequence from a fixed number of
+previous terms using &#8220;delay taps&#8221;.
+</p>
+
+<div class="alert alert-block alert-block alert-text-normal">
+<b>Feed-forward neural networks</b>
+<p>
+<p>These generalize autoregressive
+models by using one or more
+layers of non-linear hidden units. 
+</p>
+</div>
 
 
+<p>If we give our generative model some hidden state, and if we give
+this hidden state its own internal dynamics, we get a much more
+interesting kind of model.
+</p>
+<ol>
+<li> It can store information in its hidden state for a long time.</li>
+<li> If the dynamics is noisy and the way it generates outputs from its hidden state is noisy, we can never know its exact hidden state.</li>
+<li> The best we can do is to infer a probability distribution over the</li>
+</ol>
+<p>space of hidden state vectors.</p>
+
+<p>This inference is only tractable for two types of hidden state model.</p>
+<h3 id="linear-dynamical-model">Linear dynamical model </h3>
+
+<p>If we give our generative model some hidden state, and if we give
+this hidden state its own internal dynamics, we get a much more
+interesting kind of model.
+</p>
+<ol>
+<li> It can store information in its hidden state for a long time.
+<ol type="a"></li>
+<li> If the dynamics is noisy and the way it generates outputs from its hidden state is noisy, we can never know its exact hidden state.</li>
+</ol>
+<li> The best we can do is to infer a probability distribution over the space of hidden state vectors.</li>
+</ol>
+<h3 id="hidden-markov-models">Hidden Markov Models </h3>
+<p>Hidden Markov Models have a discrete oneof-\( N \) hidden state. Transitions between states
+are stochastic and controlled by a transition
+matrix. The outputs produced by a state are
+stochastic.
+</p>
+<ul>
+<li> We cannot be sure which state produced a given output. So the state is &#8220;hidden&#8221;.</li>
+<li> It is easy to represent a probability distribution across N states with N numbers.</li>
+<li> To predict the next output we need to infer the probability distribution over hidden states.</li>
+</ul>
+<p>HMMs have efficient algorithms for inference and learning</p>
+<h3 id="rnns">RNNs </h3>
+
+<p>RNNs are very powerful, because they
+combine two properties:
+</p>
+<ol>
+<li> Distributed hidden state that allows them to store a lot of information about the past efficiently.</li>
+<li> Non-linear dynamics that allows them to update their hidden state in complicated ways.</li>
+</ol>
+<p>With enough neurons and time, RNNs
+can compute anything that can be
+computed by your computer.
+</p>
+<h3 id="do-generative-models-need-to-be-stochastic">Do generative models need to be stochastic? </h3>
+
+<div class="alert alert-block alert-block alert-text-normal">
+<b>Linear dynamical systems and hidden Markov models are stochastic models.</b>
+<p>
+
+<p>But the posterior probability
+distribution over their
+hidden states given the
+observed data so far is a
+deterministic function of the
+data.
+</p>
+</div>
+ 
+
+<div class="alert alert-block alert-block alert-text-normal">
+<b>Recurrent neural networks are deterministic.</b>
+<p>
+<p>Think of the hidden state
+of an RNN as the
+equivalent of the
+deterministic probability
+distribution over hidden
+states in a linear dynamical
+system or hidden Markov
+model.
+</p>
+</div>
+
+<h3 id="what-kinds-of-behaviour-can-rnns-exhibit">What kinds of behaviour can RNNs exhibit? </h3>
+<ol>
+<li> They can oscillate. Good for motor control?</li>
+<li> They can settle to point attractors. Good for retrieving memories?</li>
+<li> They can behave chaotically. Bad for information processing?</li>
+<li> RNNs could potentially learn to implement lots of small programs that each capture a nugget of knowledge and run in parallel, interacting to produce very complicated effects.</li>
+</ol>
+<p>But the computational power of RNNs makes them very hard to train.</p>
+<h3 id="backpropagation-through-time">Backpropagation through time </h3>
+
+<div class="alert alert-block alert-block alert-text-normal">
+<b></b>
+<p>
+<p>We can think of the recurrent net as a layered, feed-forward
+net with shared weights and then train the feed-forward net
+with weight constraints.
+</p>
+</div>
+
+
+<p>We can also think of this training algorithm in the time domain:</p>
+<ol>
+<li> The forward pass builds up a stack of the activities of all the units at each time step.</li>
+<li> The backward pass peels activities off the stack to compute the error derivatives at each time step.</li>
+<li> After the backward pass we add together the derivatives at all the different times for each weight.</li> 
+</ol>
+<h3 id="we-need-to-specify-the-initial-activity-state-of-all-the-hidden-and-output-units">We need to specify the initial activity state of all the hidden and output units </h3>
+<ol>
+<li> We could just fix these initial states to have some default value like 0.5.</li>
+<li> But it is better to treat the initial states as learned parameters.</li>
+<li> We learn them in the same way as we learn the weights.</li>
+<li> Start off with an initial random guess for the initial states.
+<ol type="a"></li>
+ <li> At the end of each training sequence, backpropagate through time all the way to the initial states to get the gradient of the error function with respect to each initial state.</li>
+ <li> Adjust the initial states by following the negative gradient.</li> 
+</ol>
+</ol>
+<h3 id="we-can-specify-inputs-in-several-ways">We can specify inputs in several ways </h3>
+<ol>
+<li> Specify the initial states of all the units.</li>
+<li> Specify the initial states of a subset of the units.</li>
+<li> Specify the states of the same subset of the units at every time step.</li>
+</ol>
+<p>This is the natural way to model most sequential data. </p>
+<h3 id="we-can-specify-targets-in-several-ways">We can specify targets in several ways </h3>
+
+<ol>
+<li> Specify desired final activities of all the units</li>
+<li> Specify desired activities of all units for the last few steps</li>
+<li> Good for learning attractors</li>
+<li> It is easy to add in extra error derivatives as we backpropagate.</li>
+<ul>
+  <li> Specify the desired activity of a subset of the units.</li>
+</ul>
+<li> The other units are input or hidden units.</li> 
+</ol>
+<h3 id="the-backward-pass-is-linear">The backward pass is linear </h3>
+<ul>
+<li> There is a big difference between the forward and backward passes.</li>
+<li> In the forward pass we use squashing functions (like the logistic) to prevent the activity vectors from exploding.</li>
+<li> The backward pass, is completely linear. If you double the error derivatives at the final layer, all the error derivatives will double.</li>
+</ul>
+<p>The forward pass determines the slope of the linear function used for
+backpropagating through each neuron
+</p>
+<h3 id="the-problem-of-exploding-or-vanishing-gradients">The problem of exploding or vanishing gradients </h3>
+<ul>
+<li> What happens to the magnitude of the gradients as we backpropagate through many layers?
+<ol type="a"></li>
+ <li> If the weights are small, the gradients shrink exponentially.</li>
+ <li> If the weights are big the gradients grow exponentially.</li>
+</ol>
+<li> Typical feed-forward neural nets can cope with these exponential effects because they only have a few hidden layers.</li>
+<li> In an RNN trained on long sequences (e.g. 100 time steps) the gradients can easily explode or vanish.
+<ol type="a"></li>
+ <li> We can avoid this by initializing the weights very carefully.</li>
+</ol>
+<li> Even with good initial weights, its very hard to detect that the current target output depends on an input from many time-steps ago.</li>
+</ul>
+<p>RNNs have difficulty dealing with long-range dependencies. </p>
+<h3 id="four-effective-ways-to-learn-an-rnn">Four effective ways to learn an RNN </h3>
+<ol>
+<li> Long Short Term Memory Make the RNN out of little modules that are designed to remember values for a long time.</li>
+<li> Hessian Free Optimization: Deal with the vanishing gradients problem by using a fancy optimizer that can detect directions with a tiny gradient but even smaller curvature.</li>
+<li> Echo State Networks: Initialize the input a hidden and hidden-hidden and output-hidden connections very carefully so that the hidden state has a huge reservoir of weakly coupled oscillators which can be selectively driven by the input.</li>
+<ul>
+  <li> ESNs only need to learn the hidden-output connections.</li>
+</ul>
+<li> Good initialization with momentum Initialize like in Echo State Networks, but then learn all of the connections using momentum</li>
+</ol>
+<h3 id="long-short-term-memory-lstm">Long Short Term Memory (LSTM) </h3>
+<ol>
+<li> Hochreiter and Schmidhuber (1997) solved the problem of getting an RNN to remember things for a long time (like hundreds of time steps).</li>
+<li> They designed a memory cell using logistic and linear units with multiplicative interactions.</li>
+<li> Information gets into the cell whenever its &#8220;write&#8221; gate is on.</li>
+<li> The information stays in the cell so long as its <b>keep</b> gate is on.</li>
+<li> Information can be read from the cell by turning on its <b>read</b> gate.</li> 
+</ol>
+<h3 id="implementing-a-memory-cell-in-a-neural-network">Implementing a memory cell in a neural network </h3>
+<p>To preserve information for a long time in
+the activities of an RNN, we use a circuit
+that implements an analog memory cell.
+</p>
+
+<ol>
+<li> A linear unit that has a self-link with a weight of 1 will maintain its state.</li>
+<li> Information is stored in the cell by activating its write gate.</li>
+<li> Information is retrieved by activating the read gate.</li>
+<li> We can backpropagate through this circuit because logistics are have nice derivatives.</li> 
+</ol>
 <!-- !split --><br><br><br><br><br><br><br><br><br><br>
 <h2 id="an-extrapolation-example">An extrapolation example </h2>
 
@@ -989,1093 +1849,6 @@ end = timer()
   </div>
 </div>
 
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="generative-models">Generative Models </h2>
-
-<p><b>Generative models</b> describe a class of statistical models that are a contrast
-to <b>discriminative models</b>. Informally we say that generative models can
-generate new data instances while discriminative models discriminate between
-different kinds of data instances. A generative model could generate new photos
-of animals that look like 'real' animals while a discriminative model could tell
-a dog from a cat. More formally, given a data set \( x \) and a set of labels /
-targets \( y \). Generative models capture the joint probability \( p(x, y) \), or
-just \( p(x) \) if there are no labels, while discriminative models capture the
-conditional probability \( p(y | x) \). Discriminative models generally try to draw
-boundaries in the data space (often high dimensional), while generative models
-try to model how data is placed throughout the space.
-</p>
-
-<p><b>Note</b>: this material is thanks to Linus Ekstr&#248;m. </p>
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="generative-adversarial-networks">Generative Adversarial Networks </h2>
-
-<p><b>Generative Adversarial Networks</b> are a type of unsupervised machine learning
-algorithm proposed by <a href="https://arxiv.org/pdf/1406.2661.pdf" target="_blank">Goodfellow et. al</a>
-in 2014 (short and good article).
-</p>
-
-<p>The simplest formulation of
-the model is based on a game theoretic approach, <em>zero sum game</em>, where we pit
-two neural networks against one another. We define two rival networks, one
-generator \( g \), and one discriminator \( d \). The generator directly produces
-samples
-</p>
-$$
-\begin{equation}
-    x = g(z; \theta^{(g)})
-\label{_auto1}
-\end{equation}
-$$
-
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="discriminator">Discriminator </h2>
-<p>The discriminator attempts to distinguish between samples drawn from the
-training data and samples drawn from the generator. In other words, it tries to
-tell the difference between the fake data produced by \( g \) and the actual data
-samples we want to do prediction on. The discriminator outputs a probability
-value given by
-</p>
-
-$$
-\begin{equation}
-    d(x; \theta^{(d)})
-\label{_auto2}
-\end{equation}
-$$
-
-<p>indicating the probability that \( x \) is a real training example rather than a
-fake sample the generator has generated. The simplest way to formulate the
-learning process in a generative adversarial network is a zero-sum game, in
-which a function
-</p>
-
-$$
-\begin{equation}
-    v(\theta^{(g)}, \theta^{(d)})
-\label{_auto3}
-\end{equation}
-$$
-
-<p>determines the reward for the discriminator, while the generator gets the
-conjugate reward
-</p>
-
-$$
-\begin{equation}
-    -v(\theta^{(g)}, \theta^{(d)})
-\label{_auto4}
-\end{equation}
-$$
-
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="learning-process">Learning Process </h2>
-
-<p>During learning both of the networks maximize their own reward function, so that
-the generator gets better and better at tricking the discriminator, while the
-discriminator gets better and better at telling the difference between the fake
-and real data. The generator and discriminator alternate on which one trains at
-one time (i.e. for one epoch). In other words, we keep the generator constant
-and train the discriminator, then we keep the discriminator constant to train
-the generator and repeat. It is this back and forth dynamic which lets GANs
-tackle otherwise intractable generative problems. As the generator improves with
- training, the discriminator's performance gets worse because it cannot easily
- tell the difference between real and fake. If the generator ends up succeeding
- perfectly, the the discriminator will do no better than random guessing i.e.
- 50\%. This progression in the training poses a problem for the convergence
- criteria for GANs. The discriminator feedback gets less meaningful over time,
- if we continue training after this point then the generator is effectively
- training on junk data which can undo the learning up to that point. Therefore,
- we stop training when the discriminator starts outputting \( 1/2 \) everywhere.
-</p>
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="more-about-the-learning-process">More about the Learning Process </h2>
-
-<p>At convergence we have</p>
-
-$$
-\begin{equation}
-    g^* = \underset{g}{\mathrm{argmin}}\hspace{2pt}
-          \underset{d}{\mathrm{max}}v(\theta^{(g)}, \theta^{(d)})
-\label{_auto5}
-\end{equation}
-$$
-
-<p>The default choice for \( v \) is</p>
-$$
-\begin{equation}
-    v(\theta^{(g)}, \theta^{(d)}) = \mathbb{E}_{x\sim p_\mathrm{data}}\log d(x)
-                                  + \mathbb{E}_{x\sim p_\mathrm{model}}
-                                  \log (1 - d(x))
-\label{_auto6}
-\end{equation}
-$$
-
-<p>The main motivation for the design of GANs is that the learning process requires
-neither approximate inference (variational autoencoders for example) nor
-approximation of a partition function. In the case where
-</p>
-$$
-\begin{equation}
-    \underset{d}{\mathrm{max}}v(\theta^{(g)}, \theta^{(d)})
-\label{_auto7}
-\end{equation}
-$$
-
-<p>is convex in $\theta^{(g)} then the procedure is guaranteed to converge and is
-asymptotically consistent
-( <a href="https://arxiv.org/pdf/1804.09139.pdf" target="_blank">Seth Lloyd on QuGANs</a>  ).
-</p>
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="additional-references">Additional References </h2>
-<p>This is in
-general not the case and it is possible to get situations where the training
-process never converges because the generator and discriminator chase one
-another around in the parameter space indefinitely. A much deeper discussion on
-the currently open research problem of GAN convergence is available
-<a href="https://www.deeplearningbook.org/contents/generative_models.html" target="_blank">here</a>. To
-anyone interested in learning more about GANs it is a highly recommended read.
-Direct quote: "In this best-performing formulation, the generator aims to
-increase the log probability that the discriminator makes a mistake, rather than
-aiming to decrease the log probability that the discriminator makes the correct
-prediction." <a href="https://arxiv.org/abs/1701.00160" target="_blank">Another interesting read</a>
-</p>
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="writing-our-first-generative-adversarial-network">Writing Our First Generative Adversarial Network </h2>
-<p>Let us now move on to actually implementing a GAN in tensorflow. We will study
-the performance of our GAN on the MNIST dataset. This code is based on and
-adapted from the
-<a href="https://www.tensorflow.org/tutorials/generative/dcgan" target="_blank">google tutorial</a>
-</p>
-
-<p>First we import our libraries</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;"><span style="color: #8B008B; font-weight: bold">import</span> <span style="color: #008b45; text-decoration: underline">os</span>
-<span style="color: #8B008B; font-weight: bold">import</span> <span style="color: #008b45; text-decoration: underline">time</span>
-<span style="color: #8B008B; font-weight: bold">import</span> <span style="color: #008b45; text-decoration: underline">numpy</span> <span style="color: #8B008B; font-weight: bold">as</span> <span style="color: #008b45; text-decoration: underline">np</span>
-<span style="color: #8B008B; font-weight: bold">import</span> <span style="color: #008b45; text-decoration: underline">tensorflow</span> <span style="color: #8B008B; font-weight: bold">as</span> <span style="color: #008b45; text-decoration: underline">tf</span>
-<span style="color: #8B008B; font-weight: bold">import</span> <span style="color: #008b45; text-decoration: underline">matplotlib.pyplot</span> <span style="color: #8B008B; font-weight: bold">as</span> <span style="color: #008b45; text-decoration: underline">plt</span>
-<span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">tensorflow.keras</span> <span style="color: #8B008B; font-weight: bold">import</span> layers
-<span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">tensorflow.keras.utils</span> <span style="color: #8B008B; font-weight: bold">import</span> plot_model
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Next we define our hyperparameters and import our data the usual way</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;">BUFFER_SIZE = <span style="color: #B452CD">60000</span>
-BATCH_SIZE = <span style="color: #B452CD">256</span>
-EPOCHS = <span style="color: #B452CD">30</span>
-
-data = tf.keras.datasets.mnist.load_data()
-(train_images, train_labels), (test_images, test_labels) = data
-train_images = np.reshape(train_images, (train_images.shape[<span style="color: #B452CD">0</span>],
-                                         <span style="color: #B452CD">28</span>,
-                                         <span style="color: #B452CD">28</span>,
-                                         <span style="color: #B452CD">1</span>)).astype(<span style="color: #CD5555">&#39;float32&#39;</span>)
-
-<span style="color: #228B22"># we normalize between -1 and 1</span>
-train_images = (train_images - <span style="color: #B452CD">127.5</span>) / <span style="color: #B452CD">127.5</span>
-training_dataset = tf.data.Dataset.from_tensor_slices(
-                      train_images).shuffle(BUFFER_SIZE).batch(BATCH_SIZE)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="mnist-and-gans">MNIST and GANs </h2>
-
-<p>Let's have a quick look</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;">plt.imshow(train_images[<span style="color: #B452CD">0</span>], cmap=<span style="color: #CD5555">&#39;Greys&#39;</span>)
-plt.show()
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Now we define our two models. This is where the 'magic' happens. There are a
-huge amount of possible formulations for both models. A lot of engineering and
-trial and error can be done here to try to produce better performing models. For
-more advanced GANs this is by far the step where you can 'make or break' a
-model.
-</p>
-
-<p>We start with the generator. As stated in the introductory text the generator
-\( g \) upsamples from a random sample to the shape of what we want to predict. In
-our case we are trying to predict MNIST images (\( 28\times 28 \) pixels).
-</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;"><span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">generator_model</span>():
-    <span style="color: #CD5555">&quot;&quot;&quot;</span>
-<span style="color: #CD5555">    The generator uses upsampling layers tf.keras.layers.Conv2DTranspose() to</span>
-<span style="color: #CD5555">    produce an image from a random seed. We start with a Dense layer taking this</span>
-<span style="color: #CD5555">    random sample as an input and subsequently upsample through multiple</span>
-<span style="color: #CD5555">    convolutional layers.</span>
-<span style="color: #CD5555">    &quot;&quot;&quot;</span>
-
-    <span style="color: #228B22"># we define our model</span>
-    model = tf.keras.Sequential()
-
-
-    <span style="color: #228B22"># adding our input layer. Dense means that every neuron is connected and</span>
-    <span style="color: #228B22"># the input shape is the shape of our random noise. The units need to match</span>
-    <span style="color: #228B22"># in some sense the upsampling strides to reach our desired output shape.</span>
-    <span style="color: #228B22"># we are using 100 random numbers as our seed</span>
-    model.add(layers.Dense(units=<span style="color: #B452CD">7</span>*<span style="color: #B452CD">7</span>*BATCH_SIZE,
-                           use_bias=<span style="color: #8B008B; font-weight: bold">False</span>,
-                           input_shape=(<span style="color: #B452CD">100</span>, )))
-    <span style="color: #228B22"># we normalize the output form the Dense layer</span>
-    model.add(layers.BatchNormalization())
-    <span style="color: #228B22"># and add an activation function to our &#39;layer&#39;. LeakyReLU avoids vanishing</span>
-    <span style="color: #228B22"># gradient problem</span>
-    model.add(layers.LeakyReLU())
-    model.add(layers.Reshape((<span style="color: #B452CD">7</span>, <span style="color: #B452CD">7</span>, BATCH_SIZE)))
-    <span style="color: #8B008B; font-weight: bold">assert</span> model.output_shape == (<span style="color: #8B008B; font-weight: bold">None</span>, <span style="color: #B452CD">7</span>, <span style="color: #B452CD">7</span>, BATCH_SIZE)
-    <span style="color: #228B22"># even though we just added four keras layers we think of everything above</span>
-    <span style="color: #228B22"># as &#39;one&#39; layer</span>
-
-    <span style="color: #228B22"># next we add our upscaling convolutional layers</span>
-    model.add(layers.Conv2DTranspose(filters=<span style="color: #B452CD">128</span>,
-                                     kernel_size=(<span style="color: #B452CD">5</span>, <span style="color: #B452CD">5</span>),
-                                     strides=(<span style="color: #B452CD">1</span>, <span style="color: #B452CD">1</span>),
-                                     padding=<span style="color: #CD5555">&#39;same&#39;</span>,
-                                     use_bias=<span style="color: #8B008B; font-weight: bold">False</span>))
-    model.add(layers.BatchNormalization())
-    model.add(layers.LeakyReLU())
-    <span style="color: #8B008B; font-weight: bold">assert</span> model.output_shape == (<span style="color: #8B008B; font-weight: bold">None</span>, <span style="color: #B452CD">7</span>, <span style="color: #B452CD">7</span>, <span style="color: #B452CD">128</span>)
-
-    model.add(layers.Conv2DTranspose(filters=<span style="color: #B452CD">64</span>,
-                                     kernel_size=(<span style="color: #B452CD">5</span>, <span style="color: #B452CD">5</span>),
-                                     strides=(<span style="color: #B452CD">2</span>, <span style="color: #B452CD">2</span>),
-                                     padding=<span style="color: #CD5555">&#39;same&#39;</span>,
-                                     use_bias=<span style="color: #8B008B; font-weight: bold">False</span>))
-    model.add(layers.BatchNormalization())
-    model.add(layers.LeakyReLU())
-    <span style="color: #8B008B; font-weight: bold">assert</span> model.output_shape == (<span style="color: #8B008B; font-weight: bold">None</span>, <span style="color: #B452CD">14</span>, <span style="color: #B452CD">14</span>, <span style="color: #B452CD">64</span>)
-
-    model.add(layers.Conv2DTranspose(filters=<span style="color: #B452CD">1</span>,
-                                     kernel_size=(<span style="color: #B452CD">5</span>, <span style="color: #B452CD">5</span>),
-                                     strides=(<span style="color: #B452CD">2</span>, <span style="color: #B452CD">2</span>),
-                                     padding=<span style="color: #CD5555">&#39;same&#39;</span>,
-                                     use_bias=<span style="color: #8B008B; font-weight: bold">False</span>,
-                                     activation=<span style="color: #CD5555">&#39;tanh&#39;</span>))
-    <span style="color: #8B008B; font-weight: bold">assert</span> model.output_shape == (<span style="color: #8B008B; font-weight: bold">None</span>, <span style="color: #B452CD">28</span>, <span style="color: #B452CD">28</span>, <span style="color: #B452CD">1</span>)
-
-    <span style="color: #8B008B; font-weight: bold">return</span> model
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>And there we have our 'simple' generator model. Now we move on to defining our
-discriminator model \( d \), which is a convolutional neural network based image
-classifier.
-</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;"><span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">discriminator_model</span>():
-    <span style="color: #CD5555">&quot;&quot;&quot;</span>
-<span style="color: #CD5555">    The discriminator is a convolutional neural network based image classifier</span>
-<span style="color: #CD5555">    &quot;&quot;&quot;</span>
-
-    <span style="color: #228B22"># we define our model</span>
-    model = tf.keras.Sequential()
-    model.add(layers.Conv2D(filters=<span style="color: #B452CD">64</span>,
-                            kernel_size=(<span style="color: #B452CD">5</span>, <span style="color: #B452CD">5</span>),
-                            strides=(<span style="color: #B452CD">2</span>, <span style="color: #B452CD">2</span>),
-                            padding=<span style="color: #CD5555">&#39;same&#39;</span>,
-                            input_shape=[<span style="color: #B452CD">28</span>, <span style="color: #B452CD">28</span>, <span style="color: #B452CD">1</span>]))
-    model.add(layers.LeakyReLU())
-    <span style="color: #228B22"># adding a dropout layer as you do in conv-nets</span>
-    model.add(layers.Dropout(<span style="color: #B452CD">0.3</span>))
-
-
-    model.add(layers.Conv2D(filters=<span style="color: #B452CD">128</span>,
-                            kernel_size=(<span style="color: #B452CD">5</span>, <span style="color: #B452CD">5</span>),
-                            strides=(<span style="color: #B452CD">2</span>, <span style="color: #B452CD">2</span>),
-                            padding=<span style="color: #CD5555">&#39;same&#39;</span>))
-    model.add(layers.LeakyReLU())
-    <span style="color: #228B22"># adding a dropout layer as you do in conv-nets</span>
-    model.add(layers.Dropout(<span style="color: #B452CD">0.3</span>))
-
-    model.add(layers.Flatten())
-    model.add(layers.Dense(<span style="color: #B452CD">1</span>))
-
-    <span style="color: #8B008B; font-weight: bold">return</span> model
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="other-models">Other Models </h2>
-<p>Let us take a look at our models. <b>Note</b>: double click images for bigger view.</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;">generator = generator_model()
-plot_model(generator, show_shapes=<span style="color: #8B008B; font-weight: bold">True</span>, rankdir=<span style="color: #CD5555">&#39;LR&#39;</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;">discriminator = discriminator_model()
-plot_model(discriminator, show_shapes=<span style="color: #8B008B; font-weight: bold">True</span>, rankdir=<span style="color: #CD5555">&#39;LR&#39;</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Next we need a few helper objects we will use in training</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;">cross_entropy = tf.keras.losses.BinaryCrossentropy(from_logits=<span style="color: #8B008B; font-weight: bold">True</span>)
-generator_optimizer = tf.keras.optimizers.Adam(<span style="color: #B452CD">1e-4</span>)
-discriminator_optimizer = tf.keras.optimizers.Adam(<span style="color: #B452CD">1e-4</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>The first object, <em>cross_entropy</em> is our loss function and the two others are
-our optimizers. Notice we use the same learning rate for both \( g \) and \( d \). This
-is because they need to improve their accuracy at approximately equal speeds to
-get convergence (not necessarily exactly equal). Now we define our loss
-functions
-</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;"><span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">generator_loss</span>(fake_output):
-    loss = cross_entropy(tf.ones_like(fake_output), fake_output)
-
-    <span style="color: #8B008B; font-weight: bold">return</span> loss
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;"><span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">discriminator_loss</span>(real_output, fake_output):
-    real_loss = cross_entropy(tf.ones_like(real_output), real_output)
-    fake_loss = cross_entropy(tf.zeros_liks(fake_output), fake_output)
-    total_loss = real_loss + fake_loss
-
-    <span style="color: #8B008B; font-weight: bold">return</span> total_loss
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Next we define a kind of seed to help us compare the learning process over
-multiple training epochs.
-</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;">noise_dimension = <span style="color: #B452CD">100</span>
-n_examples_to_generate = <span style="color: #B452CD">16</span>
-seed_images = tf.random.normal([n_examples_to_generate, noise_dimension])
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="training-step">Training Step </h2>
-
-<p>Now we have everything we need to define our training step, which we will apply
-for every step in our training loop. Notice the @tf.function flag signifying
-that the function is tensorflow 'compiled'. Removing this flag doubles the
-computation time.
-</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;"><span style="color: #707a7c">@tf</span>.function
-<span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">train_step</span>(images):
-    noise = tf.random.normal([BATCH_SIZE, noise_dimension])
-
-    <span style="color: #8B008B; font-weight: bold">with</span> tf.GradientTape() <span style="color: #8B008B; font-weight: bold">as</span> gen_tape, tf.GradientTape() <span style="color: #8B008B; font-weight: bold">as</span> disc_tape:
-        generated_images = generator(noise, training=<span style="color: #8B008B; font-weight: bold">True</span>)
-
-        real_output = discriminator(images, training=<span style="color: #8B008B; font-weight: bold">True</span>)
-        fake_output = discriminator(generated_images, training=<span style="color: #8B008B; font-weight: bold">True</span>)
-
-        gen_loss = generator_loss(fake_output)
-        disc_loss = discriminator_loss(real_output, fake_output)
-
-    gradients_of_generator = gen_tape.gradient(gen_loss,
-                                            generator.trainable_variables)
-    gradients_of_discriminator = disc_tape.gradient(disc_loss,
-                                            discriminator.trainable_variables)
-    generator_optimizer.apply_gradients(<span style="color: #658b00">zip</span>(gradients_of_generator,
-                                            generator.trainable_variables))
-    discriminator_optimizer.apply_gradients(<span style="color: #658b00">zip</span>(gradients_of_discriminator,
-                                            discriminator.trainable_variables))
-
-    <span style="color: #8B008B; font-weight: bold">return</span> gen_loss, disc_loss
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Next we define a helper function to produce an output over our training epochs
-to see the predictive progression of our generator model. <b>Note</b>: I am including
-this code here, but comment it out in the training loop.
-</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;"><span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">generate_and_save_images</span>(model, epoch, test_input):
-    <span style="color: #228B22"># we&#39;re making inferences here</span>
-    predictions = model(test_input, training=<span style="color: #8B008B; font-weight: bold">False</span>)
-
-    fig = plt.figure(figsize=(<span style="color: #B452CD">4</span>, <span style="color: #B452CD">4</span>))
-
-    <span style="color: #8B008B; font-weight: bold">for</span> i <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(predictions.shape[<span style="color: #B452CD">0</span>]):
-        plt.subplot(<span style="color: #B452CD">4</span>, <span style="color: #B452CD">4</span>, i+<span style="color: #B452CD">1</span>)
-        plt.imshow(predictions[i, :, :, <span style="color: #B452CD">0</span>] * <span style="color: #B452CD">127.5</span> + <span style="color: #B452CD">127.5</span>, cmap=<span style="color: #CD5555">&#39;gray&#39;</span>)
-        plt.axis(<span style="color: #CD5555">&#39;off&#39;</span>)
-
-    plt.savefig(<span style="color: #CD5555">f&#39;./images_from_seed_images/image_at_epoch_{</span><span style="color: #658b00">str</span>(epoch).zfill(<span style="color: #B452CD">3</span>)<span style="color: #CD5555">}.png&#39;</span>)
-    plt.close()
-    <span style="color: #228B22">#plt.show()</span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="checkpoints">Checkpoints </h2>
-<p>Setting up checkpoints to periodically save our model during training so that
-everything is not lost even if the program were to somehow terminate while
-training.
-</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;"><span style="color: #228B22"># Setting up checkpoints to save model during training</span>
-checkpoint_dir = <span style="color: #CD5555">&#39;./training_checkpoints&#39;</span>
-checkpoint_prefix = os.path.join(checkpoint_dir, <span style="color: #CD5555">&#39;ckpt&#39;</span>)
-checkpoint = tf.train.Checkpoint(generator_optimizer=generator_optimizer,
-                            discriminator_optimizer=discriminator_optimizer,
-                            generator=generator,
-                            discriminator=discriminator)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Now we define our training loop</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;"><span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">train</span>(dataset, epochs):
-    generator_loss_list = []
-    discriminator_loss_list = []
-
-    <span style="color: #8B008B; font-weight: bold">for</span> epoch <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(epochs):
-        start = time.time()
-
-        <span style="color: #8B008B; font-weight: bold">for</span> image_batch <span style="color: #8B008B">in</span> dataset:
-            gen_loss, disc_loss = train_step(image_batch)
-            generator_loss_list.append(gen_loss.numpy())
-            discriminator_loss_list.append(disc_loss.numpy())
-
-        <span style="color: #228B22">#generate_and_save_images(generator, epoch + 1, seed_images)</span>
-
-        <span style="color: #8B008B; font-weight: bold">if</span> (epoch + <span style="color: #B452CD">1</span>) % <span style="color: #B452CD">15</span> == <span style="color: #B452CD">0</span>:
-            checkpoint.save(file_prefix=checkpoint_prefix)
-
-        <span style="color: #658b00">print</span>(<span style="color: #CD5555">f&#39;Time for epoch {</span>epoch<span style="color: #CD5555">} is {</span>time.time() - start<span style="color: #CD5555">}&#39;</span>)
-
-    <span style="color: #228B22">#generate_and_save_images(generator, epochs, seed_images)</span>
-
-    loss_file = <span style="color: #CD5555">&#39;./data/lossfile.txt&#39;</span>
-    <span style="color: #8B008B; font-weight: bold">with</span> <span style="color: #658b00">open</span>(loss_file, <span style="color: #CD5555">&#39;w&#39;</span>) <span style="color: #8B008B; font-weight: bold">as</span> outfile:
-        outfile.write(<span style="color: #658b00">str</span>(generator_loss_list))
-        outfile.write(<span style="color: #CD5555">&#39;\n&#39;</span>)
-        outfile.write(<span style="color: #CD5555">&#39;\n&#39;</span>)
-        outfile.write(<span style="color: #658b00">str</span>(discriminator_loss_list))
-        outfile.write(<span style="color: #CD5555">&#39;\n&#39;</span>)
-        outfile.write(<span style="color: #CD5555">&#39;\n&#39;</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>To train simply call this function. <b>Warning</b>: this might take a long time so
-there is a folder of a pretrained network already included in the repository.
-</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;">train(train_dataset, EPOCHS)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>And here is the result of training our model for 100 epochs</p>
-
-<embed src="images_from_seed_images/generation.gif"  autoplay="false" loop="true"></embed>
-<p><em></em></p>
-
-<p>Now to avoid having to train and everything, which will take a while depending
-on your computer setup we now load in the model which produced the above gif.
-</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;">checkpoint.restore(tf.train.latest_checkpoint(checkpoint_dir))
-restored_generator = checkpoint.generator
-restored_discriminator = checkpoint.discriminator
-
-<span style="color: #658b00">print</span>(restored_generator)
-<span style="color: #658b00">print</span>(restored_discriminator)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="exploring-the-latent-space">Exploring the Latent Space </h2>
-
-<p>We have successfully loaded in our latest model. Let us now play around a bit
-and see what kind of things we can learn about this model. Our generator takes
-an array of 100 numbers. One idea can be to try to systematically change our
-input. Let us try and see what we get
-</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;"><span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">generate_latent_points</span>(number=<span style="color: #B452CD">100</span>, scale_means=<span style="color: #B452CD">1</span>, scale_stds=<span style="color: #B452CD">1</span>):
-    latent_dim = <span style="color: #B452CD">100</span>
-    means = scale_means * tf.linspace(-<span style="color: #B452CD">1</span>, <span style="color: #B452CD">1</span>, num=latent_dim)
-    stds = scale_stds * tf.linspace(-<span style="color: #B452CD">1</span>, <span style="color: #B452CD">1</span>, num=latent_dim)
-    latent_space_value_range = tf.random.normal([number, latent_dim],
-                                                means,
-                                                stds,
-                                                dtype=tf.float64)
-
-    <span style="color: #8B008B; font-weight: bold">return</span> latent_space_value_range
-
-<span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">generate_images</span>(latent_points):
-    <span style="color: #228B22"># notice we set training to false because we are making inferences</span>
-    generated_images = restored_generator.predict(latent_points)
-
-    <span style="color: #8B008B; font-weight: bold">return</span> generated_images
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;"><span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">plot_result</span>(generated_images, number=<span style="color: #B452CD">100</span>):
-    <span style="color: #228B22"># obviously this assumes sqrt number is an int</span>
-    fig, axs = plt.subplots(<span style="color: #658b00">int</span>(np.sqrt(number)), <span style="color: #658b00">int</span>(np.sqrt(number)),
-                            figsize=(<span style="color: #B452CD">10</span>, <span style="color: #B452CD">10</span>))
-
-    <span style="color: #8B008B; font-weight: bold">for</span> i <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(<span style="color: #658b00">int</span>(np.sqrt(number))):
-        <span style="color: #8B008B; font-weight: bold">for</span> j <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(<span style="color: #658b00">int</span>(np.sqrt(number))):
-            axs[i, j].imshow(generated_images[i*j], cmap=<span style="color: #CD5555">&#39;Greys&#39;</span>)
-            axs[i, j].axis(<span style="color: #CD5555">&#39;off&#39;</span>)
-
-    plt.show()
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;">generated_images = generate_images(generate_latent_points())
-plot_result(generated_images)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="getting-results">Getting Results </h2>
-<p>We see that the generator generates images that look like MNIST
-numbers: \( 1, 4, 7, 9 \). Let's try to tweak it a bit more to see if we are able
-to generate a similar plot where we generate every MNIST number. Let us now try
-to 'move' a bit around in the latent space. <b>Note</b>: decrease the plot number if
-these following cells take too long to run on your computer.
-</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;">plot_number = <span style="color: #B452CD">225</span>
-
-generated_images = generate_images(generate_latent_points(number=plot_number,
-                                                          scale_means=<span style="color: #B452CD">5</span>,
-                                                          scale_stds=<span style="color: #B452CD">1</span>))
-plot_result(generated_images, number=plot_number)
-
-generated_images = generate_images(generate_latent_points(number=plot_number,
-                                                          scale_means=-<span style="color: #B452CD">5</span>,
-                                                          scale_stds=<span style="color: #B452CD">1</span>))
-plot_result(generated_images, number=plot_number)
-
-generated_images = generate_images(generate_latent_points(number=plot_number,
-                                                          scale_means=<span style="color: #B452CD">1</span>,
-                                                          scale_stds=<span style="color: #B452CD">5</span>))
-plot_result(generated_images, number=plot_number)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Again, we have found something interesting. <em>Moving</em> around using our means
-takes us from digit to digit, while <em>moving</em> around using our standard
-deviations seem to increase the number of different digits! In the last image
-above, we can barely make out every MNIST digit. Let us make on last plot using
-this information by upping the standard deviation of our Gaussian noises.
-</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;">plot_number = <span style="color: #B452CD">400</span>
-generated_images = generate_images(generate_latent_points(number=plot_number,
-                                                          scale_means=<span style="color: #B452CD">1</span>,
-                                                          scale_stds=<span style="color: #B452CD">10</span>))
-plot_result(generated_images, number=plot_number)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>A pretty cool result! We see that our generator indeed has learned a
-distribution which qualitatively looks a whole lot like the MNIST dataset.
-</p>
-
-<!-- !split --><br><br><br><br><br><br><br><br><br><br>
-<h2 id="interpolating-between-mnist-digits">Interpolating Between MNIST Digits </h2>
-<p>Another interesting way to explore the latent space of our generator model is by
-interpolating between the MNIST digits. This section is largely based on
-<a href="https://machinelearningmastery.com/how-to-interpolate-and-perform-vector-arithmetic-with-faces-using-a-generative-adversarial-network/" target="_blank">this excellent blogpost</a>
-by Jason Brownlee.
-</p>
-
-<p>So let us start by defining a function to interpolate between two points in the
-latent space.
-</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;"><span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">interpolation</span>(point_1, point_2, n_steps=<span style="color: #B452CD">10</span>):
-    ratios = np.linspace(<span style="color: #B452CD">0</span>, <span style="color: #B452CD">1</span>, num=n_steps)
-    vectors = []
-    <span style="color: #8B008B; font-weight: bold">for</span> i, ratio <span style="color: #8B008B">in</span> <span style="color: #658b00">enumerate</span>(ratios):
-        vectors.append(((<span style="color: #B452CD">1.0</span> - ratio) * point_1 + ratio * point_2))
-
-    <span style="color: #8B008B; font-weight: bold">return</span> tf.stack(vectors)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Now we have all we need to do our interpolation analysis.</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #eeeedd">
-  <pre style="line-height: 125%;">plot_number = <span style="color: #B452CD">100</span>
-latent_points = generate_latent_points(number=plot_number)
-results = <span style="color: #8B008B; font-weight: bold">None</span>
-<span style="color: #8B008B; font-weight: bold">for</span> i <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(<span style="color: #B452CD">0</span>, <span style="color: #B452CD">2</span>*np.sqrt(plot_number), <span style="color: #B452CD">2</span>):
-    interpolated = interpolation(latent_points[i], latent_points[i+<span style="color: #B452CD">1</span>])
-    generated_images = generate_images(interpolated)
-
-    <span style="color: #8B008B; font-weight: bold">if</span> results <span style="color: #8B008B">is</span> <span style="color: #8B008B; font-weight: bold">None</span>:
-        results = generated_images
-    <span style="color: #8B008B; font-weight: bold">else</span>:
-        results = tf.stack((results, generated_images))
-
-plot_results(results, plot_number)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ------------------- end of main content --------------- -->
 <center style="font-size:80%">
