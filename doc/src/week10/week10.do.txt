@@ -9,7 +9,7 @@ DATE: March 6-10, 2023
 !bblock
 * Wrapping up Convolutional Neural Networks
 * Recurrent neural networks
-* "Video of lecture at with subtitles":"https://youtube.be"
+* "Video of lecture at with subtitles":"https://youtu.be/VvgiK3TUdxg"
 
 !eblock
 
@@ -674,45 +674,33 @@ The forward pass determines the slope of the linear function used for
 backpropagating through each neuron
 
 
-!split
-===== Weight matrices in a single hidden-layer RNN, part 1 =====
+
+
 FIGURE: [figslides/RNN6.png, width=700 frac=0.9]
 
-
-!split
-===== Weight matrices in a single hidden-layer RNN, part 2 =====
 
 
 FIGURE: [figslides/RNN7.png, width=700 frac=0.9]
 
 
-!split
-===== Weight matrices in a single hidden-layer RNN, part 3 =====
 
 
 FIGURE: [figslides/RNN8.png, width=700 frac=0.9]
 
 
-!split
-===== Backpropagation through  time, part 1  =====
 
 
 FIGURE: [figslides/RNN9.png, width=700 frac=0.9]
 
-!split
-===== Backpropagation through  time, part 2  =====
 
 
 FIGURE: [figslides/RNN10.png, width=700 frac=0.9]
 
-!split
-===== Backpropagation through  time, part 3  =====
 
 
 FIGURE: [figslides/RNN11.png, width=700 frac=0.9]
 
-!split
-===== Backpropagation through  time, part 4  =====
+
 
 FIGURE: [figslides/RNN12.png, width=700 frac=0.9]
 
