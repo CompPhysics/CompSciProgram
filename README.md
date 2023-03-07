@@ -114,11 +114,12 @@ In total 20 ECTS.
 
 ### March 7
 - Summary of CNNs and start discussion of Recurrent neural networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week10/html/week10-reveal.html
-- Video of lecture 
+- Video of lecture https://youtu.be/VvgiK3TUdxg
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesMarch72023.pdf
 
 ### March 14
 - Autoencoders and start discussion of GANs. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week11/html/week11-reveal.html
-- Video of lecture 
+- Video of lecture TBA
 
 
 ### March 21
