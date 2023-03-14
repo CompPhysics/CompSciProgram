@@ -9,8 +9,8 @@ DATE: March 6-17, 2023
 !bblock
 * Wrapping up Convolutional Neural Networks
 * Recurrent neural networks
-* "Video of lecture at with subtitles":"https://youtu.be/VvgiK3TUdxg"
-
+* "Video of lecture March 7 with subtitles":"https://youtu.be/VvgiK3TUdxg"
+* "Video of lecture March 14 with subtitles":"https://youtu.be/TD63ggQbkTk" 
 !eblock
 
 !split
