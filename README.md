@@ -118,13 +118,12 @@ In total 20 ECTS.
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesMarch72023.pdf
 
 ### March 14
-- Autoencoders and start discussion of GANs. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week11/html/week11-reveal.html
+- Summary of RNNs and discussion and work on project 2
 - Video of lecture TBA
 
 
 ### March 21
-- Generalized adversarial networks. Slides at https://compphysics.github.io/CompSciProgram/doc/pub/week11/html/week11-reveal.html
-- Video of lecture 
+- Work on project 2
 
 - Video of lecture 
 
