@@ -118,28 +118,29 @@ In total 20 ECTS.
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesMarch72023.pdf
 
 ### March 14
-- Summary of RNNs and discussion and work on project 2
+- Summary of RNNs and work on project 2
 - Video of lecture TBA
 
 
 ### March 21
 - Work on project 2
 
-- Video of lecture 
-
 ### March 28
-- Video of lecture 
+- Gaussian processes and Bayesian statistics by Anders Kvellestad
 
 ### April xxx
-- Video of lecture 
+- TBA
 
 ### April xxx
-- Video of lecture 
+- TBA 
 
 ### April xxx
-- Video of lecture 
+- TBA
 
 ### April xxx
-- Video of lecture 
+- TBA
+
+### May xxx
+- TBA
 
 
