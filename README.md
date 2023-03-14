@@ -119,7 +119,7 @@ In total 20 ECTS.
 
 ### March 14
 - Summary of RNNs and work on project 2
-- Video of lecture TBA
+- Video of lecture at https://youtu.be/TD63ggQbkTk. No whiteboard notes.
 
 
 ### March 21
