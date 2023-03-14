@@ -746,7 +746,7 @@ independent of each other.  But with sequential data, the input at a given stage
 ===== A typical RNN =====
 
 o Weight matrices $U$, $W$ and $V$ that connect the input layer at a stage $t$ with the hidden layer $h_t$, the previous hidden layer $h_{t-1}$ with $h_t$ and the hidden layer $h_t$ connecting with the output layer at the same stage and producing an output $\tilde{y}_t$, respectively.
-o The output from the hidden layer $h_t$ is oftem modulated by a $\tanh{}$ function $h_t=f(x_t,h_{t-1})=\tanh{(Ux_t+Wh_{t-1}+b$ with $b$ a bias value
+o The output from the hidden layer $h_t$ is oftem modulated by a $\tanh{}$ function $h_t=f(x_t,h_{t-1})=\tanh{(Ux_t+Wh_{t-1}+b)}$ with $b$ a bias value
 o The output from the hidden layer produces $\tilde{y}_t=g(Vh_t+c)$ where $c$ is a new bias parameter.
 o The output from the training at a given stage is in turn compared with the observation $y_t$ thorugh a chosen cost function.
 
@@ -1411,8 +1411,7 @@ that for each training observation \(\mathbf{x}_{i}\)\textbf{ }we will
 have one label or expected value \(\mathbf{y}_{i}\). During training,
 the neural network model will learn the relationship between the input
 data and the expected labels. Now suppose we have only unlabeled
-observations, meaning we only have our training dataset \( S_{T}\),made of the \( M\) observations \(\mathbf{x}_{i}\) with \( i =
-1,\ldots ,M\) %
+observations, meaning we only have our training dataset $S_{T}$,made of the $M$ observations $\mathbf{x}_{i}$ with $i =1,\ldots ,M$
 
 !bt
 \begin{equation}
@@ -1420,8 +1419,7 @@ S_{T} =\left\{\mathbf{x}_{i} \vert  i = 1,\ldots ,M\right\}   \\
 \end{equation}
 !et
 
-%
-Where in general \(\mathbf{x}_{i}\in\mathbb{R}^{n}\) with \( n\in\mathbb{N}\).
+Where in general $\mathbf{x}_{i}\in\mathbb{R}^{n}$ with $n\in\mathbb{N}$.
 
 
 !split
