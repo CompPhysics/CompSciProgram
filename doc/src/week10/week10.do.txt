@@ -1,10 +1,10 @@
 TITLE: Week 10: Recurrent neural networks 
 AUTHOR: Morten Hjorth-Jensen {copyright, 1999-present|CC BY-NC} at Department of Physics, University of Oslo & Department of Physics and Astronomy and Facility for Rare Isotope Beams, Michigan State University
-DATE: March 6-10, 2023
+DATE: March 6-17, 2023
 
 
 !split
-===== Plans for week 10, March 6-10 =====
+===== Plans for weeks 10 and 11, March 6-17 =====
 
 !bblock
 * Wrapping up Convolutional Neural Networks
@@ -22,15 +22,14 @@ DATE: March 6-10, 2023
 * "Video on Deep Learning":"https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi"
 !eblock
 
-!bblock More resources
-* "IN5400 at UiO Lecture":"https://www.uio.no/studier/emner/matnat/ifi/IN5400/v20/material/week10/in5400_2020_week10_recurrent_neural_network.pdf"
-* "CS231 at Stanford Lecture":"https://www.youtube.com/watch?v=6niqTuYFZLQ&list=PLzUTmXVwsnXod6WNdg57Yc3zFx_f-RYsq&index=10&ab_channel=StanfordUniversitySchoolofEngineering"
-!eblock
-
-
-!bblock Reading Recommendations
-* Goodfellow et al, chapter 9 on CNNs and chapter 10 on RNNs, chapters 11 and 12 on various practicalities around deep learning are also recommended.
-* Aurelien Geron, chapter 13 on CNNs.
+!bblock Reading recommendations:
+  o For RNNs see Goodfellow et al chapter 10. See also chapter 11 and 12 on practicalities and applications
+  o Reading suggestions for implementation of RNNs: "Aurelien Geron's chapter 14":"https://github.com/CompPhysics/MachineLearning/blob/master/doc/Textbooks/TensorflowML.pdf". 
+  o "Deep Learning Tutorial on AEs from Stanford University":"http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders/"
+  o "Building AEs in Keras":"https://blog.keras.io/building-autoencoders-in-keras.html"
+  o "Introduction to AEs in TensorFlow":"https://www.tensorflow.org/tutorials/generative/autoencoder"
+  o "Grosse, University of Toronto, Lecture on AEs":"http://www.cs.toronto.edu/~rgrosse/courses/csc321_2017/slides/lec20.pdf"
+  o "Bank et al on AEs":"https://arxiv.org/abs/2003.05991"  
 !eblock
 
 
@@ -729,8 +728,39 @@ o Echo State Networks: Initialize the input a hidden and hidden-hidden and outpu
 o Good initialization with momentum Initialize like in Echo State Networks, but then learn all of the connections using momentum
 
 
-=== Long Short Term Memory (LSTM) ===
-o Hochreiter and Schmidhuber (1997) solved the problem of getting an RNN to remember things for a long time (like hundreds of time steps).
+
+
+
+!split
+===== Summary of RNNs =====
+Recurrent neural networks (RNNs) have in general no probabilistic component
+in a model. With a given fixed input and target from data, the RNNs learn the intermediate
+association between various layers.
+The inputs, outputs, and internal representation (hidden states) are all
+real-valued vectors.
+
+In a  traditional NN, it is assumed that every input is
+independent of each other.  But with sequential data, the input at a given stage $t$ depends on the input from the previous stage $t-1$
+
+!split
+===== A typical RNN =====
+
+o Weight matrices $U$, $W$ and $V$ that connect the input layer at a stage $t$ with the hidden layer $h_t$, the previous hidden layer $h_{t-1}$ with $h_t$ and the hidden layer $h_t$ connecting with the output layer at the same stage and producing an output $\tilde{y}_t$, respectively.
+o The output from the hidden layer $h_t$ is oftem modulated by a $\tanh{}$ function $h_t=f(x_t,h_{t-1})=\tanh{(Ux_t+Wh_{t-1}+b$ with $b$ a bias value
+o The output from the hidden layer produces $\tilde{y}_t=g(Vh_t+c)$ where $c$ is a new bias parameter.
+o The output from the training at a given stage is in turn compared with the observation $y_t$ thorugh a chosen cost function.
+
+The function $g$ can any of the standard activation functions, that is a Sigmoid, a Softmax, a ReLU and other.
+The parameters are trained through the so-called back-propagation through time (BPTT) algorithm.
+
+=== Gating mechanism: Long Short Term Memory (LSTM) ===
+
+LSTM uses a memory cell for  modeling long-range dependencies and avoid vanishing gradient  problems.
+Capable of modeling longer term dependencies by having
+memory cells and gates that controls the information flow along
+with the memory cells.
+
+o Introduced by Hochreiter and Schmidhuber (1997) who solved the problem of getting an RNN to remember things for a long time (like hundreds of time steps).
 o They designed a memory cell using logistic and linear units with multiplicative interactions.
 o Information gets into the cell whenever its “write” gate is on.
 o The information stays in the cell so long as its _keep_ gate is on.
@@ -738,6 +768,7 @@ o Information can be read from the cell by turning on its _read_ gate.
 
 
 === Implementing a memory cell in a neural network ===
+
 To preserve information for a long time in
 the activities of an RNN, we use a circuit
 that implements an analog memory cell.
@@ -747,6 +778,26 @@ o Information is stored in the cell by activating its write gate.
 o Information is retrieved by activating the read gate.
 o We can backpropagate through this circuit because logistics are have nice derivatives. 
 
+FIGURE: [figslides/RNN13.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN14.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN15.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN16.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN17.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN18.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN19.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN20.png, width=700 frac=0.9]
+
+
+FIGURE: [figslides/RNN21.png, width=700 frac=0.9]
+
+FIGURE: [figslides/RNN22.png, width=700 frac=0.9]
 
 
 
@@ -1323,7 +1374,73 @@ print('Time: ', end-start)
 
 
 
+!split
+===== Autoencoders: Overarching view =====
+
+Autoencoders are artificial neural networks capable of learning
+efficient representations of the input data (these representations are called codings)  without
+any supervision (i.e., the training set is unlabeled). These codings
+typically have a much lower dimensionality than the input data, making
+autoencoders useful for dimensionality reduction. 
+
+More importantly, autoencoders act as powerful feature detectors, and
+they can be used for unsupervised pretraining of deep neural networks.
+
+Lastly, they are capable of randomly generating new data that looks
+very similar to the training data; this is called a generative
+model. For example, you could train an autoencoder on pictures of
+faces, and it would then be able to generate new faces.  Surprisingly,
+autoencoders work by simply learning to copy their inputs to their
+outputs. This may sound like a trivial task, but we will see that
+constraining the network in various ways can make it rather
+difficult. For example, you can limit the size of the internal
+representation, or you can add noise to the inputs and train the
+network to recover the original inputs. These constraints prevent the
+autoencoder from trivially copying the inputs directly to the outputs,
+which forces it to learn efficient ways of representing the data. In
+short, the codings are byproducts of the autoencoder’s attempt to
+learn the identity function under some constraints.
 
 
 
+!split
+===== From supervised to unsupervised training =====
+
+Neural networks are typically used in a supervised setting. Meaning
+that for each training observation \(\mathbf{x}_{i}\)\textbf{ }we will
+have one label or expected value \(\mathbf{y}_{i}\). During training,
+the neural network model will learn the relationship between the input
+data and the expected labels. Now suppose we have only unlabeled
+observations, meaning we only have our training dataset \( S_{T}\),made of the \( M\) observations \(\mathbf{x}_{i}\) with \( i =
+1,\ldots ,M\) %
+
+!bt
+\begin{equation}
+S_{T} =\left\{\mathbf{x}_{i} \vert  i = 1,\ldots ,M\right\}   \\ 
+\end{equation}
+!et
+
+%
+Where in general \(\mathbf{x}_{i}\in\mathbb{R}^{n}\) with \( n\in\mathbb{N}\).
+
+
+!split
+===== First introduction of AEs =====
+
+Autoencoders were first introduced by Rumelhart, Hinton, and Williams
+in 1986 with the goal of learning to reconstruct the input
+observations \(\mathbf{x}_{i}\) with the lowest error possible.
+
+
+Why would one want to learn to reconstruct the input observations? If
+you have problems imagining what that means, think of having a dataset
+made of images. An autoencoder would be an algorithm that can give as
+output an image that is as similar as possible to the input one. You
+may be confused, as there is no apparent reason of doing so. To better
+understand why autoencoders are useful we need a more informative
+(although not yet unambiguous) definition.
+
+!bblock
+An autoencoder is a type of algorithm with the primary purpose of learning an "informative" representation of the data that can be used for different applications ("see Bank, D., Koenigstein, N., and Giryes, R., Autoencoders":"https://arxiv.org/abs/2003.05991") by learning to reconstruct a set of input observations well enough.
+!eblock
 
