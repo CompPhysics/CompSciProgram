@@ -1,4 +1,4 @@
-TITLE: Week 10: Recurrent neural networks 
+TITLE: Weeks 10 and 11: Recurrent neural networks 
 AUTHOR: Morten Hjorth-Jensen {copyright, 1999-present|CC BY-NC} at Department of Physics, University of Oslo & Department of Physics and Astronomy and Facility for Rare Isotope Beams, Michigan State University
 DATE: March 6-17, 2023
 
