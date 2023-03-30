@@ -126,7 +126,9 @@ In total 20 ECTS.
 - Work on project 2
 
 ### March 28
-- Gaussian processes and Bayesian statistics by Anders Kvellestad
+- Intro to part 3 of the course (Bayesian methods)
+- Video of lecture https://www.dropbox.com/s/u5nmoodg3v7vc2b/2023_March_28.mp4?dl=0
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesMar282023.pdf
 
 ### April xxx
 - TBA
