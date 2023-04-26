@@ -130,19 +130,18 @@ In total 20 ECTS.
 - Video of lecture https://www.dropbox.com/s/u5nmoodg3v7vc2b/2023_March_28.mp4?dl=0
 - Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesMar282023.pdf
 
-### April xxx
-- TBA
+### April 25
+- Aspects of Bayesian statistics
+- Video of lecture https://www.dropbox.com/s/5upi56c54e92kxy/2023_April_25.mp4?dl=0
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesApr252023.pdf
 
-### April xxx
-- TBA 
+### May 2
+- Wrap up intro to Bayesian statistics
+- Nested sampling
 
-### April xxx
-- TBA
+### May 9
+- Gaussian processes
 
-### April xxx
-- TBA
-
-### May xxx
-- TBA
-
+### May 16
+- Gaussian processes, cont.
 
