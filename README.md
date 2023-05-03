@@ -134,6 +134,8 @@ In total 20 ECTS.
 ### May 2
 - Wrap up intro to Bayesian statistics
 - Nested sampling
+- Video of lecture https://www.dropbox.com/s/jajawr636pdksx4/2023_May_2.mp4?dl=0
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesMay022023.pdf
 
 ### May 9
 - Wrap up discussion of nested sampling
