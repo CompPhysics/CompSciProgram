@@ -36,7 +36,7 @@ Datasets can again be adapted to the field.
 
 See project description here: https://raw.githubusercontent.com/CompPhysics/CompSciProgram/main/doc/Projects/2022/Project3/pdf/Project3.pdf 
 
-### Workload: 7 ECTS.  Planned finished end May/begin June 2023
+### Workload: 7 ECTS.  Deadline: June 7 2023
 
 In total 20 ECTS.
 
