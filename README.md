@@ -34,13 +34,9 @@ Datasets can again be adapted to the field.
 
 ## Third project:
 
-Three possible alternative paths that combine elements from both courses.
--Unsupervised learning: PCA, other dimensionality reduction methods and clustering, k-means or similar methods. 
--Bayesian machine learning: brings in MCMC, statistics and deep learning.
--Quantum machine learning: Boltzmann machines, classical and quantum machines. MCMC simulations, gradient methods.
--Or simulate data and themes related to own research or other user defined topics.
+See project description here: https://raw.githubusercontent.com/CompPhysics/CompSciProgram/main/doc/Projects/2022/Project3/pdf/Project3.pdf 
 
-### Workload: 7 ECTS.  Planned finished end May/begin June 2023
+### Workload: 7 ECTS.  Deadline: June 7 2023
 
 In total 20 ECTS.
 
@@ -138,8 +134,11 @@ In total 20 ECTS.
 ### May 2
 - Wrap up intro to Bayesian statistics
 - Nested sampling
+- Video of lecture https://www.dropbox.com/s/jajawr636pdksx4/2023_May_2.mp4?dl=0
+- Handwritten notes at https://github.com/CompPhysics/CompSciProgram/blob/main/doc/HandwrittenNotes/2022/NotesMay022023.pdf
 
 ### May 9
+- Wrap up discussion of nested sampling
 - Gaussian processes
 
 ### May 16
