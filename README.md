@@ -139,7 +139,9 @@ In total 20 ECTS.
 
 ### May 9
 - Wrap up discussion of nested sampling
+  - Video (from 2022): https://www.dropbox.com/s/dtnivfgna3kcy00/2023_May_9__nested_sampling_from_2022.mp4?dl=0
 - Gaussian processes
+  - Video (from 2022): https://www.dropbox.com/s/7zf9l931nwgu9pb/2023_May_9__GP_regression_from_2022.mp4?dl=0
 
 ### May 16
 - Gaussian processes, cont.
