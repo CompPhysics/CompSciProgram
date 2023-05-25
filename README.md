@@ -147,4 +147,6 @@ In total 20 ECTS.
 
 ### May 16
 - Gaussian processes, cont.
+  - Video (from 2022): https://www.dropbox.com/s/yl7uwpx6fc1pv72/2023_May_16__more_GP_regression_from_2022.mp4?dl=0
+  - Handwritten notes: same as previous lecture
 
